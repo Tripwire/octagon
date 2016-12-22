@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/button/Button.js"],"names":[],"mappings":";;;;AAAA","file":"Button.js","sourcesContent":["import Button from 'semantic-ui-react/dist/commonjs/elements/Button'\nexport default Button\n"]}

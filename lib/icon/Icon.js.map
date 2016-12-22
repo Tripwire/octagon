@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/icon/Icon.js"],"names":[],"mappings":";;;;AAAA","file":"Icon.js","sourcesContent":["import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'\nexport default Icon\n"]}

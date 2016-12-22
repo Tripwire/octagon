@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/list/List.js"],"names":[],"mappings":";;;;AAAA","file":"List.js","sourcesContent":["import List from 'semantic-ui-react/dist/commonjs/elements/List'\nexport default List\n"]}

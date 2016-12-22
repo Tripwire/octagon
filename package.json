@@ -1,0 +1,106 @@
+{
+  "name": "react-octagon",
+  "main": "lib/index.js",
+  "description": "react component library",
+  "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-knobs": "^1.4.1",
+    "@kadira/storybook-addon-notes": "^1.0.1",
+    "@kadira/storybook-addons": "^1.6.1",
+    "@semantic-release/condition-codeship": "^1.1.0",
+    "@semantic-release/release-notes-generator": "^2.0.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-jest": "^17.0.2",
+    "babel-loader": "^6.2.7",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
+    "babel-plugin-transform-es3-property-literals": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "babel-standalone": "^6.18.2",
+    "coveralls": "^2.11.15",
+    "faker": "^3.1.0",
+    "fs-extra": "^1.0.0",
+    "gh-pages": "^0.11.0",
+    "gulp": "^3.9.1",
+    "html-loader": "^0.4.4",
+    "jest": "^17.0.2",
+    "nsp": "^2.6.2",
+    "perish": "^0.0.3",
+    "pify": "^2.3.0",
+    "react-remarkable": "^1.1.1",
+    "react-test-renderer": "^15.4.0",
+    "ripcord": "0.9.1",
+    "semantic-release": "^4.3.5",
+    "semantic-ui": "^2.2.6",
+    "standard": "^8.5.0",
+    "storybook-host": "^1.0.7"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "semantic-ui-react": "^0.61.1"
+  },
+  "scripts": {
+    "build-storybook": "build-storybook",
+    "build": "node scripts/build.js",
+    "component-api-dev": "node scripts/component-api-dev.js",
+    "storybook": "start-storybook -p 6006",
+    "storybook-dev": "node scripts/storybook-dev.js",
+    "validate": "npm ls && ripcord counsel check",
+    "secure": "nsp check",
+    "lint": "standard src/",
+    "test": "jest",
+    "check-coverage": "nyc check-coverage --lines 90 --functions 90 --branches 90",
+    "docs": "npm run build-storybook",
+    "docs-publish": "gh-pages -d storybook-static",
+    "postpublish": "npm run build && npm run docs && npm run docs-publish",
+    "preversion": "git checkout master && git pull",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
+    "check-licenses": "ripcord licenses check",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "start": "npm run storybook"
+  },
+  "ripcord": {
+    "overrides": {
+      "test-script": null,
+      "coverage-script": null
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  },
+  "pre-commit": [
+    "build",
+    "lint",
+    "test",
+    "check-licenses",
+    "secure"
+  ],
+  "release": {
+    "generateNotes": "./node_modules/@semantic-release/release-notes-generator",
+    "verifyConditions": [
+      "./node_modules/@semantic-release/condition-codeship"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdaringe/octagon.git"
+  },
+  "version": "0.0.0-development"
+}

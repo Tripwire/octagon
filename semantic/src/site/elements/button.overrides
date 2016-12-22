@@ -1,0 +1,13 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.secondary.button {
+  color: @secondaryTextColor;
+  border: 1px solid @secondaryColorHover;
+}
+
+.ui.secondary.button:hover {
+  color: @secondaryTextColorHover;
+  background: @secondaryColorHover;
+  border: 1px solid @secondaryColorHover;
+}

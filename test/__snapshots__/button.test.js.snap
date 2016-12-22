@@ -1,0 +1,7 @@
+exports[`test Button rendered 1`] = `
+<button
+  className="ui button"
+  tabIndex={undefined}>
+  TestButton
+</button>
+`;

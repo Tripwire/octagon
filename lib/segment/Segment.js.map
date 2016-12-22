@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/segment/Segment.js"],"names":[],"mappings":";;;;AAAA","file":"Segment.js","sourcesContent":["import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment'\nexport default Segment\n"]}

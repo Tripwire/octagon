@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/form/Form.js"],"names":[],"mappings":";;;;AAAA","file":"Form.js","sourcesContent":["import Form from 'semantic-ui-react/dist/commonjs/collections/Form'\nexport default Form\n"]}
