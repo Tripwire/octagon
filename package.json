@@ -36,14 +36,16 @@
     "react-remarkable": "^1.1.1",
     "react-test-renderer": "^15.4.0",
     "ripcord": "0.9.1",
-    "semantic-release": "^4.3.5",
+    "semantic-release": "^6.3.2",
+    "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
     "standard": "^8.5.0",
     "storybook-host": "^1.0.7"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "global": "^4.3.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "semantic-ui-react": "^0.61.1"
   },
   "scripts": {
