@@ -21,4 +21,4 @@ semantic/dist
 
 storybook-static
 .nyc_output
-docs
+/docs
