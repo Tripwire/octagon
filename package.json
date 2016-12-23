@@ -60,8 +60,6 @@
     "test": "jest",
     "check-coverage": "nyc check-coverage --lines 90 --functions 90 --branches 90",
     "docs": "npm run build-storybook",
-    "docs-publish": "gh-pages -d storybook-static",
-    "postpublish": "npm run build && npm run docs && npm run docs-publish",
     "preversion": "git checkout master && git pull",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
     "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
