@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/sidebar/Sidebar.js"],"names":[],"mappings":";;;;AAAA","file":"Sidebar.js","sourcesContent":["import Sidebar from 'semantic-ui-react/dist/commonjs/collections/Sidebar'\nexport default Sidebar\n"]}
