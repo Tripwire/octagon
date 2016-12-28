@@ -4,7 +4,10 @@ import { withKnobs } from '@kadira/storybook-addon-knobs'
 import Menu from './Menu'
 import Segment from '../segment/Segment'
 import Item from '../item/Item'
+import Card from '../card/Card'
+import Container from '../container/Container'
 
+import './menu.stories.css'
 const stories = storiesOf('core.Menu', module)
 
 .addDecorator(withKnobs)
@@ -21,23 +24,29 @@ const stories = storiesOf('core.Menu', module)
   </Menu>
 ))
 .add('vertical w/ bottom content', () => (
-  <Menu vertical fixed={'left'} inverted>
+  <Menu id='mp-main-menu' vertical fixed='left' inverted>
     <Menu.Item name='account' active />
     <Menu.Item name='settings' active={false} />
-    <Segment className='bottom aligned content' inverted attached='bottom'>
-      <img width="50px" height="50px" style={{ backgroundColor: 'red' }} />
-      <a>Logout</a>
-    </Segment>
-  </Menu>
-))
-.add('vertical w/ bottom content, 2nd attempt', () => (
-  <Menu vertical fixed={'left'} inverted>
-    <Menu.Item name='account' active />
-    <Menu.Item name='settings' active={false} />
+    <div id='mp_menu_buffer'>{' '}</div>
     <Item.Content verticalAlign='bottom'>
-      <Segment className='bottom aligned content' inverted attached='bottom'>
-        <img width='50px' height='50px' style={{ backgroundColor: 'red' }} />
+      <Segment inverted>
         <a>Logout</a>
+        <Card>
+          <Card.Content>
+            <img width='50px' height='50px' style={{ backgroundColor: 'red' }} />
+            <Card.Header>
+              Audrey KnowItAll
+            </Card.Header>
+            <Card.Meta>
+              System Administrator
+            </Card.Meta>
+          </Card.Content>
+          <Card.Content extra>
+            <Container textAlign='right'>
+              <p>GREAT CONTENT HERE</p>
+            </Container>
+          </Card.Content>
+        </Card>
       </Segment>
     </Item.Content>
   </Menu>
