@@ -43,7 +43,6 @@
     "storybook-host": "^1.0.7"
   },
   "dependencies": {
-    "global": "^4.3.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "semantic-ui-react": "^0.61.1"
