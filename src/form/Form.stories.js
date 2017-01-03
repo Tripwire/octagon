@@ -4,7 +4,7 @@ import Input from '../input/Input'
 import Button from '../button/Button'
 import Message from '../message/Message'
 import { host } from 'storybook-host'
-import { storiesOf, action } from '@kadira/storybook'
+import { storiesOf } from '@kadira/storybook'
 
 const handleSubmit = (evt) => evt.preventDefault()
 
@@ -16,7 +16,7 @@ const stories = storiesOf('core.Form', module)
   width: '100%'
 }))
 .add('with fields', () => (
-  <Form onClick={action('comeon')}onSubmit={handleSubmit}>
+  <Form onSubmit={handleSubmit}>
     <Form.Field>
       <label>First Name</label>
       <input name="first-name" placeholder='First Name' />

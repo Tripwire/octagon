@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf, action } from '@kadira/storybook'
+import { storiesOf } from '@kadira/storybook'
 import { withKnobs, text, boolean } from '@kadira/storybook-addon-knobs'
 import faker from 'faker'
 import Button from './Button'
@@ -52,10 +52,10 @@ const stories = storiesOf('core.Button', module)
   )
 })
 .add('with some emoji', () => (
-  <Button primary small onClick={action('clicked')}>😀 😎 👍 💯</Button>
+  <Button primary small>😀 😎 👍 💯</Button>
 ))
 .add('with lorem', () => (
-  <Button onClick={action('clicked')}>{faker.lorem.words(2)}</Button>
+  <Button>{faker.lorem.words(2)}</Button>
 ))
 .add('with disabled', () => {
   const disabled = boolean('Disabled', true)
