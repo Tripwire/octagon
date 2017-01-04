@@ -18381,8 +18381,8 @@ ol.ui.horizontal.list li:before,
 .ui.grid {
   margin-top: -1rem;
   margin-bottom: -1rem;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 .ui.relaxed.grid {
@@ -18412,14 +18412,14 @@ ol.ui.horizontal.list li:before,
   position: relative;
   display: inline-block;
   width: 6.25%;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
   vertical-align: top;
 }
 
 .ui.grid > * {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /*-------------------
@@ -18501,7 +18501,7 @@ ol.ui.horizontal.list li:before,
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  margin: 1rem 0;
+  margin: 1rem 1rem;
 }
 
 .ui.grid .column + .ui.vertical.divider {
@@ -19586,9 +19586,9 @@ ol.ui.horizontal.list li:before,
   content: "";
   top: 0em;
   left: 0px;
-  width: calc(100% -  0 );
+  width: calc(100% -  2rem );
   height: 1px;
-  margin: 0% 0;
+  margin: 0% 1rem;
   box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
@@ -20403,7 +20403,7 @@ ol.ui.horizontal.list li:before,
     width: 100% !important;
     margin: 0em 0em !important;
     box-shadow: none !important;
-    padding: 1rem 0 !important;
+    padding: 1rem 1rem !important;
   }
 
   .ui.stackable.grid:not(.vertically) > .row {
@@ -20423,8 +20423,8 @@ ol.ui.horizontal.list li:before,
 
   .ui.grid .ui.stackable.grid,
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
   }
 
   /* Divided Stackable */
