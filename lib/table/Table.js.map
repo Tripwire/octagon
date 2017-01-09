@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/table/Table.js"],"names":[],"mappings":";;;;AAAA","file":"Table.js","sourcesContent":["import Table from 'semantic-ui-react/dist/commonjs/collections/Table'\nexport default Table\n"]}
