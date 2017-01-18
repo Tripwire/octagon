@@ -1,15 +1,10 @@
-# contributing
-
-- small focused PRs.  `rebase -i` can be your friend!
-- lint all of the things! `npm run lint`/`yarn run lint`
-
-# Contributing to Node.js
+# contributing to octagon
 
 ## code of conduct
 
 The Code of Conduct (CoC) explains the *bare minimum* behavior
 expectations this project requires of its contributors.  We adhere to the nodejs CoC.
-[Please read it before participating.](https://github.com/nodejs/node/blob/master/CODE_OF_CONDUCT.md).
+[Please read it before participating](https://github.com/nodejs/node/blob/master/CODE_OF_CONDUCT.md).
 
 ## issue contributions
 
