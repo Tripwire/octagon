@@ -58,3 +58,7 @@ now you're off to the races :horse_racing:!  this package offers two different d
 `npm run component-api-dev`
 
 watches `src/` for react component changes and recompiles the distribution output (e.g. `lib/`).
+
+## contributing
+
+want to contribute?  please see [THEMEING.md](THEMEING.md) & [CONTRIBUTING.md](CONTRIBUTING.md).
