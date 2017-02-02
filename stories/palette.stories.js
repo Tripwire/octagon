@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import { withKnobs } from '@kadira/storybook-addon-knobs'
-import Button from '../button/Button'
+import { Button } from '../src/index'
 
 const stories = storiesOf('core.Palette', module)
 

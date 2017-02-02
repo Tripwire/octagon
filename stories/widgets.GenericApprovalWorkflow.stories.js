@@ -1,8 +1,5 @@
 import React from 'react'
-import Grid from '../grid/Grid'
-import Item from '../item/Item'
-import Icon from '../icon/Icon'
-import Step from '../step/Step'
+import { Grid, Item, Icon, Step } from '../src/index'
 
 import { storiesOf } from '@kadira/storybook'
 import { withKnobs } from '@kadira/storybook-addon-knobs'
