@@ -41,18 +41,21 @@
     "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
     "standard": "^8.5.0",
-    "storybook-host": "^1.0.7"
+    "storybook-host": "^1.0.7",
+    "url": "^0.11.0"
   },
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "semantic-ui-react": "^0.61.1"
+    "semantic-ui-react": "^0.61.1",
+    "flexbox-react": "^4.1.0",
+    "d3": "^4.4.0"
   },
   "scripts": {
     "build-storybook": "build-storybook",
     "build": "node scripts/build.js",
     "component-api-dev": "node scripts/component-api-dev.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "storybook-dev": "node scripts/storybook-dev.js",
     "validate": "npm ls && ripcord counsel check",
     "secure": "nsp check",
@@ -66,7 +69,9 @@
     "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
     "check-licenses": "ripcord licenses check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "npm run storybook"
+    "start": "npm run storybook",
+    "docs-publish": "ripcord docs --publish",
+    "postpublish": "npm run docs-publish"
   },
   "ripcord": {
     "overrides": {

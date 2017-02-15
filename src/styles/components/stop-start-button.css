@@ -1,0 +1,15 @@
+@import '../variables.css';
+.stop-start-button {
+    cursor: pointer;
+  }
+
+  .stop-start-button:hover {
+    color: var(--blue) !important;
+  }
+
+  .icon_pause_alt2{
+      color: var(--blue);
+  }
+  .arrow_triangle-right_alt2{
+      color: var(--twgray);
+  }

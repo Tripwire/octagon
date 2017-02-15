@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'FontAwesome';
+  font-path: 'fonts/fontawesome-webfont';
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  letter-spacing: 1px;
+}
+
+h4 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.light-text {
+  font-weight: 300;
+}
+
+.text-red {
+  color: var(--red);
+}
+
+p {
+  margin: 0.5em 0;
+}
