@@ -6,7 +6,7 @@
 
 pattern library (storybook) & react component api
 
-see the latest storybook [here](https://cdaringe.github.io/octagon/)
+see the latest storybook [here](https://tripwire.github.io/octagon/)
 
 this package simply applies a custom theme over semantic-ui, re-exports react-semantic-ui components, and demonstrates some practical usages through storybook.  **if you are looking for a ground up framework, please instead jump directly to [react-semantic-ui](http://react.semantic-ui.com/).**
 
