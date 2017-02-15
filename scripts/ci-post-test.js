@@ -28,7 +28,13 @@ const semantic = () => {
     }
   })
 }
-const publish = () => pify(ghPages.publish)(staticDocs, { repo })
+const publish = () => {
+  return pify(ghPages.publish)(staticDocs, { repo })
+  .catch(() => {
+    console.error('failed to publish storybook.') // err.message may have private content
+    process.exit(1)
+  })
+}
 
 Promise.resolve()
 .then(() => console.log('executing semantic-release'))
