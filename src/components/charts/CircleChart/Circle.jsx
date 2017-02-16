@@ -4,7 +4,7 @@ var d3 = Object.assign({}, require('d3-shape'))
 
 const twoPi = Math.PI * 2
 // const formatPercent = d3.format('.0%');
-console.log(colorPallete)
+
 const CircleChart = (props) => {
   const { color, border, endPercent, radius, padding, backgroundOpacity } = props
   const boxSize = (radius + padding) * 2

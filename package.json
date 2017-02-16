@@ -42,7 +42,13 @@
     "semantic-ui": "^2.2.6",
     "standard": "^8.5.0",
     "storybook-host": "^1.0.7",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-import": "^8.2.0",
+    "postcss-loader": "^1.1.0",
+    "postcss-neat": "^2.5.2",
+    "rucksack-css": "^0.8.6",
+    "autoprefixer": "^6.5.2"
   },
   "dependencies": {
     "d3": "^4.4.0",
