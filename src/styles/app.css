@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
+/*@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');*/
 @import "fonts/typography.css";
 @import 'fonts/style.css';
+@import 'fonts/Lato/latofonts.css';
 @import "variables.css";
-

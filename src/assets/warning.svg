@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="warning" transform="translate(-1.000000, 0.000000)">
+            <g id="Page-1">
+                <g id="warning">
+                    <path d="M17,0 C16.31,0 15.621,0.465 15.097,1.395 L1.438,28.617 C0.392,30.477 1.282,32 3.416,32 L30.582,32 C32.716,32 33.607,30.478 32.56,28.617 L32.56,28.617 L18.901,1.395 C18.378,0.465 17.688,-4.4408921e-16 16.998,-4.4408921e-16 L16.998,-4.4408921e-16 L17,0 Z" id="Shape" fill="#EE5B33"></path>
+                    <polygon id="Shape-path" fill="#FFFFFF" points="17 2.899 30.409 29.625 3.59 29.625 16.999 2.899"></polygon>
+                    <path d="M19,26 C19,27.105 18.105,28 17,28 C15.895,28 15,27.105 15,26 C15,24.895 15.895,24 17,24 C18.105,24 19,24.895 19,26 Z" id="Shape" fill="#EE5B33"></path>
+                    <path d="M17,22 C15.895,22 15,21.105 15,20 L15,14 C15,12.895 15.895,12 17,12 C18.105,12 19,12.895 19,14 L19,20 C19,21.105 18.105,22 17,22 Z" id="Shape" fill="#EE5B33"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

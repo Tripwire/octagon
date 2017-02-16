@@ -45,11 +45,11 @@
     "url": "^0.11.0"
   },
   "dependencies": {
+    "d3": "^4.4.0",
+    "flexbox-react": "^4.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "semantic-ui-react": "^0.61.1",
-    "flexbox-react": "^4.1.0",
-    "d3": "^4.4.0"
+    "semantic-ui-react": "^0.61.1"
   },
   "scripts": {
     "build-storybook": "build-storybook",
