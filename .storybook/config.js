@@ -1,5 +1,5 @@
 // import '../lib/styles/semantic.css'
-import '../semantic/dist/semantic.min.css';
+import '../semantic/dist/semantic.css';
 import './styles.css'
 import { configure } from '@kadira/storybook'
 import { basename } from 'path'
