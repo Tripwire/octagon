@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build-storybook": "build-storybook",
+    "static-storybook":"build-storybook -c .storybook -o .out",
     "build": "node scripts/build.js",
     "component-api-dev": "node scripts/component-api-dev.js",
     "storybook": "start-storybook -p 6007",
