@@ -3,3 +3,6 @@
 @import 'fonts/style.css';
 @import 'fonts/Lato/latofonts.css';
 @import "variables.css";
+.svg-overflow-visible svg {
+  overflow: visible;
+} 

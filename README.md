@@ -17,6 +17,7 @@ this package simply applies a custom theme over semantic-ui, re-exports react-se
 ## usage - pattern library / storybook
 
 - clone this repository
+- run `gulp build` from the /semantic directory 
 - run `npm install` from the project directory
 - `npm start`
 
