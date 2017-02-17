@@ -1,0 +1,68 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.message {
+  box-shadow: none;
+  font-weight: bold;
+}
+
+/* Negative */
+.ui.negative.message {
+  background-color: #f6e1df;
+  border: 1px solid @red;
+  box-shadow: none;
+  color: @red;
+  font-weight: bold;
+}
+.ui.negative.message,
+.ui.attached.negative.message {
+  box-shadow: none;
+}
+.ui.negative.message .header {
+  color: @red;
+}
+
+/* Info */
+.ui.info.message {
+  background-color: #e4f0f9;
+  border: 1px solid @blue;
+  box-shadow: none;
+  color: @blue;
+  font-weight: bold;
+}
+.ui.info.message,
+.ui.attached.info.message {
+  box-shadow: none;
+}
+.ui.info.message .header {
+  color: @blue;
+}
+
+/* Warning */
+.ui.warning.message {
+  background-color: #fff1e0;
+  border: 1px solid @yellow;
+  color: @yellow;
+}
+.ui.warning.message,
+.ui.attached.warning.message {
+  box-shadow: none;
+}
+.ui.warning.message .header {
+  color: @yellow;
+}
+
+/* Success */
+.ui.success.message {
+  background-color: #e3f2f0;
+  border: 1px solid #45a69b;
+  color: #45a69b;
+}
+.ui.success.message,
+.ui.attached.success.message {
+  box-shadow: none;
+}
+.ui.success.message .header {
+  color: #45a69b;
+}

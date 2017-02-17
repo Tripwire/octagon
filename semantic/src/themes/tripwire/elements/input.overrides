@@ -1,0 +1,24 @@
+/*******************************
+         Theme Overrides
+*******************************/
+.ui.input input {
+  border: 1px solid @grey;
+  border-radius: 0px; 
+ 
+}
+
+.ui.input.error input {
+
+  border-color: @red;
+  background-color: white;
+
+}
+
+.ui.input input:active,
+.ui.input.down input {
+  border-color: @blue;
+}
+.ui.input.focus input,
+.ui.input input:focus  {
+  border-color: @blue;
+}

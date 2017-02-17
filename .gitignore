@@ -13,6 +13,7 @@ npm-debug.log
 
 semantic/src/themes/*
 !semantic/src/themes/default
+!semantic/src/themes/tripwire
 semantic/dist
 # ^ must force add to prevent rev churn.  release process shall force add, perhaps?
 # i forsee this bothering someone in the future.  sorry dude(ette)!
