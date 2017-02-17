@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as d3 from 'd3';
+var d3 = Object.assign({}, require('d3-selection'))
 
 class Grid extends React.Component {
   constructor(props) {

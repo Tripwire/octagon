@@ -1,6 +1,6 @@
 import React from 'react';
 // import Immutable from 'immutable';
-import * as d3 from 'd3';
+var d3 = Object.assign({}, require('d3-time-format'))
 
 const Dots = (props) => {
   let circles = props.data.map((d, i) => {
