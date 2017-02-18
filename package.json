@@ -12,6 +12,7 @@
     "@kadira/storybook-addons": "^1.6.1",
     "@semantic-release/condition-codeship": "^1.1.0",
     "@semantic-release/release-notes-generator": "^2.0.0",
+    "autoprefixer": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-jest": "^18.0.0",
@@ -38,21 +39,20 @@
     "nsp": "^2.6.2",
     "perish": "^1.0.1",
     "pify": "^2.3.0",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-import": "^8.2.0",
+    "postcss-loader": "^1.1.0",
+    "postcss-neat": "^2.5.2",
     "react-remarkable": "^1.1.1",
     "react-test-renderer": "^15.4.0",
-    "ripcord": "0.9.1",
+    "ripcord": "^0.25.5",
+    "rucksack-css": "^0.8.6",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
     "standard": "^8.5.0",
     "storybook-host": "^1.0.7",
-    "url": "^0.11.0",
-    "postcss-cssnext": "^2.8.0",
-    "postcss-import": "^8.2.0",
-    "postcss-loader": "^1.1.0",
-    "postcss-neat": "^2.5.2",
-    "rucksack-css": "^0.8.6",
-    "autoprefixer": "^6.5.2"
+    "url": "^0.11.0"
   },
   "dependencies": {
     "d3": "^4.4.0",
@@ -68,24 +68,16 @@
     "component-api-dev": "node scripts/component-api-dev.js",
     "storybook": "start-storybook -p 6007",
     "storybook-dev": "node scripts/storybook-dev.js",
-    "validate": "npm ls && ripcord counsel check",
     "secure": "nsp check",
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
-    "check-coverage": "nyc check-coverage --lines 90 --functions 90 --branches 90",
-    "preversion": "git checkout master && git pull",
-    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
-    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
-    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
-    "check-licenses": "ripcord licenses check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "npm run storybook"
   },
   "ripcord": {
-    "overrides": {
-      "test-script": null,
-      "coverage-script": null
-    }
+    "rules": [
+      "precommit-script"
+    ]
   },
   "jest": {
     "collectCoverage": true,
