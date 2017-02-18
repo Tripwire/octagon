@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/header/Header.js"],"names":[],"mappings":";;;;AAAA","file":"Header.js","sourcesContent":["import Header from 'semantic-ui-react/dist/commonjs/elements/Header'\nexport default Header\n"]}

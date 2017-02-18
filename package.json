@@ -2,6 +2,9 @@
   "name": "react-octagon",
   "main": "lib/index.js",
   "description": "react component library",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "@kadira/storybook-addon-knobs": "^1.4.1",

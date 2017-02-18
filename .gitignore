@@ -24,3 +24,4 @@ storybook-static
 .nyc_output
 /docs
 .out
+lib
