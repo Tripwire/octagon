@@ -12,7 +12,6 @@ const alertIconUri = require('../assets/alert-icon.svg')
 const notificationUri = require('../assets/icon_activity_notification.svg')
 
 const NotificationItem = (props) => {
-  console.log(props)
   let notificationClass = 'notification__item'
   let iconUrl = ''
   if (props.notification.state === 'critical') {
