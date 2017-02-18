@@ -11,62 +11,41 @@ const os = require('os')
 
 const exec = pify(cp.exec, { multiArgs: true })
 const copy = pify(fs.copy)
+const mkdirp = pify(fs.mkdirp)
+const remove = pify(fs.remove)
 const isWin = os.platform().match(/^win/)
 
 module.exports = {
-  get semanticPath () { return path.join(this.projectRoot, 'semantic') },
-  get projectRoot () { return path.resolve(__dirname, '..') },
+  get componentDist () { return path.join(this.distDir, 'components') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
-
-  react (opts) {
-    opts = opts || {}
-    const args = [this.getBin('babel'), 'src', '-d', this.distDir, '--ignore', '*.stories.js', '--source-maps']
-    if (opts.watch) args.push('--watch')
-    return exec(
-      args.join(' '),
-      { cwd: this.projectRoot, stdio: 'inherit' }
-    )
-    .then(([stdout]) => console.log(stdout))
-  },
+  get projectRoot () { return path.resolve(__dirname, '..') },
+  get semanticDist () { return path.join(this.semanticPath, 'dist') },
+  get semanticPath () { return path.join(this.projectRoot, 'semantic') },
+  get stylesDist () { return path.join(this.distDir, 'styles') },
   clean () {
-    return Promise.all([
-      pify(fs.remove)(this.distDir),
-      pify(fs.remove)(path.join(this.semanticPath, 'dist'))
-    ])
-  },
-  css () {
-    return exec([this.getBin('gulp'), 'build-css'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
-    .then(([stdout]) => console.log(stdout))
-  },
-  cssDist () {
-    // source maps not yet available!
-    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
-    const cssDist = [
-      path.join(this.semanticPath, 'dist', 'semantic.css'),
-      path.join(this.semanticPath, 'dist', 'semantic.min.css')
-      // **.map
-    ]
-    const cssAssets = [
-      path.join(this.semanticPath, 'src', 'themes', 'default')
-    ]
-    return this.css()
-    .then(() => {
-      const copying = cssDist.map(src => {
-        const dest = path.join(this.distDir, 'styles', path.basename(src))
-        return copy(src, dest)
-      })
-      return Promise.all(copying)
-    })
-    .then(() => {
-      const copying = cssAssets.map(src => {
-        const dest = path.join(this.distDir, 'styles', 'themes', 'default')
-        return copy(src, dest)
-      })
-      return Promise.all(copying)
-    })
+    return Promise.all([remove(this.distDir), remove(this.semanticDist)])
   },
   getBin (bin) {
     return path.join(this.projectRoot, 'node_modules', '.bin', bin) + (isWin ? '.cmd' : '')
+  },
+  semantic () {
+    // source maps not yet available!
+    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
+    return this._semanticBuild()
+    .then(() => copy(this.semanticDist, this.stylesDist))
+  },
+  _semanticBuild () {
+    return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
+    .then(([stdout]) => console.log(stdout))
+  },
+  react (opts) {
+    opts = opts || {}
+    const args = [this.getBin('babel'), 'src', '-d', this.componentDist, '--ignore', '*.stories.js', '--source-maps']
+    if (opts.watch) args.push('--watch')
+    return Promise.resolve()
+    .then(() => mkdirp(this.componentDist))
+    .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(([stdout]) => console.log(stdout))
   }
 }
 
