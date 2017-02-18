@@ -63,6 +63,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
+    "prebuild-storybook": "npm run build",
     "build-storybook": "build-storybook",
     "component-api-dev": "node scripts/component-api-dev.js",
     "storybook": "start-storybook -p 6007",
