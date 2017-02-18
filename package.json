@@ -37,7 +37,7 @@
     "pify": "^2.3.0",
     "react-remarkable": "^1.1.1",
     "react-test-renderer": "^15.4.0",
-    "ripcord": "0.9.1",
+    "ripcord": "0.25.5",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
@@ -69,10 +69,9 @@
     "start": "npm run storybook"
   },
   "ripcord": {
-    "overrides": {
-      "test-script": null,
-      "coverage-script": null
-    }
+    "rules": [
+      "precommit-script"
+    ]
   },
   "jest": {
     "collectCoverage": true,
