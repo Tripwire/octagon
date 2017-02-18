@@ -3,6 +3,7 @@ import { storiesOf } from '@kadira/storybook'
 import { Radio, Dropdown, Input, Button, Popup } from 'semantic-ui-react'
 import FavoriteButton from '../src/components/FavoriteButton'
 import StopStartButton from '../src/components/StopStartButton'
+import PaginationControl from '../src/components/PaginationControl'
 import '../src/styles/app.css'
 
 const dropdownOptions = [
@@ -16,6 +17,28 @@ const dropdownOptionsTime = [
   { text: '2w', value: '2w' },
   { text: '1m', value: '1m' }
 ]
+
+const paginationSampleData = [
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' }        
+]
+
+function nextPage(){
+  console.log('this would handle paginating your content');
+}
 
 storiesOf('Interactive Controls', module)
   .addDecorator((story) => (
@@ -111,3 +134,15 @@ storiesOf('Interactive Controls', module)
     </div>
 
   ))
+  .add('Pagination Controls', () => (
+    <div>
+      <PaginationControl 
+        data={paginationSampleData} 
+        perPage={5} 
+        navigateToPage={nextPage} 
+        controlsDisabled={false} 
+      />
+    </div>
+
+  ))
+  
