@@ -10,7 +10,7 @@ const repo = `https://${process.env.GH_TOKEN}@${pkg}`
 const staticDocs = path.join(__dirname, '..', 'storybook-static')
 const projectRoot = path.join(__dirname, '..')
 
-if (!process.env.CI_BRANCH === 'master') {
+if (process.env.CI_BRANCH !== 'master') {
   console.warn('not on master, skipping publish cycle')
   process.exit(0)
 }
