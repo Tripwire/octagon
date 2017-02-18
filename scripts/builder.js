@@ -16,7 +16,7 @@ const remove = pify(fs.remove)
 const isWin = os.platform().match(/^win/)
 
 module.exports = {
-  get componentDist () { return path.join(this.distDir, 'components') },
+  get componentDist () { return path.join(this.distDir) },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
