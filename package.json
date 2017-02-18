@@ -69,7 +69,7 @@
     "storybook-dev": "node scripts/storybook-dev.js",
     "validate": "npm ls && ripcord counsel check",
     "secure": "nsp check",
-    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js'",
+    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "jest",
     "check-coverage": "nyc check-coverage --lines 90 --functions 90 --branches 90",
     "preversion": "git checkout master && git pull",
