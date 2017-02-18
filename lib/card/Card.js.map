@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/card/Card.js"],"names":[],"mappings":";;;;AAAA","file":"Card.js","sourcesContent":["import Card from 'semantic-ui-react/dist/commonjs/views/Card'\nexport default Card\n"]}

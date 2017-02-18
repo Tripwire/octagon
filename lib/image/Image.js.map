@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/image/Image.js"],"names":[],"mappings":";;;;AAAA","file":"Image.js","sourcesContent":["import Image from 'semantic-ui-react/dist/commonjs/elements/Image'\nexport default Image\n"]}

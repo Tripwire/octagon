@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/message/Message.js"],"names":[],"mappings":";;;;AAAA","file":"Message.js","sourcesContent":["import Message from 'semantic-ui-react/dist/commonjs/collections/Message'\nexport default Message\n"]}

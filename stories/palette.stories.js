@@ -1,9 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import { withKnobs } from '@kadira/storybook-addon-knobs'
-import { Button } from '../src/index'
+import { suir } from '../src/index'
+const { Button } = suir
 
-const stories = storiesOf('core.Palette', module)
+const stories = storiesOf('Palette', module)
 
 .addDecorator(withKnobs)
 .add('colors', () => (
