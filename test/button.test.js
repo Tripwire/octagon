@@ -1,6 +1,7 @@
 import React from 'react'
-import Button from '../src/button/Button'
+import { suir } from '../src'
 import renderer from 'react-test-renderer'
+const { Button } = suir
 
 const { test, expect } = global
 

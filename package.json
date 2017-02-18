@@ -2,6 +2,9 @@
   "name": "react-octagon",
   "main": "lib/index.js",
   "description": "react component library",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "@kadira/storybook-addon-knobs": "^1.4.1",
@@ -42,23 +45,33 @@
     "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
     "standard": "^8.5.0",
-    "storybook-host": "^1.0.7"
+    "storybook-host": "^1.0.7",
+    "url": "^0.11.0",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-import": "^8.2.0",
+    "postcss-loader": "^1.1.0",
+    "postcss-neat": "^2.5.2",
+    "rucksack-css": "^0.8.6",
+    "autoprefixer": "^6.5.2"
   },
   "dependencies": {
+    "d3": "^4.4.0",
+    "flexbox-react": "^4.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "semantic-ui-react": "^0.64.8"
   },
   "scripts": {
     "build": "node scripts/build.js",
+    "prebuild-storybook": "npm run build",
     "build-storybook": "build-storybook",
     "component-api-dev": "node scripts/component-api-dev.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "storybook-dev": "node scripts/storybook-dev.js",
     "validate": "npm ls && ripcord counsel check",
     "secure": "nsp check",
-    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js'",
-    "test": "jest",
+    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
+    "test": "echo 'TBD'",
     "check-coverage": "nyc check-coverage --lines 90 --functions 90 --branches 90",
     "preversion": "git checkout master && git pull",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",

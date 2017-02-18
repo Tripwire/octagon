@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="26px" viewBox="0 0 20 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_activity_notification</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_activity_notification" fill="#96A5A6">
+            <path d="M1.2,9.3 L3.8,9.3 C4.2,9.3 4.5,9.6 4.5,10 L4.5,24.6 C4.5,25 4.2,25.3 3.8,25.3 L1.2,25.3 C0.8,25.3 0.5,25 0.5,24.6 L0.5,10 C0.5,9.6 0.8,9.3 1.2,9.3 Z M8.7,0.8 L11.3,0.8 C11.7,0.8 12,1.1 12,1.5 L12,24.6 C12,25 11.7,25.3 11.3,25.3 L8.7,25.3 C8.3,25.3 8,25 8,24.6 L8,1.5 C8,1.1 8.3,0.8 8.7,0.8 Z M16.2,14.4 L18.8,14.4 C19.2,14.4 19.5,14.7 19.5,15.1 L19.5,24.6 C19.5,25 19.2,25.3 18.8,25.3 L16.2,25.3 C15.8,25.3 15.5,25 15.5,24.6 L15.5,15.1 C15.5,14.7 15.8,14.4 16.2,14.4 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

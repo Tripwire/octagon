@@ -1,0 +1,6 @@
+@import '../variables.css';
+.favorite-button {
+    cursor: pointer;
+    color: var(--yellow);
+    font-size: 1.3rem;
+  }

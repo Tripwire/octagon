@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/divider/Divider.js"],"names":[],"mappings":";;;;AAAA","file":"Divider.js","sourcesContent":["import Divider from 'semantic-ui-react/dist/commonjs/elements/Divider'\nexport default Divider\n"]}

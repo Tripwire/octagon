@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/grid/Grid.js"],"names":[],"mappings":";;;;AAAA","file":"Grid.js","sourcesContent":["import Grid from 'semantic-ui-react/dist/commonjs/collections/Grid'\nexport default Grid\n"]}

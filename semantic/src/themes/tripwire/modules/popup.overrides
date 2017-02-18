@@ -1,0 +1,34 @@
+/*******************************
+         Theme Overrides
+*******************************/
+.ui.popup.red {
+    border: 1px solid @red !important; 
+}
+
+.ui.popup.red:before {
+  box-shadow: -1px -1px 0 0 @red !important;
+}
+
+.ui.popup.yellow {
+    border: 1px solid @yellow !important; 
+}
+
+.ui.popup.yellow:before {
+  box-shadow: -1px -1px 0 0 @yellow !important;
+}
+
+.ui.popup.grey {
+    border: 1px solid @grey !important; 
+}
+
+.ui.popup.grey:before {
+  box-shadow: -1px -1px 0 0 @grey !important;
+}
+
+.ui.popup.blue {
+    border: 1px solid @blue !important; 
+}
+
+.ui.popup.blue:before {
+  box-shadow: -1px -1px 0 0 @blue !important;
+}

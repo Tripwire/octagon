@@ -12,13 +12,14 @@ this package simply applies a custom theme over semantic-ui, re-exports react-se
 
 ## install
 
-`npm install --save octagon`
+`npm install --save octagon` or `yarn add --dev octagon`
 
 ## usage - pattern library / storybook
 
 - clone this repository
-- run `npm install` from the project directory
-- `npm start`
+- run `yarn` from the project directory
+- run `yarn run build` from the /semantic directory
+- `yarn start`
 
 open the url shown to see the latest storybook!
 
@@ -36,7 +37,7 @@ octagon imports, occasionally wraps, and re-exports piece-wise components from [
 ## development
 
 - clone this repository
-- run `npm install`
+- run `yarn`
 
 now you're off to the races :horse_racing:!  this package offers two different development modes, depending on your use case.  you can run both development modes in parallel, if needed.
 
@@ -44,7 +45,7 @@ now you're off to the races :horse_racing:!  this package offers two different d
 
 **useful** for when you're developing styles and components for this package only.  in other words, "storybook" development.
 
-`npm run storybook-dev`
+`yarn run storybook-dev`
 
 - watches the styles project for changes and rebuilds styles on changes. refreshes the storybook UI.
 - watches the react component source for changes and rebuilds components & stories on changes. refreshes the storybook UI.
@@ -53,9 +54,9 @@ now you're off to the races :horse_racing:!  this package offers two different d
 
 ### react component api distribution
 
-**useful** if you've `npm link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.
+**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.
 
-`npm run component-api-dev`
+`yarn run component-api-dev`
 
 watches `src/` for react component changes and recompiles the distribution output (e.g. `lib/`).
 

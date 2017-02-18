@@ -9,7 +9,7 @@
 const cp = require('child_process')
 const builder = require('./builder')
 
-builder.css()
+builder.semantic()
 const watchStylesProcess = cp.spawn(
   builder.getBin('gulp'),
   ['watch-dev'],

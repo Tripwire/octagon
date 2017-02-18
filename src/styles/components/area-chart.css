@@ -1,0 +1,23 @@
+.area__chart__container {
+  z-index: 999;
+  & svg {
+    overflow: visible;
+  }
+
+  & .axis .domain {
+    display: none;
+  } 
+
+  & .axis .tick {
+    & line {
+      display: none;
+    }
+  }
+
+  & .axis .tick text {
+    text-transform: uppercase;
+    fill: #000000;
+    
+  }
+  
+}
