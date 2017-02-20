@@ -8,8 +8,8 @@ class PaginationControl extends React.Component {
       isPrevPageValid: false,
       isNextPageValid: true,
       currentPage: 1,
-      totalItems: props.data.length,
-      lastPage: Math.ceil(props.data.length / props.perPage)
+      totalItems: props.totalItems,
+      lastPage: Math.ceil(props.totalItems / props.perPage)
     }
     this.nextPage = this.nextPage.bind(this)
     this.prevPage = this.prevPage.bind(this)
@@ -89,7 +89,7 @@ class PaginationControl extends React.Component {
 }
 
 PaginationControl.propTypes = {
-  data: React.PropTypes.array.isRequired,
+  totalItems: React.PropTypes.number.isRequired,
   navigateToPage: React.PropTypes.func.isRequired,
   perPage: React.PropTypes.number.isRequired,
   controlsDisabled: React.PropTypes.bool

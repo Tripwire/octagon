@@ -42,7 +42,7 @@ function nextPage(){
 
 storiesOf('Interactive Controls', module)
   .addDecorator((story) => (
-    <div style={{maxWidth: '200px', marginTop: '15px', marginLeft: '15px'}}>
+    <div style={{ marginTop: '15px', marginLeft: '15px'}}>
       {story()}
     </div>
   ))
@@ -109,19 +109,23 @@ storiesOf('Interactive Controls', module)
     <div>
       <div>
         <Input />
+        <br />
         Normal
       </div>
       <div>
         <Input error />
+        <br />
         Error
       </div>
       <div>
         <Input focus />
-        Focused
+        <br />
+        Normal
       </div>
       <div>
         <Input disabled />
-        disabled
+        <br />
+        Disabled
       </div>
       <div>
         <Input
@@ -129,7 +133,8 @@ storiesOf('Interactive Controls', module)
           placeholder='Browse / Search: Tag, Group, or Operation'
           style={{width: '400px'}}
         />
-      Search
+        <br />
+        Search
       </div>
     </div>
 
@@ -137,7 +142,7 @@ storiesOf('Interactive Controls', module)
   .add('Pagination Controls', () => (
     <div>
       <PaginationControl 
-        data={paginationSampleData} 
+        totalItems={paginationSampleData.length} 
         perPage={5} 
         navigateToPage={nextPage} 
         controlsDisabled={false} 
