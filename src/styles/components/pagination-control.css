@@ -9,6 +9,10 @@
     padding: 0px;
     font-size: 2em;
     height: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;   
+    -ms-user-select: none;   
+    user-select: none;     
   }
   & .pagination__button:active{
     border: 1px solid var(--blue);
@@ -46,6 +50,10 @@
     height: 30px;
     text-transform: uppercase;
     text-align: center;
+    -webkit-user-select: none;  
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
     & .count__current {
       margin-right: 5px;
     }
