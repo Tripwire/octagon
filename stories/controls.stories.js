@@ -27,7 +27,12 @@ storiesOf('Interactive Controls', module)
     <Radio toggle />
   ))
    .add('Radio Button', () => (
-     <Radio />
+     <div>
+      <Radio />
+      <Radio checked />
+      <Radio disabled/>
+      <Radio checked disabled/>
+     </div>
   ))
   .add('Dropdown Menu', () => (
     <Dropdown placeholder='Select Country' selection options={dropdownOptions} defaultValue={dropdownOptions[0].value} />

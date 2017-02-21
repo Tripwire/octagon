@@ -87,6 +87,7 @@
   top: @radioTop;
   left: @radioLeft;
   border-color: @grey;
+  border-width: 2px;
 
 }
 
@@ -98,8 +99,9 @@
   width: @radioSize;
   height: @radioSize;
   line-height: @radioSize;
-
+  background-color: @grey !important;
 }
+
 
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
@@ -139,7 +141,19 @@
   top: @radioTop;
   left: @radioLeft;
   border-color: @blue;
+}
 
+.ui.radio.checkbox.disabled .box:hover::before,
+.ui.radio.checkbox.disabled label:hover::before {
+  content: '';
+  transform: none;
+
+  width: @radioSize;
+  height: @radioSize;
+  border-radius: @circularRadius;
+  top: @radioTop;
+  left: @radioLeft;
+  border-color: @grey;
 }
 
 /* Active */
@@ -153,6 +167,59 @@
   background-color: @radioActiveBulletColor;
   border-color: @grey;
 }
+.ui.radio.checkbox input:checked ~ .box:hover::before,
+.ui.radio.checkbox input:checked ~ label:hover::before {
+  background-color: @radioActiveBackground;
+  border-color: @blue;
+}
+.ui.radio.checkbox input:checked ~ .box:hover::after,
+.ui.radio.checkbox input:checked ~ label:hover::after {
+  background-color: @radioActiveBulletColor;
+  border-color: @blue;
+}
+
+.ui.radio.checkbox .box:hover::after,
+.ui.radio.checkbox label:hover::after {
+  border: none;
+  content: '' !important;
+  width: @radioSize;
+  height: @radioSize;
+  line-height: @radioSize;
+  background-color: @blue !important;
+}
+
+.ui.radio.checkbox.disabled .box:hover::after,
+.ui.radio.checkbox.disabled label:hover::after {
+  border: none;
+  content: '' !important;
+  width: @radioSize;
+  height: @radioSize;
+  line-height: @radioSize;
+  background-color: @grey !important;
+}
+
+/* Active */
+.ui.radio.checkbox.disabled input:checked ~ .box:before,
+.ui.radio.checkbox.disabled input:checked ~ label:before {
+  background-color: @radioActiveBackground;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:after,
+.ui.radio.checkbox.disabled input:checked ~ label:after {
+  background-color: @radioActiveBulletColor;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:hover::before,
+.ui.radio.checkbox.disabled input:checked ~ label:hover::before {
+  background-color: @radioActiveBackground;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:hover::after,
+.ui.radio.checkbox.disabled input:checked ~ label:hover::after {
+  background-color: @radioActiveBulletColor;
+  border-color: @grey;
+}
+
 
 /* Active Focus */
 .ui.radio.checkbox input:focus:checked ~ .box:before,
