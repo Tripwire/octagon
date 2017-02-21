@@ -18,8 +18,8 @@ this package simply applies a custom theme over semantic-ui, re-exports react-se
 
 - clone this repository
 - run `yarn` from the project directory
-- run `yarn run build` from the /semantic directory
-- `yarn start`
+- run `yarn run build`
+- run `yarn start`
 
 open the url shown to see the latest storybook!
 
