@@ -939,3 +939,40 @@ i.icon.new.pied.piper:before { content: "\f2ae"; }
 i.icon.theme.isle:before { content: "\f2b2"; }
 i.icon.google.plus.official:before { content: "\f2b3"; }
 i.icon.fa:before { content: "\f2b4"; }
+
+/*******************************
+             Icon
+*******************************/
+
+
+
+i.icon.tw {
+  font-family: 'ElegantIcons';
+}
+
+
+i.icon.tw.warning:before { content: "\73"; }
+i.icon.tw.alert:before { content: "\72"; }
+i.icon.tw.success:before { content: "\52"; }
+i.icon.tw.stopped:before { content: "\4f"; }
+i.icon.tw.settings:before { content: "\e037"; }
+i.icon.tw.menu:before { content: "\62"; }
+i.icon.tw.error:before { content: "\e061"; }
+i.icon.tw.altwarning:before { content: "\e063"; }
+i.icon.tw.altsuccess:before { content: "\4e"; }
+i.icon.tw.run:before { content: "\e04e"; }
+i.icon.tw.info:before { content: "\e060"; }
+i.icon.tw.stop:before { content: "\5f"; }
+i.icon.tw.chevronright:before { content: "\35"; }
+i.icon.tw.chevronleft:before { content: "\34"; }
+i.icon.tw.chevronup:before { content: "\32"; }
+i.icon.tw.chevrondown:before { content: "\33"; }
+i.icon.tw.inversesuccess:before { content: "\e052"; }
+i.icon.tw.search:before { content: "\55"; }
+i.icon.tw.user:before { content: "\e08a"; }
+i.icon.tw.arrowup:before { content: "\42"; }
+i.icon.tw.arrowdown:before { content: "\43"; }
+i.icon.tw.arrowleft:before { content: "\44"; }
+i.icon.tw.arrowright:before { content: "\45"; }
+i.icon.tw.tag:before { content: "\e017"; }
+i.icon.tw.folder:before { content: "\6d"; }
