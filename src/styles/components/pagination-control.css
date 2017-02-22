@@ -54,6 +54,7 @@
     -moz-user-select: none; 
     -ms-user-select: none;
     user-select: none;
+    cursor: default;
     & .count__current {
       margin-right: 5px;
     }
