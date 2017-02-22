@@ -33,16 +33,15 @@ const paginationSampleData = [
   { text: '1m', value: '1m' },
   { text: '1w', value: '1w' },
   { text: '2w', value: '2w' },
-  { text: '1m', value: '1m' }        
+  { text: '1m', value: '1m' }
 ]
 
-function nextPage(){
-  console.log('this would handle paginating your content');
+function nextPage () {
+  // handle your pagination
 }
-
 storiesOf('Interactive Controls', module)
   .addDecorator((story) => (
-    <div style={{ marginTop: '15px', marginLeft: '15px'}}>
+    <div style={{marginTop: '15px', marginLeft: '15px'}}>
       {story()}
     </div>
   ))
@@ -141,13 +140,13 @@ storiesOf('Interactive Controls', module)
   ))
   .add('Pagination Controls', () => (
     <div>
-      <PaginationControl 
-        totalItems={paginationSampleData.length} 
-        perPage={5} 
-        navigateToPage={nextPage} 
-        controlsDisabled={false} 
+      <PaginationControl
+        totalItems={paginationSampleData.length}
+        perPage={5}
+        navigateToPage={nextPage}
+        controlsDisabled={false}
       />
     </div>
 
   ))
-  
+
