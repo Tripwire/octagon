@@ -3,6 +3,7 @@ import { storiesOf } from '@kadira/storybook'
 import { Radio, Dropdown, Input, Button, Popup } from 'semantic-ui-react'
 import FavoriteButton from '../src/components/FavoriteButton'
 import StopStartButton from '../src/components/StopStartButton'
+import PaginationControl from '../src/components/PaginationControl'
 import '../src/styles/app.css'
 
 const dropdownOptions = [
@@ -17,9 +18,30 @@ const dropdownOptionsTime = [
   { text: '1m', value: '1m' }
 ]
 
+const paginationSampleData = [
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' },
+  { text: '1w', value: '1w' },
+  { text: '2w', value: '2w' },
+  { text: '1m', value: '1m' }
+]
+
+function nextPage () {
+  // handle your pagination
+}
 storiesOf('Interactive Controls', module)
   .addDecorator((story) => (
-    <div style={{maxWidth: '200px', marginTop: '15px', marginLeft: '15px'}}>
+    <div style={{marginTop: '15px', marginLeft: '15px'}}>
       {story()}
     </div>
   ))
@@ -91,19 +113,23 @@ storiesOf('Interactive Controls', module)
     <div>
       <div>
         <Input />
+        <br />
         Normal
       </div>
       <div>
         <Input error />
+        <br />
         Error
       </div>
       <div>
         <Input focus />
-        Focused
+        <br />
+        Normal
       </div>
       <div>
         <Input disabled />
-        disabled
+        <br />
+        Disabled
       </div>
       <div>
         <Input
@@ -111,8 +137,21 @@ storiesOf('Interactive Controls', module)
           placeholder='Browse / Search: Tag, Group, or Operation'
           style={{width: '400px'}}
         />
-      Search
+        <br />
+        Search
       </div>
     </div>
 
   ))
+  .add('Pagination Controls', () => (
+    <div>
+      <PaginationControl
+        totalItems={paginationSampleData.length}
+        perPage={5}
+        navigateToPage={nextPage}
+        controlsDisabled={false}
+      />
+    </div>
+
+  ))
+
