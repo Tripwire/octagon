@@ -230,3 +230,115 @@
 .ui.radio.checkbox input:focus:checked ~ label:after {
   background-color: @radioActiveFocusBulletColor;
 }
+
+
+/*--------------
+      Box
+---------------*/
+
+
+.ui.checkbox .box,
+.ui.checkbox label {
+  cursor: auto;
+  position: relative;
+  display: block;
+  padding-left: @labelDistance;
+  outline: none;
+  font-size: @labelFontSize;
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: @checkboxSize;
+  height: @checkboxSize;
+  content: '';
+
+  background: @checkboxBackground;
+  border-radius: @checkboxBorderRadius;
+
+  transition: @checkboxTransition;
+  border: @checkboxBorder;
+}
+
+/*--------------
+    Checkmark
+---------------*/
+
+
+
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before {
+  background: @checkboxHoverBackground;
+  border-color: @blue;
+}
+
+
+.ui.checkbox .box:after,
+.ui.checkbox label:after {
+  position: absolute;
+  font-size: @checkboxCheckFontSize;
+  top: @checkboxCheckTop;
+  left: @checkboxCheckLeft;
+  width: @checkboxCheckSize;
+  height: @checkboxCheckSize;
+  text-align: center;
+
+  opacity: 0;
+  color: @grey;
+  transition: @checkboxTransition;
+
+
+  
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.checkbox input:checked ~ .box:before,
+.ui.checkbox input:checked ~ label:before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @grey;
+}
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
+  opacity: 1;
+  color: @grey;
+}
+
+.ui.checkbox input:checked ~ .box:hover::before,
+.ui.checkbox input:checked ~ label:hover::before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @blue;
+}
+.ui.checkbox input:checked ~ .box:hover::after,
+.ui.checkbox input:checked ~ label:hover::after {
+  opacity: 1;
+  color: @blue;
+}
+
+
+
+.ui.checkbox.disabled input:checked ~ .box:hover::before,
+.ui.checkbox.disabled input:checked ~ label:hover::before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @grey;
+}
+.ui.checkbox.disabled input:checked ~ .box:hover::after,
+.ui.checkbox.disabled input:checked ~ label:hover::after {
+  opacity: 1;
+  color: @grey;
+}
+
+.ui.checkbox.disabled .box:hover::before,
+.ui.checkbox.disabled label:hover::before {
+  background: @checkboxHoverBackground;
+  border-color: @grey;
+} 

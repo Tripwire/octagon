@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
-import { Radio, Dropdown, Input, Button, Popup } from 'semantic-ui-react'
+import { Radio, Dropdown, Input, Button, Popup, Checkbox } from 'semantic-ui-react'
 import FavoriteButton from '../src/components/FavoriteButton'
 import StopStartButton from '../src/components/StopStartButton'
 import PaginationControl from '../src/components/PaginationControl'
@@ -50,12 +50,46 @@ storiesOf('Interactive Controls', module)
   ))
    .add('Radio Button', () => (
      <div>
-      <Radio />
-      <Radio checked />
-      <Radio disabled/>
-      <Radio checked disabled/>
+       <div>
+         <Radio />
+        Standard
+      </div>
+       <div>
+         <Radio disabled />
+       Disabled
+      </div>
+       <div>
+         <Radio checked disabled />
+       Checked Disabled
+      </div>
+       <br />
+      Reference Semantic UI documentation for usage: <a href='http://react.semantic-ui.com/addons/radio' target='_new'> here </a>
      </div>
   ))
+   .add('Checkbox', () => (
+     <div>
+       <div>
+         <Checkbox />
+          Standard
+      </div>
+       <div>
+         <Checkbox checked />
+        Checked
+      </div>
+       <div>
+         <Checkbox disabled />
+        Disabled
+      </div>
+       <div>
+         <Checkbox checked disabled />
+        Checked Disabled
+      </div>
+
+       <br />
+      Reference Semantic UI documentation for usage: <a href='http://react.semantic-ui.com/modules/checkbox' target='_new'> here </a>
+     </div>
+  ))
+
   .add('Dropdown Menu', () => (
     <Dropdown placeholder='Select Country' selection options={dropdownOptions} defaultValue={dropdownOptions[0].value} />
   ))
