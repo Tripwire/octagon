@@ -44,6 +44,7 @@
     "postcss-loader": "^1.1.0",
     "postcss-neat": "^2.5.2",
     "react-remarkable": "^1.1.1",
+    "react-styleguidist": "beta",
     "react-test-renderer": "^15.4.0",
     "ripcord": "^0.25.5",
     "rucksack-css": "^0.8.6",
@@ -72,7 +73,9 @@
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "npm run storybook"
+    "start": "npm run storybook",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "ripcord": {
     "rules": [

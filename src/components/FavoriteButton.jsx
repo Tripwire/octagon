@@ -9,7 +9,7 @@ const FavoriteButton = (props) => {
     favoriteIconClass = 'icon_star_alt star_gray'
   }
   return (
-    <div onClick={props.onClick} className='favorite-button'>
+    <div className='favorite-button'>
       <i className={favoriteIconClass} />
     </div>
   )
@@ -20,8 +20,7 @@ FavoriteButton.defaultProps = {
 }
 
 FavoriteButton.propTypes = {
-  isFavorited: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  isFavorited: React.PropTypes.bool
 }
 
 export default FavoriteButton

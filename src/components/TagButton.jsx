@@ -26,6 +26,10 @@ const TagButton = (props) => {
   )
 }
 
+TagButton.defaultProps = {
+  tag: {}
+}
+
 TagButton.propTypes = {
   tag: React.PropTypes.object
 }
