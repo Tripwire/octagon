@@ -8,6 +8,7 @@ const TagButton = (props) => {
     tagClass = 'selectedTagContainer'
   }
   return (
+    <div>
     (props.tag.filterOption === '') ? (
       <Flexbox width='100%'>
         <Flexbox key={props.tag.id} flexDirection='row' height='30px' className={`${tagClass} `} marginBottom='5px' onClick={() => { props.closeNotificationDetailView(); props.getNotificationByTag(props.tag.filterOption); props.setActiveTag(props.tag.id) }}>
@@ -23,11 +24,12 @@ const TagButton = (props) => {
             </Flexbox>
           </Flexbox>
     )
+    </div>
   )
 }
 
 TagButton.defaultProps = {
-  tag: {}
+  tag: { id: 1, name: 'ALL', state: 'info', filterOption: '', count: 165 }
 }
 
 TagButton.propTypes = {

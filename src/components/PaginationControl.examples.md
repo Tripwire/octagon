@@ -1,5 +1,4 @@
 Enabled Pagination:
-
     <PaginationControl totalItems={20} perPage={5} />
 
 Disabled Pagination:

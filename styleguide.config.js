@@ -13,7 +13,26 @@ const PATHS = {
 const dir = path.join(__dirname, 'src');
 module.exports = {
  title: 'Octagon Style Guide',
- components: './src/components/**/*.jsx',
+
+  sections: [
+    {
+      name: 'Custom Components',
+      components: './src/components/*.jsx'
+    },
+    {
+      name: 'Semantic UI Based Components',
+      sections: [
+        {
+          name: 'Button',
+          content: './styleguide/button.examples.md'
+        },
+        {
+          name: 'Progress Bar',
+          content: './styleguide/progressbar.examples.md'
+        }
+      ]
+    },
+  ],
  getExampleFilename(componentpath) {
     return componentpath.replace(/\.jsx?$/, '.examples.md');
   },
