@@ -17,10 +17,10 @@ module.exports = {
   sections: [
     {
       name: 'Custom Components',
-      components: './src/components/*.jsx'
+      components: './src/components/**/*.jsx'
     },
     {
-      name: 'Semantic UI Based Components',
+      name: 'SUI Components',
       sections: [
         {
           name: 'Button',
@@ -29,6 +29,14 @@ module.exports = {
         {
           name: 'Progress Bar',
           content: './styleguide/progressbar.examples.md'
+        },
+        {
+          name: 'Messages',
+          content: './styleguide/messages.examples.md'
+        },
+        {
+          name: 'Controls',
+          content: './styleguide/controls.examples.md'
         }
       ]
     },
@@ -47,6 +55,9 @@ module.exports = {
         entry: [
             path.join(__dirname, './semantic/dist/semantic.css'),
             path.join(__dirname, './src/styles/components/pagination-control.css'),
+            path.join(__dirname, './src/styles/components/notification-item.css'),
+            path.join(__dirname, './src/styles/components/tag-button.css'),
+            path.join(__dirname, './src/styles/components/stop-start-button.css'),
             path.join(__dirname, './src/styles/app.css'),
         ],    
   output: {
