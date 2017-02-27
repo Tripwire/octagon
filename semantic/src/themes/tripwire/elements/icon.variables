@@ -8,12 +8,18 @@
 
 @fontName: 'icons';
 @fallbackSRC: url("@{fontPath}/@{fontName}.eot");
+
+
 @src:
   url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
-  url("@{fontPath}/@{fontName}.woff2") format('woff2'),
   url("@{fontPath}/@{fontName}.woff") format('woff'),
   url("@{fontPath}/@{fontName}.ttf") format('truetype'),
-  url("@{fontPath}/@{fontName}.svg#icons") format('svg')
+  url("@{fontPath}/@{fontName}.svg#icons") format('svg'),
+
+  url("../../src/styles/fonts/ElegantIcons.woff") format('woff'),
+  url("../../src/styles/fonts/ElegantIcons.eot") format('embedded-opentype'),
+  url("../../src/styles/fonts/ElegantIcons.ttf") format('truetype'),
+  url("../../src/styles/fonts/ElegantIcons.svg#icons") format('svg'),
 ;
 
 @opacity: 1;
