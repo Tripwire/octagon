@@ -59,4 +59,3 @@ storiesOf('Tag Button', module)
       </div>
     </div>
   ))
-

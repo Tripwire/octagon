@@ -24,4 +24,3 @@ storiesOf('Messages', module)
       </Message>
     </div>
   ))
-
