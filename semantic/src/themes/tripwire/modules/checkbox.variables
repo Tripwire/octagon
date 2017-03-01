@@ -3,7 +3,7 @@
 *******************************/
 @textColor: @grey;
 
-@checkboxSize: 17px;
+@checkboxSize: 20px;
 @checkboxColor: @textColor;
 @checkboxLineHeight: @checkboxSize;
 

@@ -42,16 +42,21 @@
     height: 16px;
     padding: 2px;
     right: 1px;
+} 
+.ui.toggle.checkbox label::hover:before {
+    
+    background-color: #f1f1f1;
+
 }
 .ui.toggle.checkbox label:after {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .3) !important;
+  box-shadow: none;
   position: absolute;
   content: '' !important;
   opacity: 1;
   z-index: 2;
 
-  border: none;
+  border: 1px solid #e4e6e7;
   width: 14px;
   height: 14px;
   top: 0px;
