@@ -7,7 +7,7 @@ const readdir = pify(fs.readdir)
 const writeFile = pify(fs.writeFile)
 const naturalSort = require('javascript-natural-sort')
 
-const SUIR_DOCS_HTTP_ROOT = '//react.semantic-ui.com/'
+const SUIR_DOCS_HTTP_ROOT = 'http://react.semantic-ui.com'
 
 /**
  * @module suir-story-util
@@ -33,9 +33,15 @@ const suir = {
     })
   },
   appendURIs (components) {
+    // why google? http://stackoverflow.com/a/25189561/1438908
+    // ^ provide intial SSL access, then redirect to an HTTP site to work in an iframe
     // e.g. http://react.semantic-ui.com/elements/button
     return components.map(comp => {
-      comp.uri = `${SUIR_DOCS_HTTP_ROOT}/${this.mapToSUIRNamespace(comp.name)}/${comp.name}`
+      comp.uri = [
+        'https://www.google.com/search?q=%',
+        `${SUIR_DOCS_HTTP_ROOT}/${this.mapToSUIRNamespace(comp.name)}/${comp.name}`,
+        '&btnI=Im+Feeling+Lucky'
+      ].join('')
       return comp
     })
   },

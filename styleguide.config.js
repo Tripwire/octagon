@@ -16,27 +16,6 @@ module.exports = {
     {
       name: 'Custom Components',
       components: './src/components/**/*.jsx'
-    },
-    {
-      name: 'SUI Components',
-      sections: [
-        {
-          name: 'Button',
-          content: './styleguide/button.examples.md'
-        },
-        {
-          name: 'Progress Bar',
-          content: './styleguide/progressbar.examples.md'
-        },
-        {
-          name: 'Messages',
-          content: './styleguide/messages.examples.md'
-        },
-        {
-          name: 'Controls',
-          content: './styleguide/controls.examples.md'
-        }
-      ]
     }
   ],
   getExampleFilename (componentpath) {

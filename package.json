@@ -63,9 +63,8 @@
     "semantic-ui-react": "^0.66.0"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "prebuild-storybook": "npm run build",
-    "build-storybook": "build-storybook",
+    "build": "node scripts/build",
+    "build-storybook": "node scripts/build storybook",
     "component-api-dev": "node scripts/component-api-dev.js",
     "storybook": "start-storybook -p 6007",
     "storybook-dev": "node scripts/storybook-dev.js",
@@ -73,8 +72,8 @@
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "prestart": "npm run build",
-    "start": "npm run storybook",
+    "prestart": "yarn run build",
+    "start": "yarn run storybook",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
   },
