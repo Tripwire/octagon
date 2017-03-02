@@ -94,7 +94,6 @@
     }
   },
   "pre-commit": [
-    "build",
     "lint",
     "test",
     "check-licenses",

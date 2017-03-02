@@ -63,7 +63,7 @@ module.exports = {
   storybook () {
     return spawn('npm', ['run', 'build'], { cwd: this.projectRoot, stdio: 'inherit' })
     .then(() => spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(() => spawn('yarn', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(() => spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' }))
     .then(() => copy(
       this.styleguidistDist,
       path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))
