@@ -1,5 +1,5 @@
 import React from 'react'
-import colorPallete from '../../colorPallete';
+import colorPallete from '../../colorPallete'
 var d3 = Object.assign({}, require('d3-shape'))
 
 const twoPi = Math.PI * 2

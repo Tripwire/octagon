@@ -95,4 +95,3 @@ storiesOf('Tables', module)
       </Table.Body>
     </Table>
   ))
-
