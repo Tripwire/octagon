@@ -48,4 +48,3 @@ module.exports = {
     .then(([stdout]) => console.log(stdout))
   }
 }
-

@@ -32,4 +32,3 @@ storiesOf('Progress Bar', module)
       </div>
     </div>
   ))
-
