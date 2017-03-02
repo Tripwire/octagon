@@ -313,10 +313,10 @@
 @tabularOppositeBorderWidth: @tabularBorderWidth + 1px;
 @tabularVerticalPadding: @itemVerticalPadding;
 @tabularHorizontalPadding: @relativeHuge;
-@tabularBorderRadius: @defaultBorderRadius;
+@tabularBorderRadius: 0px;
 @tabularTextColor: @itemTextColor;
 
-@tabularHoveredTextColor: @hoveredTextColor;
+@tabularHoveredTextColor: @blue;
 
 @tabularVerticalBackground: none @tabularBackgroundColor;
 
@@ -324,9 +324,9 @@
 @tabularFluidWidth: ~"calc(100% + "(@tabularFluidOffset * 2)~")";
 
 @tabularActiveBackground: none @white;
-@tabularActiveColor: @selectedTextColor;
+@tabularActiveColor: @grey;
 @tabularActiveBoxShadow: none;
-@tabularActiveWeight: bold;
+@tabularActiveWeight: normal;
 
 
 
