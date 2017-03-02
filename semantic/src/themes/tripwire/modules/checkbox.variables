@@ -3,7 +3,7 @@
 *******************************/
 @textColor: @grey;
 
-@checkboxSize: 17px;
+@checkboxSize: 20px;
 @checkboxColor: @textColor;
 @checkboxLineHeight: @checkboxSize;
 
@@ -13,8 +13,8 @@
 
 /* Checkbox */
 @checkboxBackground: @white;
-@checkboxBorder: 1px solid @solidBorderColor;
-@checkboxBorderRadius: @3px;
+@checkboxBorder: 2px solid @grey;
+@checkboxBorderRadius: 2px;
 @checkboxTransition:
   border @defaultDuration @defaultEasing,
   opacity @defaultDuration @defaultEasing,

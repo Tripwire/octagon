@@ -5,7 +5,7 @@
 @background: @white;
 @border: none;
 @zIndex: 1001;
-@borderRadius: @defaultBorderRadius;
+@borderRadius: 0px;
 @transformOrigin: 50% 25%;
 @boxShadow:
   1px 3px 3px 0px rgba(0, 0, 0, 0.2),
