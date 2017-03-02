@@ -9,15 +9,19 @@ const naturalSort = require('javascript-natural-sort')
 
 const SUIR_DOCS_HTTP_ROOT = 'http://react.semantic-ui.com/'
 
-// return suir.getComponents(this.suirSrcRoot)
-//   .then(suir.filter)
-//   .then(suir.mapToURIs)
-//   .then(suir.mapToIFrames)
-//   .then(suir.mapToStories)
-//   .then(suir.concatImportsAndStories)
-//   .then(txt => suir.writeStories(this.suirStoriesDest))
-
+/**
+ * @module suir-story-util
+ * @description utility class to auto-generate SUIR stories.  it enables us
+ * to parse our own suir imported components and generate a "story" for for
+ * each.  the "story" is really just an iframe pointing to SUIR interactive docs.
+ */
 const suir = {
+  /**
+   * @property _componentGroups
+   * @description SUIR Components are namespaced.  a call and resolve of init()
+   * will populate the groups with the group name key w/ the component set names as
+   * an array
+   */
   _componentGroups: {
     /* elements: { TextArea, Input }, modules: { ... }, etc */
   },
@@ -63,14 +67,20 @@ const suir = {
     .then(files => files.sort(naturalSort))
     .then(files => files.map(file => ({ name: file })))
   },
+  /**
+   * Required first call to parse the latest state from the SUIR package
+   *
+   * @param {any} builder
+   * @returns {Promise}
+   */
   init (builder) {
     return this.loadSUIRComponentGroups(builder)
   },
   /**
-   * Reads the RU
+   * Reads the SUIR src/ to populate _componentGroups
    *
    * @param {any} builder
-   * @returns
+   * @returns {Promise}
    */
   loadSUIRComponentGroups (builder) {
     const suirSrcRoot = path.resolve(builder.projectRoot, 'node_modules', 'semantic-ui-react', 'src')
@@ -84,6 +94,12 @@ const suir = {
     })
     .then(([types, componentSets]) => componentSets.forEach((set, ndx) => { this._componentGroups[types[ndx]] = set }))
   },
+  /**
+   * Determines which SUIR namespace the provided component name belongs to.
+   *
+   * @param {any} componentName
+   * @returns {string}
+   */
   mapToSUIRNamespace (componentName) {
     for (var type in this._componentGroups) {
       var group = this._componentGroups[type]
@@ -97,11 +113,19 @@ const suir = {
       JSON.stringify(this._componentGroups, null, 2)
     ].join(' '))
   },
+  /**
+   * Persist fully defined stories
+   *
+   * @param {any} txt
+   * @param {any} dest
+   * @returns {Promise}
+   */
   writeStories (txt, dest) {
     return writeFile(dest, txt)
   }
 }
 
+// eager bind methods for class-like behavior
 for (var key in suir) if (typeof suir[key] === 'function') suir[key] = suir[key].bind(suir)
 
 module.exports = suir
