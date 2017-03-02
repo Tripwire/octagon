@@ -17,25 +17,25 @@ const sampleNotifications = [{
       { id: 6, name: 'TIME OUT 6: SOURCE', state: 'warning' }
   ]
 },
-{
-  id: 2,
-  name: 'Time-Out',
-  filterOption: 'server',
-  state: 'critical',
-  timestamp: '03-12-2016 2:50:00',
-  detail: [
+  {
+    id: 2,
+    name: 'Time-Out',
+    filterOption: 'server',
+    state: 'critical',
+    timestamp: '03-12-2016 2:50:00',
+    detail: [
       { id: 10, name: 'TIME OUT 1: SOURCE', state: 'warning' },
       { id: 11, name: 'TIME OUT 2: SOURCE', state: 'warning' },
       { id: 12, name: 'TIME OUT 2: SOURCE', state: 'warning' }
-  ]
-},
-{
-  id: 3,
-  name: 'Connection Errors',
-  filterOption: 'server',
-  state: 'critical',
-  timestamp: '03-12-2016 2:40:00',
-  detail: [
+    ]
+  },
+  {
+    id: 3,
+    name: 'Connection Errors',
+    filterOption: 'server',
+    state: 'critical',
+    timestamp: '03-12-2016 2:40:00',
+    detail: [
       { id: 20, name: 'Connection Error 1: SOURCE', state: 'critical' },
       { id: 21, name: 'Connection Error 2: SOURCE', state: 'critical' },
       { id: 22, name: 'Connection Error 3: SOURCE', state: 'critical' },
@@ -45,8 +45,8 @@ const sampleNotifications = [{
       { id: 26, name: 'Connection Error 7: SOURCE', state: 'critical' },
       { id: 27, name: 'Connection Error 8: SOURCE', state: 'critical' },
       { id: 28, name: 'Connection Error 9: SOURCE', state: 'critical' }
-  ]
-}
+    ]
+  }
 ]
 
 storiesOf('Notifications', module)

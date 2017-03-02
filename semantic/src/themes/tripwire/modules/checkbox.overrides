@@ -67,6 +67,13 @@
 
 }
 
+/* Active */
+
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
+  left: (@toggleLaneWidth - @toggleHandleSize) + 0.35rem;
+}
+
 /*--------------
      Radio
 ---------------*/
