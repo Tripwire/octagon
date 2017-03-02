@@ -12,7 +12,7 @@ const SUIR_DOCS_HTTP_ROOT = '//react.semantic-ui.com/'
 /**
  * @module suir-story-util
  * @description utility class to auto-generate SUIR stories.  it enables us
- * to parse our own suir imported components and generate a "story" for for
+ * to parse our own suir imported components and generate a "story" for
  * each.  the "story" is really just an iframe pointing to SUIR interactive docs.
  */
 const suir = {
