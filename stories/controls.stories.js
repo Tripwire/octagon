@@ -39,6 +39,7 @@ const paginationSampleData = [
 function nextPage () {
   // handle your pagination
 }
+
 storiesOf('Interactive Controls', module)
   .addDecorator((story) => (
     <div style={{marginTop: '15px', marginLeft: '15px'}}>
