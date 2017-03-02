@@ -6,15 +6,20 @@
 }
 
 .ui.popup.red:before {
-  box-shadow: -1px -1px 0 0 @red !important;
+  color: @red !important;
+
 }
+.ui.popup:before{
+  color: darken(@borderColor, 10);
+}
+
 
 .ui.popup.yellow {
     border: 1px solid @yellow !important; 
 }
 
 .ui.popup.yellow:before {
-  box-shadow: -1px -1px 0 0 @yellow !important;
+  color: @yellow !important;
 }
 
 .ui.popup.grey {
@@ -22,7 +27,7 @@
 }
 
 .ui.popup.grey:before {
-  box-shadow: -1px -1px 0 0 @grey !important;
+  color: @grey !important;
 }
 
 .ui.popup.blue {
@@ -30,5 +35,5 @@
 }
 
 .ui.popup.blue:before {
-  box-shadow: -1px -1px 0 0 @blue !important;
+  color: @blue !important;
 }

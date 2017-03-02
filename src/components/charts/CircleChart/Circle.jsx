@@ -41,7 +41,7 @@ const CircleChart = (props) => {
               textAnchor='middle'
               dy='.35em'
               fontSize='2.5em'
-              fontWeight='lighter'
+              fontWeight='300'
             >
               {endPercentValue}
             </text>

@@ -90,7 +90,7 @@ storiesOf('Interactive Controls', module)
           trigger={<Button className='tripwire'>Popup Critical</Button>}
           content='Critical Popup Content'
           className='red'
-          positioning='bottom left'
+          positioning='top right'
         />
       </div>
       <br /><br />

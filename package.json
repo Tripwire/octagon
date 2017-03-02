@@ -56,7 +56,9 @@
   },
   "dependencies": {
     "d3": "^4.4.0",
+    "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.1.0",
+    "lato-font": "^2.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "semantic-ui-react": "^0.66.0"
