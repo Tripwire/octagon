@@ -22,8 +22,9 @@ const suir = {
     /* elements: { TextArea, Input }, modules: { ... }, etc */
   },
   appendIFrames (components) {
+    // 100% height renders a silly scroll bar
     return components.map(comp => {
-      comp.iframe = `<iframe src="${comp.uri}" height='100%' width='100%' />`
+      comp.iframe = `<iframe src="${comp.uri}" height='99%' width='100%' />`
       return comp
     })
   },
