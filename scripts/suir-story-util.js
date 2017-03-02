@@ -7,7 +7,7 @@ const readdir = pify(fs.readdir)
 const writeFile = pify(fs.writeFile)
 const naturalSort = require('javascript-natural-sort')
 
-const SUIR_DOCS_HTTP_ROOT = 'http://react.semantic-ui.com/'
+const SUIR_DOCS_HTTP_ROOT = '//react.semantic-ui.com/'
 
 /**
  * @module suir-story-util

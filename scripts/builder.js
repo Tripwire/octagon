@@ -24,7 +24,7 @@ module.exports = {
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get suirSrcRoot () { return path.join(this.projectRoot, 'src', 'components', 'suir') },
-  get suirStoriesDest () { return path.join(this.projectRoot, 'src', 'components', 'suir', 'suir.stories.js') },
+  get suirStoriesDest () { return path.join(this.suirSrcRoot, 'suir.stories.js') },
   clean () {
     return Promise.all([remove(this.distDir), remove(this.semanticDist)])
   },
@@ -47,7 +47,7 @@ module.exports = {
     .then(suir.appendURIs)
     .then(suir.appendIFrames)
     .then(suir.appendStories)
-    .then(suir.concatImportsAndStories)
+    .then(components => suir.concatImportsAndStories(components, this))
     .then(txt => suir.writeStories(txt, this.suirStoriesDest))
   },
   react (opts) {
