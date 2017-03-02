@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import { withKnobs, object } from '@kadira/storybook-addon-knobs'
-import Grid from './Grid'
+import { Grid } from 'semantic-ui-react'
 
-const stories = storiesOf('core.Grid', module)
+const stories = storiesOf('suir.extra', module)
 
 .addDecorator(withKnobs)
-.add('full size & equally sliced - raw styles', () => {
+.add('Grid - full size, equally sliced', () => {
   return (
     <div className='ui padded equal height grid' style={{height: '100%'}}>
       <div className='sixteen wide stretched column'>

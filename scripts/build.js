@@ -1,9 +1,10 @@
 'use strict'
 
 require('perish')
-const build = require('./builder')
+const builder = require('./builder')
 
-build.clean()
-.then(() => build.react())
-.then(() => build.semantic())
+builder.clean()
+.then(() => builder.react())
+.then(() => builder.semantic())
+.then(() => builder.suirStories())
 .then(() => console.log('dist build successfully'))

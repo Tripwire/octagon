@@ -73,6 +73,7 @@
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "prestart": "npm run build",
     "start": "npm run storybook",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"

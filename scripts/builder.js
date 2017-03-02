@@ -8,6 +8,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const pify = require('pify')
 const os = require('os')
+const suir = require('./suir-story-util')
 
 const exec = pify(cp.exec, { multiArgs: true })
 const copy = pify(fs.copy)
@@ -22,6 +23,8 @@ module.exports = {
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
+  get suirSrcRoot () { return path.join(this.projectRoot, 'src', 'components', 'suir') },
+  get suirStoriesDest () { return path.join(this.projectRoot, 'src', 'components', 'suir', 'suir.stories.js') },
   clean () {
     return Promise.all([remove(this.distDir), remove(this.semanticDist)])
   },
@@ -37,6 +40,15 @@ module.exports = {
   _semanticBuild () {
     return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
     .then(([stdout]) => console.log(stdout))
+  },
+  suirStories () {
+    return suir.init(this)
+    .then(() => suir.getComponents(this.suirSrcRoot))
+    .then(suir.appendURIs)
+    .then(suir.appendIFrames)
+    .then(suir.appendStories)
+    .then(suir.concatImportsAndStories)
+    .then(txt => suir.writeStories(txt, this.suirStoriesDest))
   },
   react (opts) {
     opts = opts || {}
