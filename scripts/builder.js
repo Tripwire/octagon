@@ -51,8 +51,8 @@ module.exports = {
   },
   octagon_componentCss (opts) {
     opts = opts || {}
-    const outputDir = path.join(this.componentDist,'styles','components');
-    const inputDir = path.join(this.projectRoot, 'src','styles','components','*.css');
+    const outputDir = path.join(this.componentDist, 'styles', 'components')
+    const inputDir = path.join(this.projectRoot, 'src', 'styles', 'components', '*.css')
     const args = [this.getBin('postcss'), inputDir, '-d', outputDir, '-c', this.postCssConfig]
     return Promise.resolve()
     .then(() => mkdirp(this.componentDist))
@@ -60,7 +60,7 @@ module.exports = {
     .then(([stdout]) => console.log(stdout))
   },
   octagon_copyAssets (opts) {
-    const assetSource = path.join(this.projectRoot, 'src','assets');
+    const assetSource = path.join(this.projectRoot, 'src', 'assets')
     return Promise.resolve('success')
       .then(() => copy(assetSource, this.assetsDist))
   }
