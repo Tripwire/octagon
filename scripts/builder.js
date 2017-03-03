@@ -21,7 +21,9 @@ module.exports = {
   get projectRoot () { return path.resolve(__dirname, '..') },
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
+  get postCssConfig () { return path.join(this.projectRoot, 'scripts', 'postcss.config.js') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
+  get assetsDist () { return path.join(this.distDir, 'assets') },
   clean () {
     return Promise.all([remove(this.distDir), remove(this.semanticDist)])
   },
@@ -50,14 +52,13 @@ module.exports = {
   componentcss (opts) {
     opts = opts || {}
     const outputDir = this.componentDist + '/styles/components'
-    const args = [this.getBin('postcss'), 'src/styles/components/*.css', '-d', outputDir, '-c', 'scripts\\postcss.config.js']
+    const args = [this.getBin('postcss'), 'src/styles/components/*.css', '-d', outputDir, '-c', this.postCssConfig]
     return Promise.resolve()
     .then(() => mkdirp(this.componentDist))
     .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
     .then(([stdout]) => console.log(stdout))
   },
   componentassets (opts) {
-    const outputDir = this.componentDist + '/assets'
-    copy('src/assets', outputDir)
+    copy('src/assets', this.assetsDist)
   }
 }
