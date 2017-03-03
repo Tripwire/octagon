@@ -15,7 +15,6 @@ const mkdirp = pify(fs.mkdirp)
 const remove = pify(fs.remove)
 const isWin = os.platform().match(/^win/)
 
-
 module.exports = {
   get componentDist () { return path.join(this.distDir) },
   get distDir () { return path.join(this.projectRoot, 'lib') },
@@ -47,21 +46,18 @@ module.exports = {
     .then(() => mkdirp(this.componentDist))
     .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
     .then(([stdout]) => console.log(stdout))
-
-    
   },
   componentcss (opts) {
     opts = opts || {}
-    const outputDir = this.componentDist + '/styles/components';
-    const args = [this.getBin('postcss'), 'src/styles/components/*.css', '-d',outputDir, '-c', 'scripts\\postcss.config.js']
+    const outputDir = this.componentDist + '/styles/components'
+    const args = [this.getBin('postcss'), 'src/styles/components/*.css', '-d', outputDir, '-c', 'scripts\\postcss.config.js']
     return Promise.resolve()
     .then(() => mkdirp(this.componentDist))
     .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
     .then(([stdout]) => console.log(stdout))
-  } ,
+  },
   componentassets (opts) {
-    const outputDir = this.componentDist + '/assets';
+    const outputDir = this.componentDist + '/assets'
     copy('src/assets', outputDir)
-    
-  }  
+  }
 }
