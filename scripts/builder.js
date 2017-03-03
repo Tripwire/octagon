@@ -24,6 +24,15 @@ module.exports = {
   get postCssConfig () { return path.join(this.projectRoot, 'scripts', 'postcss.config.js') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get assetsDist () { return path.join(this.distDir, 'assets') },
+  build () {
+    return Promise.resolve()
+    .then(() => this.clean())
+    .then(() => this.octagon_componentJs())
+    .then(() => this.octagon_componentCss())
+    .then(() => this.octagon_copyAssets())
+    .then(() => this.semantic_init())
+    .then(() => console.log('dist build successfully'))
+  },
   clean () {
     return Promise.all([remove(this.distDir), remove(this.semanticDist)])
   },
@@ -34,7 +43,10 @@ module.exports = {
     // source maps not yet available!
     // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
     return this.semantic_build()
-    .then(() => copy(this.semanticDist, this.stylesDist))
+    .then(() => this.copySemanticAssets())
+  },
+  copySemanticAssets () {
+    return copy(this.semanticDist, this.stylesDist)
   },
   semantic_build () {
     return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
@@ -61,7 +73,14 @@ module.exports = {
   },
   octagon_copyAssets (opts) {
     const assetSource = path.join(this.projectRoot, 'src', 'assets')
+    const fontsDest = path.resolve(this.distDir, 'styles', 'themes', 'tripwire', 'assets', 'fonts')
+    const latoSrc = path.resolve(this.projectRoot, 'node_modules', 'lato-font', 'fonts')
+    const latoDest = path.join(fontsDest, 'lato')
+    const elegantSrc = path.resolve(this.projectRoot, 'node_modules', 'elegant-icons', 'fonts')
+    const elegantDest = path.join(fontsDest, 'elegant-icons')
     return Promise.resolve('success')
-      .then(() => copy(assetSource, this.assetsDist))
+    .then(() => copy(assetSource, this.assetsDist))
+    .then(() => copy(latoSrc, latoDest))
+    .then(() => copy(elegantSrc, elegantDest))
   }
 }

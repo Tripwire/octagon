@@ -18,7 +18,6 @@ this package simply applies a custom theme over semantic-ui, re-exports react-se
 
 - clone this repository
 - run `yarn` from the project directory
-- run `yarn run build`
 - run `yarn start`
 
 open the url shown to see the latest storybook!
@@ -32,7 +31,7 @@ octagon imports, occasionally wraps, and re-exports piece-wise components from [
 - add octagon's CSS into your app using whatever css bundling you prefer
   - `import 'octagon/lib/styles/semantic.css'`
 - import components from the lib
-  - `import SomeComponent from 'octagon/lib/some-component/<SomeComponent>`
+  - `import SomeComponent from 'octagon/lib/components/suir/<SomeComponent>`
 
 ## development
 
@@ -54,11 +53,7 @@ now you're off to the races :horse_racing:!  this package offers two different d
 
 ### react component api distribution
 
-**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.
-
-`yarn run component-api-dev`
-
-watches `src/` for react component changes and recompiles the distribution output (e.g. `lib/`).
+**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  You must run `yarn run build` to get a fresh set of react components!
 
 ## contributing
 

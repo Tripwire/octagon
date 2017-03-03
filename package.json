@@ -68,14 +68,12 @@
     "build": "node scripts/build.js",
     "prebuild-storybook": "npm run build",
     "build-storybook": "build-storybook",
-    "component-api-dev": "node scripts/component-api-dev.js",
     "storybook": "start-storybook -p 6007",
-    "storybook-dev": "node scripts/storybook-dev.js",
     "secure": "nsp check",
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "npm run storybook"
+    "start": "node scripts/storybook-dev.js"
   },
   "ripcord": {
     "rules": [

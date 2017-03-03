@@ -10,7 +10,6 @@ var
 
   // watch changes
   watch        = require('./tasks/watch'),
-  watchDev     = require('./tasks/watch-dev'), // @tw injected
 
   // build all files
   build        = require('./tasks/build'),
@@ -41,7 +40,6 @@ gulp.task('default', false, [
 ]);
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
-gulp.task('watch-dev', 'Watch for site/theme changes, uncompressed', watchDev);
 
 gulp.task('build', 'Builds all files from source', build);
 gulp.task('build-javascript', 'Builds all javascript from source', buildJS);
