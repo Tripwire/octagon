@@ -1,6 +1,6 @@
 :root {
   --warningred: #c0382b;
-  --warningyellow: #ff9e2c;  
+  --warningyellow: #ff9e2c;
   --blue: #3498db;
   --twgray: #586A7B;
   --textPurple: #A676B2;
@@ -27,6 +27,5 @@
   --lightblue: #bde9ff;
   --textGray: #657d8e;
   --base-border-radius: 0;
-
 }
 
