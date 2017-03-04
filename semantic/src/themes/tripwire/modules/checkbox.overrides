@@ -43,15 +43,20 @@
     padding: 2px;
     right: 1px;
 }
+.ui.toggle.checkbox label::hover:before {
+
+    background-color: #f1f1f1;
+
+}
 .ui.toggle.checkbox label:after {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .3) !important;
+  box-shadow: none;
   position: absolute;
   content: '' !important;
   opacity: 1;
   z-index: 2;
 
-  border: none;
+  border: 1px solid #e4e6e7;
   width: 14px;
   height: 14px;
   top: 0px;
@@ -60,6 +65,13 @@
 
   border-radius: 0px;
 
+}
+
+/* Active */
+
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
+  left: (@toggleLaneWidth - @toggleHandleSize) + 0.35rem;
 }
 
 /*--------------
@@ -87,6 +99,7 @@
   top: @radioTop;
   left: @radioLeft;
   border-color: @grey;
+  border-width: 2px;
 
 }
 
@@ -98,8 +111,9 @@
   width: @radioSize;
   height: @radioSize;
   line-height: @radioSize;
-
+  background-color: @grey !important;
 }
+
 
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
@@ -139,7 +153,19 @@
   top: @radioTop;
   left: @radioLeft;
   border-color: @blue;
+}
 
+.ui.radio.checkbox.disabled .box:hover::before,
+.ui.radio.checkbox.disabled label:hover::before {
+  content: '';
+  transform: none;
+
+  width: @radioSize;
+  height: @radioSize;
+  border-radius: @circularRadius;
+  top: @radioTop;
+  left: @radioLeft;
+  border-color: @grey;
 }
 
 /* Active */
@@ -153,6 +179,59 @@
   background-color: @radioActiveBulletColor;
   border-color: @grey;
 }
+.ui.radio.checkbox input:checked ~ .box:hover::before,
+.ui.radio.checkbox input:checked ~ label:hover::before {
+  background-color: @radioActiveBackground;
+  border-color: @blue;
+}
+.ui.radio.checkbox input:checked ~ .box:hover::after,
+.ui.radio.checkbox input:checked ~ label:hover::after {
+  background-color: @radioActiveBulletColor;
+  border-color: @blue;
+}
+
+.ui.radio.checkbox .box:hover::after,
+.ui.radio.checkbox label:hover::after {
+  border: none;
+  content: '' !important;
+  width: @radioSize;
+  height: @radioSize;
+  line-height: @radioSize;
+  background-color: @blue !important;
+}
+
+.ui.radio.checkbox.disabled .box:hover::after,
+.ui.radio.checkbox.disabled label:hover::after {
+  border: none;
+  content: '' !important;
+  width: @radioSize;
+  height: @radioSize;
+  line-height: @radioSize;
+  background-color: @grey !important;
+}
+
+/* Active */
+.ui.radio.checkbox.disabled input:checked ~ .box:before,
+.ui.radio.checkbox.disabled input:checked ~ label:before {
+  background-color: @radioActiveBackground;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:after,
+.ui.radio.checkbox.disabled input:checked ~ label:after {
+  background-color: @radioActiveBulletColor;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:hover::before,
+.ui.radio.checkbox.disabled input:checked ~ label:hover::before {
+  background-color: @radioActiveBackground;
+  border-color: @grey;
+}
+.ui.radio.checkbox.disabled input:checked ~ .box:hover::after,
+.ui.radio.checkbox.disabled input:checked ~ label:hover::after {
+  background-color: @radioActiveBulletColor;
+  border-color: @grey;
+}
+
 
 /* Active Focus */
 .ui.radio.checkbox input:focus:checked ~ .box:before,
@@ -162,4 +241,116 @@
 .ui.radio.checkbox input:focus:checked ~ .box:after,
 .ui.radio.checkbox input:focus:checked ~ label:after {
   background-color: @radioActiveFocusBulletColor;
+}
+
+
+/*--------------
+      Box
+---------------*/
+
+
+.ui.checkbox .box,
+.ui.checkbox label {
+  cursor: auto;
+  position: relative;
+  display: block;
+  padding-left: @labelDistance;
+  outline: none;
+  font-size: @labelFontSize;
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: @checkboxSize;
+  height: @checkboxSize;
+  content: '';
+
+  background: @checkboxBackground;
+  border-radius: @checkboxBorderRadius;
+
+  transition: @checkboxTransition;
+  border: @checkboxBorder;
+}
+
+/*--------------
+    Checkmark
+---------------*/
+
+
+
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before {
+  background: @checkboxHoverBackground;
+  border-color: @blue;
+}
+
+
+.ui.checkbox .box:after,
+.ui.checkbox label:after {
+  position: absolute;
+  font-size: @checkboxCheckFontSize;
+  top: @checkboxCheckTop;
+  left: @checkboxCheckLeft;
+  width: @checkboxCheckSize;
+  height: @checkboxCheckSize;
+  text-align: center;
+
+  opacity: 0;
+  color: @grey;
+  transition: @checkboxTransition;
+
+
+
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.checkbox input:checked ~ .box:before,
+.ui.checkbox input:checked ~ label:before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @grey;
+}
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
+  opacity: 1;
+  color: @grey;
+}
+
+.ui.checkbox input:checked ~ .box:hover::before,
+.ui.checkbox input:checked ~ label:hover::before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @blue;
+}
+.ui.checkbox input:checked ~ .box:hover::after,
+.ui.checkbox input:checked ~ label:hover::after {
+  opacity: 1;
+  color: @blue;
+}
+
+
+
+.ui.checkbox.disabled input:checked ~ .box:hover::before,
+.ui.checkbox.disabled input:checked ~ label:hover::before {
+  background: @checkboxActiveBackground;
+  opacity: 1;
+  border-color: @grey;
+}
+.ui.checkbox.disabled input:checked ~ .box:hover::after,
+.ui.checkbox.disabled input:checked ~ label:hover::after {
+  opacity: 1;
+  color: @grey;
+}
+
+.ui.checkbox.disabled .box:hover::before,
+.ui.checkbox.disabled label:hover::before {
+  background: @checkboxHoverBackground;
+  border-color: @grey;
 }

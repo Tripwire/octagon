@@ -8,7 +8,6 @@ const fs = require('fs-extra')
 const path = require('path')
 const pify = require('pify')
 const os = require('os')
-const suir = require('./suir-story-util')
 
 const exec = pify(cp.exec, { multiArgs: true })
 const spawn = require('cross-spawn-promise')
@@ -24,11 +23,25 @@ module.exports = {
   get projectRoot () { return path.resolve(__dirname, '..') },
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
+  get postCssConfig () { return path.join(this.projectRoot, 'scripts', 'postcss.config.js') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get styleguidistDist () { return path.join(this.projectRoot, 'styleguide') },
-  get suirSrcRoot () { return path.join(this.projectRoot, 'src', 'components', 'suir') },
-  get suirStoriesDest () { return path.join(this.suirSrcRoot, 'suir.stories.js') },
   get staticStorybookDist () { return path.join(this.projectRoot, 'storybook-static') },
+  get assetsDist () { return path.join(this.distDir, 'assets') },
+  /**
+   * Build full lib.
+   * @NOTE, does not build storybook. {@see this.storybook}
+   * @returns {Promise}
+   */
+  build () {
+    return Promise.resolve()
+    .then(() => this.clean())
+    .then(() => this.octagonComponentJs())
+    .then(() => this.octagonComponentCss())
+    .then(() => this.octagonCopyAssets())
+    .then(() => this.semanticInit())
+    .then(() => console.log('dist build successfully'))
+  },
   clean () {
     return Promise.all([
       remove(this.coverageDir),
@@ -38,38 +51,13 @@ module.exports = {
       remove(this.styleguidistDist)
     ])
   },
+  copySemanticAssets () {
+    return copy(this.semanticDist, this.stylesDist)
+  },
   getBin (bin) {
     return path.join(this.projectRoot, 'node_modules', '.bin', bin) + (isWin ? '.cmd' : '')
   },
-  semantic () {
-    // source maps not yet available!
-    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
-    return this._semanticBuild()
-    .then(() => copy(this.semanticDist, this.stylesDist))
-  },
-  _semanticBuild () {
-    return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
-    .then(([stdout]) => console.log(stdout))
-  },
-  suirStories () {
-    return suir.init(this)
-    .then(() => suir.getComponents(this.suirSrcRoot))
-    .then(suir.appendURIs)
-    .then(suir.appendIFrames)
-    .then(suir.appendStories)
-    .then(components => suir.concatImportsAndStories(components, this))
-    .then(txt => suir.writeStories(txt, this.suirStoriesDest))
-  },
-  storybook () {
-    return spawn('npm', ['run', 'build'], { cwd: this.projectRoot, stdio: 'inherit' })
-    .then(() => spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(() => spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(() => copy(
-      this.styleguidistDist,
-      path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))
-    ))
-  },
-  react (opts) {
+  octagonComponentJs (opts) {
     opts = opts || {}
     const args = [this.getBin('babel'), 'src', '-d', this.componentDist, '--ignore', '*.stories.js', '--source-maps']
     if (opts.watch) args.push('--watch')
@@ -77,5 +65,46 @@ module.exports = {
     .then(() => mkdirp(this.componentDist))
     .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
     .then(([stdout]) => console.log(stdout))
+  },
+  octagonComponentCss (opts) {
+    opts = opts || {}
+    const outputDir = path.join(this.componentDist, 'styles', 'components')
+    const inputDir = path.join(this.projectRoot, 'src', 'styles', 'components', '*.css')
+    const args = [this.getBin('postcss'), inputDir, '-d', outputDir, '-c', this.postCssConfig]
+    return Promise.resolve()
+    .then(() => mkdirp(this.componentDist))
+    .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(([stdout]) => console.log(stdout))
+  },
+  octagonCopyAssets (opts) {
+    const assetSource = path.join(this.projectRoot, 'src', 'assets')
+    const fontsDest = path.resolve(this.distDir, 'styles', 'themes', 'tripwire', 'assets', 'fonts')
+    const latoSrc = path.resolve(this.projectRoot, 'node_modules', 'lato-font', 'fonts')
+    const latoDest = path.join(fontsDest, 'lato')
+    const elegantSrc = path.resolve(this.projectRoot, 'node_modules', 'elegant-icons', 'fonts')
+    const elegantDest = path.join(fontsDest, 'elegant-icons')
+    return Promise.resolve('success')
+    .then(() => copy(assetSource, this.assetsDist))
+    .then(() => copy(latoSrc, latoDest))
+    .then(() => copy(elegantSrc, elegantDest))
+  },
+  semanticBuild () {
+    return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
+    .then(([stdout]) => console.log(stdout))
+  },
+  semanticInit () {
+    // source maps not yet available!
+    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
+    return this.semanticBuild()
+    .then(() => this.copySemanticAssets())
+  },
+  storybook () {
+    return this.build()
+    .then(() => spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(() => spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(() => copy(
+      this.styleguidistDist,
+      path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))
+    ))
   }
 }

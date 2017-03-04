@@ -11,7 +11,7 @@
 @margin: @verticalMargin @horizontalMargin;
 @borderCollapse: separate;
 @borderSpacing: 0px;
-@borderRadius: @defaultBorderRadius;
+@borderRadius: 0px;
 @transition:
   background @defaultDuration @defaultEasing,
   color @defaultDuration @defaultEasing
@@ -40,14 +40,14 @@
 /* Table Header */
 @headerBorder: 1px solid @internalBorderColor;
 @headerDivider: none;
-@headerBackground: @offWhite;
+@headerBackground: @grey;
 @headerAlign: inherit;
 @headerVerticalAlign: inherit;
-@headerColor: @textColor;
+@headerColor: @white;
 @headerVerticalPadding: @relativeSmall;
 @headerHorizontalPadding: @cellHorizontalPadding;
 @headerFontStyle: none;
-@headerFontWeight: bold;
+@headerFontWeight: 400;
 @headerTextTransform: none;
 @headerBoxShadow: none;
 
@@ -112,10 +112,11 @@
 @stateMarkerWidth: 0px;
 
 /* Positive */
-@positiveColor: @positiveTextColor;
+@positiveBackgroundColor: white;
+@positiveColor: black;
 @positiveBoxShadow: @stateMarkerWidth 0px 0px @positiveBorderColor inset;
-@positiveBackgroundHover: darken(@positiveBackgroundColor, 3);
-@positiveColorHover: darken(@positiveColor, 3);
+@positiveBackgroundHover: #BEC3C7;
+@positiveColorHover: black;
 
 /* Negative */
 @negativeColor: @negativeTextColor;
@@ -124,10 +125,11 @@
 @negativeColorHover: darken(@negativeColor, 3);
 
 /* Error */
-@errorColor: @errorTextColor;
+@errorBackgroundColor: white;
+@errorColor: black;
 @errorBoxShadow: @stateMarkerWidth 0px 0px @errorBorderColor inset;
-@errorBackgroundHover: darken(@errorBackgroundColor, 3);
-@errorColorHover: darken(@errorColor, 3);
+@errorBackgroundHover: #CD6155;
+@errorColorHover: black;
 
 /* Warning */
 @warningColor: @warningTextColor;
@@ -164,14 +166,14 @@
 @invertedStripedBackground: rgba(255, 255, 255, 0.05);
 
 /* Selectable */
-@selectableBackground: @transparentBlack;
+@selectableBackground: #BEC3C7;
 @selectableTextColor: @selectedTextColor;
 @selectableInvertedBackground: @transparentWhite;
 @selectableInvertedTextColor: @invertedSelectedTextColor;
 
 /* Sortable */
 @sortableBackground: '';
-@sortableColor: @textColor;
+@sortableColor: #BFD5E1;
 
 @sortableBorder: 1px solid @borderColor;
 @sortableIconWidth: auto;
@@ -182,8 +184,8 @@
 @sortableIconDescending: '\f0d7';
 @sortableDisabledColor: @disabledTextColor;
 
-@sortableHoverBackground: @transparentBlack;
-@sortableHoverColor: @hoveredTextColor;
+@sortableHoverBackground: @grey;
+@sortableHoverColor: #BFD5E1;
 
 @sortableActiveBackground: @transparentBlack;
 @sortableActiveColor: @selectedTextColor;
