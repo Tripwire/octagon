@@ -28,12 +28,11 @@ module.exports = {
   skipComponentsWithoutExample: true,
   webpackConfig: {
     entry: [
-      path.join(__dirname, './semantic/dist/semantic.css'),
+      path.join(__dirname, './lib/styles/semantic.css'),
       path.join(__dirname, './src/styles/components/pagination-control.css'),
       path.join(__dirname, './src/styles/components/notification-item.css'),
       path.join(__dirname, './src/styles/components/tag-button.css'),
-      path.join(__dirname, './src/styles/components/stop-start-button.css'),
-      path.join(__dirname, './src/styles/app.css')
+      path.join(__dirname, './src/styles/components/stop-start-button.css')
     ],
     output: {
       path: PATHS.dist,
