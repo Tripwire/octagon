@@ -2,7 +2,7 @@ import React from 'react'
 
 import ReactDOM from 'react-dom'
 import Flexbox from 'flexbox-react'
-import { Icon } from 'semantic-ui-react'
+import Icon from '../suir/icon/Icon'
 import LargeCardAction from './LargeCardAction'
 import LargeCardClose from './LargeCardClose'
 import LargeCardGutter from './LargeCardGutter'

@@ -5,7 +5,7 @@ import MicroCardAction from './MicroCardAction'
 import MicroCardFavorite from './MicroCardFavorite'
 import MicroCardContent from './MicroCardContent'
 import MicroCardCount from './MicroCardCount'
-import { Icon } from 'semantic-ui-react'
+import Icon from '../suir/icon/Icon'
 import '../../styles/components/micro-card.css'
 
 class MicroCard extends React.Component {
