@@ -10,7 +10,7 @@
   color: var(--darkgray);
   width: 300px;
   font-size: var(--small);
-  margin-bottom: 10px;
+
   min-height: 86px;
   position: relative;
   & .text-uppercase {
