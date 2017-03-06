@@ -15,11 +15,6 @@
   url("@{fontPath}/@{fontName}.woff") format('woff'),
   url("@{fontPath}/@{fontName}.ttf") format('truetype'),
   url("@{fontPath}/@{fontName}.svg#icons") format('svg'),
-
-  url("../../node_modules/elegant-icons/fonts/ElegantIcons.woff") format('woff'),
-  url("../../node_modules/elegant-icons/fonts/ElegantIcons.eot") format('embedded-opentype'),
-  url("../../node_modules/elegant-icons/fonts/ElegantIcons.ttf") format('truetype'),
-  url("../../node_modules/elegant-icons/fonts/ElegantIcons.svg#icons") format('svg'),
 ;
 
 @opacity: 1;
