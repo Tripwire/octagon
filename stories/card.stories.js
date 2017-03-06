@@ -3,16 +3,15 @@ import Flexbox from 'flexbox-react'
 import { storiesOf } from '@kadira/storybook'
 import MicroCard from '../src/components/MicroCard/MicroCard'
 import LargeCard from '../src/components/LargeCard/LargeCard'
-import colorPalette from '../src/components/colorPallete'
 
 const card = {
   id: 0,
   isFavorited: true,
-  title: 'test',
+  title: 'test'
 }
 
 const largeCardContent = {
-  id: 1,
+  id: 1
 }
 
 const alertIconUri = require('../src/assets/alert-icon.svg')
@@ -53,9 +52,9 @@ storiesOf('Cards', module)
   .add('Large Card', () => (
     <div>
       <LargeCard cardContent={largeCardContent} showCard>
-        <LargeCard.Gutter color="critical" />
+        <LargeCard.Gutter color='critical' />
         <LargeCard.Close onClick={handleMe} />
-        <LargeCard.Action label="test" onClick={handleMe} />
+        <LargeCard.Action label='test' onClick={handleMe} />
       </LargeCard>
 
     </div>
