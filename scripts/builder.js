@@ -101,8 +101,10 @@ module.exports = {
   },
   storybook () {
     return this.build()
-    .then(() => spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(() => spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' }))
+    .then(() => Promise.all([
+      spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }),
+      spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
+    ]))
     .then(() => copy(
       this.styleguidistDist,
       path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))
