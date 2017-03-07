@@ -1,5 +1,5 @@
 import React from 'react'
-import colorPallete from '../../colorPallete'
+import palette from '../../../palette'
 var d3 = Object.assign({}, require('d3-shape'))
 
 const twoPi = Math.PI * 2
@@ -63,7 +63,7 @@ CircleChart.propTypes = {
 }
 
 CircleChart.defaultProps = {
-  color: colorPallete.blue,
+  color: palette.blue,
   border: 5,
   padding: 10,
   endPercent: 0.45,

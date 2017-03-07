@@ -17,15 +17,15 @@ function watchWatchCssTheme () {
   )
   // gulp generates assets periodically. hackishly just keep copying that
   // gulp dist into our build target
-  setInterval(() => builder.copySemanticAssets(), 4000)
-  const storybookProcess = cp.spawn(
-    'npm',
-    ['run', 'storybook'],
+  setInterval(() => builder.copySemanticAssets(), 10000)
+
+  const styleguideProcess = cp.spawn(
+    'npm', ['run', 'styleguide'],
     { cwd: builder.projectRoot, stdio: 'inherit' }
   )
 
   // kill both child processes on parent exit
-  ;[watchStylesProcess, storybookProcess].forEach(p => {
+  ;[watchStylesProcess, styleguideProcess].forEach(p => {
     p.on('exit', code => {
       try {
         p.kill()

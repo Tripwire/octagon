@@ -1,21 +1,42 @@
+'use strict'
+
 const path = require('path')
 const cssnext = require('postcss-cssnext')
 const autoprefixer = require('autoprefixer')
 const impy = require('postcss-import')
 const neat = require('postcss-neat')
 const rucksack = require('rucksack-css')
+const glob = require('glob')
+const fs = require('fs')
+const builder = require('./scripts/builder')
+
+const componentStyles = glob
+  .sync(`${__dirname}/src/**/*.css`)
+  .filter(filename => !filename.match(/components.suir/))
+  .filter(filename => !filename.match(/variables.css/))
+  .concat([builder.semanticCSSFilename])
+
+const suirExamples = glob.sync(`${__dirname}/src/components/suir/**/*.examples.md`)
+
+var semanticCSSStat = fs.lstatSync(builder.semanticCSSFilename)
+if (!semanticCSSStat.isFile) throw new Error('semantic css file invalid')
 
 const PATHS = {
   app: './src/index.js',
   dist: path.join(__dirname, 'dist'),
   html: './src/index.html'
 }
+
 module.exports = {
   title: 'Octagon Style Guide',
   sections: [
+    { name: 'Octagon Native', components: './src/**/*.jsx' },
     {
-      name: 'Custom Components',
-      components: './src/components/**/*.jsx'
+      name: 'SUIR Native',
+      sections: suirExamples.map(ex => ({
+        name: path.basename(ex).replace(/\.examples\.md/g, ''),
+        content: ex
+      }))
     }
   ],
   getExampleFilename (componentpath) {
@@ -27,13 +48,7 @@ module.exports = {
   },
   skipComponentsWithoutExample: true,
   webpackConfig: {
-    entry: [
-      path.join(__dirname, './lib/styles/semantic.css'),
-      path.join(__dirname, './src/styles/components/pagination-control.css'),
-      path.join(__dirname, './src/styles/components/notification-item.css'),
-      path.join(__dirname, './src/styles/components/tag-button.css'),
-      path.join(__dirname, './src/styles/components/stop-start-button.css')
-    ],
+    entry: componentStyles,
     output: {
       path: PATHS.dist,
       publicPath: '/',

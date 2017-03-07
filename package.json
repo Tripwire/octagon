@@ -60,6 +60,7 @@
     "d3": "^4.4.0",
     "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.1.0",
+    "glob": "^7.1.1",
     "lato-font": "^2.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -75,7 +76,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "start": "node scripts/storybook-dev.js"
+    "start": "node scripts/start"
   },
   "ripcord": {
     "rules": [

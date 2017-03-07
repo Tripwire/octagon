@@ -24,6 +24,7 @@ module.exports = {
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
   get postCssConfig () { return path.join(this.projectRoot, 'scripts', 'postcss.config.js') },
+  get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get styleguidistDist () { return path.join(this.projectRoot, 'styleguide') },
   get staticStorybookDist () { return path.join(this.projectRoot, 'storybook-static') },

@@ -1,4 +1,4 @@
-const colorPallete = {
+const palette = {
   red: '#c0382b',
   orange: '#F2711C',
   yellow: '#ff9e2c',
@@ -13,4 +13,5 @@ const colorPallete = {
   grey: '#586A7B',
   black: '#1B1C1D'
 }
-export default colorPallete
+
+export default palette
