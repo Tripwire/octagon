@@ -4,6 +4,8 @@ import { storiesOf } from '@kadira/storybook'
 import MicroCard from '../src/components/MicroCard/MicroCard'
 import LargeCard from '../src/components/LargeCard/LargeCard'
 import FavoriteButton from '../src/components/FavoriteButton'
+import Accordian from '../src/components/accordian/Accordian'
+import StopStartButton from '../src/components/StopStartButton'
 import { Icon } from 'semantic-ui-react'
 
 const card = {
@@ -82,5 +84,34 @@ storiesOf('Cards', module)
         <LargeCard.Action label='test' onClick={handleMe} />
       </LargeCard>
 
+    </div>
+  ))
+  .add('Accordian', () => (
+    <div>
+      <Accordian data={{id: 0}} folder>
+        <Accordian.PrimaryAction><StopStartButton /></Accordian.PrimaryAction>
+        <Accordian.Title>I'm ready to go!</Accordian.Title>
+        <Accordian.ActionButon>MANAGE</Accordian.ActionButon>
+        <Accordian.Widget borderLeft>
+          <Accordian.Widget.Label style={{marginRight: '30px'}}>
+            LABEL
+          </Accordian.Widget.Label>
+          <Accordian.Widget.Value>
+            1234
+          </Accordian.Widget.Value>
+        </Accordian.Widget>
+        <Accordian.Widget borderLeft>
+          <Accordian.Widget.Label style={{marginRight: '30px'}}>
+            FOO
+          </Accordian.Widget.Label>
+          <Accordian.Widget.Value>
+            BAR
+          </Accordian.Widget.Value>
+        </Accordian.Widget>
+      </Accordian>
+      <Accordian data={{id: 0}} folder={false}>
+        <Accordian.PrimaryAction><StopStartButton isStopped /></Accordian.PrimaryAction>
+        <Accordian.Title>I'm stopped</Accordian.Title>
+      </Accordian>
     </div>
   ))
