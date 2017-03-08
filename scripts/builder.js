@@ -99,12 +99,8 @@ module.exports = {
     return this.semanticBuild()
     .then(() => this.copySemanticAssets())
   },
-  storybook () {
-    return this.build()
-    .then(() => Promise.all([
-      spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }),
-      spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
-    ]))
+  storybookPost () {
+    return spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
     .then(() => copy(
       this.styleguidistDist,
       path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))

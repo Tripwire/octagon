@@ -68,7 +68,9 @@
   },
   "scripts": {
     "build": "node scripts/build",
-    "build-storybook": "node scripts/build storybook",
+    "prebuild-storybook": "npm run build",
+    "build-storybook": "build-storybook",
+    "postbuild-storybook": "node scripts/build storybookPost",
     "storybook": "start-storybook -p 6007",
     "secure": "nsp check",
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
