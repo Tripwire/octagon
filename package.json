@@ -45,6 +45,7 @@
     "postcss-loader": "^1.1.0",
     "postcss-neat": "^2.5.2",
     "react-remarkable": "^1.1.1",
+    "react-styleguidist": "beta",
     "react-test-renderer": "^15.4.0",
     "ripcord": "^0.25.5",
     "rucksack-css": "^0.9.1",
@@ -59,21 +60,23 @@
     "d3": "^4.4.0",
     "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.1.0",
+    "glob": "^7.1.1",
     "lato-font": "^2.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "semantic-ui-react": "^0.66.0"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "prebuild-storybook": "npm run build",
-    "build-storybook": "build-storybook",
+    "build": "node scripts/build",
+    "build-storybook": "node scripts/build storybook",
     "storybook": "start-storybook -p 6007",
     "secure": "nsp check",
     "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "start": "node scripts/storybook-dev.js"
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "start": "node scripts/start"
   },
   "ripcord": {
     "rules": [
@@ -92,7 +95,6 @@
     }
   },
   "pre-commit": [
-    "build",
     "lint",
     "test",
     "check-licenses",

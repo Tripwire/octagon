@@ -1,14 +1,4 @@
-import React from 'react'
-import { storiesOf } from '@kadira/storybook'
-import { Progress } from 'semantic-ui-react'
-
-storiesOf('Progress Bar', module)
-  .addDecorator((story) => (
-    <div style={{maxWidth: '200px', marginTop: '15px', marginLeft: '15px'}}>
-      {story()}
-    </div>
-  ))
-  .add('Progress Bars', () => (
+    const Progress = require('semantic-ui-react').Progress;
     <div>
       <div>
         <Progress percent={46} progress color='grey' />
@@ -31,4 +21,3 @@ storiesOf('Progress Bar', module)
         Warning
       </div>
     </div>
-  ))

@@ -1,86 +1,77 @@
-import React from 'react'
-import { storiesOf } from '@kadira/storybook'
-import { Icon } from 'semantic-ui-react'
-import '../src/styles/app.css'
+## Set
 
-storiesOf('Icons', module)
-  .addDecorator((story) => (
-    <div style={{width: '400px'}}>
-      {story()}
-    </div>
-  ))
-    .add('Icons', () => (
-      <div>
+    const Icon = require('semantic-ui-react').Icon;
+    <div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Warning
-                </span>
+            Warning
+          </span>
           <Icon className='ei icon_error-triangle_alt' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Alert
-                </span>
+            Alert
+          </span>
           <Icon className='ei icon_error-circle_alt' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Success
-                </span>
+            Success
+          </span>
           <Icon className='ei icon_check_alt2' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Stopped
-                </span>
+            Stopped
+          </span>
           <Icon className='ei icon_minus_alt2' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Settings
-                </span>
+            Settings
+          </span>
           <Icon className='ei icon_cog' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Dialog Warning
-                </span>
+            Dialog Warning
+          </span>
           <Icon className='ei icon_error-triangle' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                   Dialog Error
-                </span>
+            Dialog Error
+          </span>
           <Icon className='ei icon_error-circle' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Dialog Success
-                </span>
+            Dialog Success
+          </span>
           <Icon className='ei icon_check_alt' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Dialog Info
-                </span>
+            Dialog Info
+          </span>
           <Icon className='ei icon_info' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Operation Run
-                </span>
+            Operation Run
+          </span>
           <Icon className='ei arrow_triangle-right_alt2' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Operation Stop
-                </span>
+            Operation Stop
+          </span>
           <Icon className='ei icon_pause_alt2' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Chevron
-                </span>
+            Chevron
+          </span>
           <Icon className='ei arrow_carrot-right' />
           <Icon className='ei arrow_carrot-left' />
           <Icon className='ei arrow_carrot-down' />
@@ -88,8 +79,8 @@ storiesOf('Icons', module)
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Trend Arrow
-                </span>
+            Trend Arrow
+          </span>
           <Icon className='ei arrow_triangle-right' />
           <Icon className='ei arrow_triangle-left' />
           <Icon className='ei arrow_triangle-down' />
@@ -97,39 +88,38 @@ storiesOf('Icons', module)
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Success Checkmark
-                </span>
+            Success Checkmark
+          </span>
           <Icon className='ei icon_check' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Search
-                </span>
+            Search
+          </span>
           <Icon className='ei icon_search' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    User
-                </span>
+            User
+          </span>
           <Icon className='ei icon_profile' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Tag
-                </span>
+            Tag
+          </span>
           <Icon className='ei icon_tag_alt' />
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Folder
-                </span>
+            Folder
+          </span>
           <Icon className='ei icon_folder-alt' />
         </div>
-
         <div>
           <span style={{marginRight: '20px'}}>
-                    Sizing
-                </span>
+            Sizing
+          </span>
           <Icon className='ei icon_folder-alt' />
           <Icon className='ei icon_folder-alt' size='large' />
           <Icon className='ei icon_folder-alt' size='big' />
@@ -137,13 +127,16 @@ storiesOf('Icons', module)
         </div>
         <div>
           <span style={{marginRight: '20px'}}>
-                    Colors
-                </span>
+            Colors
+          </span>
           <Icon className='ei icon_folder-alt' color='red' size='big' />
           <Icon className='ei icon_folder-alt' color='grey' size='big' />
           <Icon className='ei icon_folder-alt' color='yellow' size='big' />
         </div>
+    </div>
 
-            Note that these icons are namespaced with the class "ei" which enables you to access the Elegant Icons while retaining the usage of the Semantic UI Icon component.
-        </div>
-    ))
+Note that these icons are namespaced with the class `ei` which enables you to access the Elegant Icons while retaining the usage of the Semantic UI Icon component.
+
+```jsx
+<Icon className='ei icon_error-circle_alt' /> // ei + <icon-class>
+```

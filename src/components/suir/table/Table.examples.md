@@ -1,14 +1,6 @@
-import React from 'react'
-import { storiesOf } from '@kadira/storybook'
-import { Table } from 'semantic-ui-react'
+## Generic
 
-storiesOf('Tables', module)
-  .addDecorator((story) => (
-    <div style={{padding: '15px'}}>
-      {story()}
-    </div>
-  ))
-  .add('Table', () => (
+    const Table = require('semantic-ui-react').Table;
     <Table selectable>
       <Table.Header>
         <Table.Row>
@@ -36,8 +28,10 @@ storiesOf('Tables', module)
         </Table.Row>
       </Table.Body>
     </Table>
-  ))
-  .add('Table with State', () => (
+
+## Hover States
+
+    const Table = require('semantic-ui-react').Table;
     <Table selectable>
       <Table.Header>
         <Table.Row>
@@ -48,11 +42,6 @@ storiesOf('Tables', module)
       </Table.Header>
 
       <Table.Body>
-        <Table.Row positive>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-        </Table.Row>
         <Table.Row positive>
           <Table.Cell>Cell</Table.Cell>
           <Table.Cell>Cell</Table.Cell>
@@ -65,8 +54,10 @@ storiesOf('Tables', module)
         </Table.Row>
       </Table.Body>
     </Table>
-  ))
-  .add('Sortable', () => (
+
+## Sortable
+
+    const Table = require('semantic-ui-react').Table;
     <Table selectable sortable>
       <Table.Header>
         <Table.Row>
@@ -77,21 +68,15 @@ storiesOf('Tables', module)
       </Table.Header>
 
       <Table.Body>
-        <Table.Row positive>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
+        <Table.Row>
+          <Table.Cell>A</Table.Cell>
+          <Table.Cell>B</Table.Cell>
+          <Table.Cell>C</Table.Cell>
         </Table.Row>
-        <Table.Row positive>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-        </Table.Row>
-        <Table.Row error>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
-          <Table.Cell>Cell</Table.Cell>
+        <Table.Row>
+          <Table.Cell>D</Table.Cell>
+          <Table.Cell>E</Table.Cell>
+          <Table.Cell>F</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
-  ))

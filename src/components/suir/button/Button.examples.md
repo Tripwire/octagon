@@ -1,37 +1,39 @@
-import React from 'react'
-import { storiesOf } from '@kadira/storybook'
-import { Button } from 'semantic-ui-react'
+## Generic
 
-storiesOf('Button', module)
-  .addDecorator((story) => (
-    <div style={{maxWidth: '200px', marginTop: '15px', marginLeft: '15px'}}>
-      {story()}
-    </div>
-  ))
-  .add('Button', () => (
-    <Button className='tripwire'>Copy </Button>
-  ))
-  .add('Disabled Button', () => (
+    const Button = require('semantic-ui-react').Button;
+    <Button className='tripwire'>Test button</Button>
+
+## Disabled Button
+
+    const Button = require('semantic-ui-react').Button;
     <Button className='tripwire' disabled >Some Copy </Button>
-  ))
-  .add('Active Button', () => (
+
+## Active Button
+
+    const Button = require('semantic-ui-react').Button;
     <Button className='tripwire' active>
-            Some Copy
-          </Button>
-  ))
-  .add('Positive Button', () => (
+        Some Copy
+    </Button>
+
+## Positive Button
+
+    const Button = require('semantic-ui-react').Button;
     <Button positive className='tripwire'>
       <i className='icon_check' style={{marginRight: '10px'}} />
         Positive
       </Button>
-  ))
-  .add('Negative Button', () => (
+
+## Negative Button
+
+    const Button = require('semantic-ui-react').Button;
     <Button negative className='tripwire'>
-      <i className='icon_close' style={{marginRight: '10px'}} />
-        Negative
-      </Button>
-  ))
-  .add('Icon Button', () => (
+    <i className='icon_close' style={{marginRight: '10px'}} />
+    Negative
+    </Button>
+
+## Icon Button
+
+    const Button = require('semantic-ui-react').Button;
     <div>
       <div>
         <Button icon>
@@ -52,4 +54,5 @@ storiesOf('Button', module)
         Disabled
       </div>
     </div>
-  ))
+
+See full input documentation [here](http://react.semantic-ui.com/elements/button)

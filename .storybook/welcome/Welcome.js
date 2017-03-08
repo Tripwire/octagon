@@ -9,13 +9,19 @@ const md = `
 
 A storybook is a composition of many stories.  A story is a single state of one or more UI components. You can have as many stories as you want. Basically a story is like a visual test case.  Check out the stories inside the \`src/<component>/\` directories.
 
-You can also edit components and see changes right away.  This is just one thing you can do with Storybook.  Have a look at the react-storybook project for more information.
+## Bundled Stories
 
+Octagon exports two types of components:
+
+- Octagon native components
+- [semantic-ui-react](http://react.semantic-ui.com/) native components, with a custom theme applied
+
+Octagon native components are simply components that our teams need to build apps with that _are not provided by default_ from semantic-ui-react (SUIR). **It is always preferred to use the SUIR components** when building apps with Octagon than use your own!  Such efforts improve homogeneity in Octagon apps!
 `
 
 export default class Welcome extends React.Component {
-  showApp (e) {
-    e.preventDefault()
+  showApp (evt) {
+    evt.preventDefault()
     if (this.props.showApp) this.props.showApp()
   }
 
