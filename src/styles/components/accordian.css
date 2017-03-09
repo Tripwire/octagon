@@ -1,16 +1,18 @@
 @import '../variables.css';
 
-.noborder{
+.accordian__noborder{
   border: 0px !important;
 }
-
+.accordian__folderpad{
+  margin-top: 10px;
+}
 
 .accordian__row{
   border: 1px solid #D0D2D3;
   background-color: white;
   position: relative;
   min-height: 60px;
-  margin-top:10px;
+
   & .topedge{
     height: 10px;
     border: 1px solid #D0D2D3;

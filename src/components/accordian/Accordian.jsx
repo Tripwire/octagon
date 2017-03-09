@@ -24,7 +24,10 @@ class Accordian extends React.Component {
   render() {
     let borderClass = '';
     if (this.props.noBorder){
-      borderClass = 'noborder';
+      borderClass = 'accordian__noborder';
+    }
+    if (this.props.folder){
+      borderClass += ' accordian__folderpad'
     }
     return (
       <Flexbox flexDirection="column" className={`accordian__row ${borderClass}`} key={this.props.data.id}>
