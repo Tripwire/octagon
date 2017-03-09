@@ -1,16 +1,16 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
-import AccordianWidgetLabel from './AccordianWidgetLabel'
-import AccordianWidgetValue from './AccordianWidgetValue'
+import ThinCardWidgetLabel from './ThinCardWidgetLabel'
+import ThinCardWidgetValue from './ThinCardWidgetValue'
 
-class AccordianWidget extends React.Component {
+class ThinCardWidget extends React.Component {
   constructor(props) {
     super(props)
 
   }
 
-  static Label = AccordianWidgetLabel
-  static Value = AccordianWidgetValue
+  static Label = ThinCardWidgetLabel
+  static Value = ThinCardWidgetValue
 
   render(){
     let borderClass = '';
@@ -29,14 +29,16 @@ class AccordianWidget extends React.Component {
   }
 }
 
-AccordianWidget.defaultProps = {
+ThinCardWidget.defaultProps = {
     borderLeft: false,
     borderRight: false,
 }
 
-AccordianWidget.propTypes = {
+ThinCardWidget.propTypes = {
     borderLeft: React.PropTypes.bool,
     borderRight: React.PropTypes.bool,
+    className: React.PropTypes.object,
+    onClick: React.PropTypes.func
 }
 
-export default AccordianWidget
+export default ThinCardWidget

@@ -4,7 +4,7 @@ import { storiesOf } from '@kadira/storybook'
 import MicroCard from '../src/components/MicroCard/MicroCard'
 import LargeCard from '../src/components/LargeCard/LargeCard'
 import FavoriteButton from '../src/components/FavoriteButton'
-import Accordian from '../src/components/accordian/Accordian'
+import ThinCard from '../src/components/ThinCard/ThinCard'
 import StopStartButton from '../src/components/StopStartButton'
 import { Icon } from 'semantic-ui-react'
 
@@ -32,7 +32,7 @@ const items = [
     date: '9/12/2016'
   }
 ]
-const drawer = <Accordian.Drawer expandGroupToggle={handleMe}>test</Accordian.Drawer>
+const drawer = <ThinCard.Drawer expandGroupToggle={handleMe}>test</ThinCard.Drawer>
 storiesOf('Cards', module)
   .add('Micro Card', () => (
     <div>
@@ -87,32 +87,33 @@ storiesOf('Cards', module)
 
     </div>
   ))
-  .add('Accordian', () => (
+  .add('ThinCard', () => (
     <div>
-      <Accordian data={{id: 0}} folder drawer={drawer}>
-        <Accordian.PrimaryAction><StopStartButton /></Accordian.PrimaryAction>
-        <Accordian.Title>I'm ready to go!</Accordian.Title>
-        <Accordian.ActionButon>MANAGE</Accordian.ActionButon>
-        <Accordian.Widget borderLeft>
-          <Accordian.Widget.Label style={{marginRight: '30px'}}>
+      <ThinCard data={{id: 0}} folder drawer={drawer}>
+        <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
+        <ThinCard.Title>I'm ready to go!</ThinCard.Title>
+        <ThinCard.ActionButon>MANAGE</ThinCard.ActionButon>
+        <ThinCard.Widget borderLeft>
+          <ThinCard.Widget.Label style={{marginRight: '30px'}}>
             LABEL
-          </Accordian.Widget.Label>
-          <Accordian.Widget.Value>
+          </ThinCard.Widget.Label>
+          <ThinCard.Widget.Value>
             1234
-          </Accordian.Widget.Value>
-        </Accordian.Widget>
-        <Accordian.Widget borderLeft>
-          <Accordian.Widget.Label style={{marginRight: '30px'}}>
+          </ThinCard.Widget.Value>
+        </ThinCard.Widget>
+        <ThinCard.Widget borderLeft>
+          <ThinCard.Widget.Label style={{marginRight: '30px'}}>
             FOO
-          </Accordian.Widget.Label>
-          <Accordian.Widget.Value>
+          </ThinCard.Widget.Label>
+          <ThinCard.Widget.Value>
             BAR
-          </Accordian.Widget.Value>
-        </Accordian.Widget>
-      </Accordian>
-      <Accordian data={{id: 0}} folder={false}>
-        <Accordian.PrimaryAction><StopStartButton isStopped /></Accordian.PrimaryAction>
-        <Accordian.Title>I'm stopped</Accordian.Title>
-      </Accordian>
+          </ThinCard.Widget.Value>
+        </ThinCard.Widget>
+      </ThinCard>
+      <br />
+      <ThinCard data={{id: 0}} folder={false}>
+        <ThinCard.PrimaryAction><StopStartButton isStopped /></ThinCard.PrimaryAction>
+        <ThinCard.Title>I'm stopped</ThinCard.Title>
+      </ThinCard>
     </div>
   ))

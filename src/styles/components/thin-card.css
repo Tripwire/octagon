@@ -1,13 +1,13 @@
 @import '../variables.css';
 
-.accordian__noborder{
+.thincard__noborder{
   border: 0px !important;
 }
-.accordian__folderpad{
+.thincard__folderpad{
   margin-top: 10px;
 }
 
-.accordian__row{
+.thincard__row{
   border: 1px solid #D0D2D3;
   background-color: white;
   position: relative;
@@ -35,7 +35,7 @@
       border-right: 10px solid transparent;
   } 
 
-  & .accordian__primary_action{
+  & .thincard__primary_action{
     font-size: 32px;
     padding-left: 15px;
     padding-right: 15px;
@@ -43,7 +43,7 @@
     cursor: pointer;
     border-right: 1px solid #D0D2D3;
   }
-  & .accordian__title{
+  & .thincard__title{
     font-weight: 300;
     vertical-align: center;
     margin-left: 10px;
@@ -51,12 +51,12 @@
     margin-right: 1em;
     color: var(--twgray);
   }
-  & .accordian__widget_label{
+  & .thincard__widget_label{
       display: block;
       color: var(--twgray);
       text-transform: uppercase;
   }
-  & .accordian__widget_value{
+  & .thincard__widget_value{
     font-size: 24px;
     color: var(--twgray);
     font-weight: 300;
@@ -64,7 +64,7 @@
   & .primary-content{
   min-height: 58px;
   }
-  & .accordian__action_button{
+  & .thincard__action_button{
     font-size: 11.2px;
     padding-left: 4px;
     padding-right: 4px;
@@ -73,7 +73,7 @@
     cursor: pointer;
     border: 1px solid #dedede;
   }
-  & .accordian__action_button:hover{
+  & .thincard__action_button:hover{
     background-color: #dedede;
   }
   & .borderLeft{

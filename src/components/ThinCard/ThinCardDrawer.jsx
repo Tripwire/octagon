@@ -2,7 +2,7 @@ import React from 'react'
 import Flexbox from 'flexbox-react'
 import Icon from '../suir/icon/Icon'
 
-const AccordianDrawer = (props) => {
+const ThinCardDrawer = (props) => {
   return (
     <div>
 
@@ -33,11 +33,12 @@ const AccordianDrawer = (props) => {
   )
 }
 
-AccordianDrawer.defaultProps = {
+ThinCardDrawer.defaultProps = {
   expanded: false
 }
-AccordianDrawer.propTypes = {
-  expanded: React.PropTypes.bool
+ThinCardDrawer.propTypes = {
+  expanded: React.PropTypes.bool,
+  onClick: React.PropTypes.func
 
 }
-export default AccordianDrawer
+export default ThinCardDrawer
