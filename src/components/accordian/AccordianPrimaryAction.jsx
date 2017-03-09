@@ -3,8 +3,8 @@ import Flexbox from 'flexbox-react'
 
 const AccordianPrimaryAction = (props) => {
   return (
-    <Flexbox alignItems="center" className={`og__groupBox_play ${props.className}`}>
-        {props.children}
+    <Flexbox alignItems='center' className={`accordian__primary_action ${props.className}`}>
+      {props.children}
     </Flexbox>
   )
 }

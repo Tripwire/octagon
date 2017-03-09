@@ -1,317 +1,17 @@
 @import '../variables.css';
-.text-disabled{
-  color: #BABCBE;
+
+.noborder{
+  border: 0px !important;
 }
 
 
-
-
-.warningyellow .bar{
-  background-color: var(--warningyellow) !important;
-}
-
-.warningred .bar{
-  background-color: var(--warningred) !important;
-  
-}
-.twblue .bar{
-  background-color: var(--blue) !important;
-}
-.normal .bar{
-  background-color: var(--buttonText) !important;
-}
-.ui.table thead th{
-  color: white;
-  background-color: var(--buttonText);
-}
-.operation__container {
-  
-}
-.og__group_icons_line{
-  font-size: 12px;
-}
-.operation_status_dot{
-  font-size: 12px;
-}
-
-.textBlueGray{
-  color: var(--buttonText) !important;
-}
-.textDangerRed{
-  color: var(--warningred) !important;
-}
-.textDangerYellow{
-  color: var(--warningyellow) !important;
-}
-.prompt{
-  border-radius: 0px !important;
-  width: 350px !important;
-}
-.operation__search_input{
-  width: 350px;
-  margin-right: 2em;
-
-}
-
-
-.statusDot{
-  font-size: 20px; 
-
-  & .statusDotCritical{
-    color: var(--warningred);
-  }
-  & .statusDotWarning{
-    color: var(--warningyellow);
-    & .popup{
-        border: 1px solid var(--buttonText) !important;
-        border-radius: 0px !important;
-        position: absolute !important;
-    }
-  }
-  & .statusDotNormal{
-    color: var(--buttonText);
-  }
-  & .statusDotCritical:hover{
-    color: var(--warningred) !important;
-  }
-  & .statusDotWarning:hover{
-    color: var(--warningyellow) !important;
-  }
-  & .statusDotNormal:hover{
-    color: var(--buttonText) !important;
-  }
-
-}
-  .disabled{
-    color: #BABCBE !important;
-  }
-.operation__header_left{
-  width:50%;
-  display: inline-block;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: var(--textGray);
-}
-.operation__header_right{
-  width:50%;
-  display:inline-block;
-  text-align: right;
-}
-.operation__control_bar_left{
-  
-}
-.operation__status_title{
-  & .icon{
-    font-size: 20px;
-  }
-  & .label{
-    font-size: 18px;
-  }
-}
-.operation__status_group{
-  & .icon{
-    font-size: 15px;
-    margin-right: 2px;
-  }
-  & .label{
-    font-size: 15px;
-  }
-}
-.operation__control_bar_right{
-  text-align: right;
-
-  & .operation__new_operation_button{
-    background: white;
-    border: 1px solid var(--textGray);
-    border-radius: 0;
-    color: var(--textGray);
-    width: 200px;
-    float: right;
-    height: 37px;
-    font-weight: bold;
-  }
-  & .iconlarge{
-    font-size: 20px;
-  }
-    & .operation__new_operation_button:hover{
-    border: 1px solid var(--blue);
-    cursor: pointer;
-    color: var(--blue);
-  }
-  & .operation__new_operation_button:active{
-    border: 1px solid var(--blue);
-    background-color: var(--blue);
-    color: white;
-  }
-}
-.operation__control_bar_center{
-      display: block;
-    font-size: 11.2px;
-    font-size: 0.7rem;
-    color: rgb(166, 168, 171);
-    text-transform: uppercase;
-  
-  & .ui.selection.dropdown{
-    border-radius: 0px;
-    border: 1px solid var(--textGray);
-  }
-  & .ui.selection.dropdown:hover{
-    border: 1px solid var(--textGray);
-  }
-  & .ui.selection.active.dropdown:hover .menu{
-    border: 1px solid var(--textGray);
-  }
-}
-.displayTable{
-  display: table;
-}
-.displayTableCell{
-  display: table-cell;
-  width: auto;
-}
-.operation_group_list_item_name{
-  font-weight: 300;
-  vertical-align: center;
-  margin-left: 10px;
-  font-size: 24px;
-  margin-right: 1em;
-  color: var(--buttonText);
-}
-.group_favorite{
-  width: 15%;
-  text-align: right;
-}
-.operation__group_list_item{
- 
-  padding: 1em;
-  margin: 10px;
-  cell
-  width: 100%;
-
-}
-.group_icon:hover{
-  color: var(--blue) !important;
-}
-.display_inline{
-  display: inline-block;
-}
-.operation__group_list_item_left{
- border-top: 1px solid #dedede;
- border-left: 1px solid #dedede;
- border-bottom: 1px solid #dedede;
-}
-.operation__group_list_item_assets{
- border-top: 1px solid #dedede;
- border-bottom: 1px solid #dedede;
-}
-.operation__group_list_item_assets_value{
-  font-size: 24px;
-  color: var(--buttonText);
-  font-weight: 300;
-  & .ui.progress .bar{
-    background-color: var(--blue);
-  }
-}
-.ui.progress{
-  border-radius: 0px !important;
-}
-.ui.progress .bar{
-  border-radius: 0px !important;
-}
-.operation__group_list_manage{
-  font-size: 11.2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  cursor: pointer;
-  border: 1px solid #dedede;
-}
-.operation__group_list_manage:hover{
-  background-color: #dedede;
-}
-.alignLeft{
-  text-align: left;
-}
-.alignRight{
-  text-align: right;
-}
-.operation__groups_header{
-  
-  width: 100%;
-  border-top: 1px solid #D0D2D3;
-  padding: 1em;
-  border-spacing: 10px;
-  border-collapse: separate;
-}
-.borderLeft{
-    border-left: 1px solid #D0D2D3;
-}
-.borderRight{
-    border-right: 1px solid #D0D2D3;
-}
-.operation__groups_general{
-  
-  
-  
-}
-.operationIcon{
-  padding-right: 8px;
-  min-width: 10px;
-  min-height: 10px;
-}
-.noMarginBottom{
-  margin-bottom: 0px !important;
-}
-.box__header{
-  font-size: 1.5em;
-}
-.operation__page_title{
-  font-weight: 400;
-  font-size: 20px;
-  
-  padding-bottom: 15px;
-  color: #656A76;
-}
-.operation__groups_title{
-  font-weight: bolder;
-  display: inline-block;
-  font-size: 1.5em;
-  color: var(--buttonText);
-}
-.operation_groups_value{
-  font-size: 1.55em;
-  font-weight: lighter;
-  display: inline-block;
-  margin-left: 2em;
-
-}
-.operation_groups_generic{
-
-  display: inline-block;
-  
-
-}
-.operation__groups_left{
-  margin-top: 1em;
-  
-}
-.operationGroups{
-  background-color: #F1F1F2;
-  border-top: 1px solid #BBBDBF;
-  border-bottom: 1px solid #BBBDBF;
-
-  padding-bottom: 15px;
-}
-
-.og__row{
+.accordian__row{
   border: 1px solid #D0D2D3;
   background-color: white;
   position: relative;
   min-height: 60px;
   margin-top:10px;
-}
-.topedge{
+  & .topedge{
     height: 10px;
     border: 1px solid #D0D2D3;
     border-bottom: 1px solid white;
@@ -322,335 +22,82 @@
     position: absolute;
     
   }
-.topedge:before {
-    position:absolute; left:38px; top:-1px; content:'';
-    border-bottom: 10px solid silver;
-    border-right: 10px solid transparent;
-}
-
-.topedge:after {
-    position:absolute; left:38px; top:0px; content:'';
-    border-bottom: 10px solid white;
-    border-right: 10px solid transparent;
-}  
-.og__col_left{
-  
-  width: 50%;
-  height: 100%;
-  display: inline-block;
-}
-
-.og__col_assets{
- 
-  height: 100%;
-  display: inline-block;
-  width: 16%;
-}
-.og__col_assets > * {
-    vertical-align:middle; 
-}
-.og__col_operations{
-  float: left;
-
-  height: 100%;
-}
-.og__col_activity{
-  float: left;
-
-  height: 100%;
-}
-.og__expand{
-
-
-  cursor: pointer;
-  
-}
-.og__expand_left{
-  background-color: #dbdee1;
-  border-bottom: 2px solid #F1F1F2;
-  border-top: 3px solid var(--blue);
-}
-.opsTable{
-  max-height: 0px;
-  position: relative;
-  transition: max-height 500ms ease-in-out;
-  & .active{
-    max-height: 500px;
+  & .topedge:before {
+      position:absolute; left:38px; top:-1px; content:'';
+      border-bottom: 10px solid silver;
+      border-right: 10px solid transparent;
   }
-}
-.og__expand_center{
-  background-color: var(--blue);
-  border-bottom: 2px solid  var(--blue);
-  color: white;
-}
-.og__expand_center_copy{
-  font-size: 12px;
-}
-.og__title{
-    display: block;
-    color: var(--buttonText);
-    text-transform: uppercase;
-}
-.og__value{
-    font-size: 2.75rem;
-    font-weight: 300;
-    color: var(--buttonText);
-}
-.og__ops_list{
-  
-  overflow-y: scroll;
+  & .topedge:after {
+      position:absolute; left:38px; top:0px; content:'';
+      border-bottom: 10px solid white;
+      border-right: 10px solid transparent;
+  } 
 
-  padding-left: 15px;
-  padding-right: 15px;
-  
-  
-  & .fixed{
-    max-height: 500px !important;
-  }
-  & .ui.table{
-    border-radius: 0px;
-  }
-  & .ui.table thead tr:first-child>th:first-child{
-    border-radius: 0px;
-  }
-  & .ui.table thead tr:first-child>th:last-child{
-    border-radius: 0px;
-  }
-  & .list_coverage_bar .bar{
-    color: var(--buttonText);
-    background-color: var(--buttonText) !important;
-  }
-  & .tableHeader{
+  & .accordian__primary_action{
+    font-size: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: var(--blue);
     cursor: pointer;
-    color: #BFD5E1;
-    font-weight: 500;
+    border-right: 1px solid #D0D2D3;
   }
-  & .activeTableHeader{
+  & .accordian__title{
+    font-weight: 300;
+    vertical-align: center;
+    margin-left: 10px;
+    font-size: 24px;
+    margin-right: 1em;
+    color: var(--twgray);
+  }
+  & .accordian__widget_label{
+      display: block;
+      color: var(--twgray);
+      text-transform: uppercase;
+  }
+  & .accordian__widget_value{
+    font-size: 24px;
+    color: var(--twgray);
+    font-weight: 300;
+  }  
+  & .primary-content{
+  min-height: 58px;
+  }
+  & .accordian__action_button{
+    font-size: 11.2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    cursor: pointer;
+    border: 1px solid #dedede;
+  }
+  & .accordian__action_button:hover{
+    background-color: #dedede;
+  }
+  & .borderLeft{
+      border-left: 1px solid #D0D2D3;
+  }
+  & .borderRight{
+      border-right: 1px solid #D0D2D3;
+  }
+  & .drawer{
+    cursor: pointer;
+  }
+  & .drawer__side{
+    background-color: #dbdee1;
+    border-top: 3px solid var(--blue);
+  }  
+  & .drawer__center{
+    background-color: var(--blue);
+    border-bottom: 2px solid  var(--blue);
     color: white;
   }
-}
-.ops_table_content{
-    max-height: 0px;
-    -webkit-transition: max-height 0.8s;
-	  -moz-transition: max-height 0.8s;
-	  transition: max-height 0.8s;
-  }
-.active{
-  max-height: 500px;
-    -webkit-transition: max-height 0.8s;
-	  -moz-transition: max-height 0.8s;
-	  transition: max-height 0.8s;
+  & .drawer__center_copy{
+    font-size: 12px;
+  } 
+  & .text-large{
+    font-size: 1.5em;
+  } 
 }
 
-.og__opslist_play{
-  cursor: pointer;
-  width: 15px;
-  padding: 15px 10px !important;
-  border-right: 1px solid #E6E7E8;
-  
-}
-.og__opslist_play_fontsize{
-  font-size: 22px;
-  color: var(--blue);
-}
-.og__tooltip_header{
-  color: red;
-}
-.og__tooltip_header_caution{
-  color: var(--orange);
-}
-.og__tooltip_header_success{
-  color: var(--buttonText);
-}
-.og__single_icon{
-  font-size: 1.25em;
-  margin-right: 4px;
-}
-.og__ol_single_line{
-  width: 80%;
-  text-align: center;
-}
-.og_group{
-  position: relative;
-}
 
-.pointer{
-  cursor: pointer;
-}
-.og__groupBox_play{
-  font-size: 32px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: var(--blue);
-  cursor: pointer;
-  border-right: 1px solid #D0D2D3;
-}
-.og__groups_headerBox{
-  margin-bottom: 15px;
-}
-.og__table_headerBox{
-  height: 70px;
-  margin-top: 35px;
-  padding: 10px 15px;
-  margin-bottom: 5px;
-  -webkit-box-shadow: 0 6px 6px -6px black;
-     -moz-box-shadow: 0 6px 6px -6px black;
-          box-shadow: 0 6px 6px -6px black;
-}
-
-.text-size-critical{
-  font-size: 15px;
-}
-.text-large{
-  font-size: 1.5em;
-}
-.og_group_alerts_icon{
-  font-size: 12px;
-}
-.tables {
-  border: 1px solid gainsboro;
-  border-collapse: separate;
-  border-radius: 3px;
-  border-spacing: 0;
-  font-size: 0.85em;
-  width: 100%;
-
-  & tbody {
-    background-color: #f1f1f1;
-    & tr:hover > td, 
-    & tr:hover > th {
-      background-color: color(#f3f3f3);
-    }
-    & tr:nth-child(even) {
-      background-color: #f9f9f9;
-      &:hover > td {
-        background-color: color(#f9f9f9 blackness(5%));
-      }
-    }
-  }
-
-  & thead:first-of-type {
-    & tr:first-child > th:first-child {
-      border-top-left-radius: var(--base-border-radius);
-    }
-
-    & tr:first-child > th:last-child {
-      border-top-right-radius: var(--base-border-radius);
-    }
-  }
-
-  & tbody:last-child {
-    & tr:last-child > td:first-child {
-      border-bottom-left-radius: var(--base-border-radius);
-    }
-
-    & tr:last-child > td:last-child {
-      border-bottom-right-radius: var(--base-border-radius);
-    }
-  }
-
-  & thead {
-    & th {
-      background-color: #F1F2F3;
-      border-bottom: 0;
-      border-left: 1px solid #f1f1f1;
-      padding: 0.75em 1em;;
-      text-align: left;
-
-      &:first-child {
-        border-left: 0;
-      }
-    }
-  }
-
-  & tbody {
-    background-color: white;
-
-    & td {
-      border-bottom: 0;
-      border-left: 1px solid gainsboro !default;
-      border-top: 1px solid gainsboro !default;
-      padding:  0.75em 1em;
-
-      &:first-child {
-        border-left: 0;
-      }
-
-      & button {
-        display: inline-block;
-        font-size: 0.7em;
-        line-height: 1.5em !default;
-        margin-right: 0.5em;
-        outline: none;
-        padding: 0.3em 1em;
-        margin-bottom: 0;
-        width: auto;
-      }
-    }
-  }
-}
-@keyframes blink {
-    /**
-     * At the start of the animation the dot
-     * has an opacity of .2
-     */
-    0% {
-      opacity: .2;
-    }
-    /**
-     * At 20% the dot is fully visible and
-     * then fades out slowly
-     */
-    20% {
-      opacity: 1;
-    }
-    /**
-     * Until it reaches an opacity of .2 and
-     * the animation can start again
-     */
-    100% {
-      opacity: .2;
-    }
-}
-
-.ellipsisrunning span {
-    /**
-     * Use the blink animation, which is defined above
-     */
-    animation-name: blink;
-    /**
-     * The animation should take 1.4 seconds
-     */
-    animation-duration: 1.4s;
-    /**
-     * It will repeat itself forever
-     */
-    animation-iteration-count: infinite;
-    /**
-     * This makes sure that the starting style (opacity: .2)
-     * of the animation is applied before the animation starts.
-     * Otherwise we would see a short flash or would have
-     * to set the default styling of the dots to the same
-     * as the animation. Same applies for the ending styles.
-     */
-    animation-fill-mode: both;
-    
-}
-
-.ellipsisrunning span:nth-child(2) {
-    /**
-     * Starts the animation of the third dot
-     * with a delay of .2s, otherwise all dots
-     * would animate at the same time
-     */
-    animation-delay: .2s;
-}
-
-.ellipsisrunning span:nth-child(3) {
-    /**
-     * Starts the animation of the third dot
-     * with a delay of .4s, otherwise all dots
-     * would animate at the same time
-     */
-    animation-delay: .4s;
-}

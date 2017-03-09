@@ -5,6 +5,7 @@ import AccordianTitle from './AccordianTitle'
 import AccordianPrimaryAction from './AccordianPrimaryAction'
 import AccordianActionButton from './AccordianActionButton'
 import AccordianWidget from './AccordianWidget'
+import AccordianDrawer from './AccordianDrawer';
 import '../../styles/components/accordian.css'
 
 
@@ -18,23 +19,34 @@ class Accordian extends React.Component {
   static PrimaryAction = AccordianPrimaryAction
   static ActionButon = AccordianActionButton
   static Widget = AccordianWidget
+  static Drawer = AccordianDrawer
 
   render() {
+    let borderClass = '';
+    if (this.props.noBorder){
+      borderClass = 'noborder';
+    }
     return (
-      <Flexbox flexDirection="column" className="og__group og__row" key={this.props.data.id}>
+      <Flexbox flexDirection="column" className={`accordian__row ${borderClass}`} key={this.props.data.id}>
 
         {(this.props.folder) ? (
           <div className="topedge"></div>
         ) : ''
         }
-        <Flexbox flexDirection="row" flexGrow={3}>
+        <Flexbox flexDirection="row" flexGrow={3} className="primary-content">
         {this.props.children}
         </Flexbox>
+        {this.props.drawer}
       </Flexbox>
     )
   }
 }
+Accordian.defaultProps = {
+  folder: true,
+  noBorder: false
+}
 Accordian.propTypes = {
-  folder: React.PropTypes.bool
+  folder: React.PropTypes.bool,
+  noBorder: React.PropTypes.bool,
 }
 export default Accordian

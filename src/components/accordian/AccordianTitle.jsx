@@ -3,8 +3,8 @@ import Flexbox from 'flexbox-react'
 
 const AccordianTitle = (props) => {
   return (
-    <Flexbox alignItems="center" className="operation_group_list_item_name">
-        {props.children}
+    <Flexbox alignItems='center' className='accordian__title'>
+      {props.children}
     </Flexbox>
   )
 }

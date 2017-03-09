@@ -32,6 +32,7 @@ const items = [
     date: '9/12/2016'
   }
 ]
+const drawer = <Accordian.Drawer expandGroupToggle={handleMe}>test</Accordian.Drawer>
 storiesOf('Cards', module)
   .add('Micro Card', () => (
     <div>
@@ -88,7 +89,7 @@ storiesOf('Cards', module)
   ))
   .add('Accordian', () => (
     <div>
-      <Accordian data={{id: 0}} folder>
+      <Accordian data={{id: 0}} folder drawer={drawer}>
         <Accordian.PrimaryAction><StopStartButton /></Accordian.PrimaryAction>
         <Accordian.Title>I'm ready to go!</Accordian.Title>
         <Accordian.ActionButon>MANAGE</Accordian.ActionButon>
