@@ -65,7 +65,7 @@ module.exports = {
       loaders: [
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
-          loader: 'file?name=[name].[ext]'
+          loader: 'file-loader?name=[name].[ext]'
         },
         {
           test: /\.css?$/,
