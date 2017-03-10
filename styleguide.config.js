@@ -10,12 +10,6 @@ const glob = require('glob')
 const fs = require('fs')
 const builder = require('./scripts/builder')
 
-const componentStyles = glob
-  .sync(`${__dirname}/src/**/*.css`)
-  .filter(filename => !filename.match(/components.suir/))
-  .filter(filename => !filename.match(/variables.css/))
-  .concat([builder.semanticCSSFilename])
-
 const suirExamples = glob.sync(`${__dirname}/src/components/suir/**/*.examples.md`)
 
 var semanticCSSStat = fs.lstatSync(builder.semanticCSSFilename)
@@ -48,12 +42,12 @@ module.exports = {
   },
   skipComponentsWithoutExample: true,
   webpackConfig: {
-    entry: componentStyles,
     output: {
       path: PATHS.dist,
       publicPath: '/',
       filename: 'bundle.js'
     },
+    devtool: 'eval',
     module: {
       preLoaders: [
         {
