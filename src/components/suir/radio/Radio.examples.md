@@ -2,8 +2,8 @@
 
 Radio toggle
 
-     const Radio = require('semantic-ui-react').Radio;
-     <Radio toggle />
+    const Radio = require('semantic-ui-react').Radio;
+    <Radio toggle />
 
 Standard Radio
 

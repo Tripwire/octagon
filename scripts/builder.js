@@ -10,7 +10,6 @@ const pify = require('pify')
 const os = require('os')
 
 const exec = pify(cp.exec, { multiArgs: true })
-const spawn = require('cross-spawn-promise')
 const copy = pify(fs.copy)
 const mkdirp = pify(fs.mkdirp)
 const remove = pify(fs.remove)
@@ -27,11 +26,9 @@ module.exports = {
   get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get styleguidistDist () { return path.join(this.projectRoot, 'styleguide') },
-  get staticStorybookDist () { return path.join(this.projectRoot, 'storybook-static') },
   get assetsDist () { return path.join(this.distDir, 'assets') },
   /**
    * Build full lib.
-   * @NOTE, does not build storybook. {@see this.storybook}
    * @returns {Promise}
    */
   build () {
@@ -48,7 +45,6 @@ module.exports = {
       remove(this.coverageDir),
       remove(this.distDir),
       remove(this.semanticDist),
-      remove(this.staticStorybookDist),
       remove(this.styleguidistDist)
     ])
   },
@@ -60,7 +56,7 @@ module.exports = {
   },
   octagonComponentJs (opts) {
     opts = opts || {}
-    const args = [this.getBin('babel'), 'src', '-d', this.componentDist, '--ignore', '*.stories.js', '--source-maps']
+    const args = [this.getBin('babel'), 'src', '-d', this.componentDist, '--source-maps']
     if (opts.watch) args.push('--watch')
     return Promise.resolve()
     .then(() => mkdirp(this.componentDist))
@@ -98,16 +94,5 @@ module.exports = {
     // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
     return this.semanticBuild()
     .then(() => this.copySemanticAssets())
-  },
-  storybook () {
-    return this.build()
-    .then(() => Promise.all([
-      spawn(this.getBin('build-storybook'), { cwd: this.projectRoot, stdio: 'inherit' }),
-      spawn('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
-    ]))
-    .then(() => copy(
-      this.styleguidistDist,
-      path.join(this.staticStorybookDist, path.basename(this.styleguidistDist))
-    ))
   }
 }
