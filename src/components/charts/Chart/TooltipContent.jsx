@@ -11,4 +11,3 @@ const ToolTipContent = (props) => {
 }
 
 export default ToolTipContent
-

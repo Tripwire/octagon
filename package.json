@@ -66,13 +66,20 @@
   "scripts": {
     "build": "node scripts/build",
     "secure": "nsp check",
-    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
+    "lint": "standard",
     "test": "echo 'TBD'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "styleguide:server": "styleguidist server",
     "start": "node scripts/start"
+  },
+  "standard": {
+    "ignore": [
+      "lib",
+      "semantic",
+      "styleguide"
+    ]
   },
   "ripcord": {
     "rules": [
