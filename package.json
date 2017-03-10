@@ -71,7 +71,6 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "styleguide:server": "styleguidist server",
     "start": "node scripts/start"
   },
   "ripcord": {
