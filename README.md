@@ -31,9 +31,9 @@ To use it:
 - import components from the lib
 
 ```js
-import 'octagon/lib/styles/semantic.css'
-import Segment from 'octagon/lib/components/suir/Segment'
-import FavoriteButton from 'octagon/lib/components/FavoriteButton'
+import 'react-octagon/lib/styles/semantic.css'
+import Segment from 'react-octagon/lib/components/suir/Segment'
+import FavoriteButton from 'react-octagon/lib/components/FavoriteButton'
 
 class MyWigdet () {
   render () {
