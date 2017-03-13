@@ -47,7 +47,6 @@ class Axis extends React.Component {
        />
     )
   }
-
 }
 
 Axis.propTypes = {

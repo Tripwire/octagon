@@ -72,4 +72,3 @@ ToolTip.propTypes = {
 }
 
 export default ToolTip
-
