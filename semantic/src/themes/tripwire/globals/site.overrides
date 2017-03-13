@@ -2,38 +2,6 @@
         Global Overrides
 *******************************/
 
-:root {
-  --warningred: #c0382b;
-  --warningyellow: #ff9e2c;
-  --blue: #3498db;
-  --twgray: #586A7B;
-  --textPurple: #A676B2;
-  --black: #272F34;
-  --darkblue: #586A7A;
-  --darkgray: #777776;
-  --gray: #A6A8AB;
-  --lightgray: #E5E6E7;
-  --white: #fff;
-  --red: #E96C64 ;
-  --yellow: #F8AE4B;
-  --cloudburst: #363d43;
-  --purple: #A976B2;
-  --green: #00A69C;
-  --darkgreen: #169D8F;
-  --orange: #FFA500;
-  --xsmall: 0.7rem;
-  --small: 0.85rem;
-  --semibold: 600;
-  --subtitlesize: 14px;
-  --buttonBorder: #BBBDBF;
-  --buttonActiveColor: white;
-  --taggray: #ededed;
-  --lightblue: #bde9ff;
-  --textGray: #657d8e;
-  --base-border-radius: 0;
-
-}
-
 /*!
 	Lato font.
 */

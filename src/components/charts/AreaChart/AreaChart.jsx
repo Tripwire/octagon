@@ -1,6 +1,5 @@
 import React from 'react'
 import PlotArea from './PlotArea'
-import Immutable from 'immutable'
 import Axis from './Axis'
 import ToolTip from './ToolTip'
 import Dots from '../Chart/Dots'
@@ -105,7 +104,7 @@ class AreaChart extends React.Component {
     const margin = { top: 5, right: 50, bottom: 20, left: 50 }
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
-    const data = Immutable.fromJS(this.props.data).toJS() // copy data from props
+    const data = this.props.data
     let xAxis = null
     let xScale = null
     let xScaleAxis = null

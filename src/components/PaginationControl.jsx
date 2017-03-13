@@ -1,6 +1,7 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import '../styles/components/pagination-control.css'
+
 class PaginationControl extends React.Component {
   constructor (props) {
     super(props)

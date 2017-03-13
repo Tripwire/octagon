@@ -18,6 +18,8 @@ import Sidebar from './components/suir/sidebar/Sidebar'
 import Step from './components/suir/step/Step'
 import Table from './components/suir/table/Table'
 
+import palette from './palette'
+
 export default {
   suir: {
     Button,
@@ -39,5 +41,6 @@ export default {
     Sidebar,
     Step,
     Table
-  }
+  },
+  palette
 }
