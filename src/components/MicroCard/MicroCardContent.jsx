@@ -1,23 +1,30 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
+import MicroCardContentStatus from './MicroCardContentStatus'
+import MicroCardContentMessage from './MicroCardContentMessage'
 
-const MicroCardContent = (props) => {
-  return (
+class MicroCardContent extends React.Component {
+  static Status = MicroCardContentStatus;
+  static Message = MicroCardContentMessage;
+  
+  render (){
+    return(
     <Flexbox flexDirection='column' paddingBottom='10px' paddingLeft='10px' paddingTop='5px'>
-      {(props.cardContent.title) ? <Flexbox className='box__header'>{props.cardContent.title}</Flexbox> : '' }
+      {(this.props.title) ? <Flexbox className='box__header'>{this.props.title}</Flexbox> : '' }
       <Flexbox flexGrow={2}>
-        {props.children}
+        {this.props.children}
       </Flexbox>
     </Flexbox>
   )
+  }
 }
 
 MicroCardContent.defaultProps = {
-
+  title : ''
 }
 
 MicroCardContent.propTypes = {
-  isFavorited: React.PropTypes.bool
+  title: React.PropTypes.string,
 }
 
 export default MicroCardContent
