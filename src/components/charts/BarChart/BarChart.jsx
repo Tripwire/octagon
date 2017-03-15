@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import Rect from './Rect'
-import Immutable from 'immutable'
 import ToolTip from './BarChartTooltip'
 import * as ChartUtils from '../Chart/utils'
 var d3 = Object.assign({}, require('d3-time-format'))
@@ -53,7 +52,7 @@ class BarChart extends React.Component {
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
-    const data = Immutable.fromJS(this.props.data).toJS() // copy data from props
+    const data = this.props.data
     let xScale = null
 
     // const xScale = ChartUtils.xScaleBand(data, innerWidth, barPadding);

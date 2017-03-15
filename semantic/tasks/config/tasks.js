@@ -144,7 +144,7 @@ module.exports = {
 
     /* Minified JS Settings */
     uglify: {
-      mangle           : false, // @tw edited
+      mangle           : true,
       preserveComments : 'some'
     },
 

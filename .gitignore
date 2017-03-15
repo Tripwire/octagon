@@ -25,3 +25,5 @@ storybook-static
 /docs
 .out
 lib
+suir.stories.js
+styleguide

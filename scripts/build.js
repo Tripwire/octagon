@@ -2,4 +2,9 @@
 
 require('perish')
 const builder = require('./builder')
-builder.build()
+const task = process.argv[2]
+
+;(() => {
+  if (task) return builder[task]()
+  builder.build()
+})()

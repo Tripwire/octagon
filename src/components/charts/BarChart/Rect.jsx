@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import colorPallete from '../../colorPallete'
+import palette from '../../../palette'
 var d3 = Object.assign({}, require('d3-time-format'))
 
 const { array, func, number, string } = PropTypes
@@ -13,9 +13,9 @@ const Rect = (props) => {
       xDataKey = d3.timeFormat('%m/%d/%Y (%H:%M)')(d.x)
     }
     if (d.currentState === 'warning') {
-      fillColor = colorPallete.yellow
+      fillColor = palette.yellow
     } else if (d.currentState === 'critical') {
-      fillColor = colorPallete.red
+      fillColor = palette.red
     }
     return (
       <rect
@@ -59,7 +59,7 @@ Rect.propTypes = {
 
 Rect.defaultProps = {
   borderRadius: 3,
-  fill: colorPallete.blue
+  fill: palette.blue
 }
 
 export default Rect

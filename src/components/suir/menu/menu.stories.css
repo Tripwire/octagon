@@ -1,8 +1,0 @@
-#mp-main-menu {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-#mp_menu_buffer {
-  flex-grow: 1;
-}
