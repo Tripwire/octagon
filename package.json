@@ -10,6 +10,7 @@
     "@semantic-release/release-notes-generator": "^2.0.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.7",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -78,7 +79,8 @@
       "lib",
       "semantic",
       "styleguide"
-    ]
+    ],
+    "parser": "babel-eslint"
   },
   "ripcord": {
     "rules": [

@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from './suir/icon/Icon';
+import Icon from './suir/icon/Icon'
 import '../styles/components/stop-start-button.css'
 
 const StopStartButton = (props) => {

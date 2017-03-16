@@ -8,7 +8,7 @@ const ToolTip = (props) => {
   let width = 150
   let height = 40
   let transformArrow = ''
-  let transformText = `translate(${width / 2}, ${height / 2 - 5})`
+  let transformText = `translate(${width / 2}, ${(height / 2) - 5})`
 
   if (props.tooltip.display === true) {
     const position = props.tooltip.pos
@@ -16,11 +16,11 @@ const ToolTip = (props) => {
     y = position.y
     visibility = 'visible'
     if (y < height) {
-      transform = `translate(${x - width / 2}, ${y - height - 20})`
-      transformArrow = `translate(${width / 2 - 20}, ${height - 2})`
+      transform = `translate(${x - (width / 2)}, ${y - height - 20})`
+      transformArrow = `translate(${(width / 2) - 20}, ${height - 2})`
     } else if (y < height) {
-      transform = `translate(${x - width / 2}, ${Math.round(y) + 20})`
-      transformArrow = `translate(${width / 2 - 20}, 0) rotate(180, 20, 0)`
+      transform = `translate(${x - (width / 2)}, ${Math.round(y) + 20})`
+      transformArrow = `translate(${(width / 2) - 20}, 0) rotate(180, 20, 0)`
     }
   } else {
     visibility = 'hidden'
