@@ -1,8 +1,5 @@
 import React from 'react'
-
-import ReactDOM from 'react-dom'
 import Flexbox from 'flexbox-react'
-import Icon from '../suir/icon/Icon'
 import LargeCardAction from './LargeCardAction'
 import LargeCardClose from './LargeCardClose'
 import LargeCardGutter from './LargeCardGutter'
@@ -11,12 +8,7 @@ import LargeCardKeyValue from './LargeCardKeyValue'
 import LargeCardRecentList from './LargeCardRecentList'
 import '../../styles/components/large-card.css'
 
-
 class LargeCard extends React.Component {
-  constructor (props) {
-    super(props)
-    
-  }
   static Action = LargeCardAction;
   static Close = LargeCardClose;
   static Gutter = LargeCardGutter;
@@ -34,6 +26,6 @@ class LargeCard extends React.Component {
   }
 }
 LargeCard.propTypes = {
-    cardContent: React.PropTypes.object,
+  cardContent: React.PropTypes.object
 }
 export default LargeCard

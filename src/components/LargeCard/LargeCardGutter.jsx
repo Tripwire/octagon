@@ -4,21 +4,21 @@ import Flexbox from 'flexbox-react'
 
 const LargeCardGutter = (props) => {
   let color = ''
-  switch(props.color) {
+  switch (props.color) {
     case 'critical':
       color = colorPallete.red
-      break;
+      break
     case 'warning':
       color = colorPallete.yellow
-      break;
+      break
     case 'normal':
       color = colorPallete.blue
-      break;
+      break
     case 'blue':
       color = colorPallete.blue
-      break;
+      break
     default:
-      color = props.color;
+      color = props.color
   }
   return (
     <Flexbox className='fullview__left_border' width='9px' style={{backgroundColor: color}} />

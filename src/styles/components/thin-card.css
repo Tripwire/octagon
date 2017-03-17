@@ -1,0 +1,106 @@
+@import '../variables.css';
+.thincard__noborder {
+  border: 0px !important;
+}
+
+.thincard__folderpad {
+  margin-top: 10px;
+}
+
+.thincard__row {
+  border: 1px solid #D0D2D3;
+  background-color: white;
+  position: relative;
+  min-height: 60px;
+  & .topedge {
+    height: 10px;
+    border: 1px solid #D0D2D3;
+    border-bottom: 1px solid white;
+    background-color: white;
+    width: 40px;
+    top: -10px;
+    left: -1px;
+    position: absolute;
+  }
+  & .topedge:before {
+    position: absolute;
+    left: 38px;
+    top: -1px;
+    content: '';
+    border-bottom: 10px solid silver;
+    border-right: 10px solid transparent;
+  }
+  & .topedge:after {
+    position: absolute;
+    left: 38px;
+    top: 0px;
+    content: '';
+    border-bottom: 10px solid white;
+    border-right: 10px solid transparent;
+  }
+  & .thincard__primary_action {
+    font-size: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: var(--blue);
+    cursor: pointer;
+    border-right: 1px solid #D0D2D3;
+  }
+  & .thincard__title {
+    font-weight: 300;
+    vertical-align: center;
+    margin-left: 10px;
+    font-size: 24px;
+    margin-right: 1em;
+    color: var(--twgray);
+  }
+  & .thincard__widget_label {
+    display: block;
+    color: var(--twgray);
+    text-transform: uppercase;
+  }
+  & .thincard__widget_value {
+    font-size: 24px;
+    color: var(--twgray);
+    font-weight: 300;
+  }
+  & .primary-content {
+    min-height: 58px;
+  }
+  & .thincard__action_button {
+    font-size: 11.2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    cursor: pointer;
+    border: 1px solid #dedede;
+  }
+  & .thincard__action_button:hover {
+    background-color: #dedede;
+  }
+  & .borderLeft {
+    border-left: 1px solid #D0D2D3;
+  }
+  & .borderRight {
+    border-right: 1px solid #D0D2D3;
+  }
+  & .drawer {
+    cursor: pointer;
+  }
+  & .drawer__side {
+    background-color: #dbdee1;
+    border-top: 3px solid var(--blue);
+  }
+  & .drawer__center {
+    background-color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    color: white;
+  }
+  & .drawer__center_copy {
+    font-size: 12px;
+  }
+  & .text-large {
+    font-size: 1.5em;
+  }
+}

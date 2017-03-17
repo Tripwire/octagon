@@ -3,9 +3,9 @@ import Flexbox from 'flexbox-react'
 
 const LargeCardContent = (props) => {
   return (
-       <Flexbox flexDirection='row' flexGrow={3} className={` ${props.className}`}  style={props.style}>
-        {props.children}
-      </Flexbox>
+    <Flexbox flexDirection='row' flexGrow={3} className={` ${props.className}`} style={props.style}>
+      {props.children}
+    </Flexbox>
   )
 }
 
