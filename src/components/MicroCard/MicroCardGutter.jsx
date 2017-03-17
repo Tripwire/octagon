@@ -22,7 +22,7 @@ const MicroCardGutter = (props) => {
   }
 
   return (
-    <Flexbox className='microcard state__indicator' style={{backgroundColor: color}} width='8px' />
+    <Flexbox className='microcard state__indicator' style={{ backgroundColor: color }} width='8px' />
   )
 }
 

@@ -10,7 +10,7 @@ class MicroCardContent extends React.Component {
   render () {
     return (
       <Flexbox flexDirection='column' paddingBottom='10px' paddingLeft='10px' paddingTop='5px'>
-        {(this.props.title) ? <Flexbox className='box__header'>{this.props.title}</Flexbox> : '' }
+        {(this.props.title) ? <Flexbox className='box__header'>{this.props.title}</Flexbox> : ''}
         <Flexbox flexGrow={2}>
           {this.props.children}
         </Flexbox>

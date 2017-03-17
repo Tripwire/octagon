@@ -20,20 +20,20 @@ const LargeCardRecentList = (props) => {
             icon = 'icon_check_alt2'
         }
         return (
-          <Flexbox key={item.id} flexDirection='row' className={`state__body-${item.state} recent__activity__row`}>
-            <Flexbox className={`state__body-${item.state}`} alignItems='center' marginRight='20px'>
-              <Icon className={`text-uppercase text-small ei ${icon} text-large`} />
+          <Flexbox key={item.id} flexDirection='row' className={`recent_list-${item.state} recent__activity__row`}>
+            <Flexbox className={`recent_list-${item.state}`} alignItems='center' marginRight='20px'>
+              <Icon className={`ei ${icon} text-large`} />
             </Flexbox>
-            <Flexbox className={`text-uppercase text-small state__body-${item.state}`} alignItems='center'marginRight='20px'>
+            <Flexbox className={`text-uppercase text-small recent_list-${item.state}`} alignItems='center' marginRight='20px'>
               {item.status}
             </Flexbox>
-            <Flexbox className={`text-uppercase text-small state__body-${item.state}`} alignItems='center'>
+            <Flexbox className={`text-uppercase text-small recent_list-${item.state}`} alignItems='center'>
               {item.date}
             </Flexbox>
           </Flexbox>
         )
       })
-                }
+      }
 
     </Flexbox>
   )
