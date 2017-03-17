@@ -1,15 +1,16 @@
 import React from 'react'
+import Icon from './suir/icon/Icon'
 import '../styles/components/stop-start-button.css'
 
 const StopStartButton = (props) => {
   let iconClass = ''
   if (props.isStopped) {
-    iconClass = 'icon_pause_alt2 stop-start-button'
+    iconClass = 'ei icon_pause_alt2 stop-start-button'
   } else {
-    iconClass = 'arrow_triangle-right_alt2 stop-start-button'
+    iconClass = 'ei arrow_triangle-right_alt2 stop-start-button'
   }
   return (
-    <i className={` ${iconClass} ${props.className}`} style={props.style} onClick={props.onClick} />
+    <Icon className={` ${iconClass} ${props.className}`} style={props.style} onClick={props.onClick} />
   )
 }
 

@@ -1,0 +1,77 @@
+
+@import '../variables.css';
+
+
+
+.microcard {
+  cursor: pointer;
+  display: block;
+  float: left;
+  color: var(--darkgray);
+  width: 300px;
+  font-size: var(--small);
+
+  min-height: 86px;
+  position: relative;
+  & .text-uppercase {
+      text-transform: uppercase;
+  }
+  &.bordered {
+    /* border: 2px solid color(var(--yellow)); */
+    border: 2px solid color(var(--lightgray));
+  }  
+  & .box__header {
+    font-size: 1.2em;
+    color: var(--textGray);
+  }
+
+  & .microcard_favorite {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+  }
+  & .microcard__message {
+    display: block;
+    
+    
+    text-transform: uppercase;
+    & h3, & h4 {
+      margin: 0;
+    }
+    & h3 {
+      font-size: 17.5px;
+      font-weight: 400;
+    }
+    & h4 {
+      font-size: 12px;
+    }
+  }
+  & .microcard__stateIcon {
+
+    width: 25px;
+    height: 48px;
+
+  }
+  & .microcard__count {
+    bottom: 20px;
+    font-size: 2.65rem;
+    position: absolute;
+    right: 25px;
+    color: #A6A8AB;
+  }
+}
+
+
+.microcard__arrow-right {
+  bottom: 0;
+  padding: 5px 1px 5px 3px !important;
+  position: absolute;
+  right: 0;
+  height: 38px !important;
+  margin: 0px !important;
+  font-size: 28px !important;
+  text-align: center;
+  vertical-align: middle;
+  
+}
