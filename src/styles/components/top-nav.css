@@ -1,0 +1,46 @@
+@import '../variables.css';
+.nav__main {
+  background: color(#202226);
+  list-style: none;
+  padding: 5px 20px;
+  height: 51px;
+  font-size: 14px;
+
+  & .nav__item {
+    display: inline-block;
+    margin: 6px 10px 0 0px;
+  }
+
+  & .nav__link {
+    color: white;
+    opacity: 0.9;
+    display: inline-block;
+    padding: 0.5em;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  & .nav__logo {
+    width: 80px;
+    display: block;
+  }
+}
+
+.nav__main--left,
+.nav__main--right {
+  position: relative;
+  float: left;
+  display: block;
+}
+
+.nav__main--right {
+  float: right;
+}
+
+.localTime {
+  color: white;
+  opacity: 0.7;
+  font-size: 14px;
+}
