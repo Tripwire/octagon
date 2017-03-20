@@ -18,13 +18,16 @@
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
+        & .active-icon{
+            opacity: 1;
+        }
     }
     & .icon_nav{
         height: 40px;
         cursor: pointer;
         text-align: center;
         opacity: .4;
-    }     
+    }  
     & .icon_nav:hover{
         opacity: .7;
     }
