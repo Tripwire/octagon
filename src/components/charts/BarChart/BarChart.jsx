@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react'
 import Rect from './Rect'
 import ToolTip from './BarChartTooltip'
-import * as ChartUtils from '../Chart/utils'
-var d3 = Object.assign({}, require('d3-time-format'))
 
-const { array, number, object, string } = PropTypes
+import * as ChartUtils from '../Chart/utils'
+import Immutable from 'immutable'
+var d3 = Object.assign({}, require('d3-time-format'), require('d3-axis'))
+
+const { array, number, object, string, bool } = PropTypes
 
 class BarChart extends React.Component {
   constructor (props) {
@@ -48,37 +50,28 @@ class BarChart extends React.Component {
   }
 
   render () {
-    const { barPadding, borderRadius, height, margin, width, xDataType } = this.props
+    const { barPadding, borderRadius, height, margin, width, xDataType, showXLabel, showIcon } = this.props
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
-    const data = this.props.data
     let xScale = null
-
-    // const xScale = ChartUtils.xScaleBand(data, innerWidth, barPadding);
+    const data = Immutable.fromJS(this.props.data).toJS()
+    const xScaleTimeLineData = Immutable.fromJS(this.props.data).toJS()
     if (this.props.xDataType === 'date') {
       const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
       data.forEach((d) => {
         d.x = parseDate(d.x)
       })
-    }
-    xScale = ChartUtils.xScaleBand(data, innerWidth, barPadding)
-    const yScale = ChartUtils.yScaleLinear(data, innerHeight, 0)
+      xScaleTimeLineData.forEach((d) => {
+        d.x = parseDate(d.x)
+      })
 
-    // const rectBackground = (this.props.data).map((d, i) => {
-    //   return (
-    //     <rect
-    //       fill="#58657f"
-    //       rx={borderRadius}
-    //       ry={borderRadius}
-    //       key={i}
-    //       x={xScale(d[xData])}
-    //       y={margin.top - margin.bottom}
-    //       height={innerHeight}
-    //       width={xScale.bandwidth()}
-    //     />
-    //   );
-    // });
+      xScale = ChartUtils.xScaleBand(data, innerWidth, barPadding)
+    } else {
+      xScale = ChartUtils.xScaleLinear(data, innerWidth, barPadding)
+    }
+
+    const yScale = ChartUtils.yScaleLinear(data, innerHeight, 0)
 
     return (
       <div className='bar-chart__container svg-overflow-visible'>
@@ -95,6 +88,8 @@ class BarChart extends React.Component {
               xScale={xScale}
               yScale={yScale}
               xDataType={xDataType}
+              showXLabel={showXLabel}
+              showIcon={showIcon}
             />
             <ToolTip tooltip={this.state.tooltip} yScale={yScale} />
           </g>
@@ -111,7 +106,9 @@ BarChart.propTypes = {
   height: number,
   margin: object,
   width: number,
-  xDataType: string
+  xDataType: string,
+  showXLabel: bool,
+  showIcon: bool
 }
 
 BarChart.defaultProps = {
@@ -120,7 +117,9 @@ BarChart.defaultProps = {
   height: 70,
   margin: { top: 0, right: 5, bottom: -5, left: 10 },
   width: 200,
-  xDataType: 'month'
+  xDataType: 'month',
+  showXLabel: false,
+  showIcon: false
 }
 
 export default BarChart
