@@ -27,3 +27,6 @@ storybook-static
 lib
 suir.stories.js
 styleguide
+
+*.iml
+*.idea
