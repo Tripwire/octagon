@@ -13,6 +13,9 @@ Standard Area AreaChart
       />
     </div>
 
+Icons are driven from the currentState property of every record.  Warning and critical will display icons while 'normal' does not.
+Set the showIcon & showXLabel props to respectively enable those display properties.
+
 Sample data series:
 
 ```javascript
