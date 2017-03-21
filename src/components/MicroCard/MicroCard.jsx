@@ -21,7 +21,7 @@ class MicroCard extends React.Component {
         className={`microcard bordered ${this.props.className}`}
         style={this.props.style}
         onClick={this.props.onClick}
-    >
+      >
         {this.props.children}
 
       </Flexbox>

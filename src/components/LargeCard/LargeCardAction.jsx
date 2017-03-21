@@ -1,11 +1,9 @@
 import React from 'react'
+import Button from '../suir/button/Button'
 
 const LargeCardAction = (props) => {
   return (
-    <a className={'fullview__goto__button button buttton-rect'} onClick={props.onClick}>
-      {props.label}
-      {props.children}
-    </a>
+    <Button className='tripwire fullview__goto__button' onClick={props.onClick}>{props.label}</Button>
   )
 }
 

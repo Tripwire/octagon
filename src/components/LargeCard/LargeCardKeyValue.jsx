@@ -10,11 +10,13 @@ const LargeCardKeyValue = (props) => {
 }
 
 LargeCardKeyValue.defaultProps = {
-
+  name: '',
+  value: 0
 }
 
 LargeCardKeyValue.propTypes = {
-
+  name: React.PropTypes.string,
+  value: React.PropTypes.number
 }
 
 export default LargeCardKeyValue
