@@ -32,7 +32,6 @@
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.4",
-    "immutable": "^3.8.1",
     "javascript-natural-sort": "^0.7.1",
     "jest": "^19.0.2",
     "nsp": "^2.6.2",

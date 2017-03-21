@@ -1,13 +1,9 @@
 import React, { PropTypes } from 'react'
 import Rect from './Rect'
 import ToolTip from './BarChartTooltip'
-
 import * as ChartUtils from '../Chart/utils'
-import Immutable from 'immutable'
 var d3 = Object.assign({}, require('d3-time-format'), require('d3-axis'))
-
 const { array, number, object, string, bool } = PropTypes
-
 class BarChart extends React.Component {
   constructor (props) {
     super(props)
@@ -15,6 +11,7 @@ class BarChart extends React.Component {
       tooltip: {
         display: false,
         color: null,
+        title: '',
         data: { key: '', value: '' },
         pos: { x: '', y: '' }
       }
@@ -28,6 +25,7 @@ class BarChart extends React.Component {
       tooltip: {
         display: true,
         color: e.target.getAttribute('fill'),
+        title: this.props.tooltipTitle,
         data: {
           key: e.target.getAttribute('data-key'),
           value: e.target.getAttribute('data-value')
@@ -55,8 +53,9 @@ class BarChart extends React.Component {
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
     let xScale = null
-    const data = Immutable.fromJS(this.props.data).toJS()
-    const xScaleTimeLineData = Immutable.fromJS(this.props.data).toJS()
+    const data = JSON.parse(JSON.stringify(this.props.data))
+    const xScaleTimeLineData = JSON.parse(JSON.stringify(this.props.data))
+
     if (this.props.xDataType === 'date') {
       const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
       data.forEach((d) => {
@@ -108,7 +107,8 @@ BarChart.propTypes = {
   width: number,
   xDataType: string,
   showXLabel: bool,
-  showIcon: bool
+  showIcon: bool,
+  tooltipTitle: string
 }
 
 BarChart.defaultProps = {
@@ -119,7 +119,8 @@ BarChart.defaultProps = {
   width: 200,
   xDataType: 'month',
   showXLabel: false,
-  showIcon: false
+  showIcon: false,
+  tooltipTitle: ''
 }
 
 export default BarChart
