@@ -28,12 +28,18 @@
         text-align: center;
         opacity: .4;
     }  
-    & .icon_nav:hover{
-        opacity: .7;
-    }
-    & .active {
+
+    & .icon_container-active {
         border-left: 4px solid white;
         opacity: 1;
+        & .icon_nav:hover{
+            opacity: 1;
+        }
+    }
+    & .icon_container-inactive{
+        & .icon_nav:hover{
+            opacity: .7;
+        }
     }
     & .nav__link {
       color: white;
