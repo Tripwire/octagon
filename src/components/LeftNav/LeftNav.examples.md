@@ -9,20 +9,14 @@ Simple Card Example
       </LeftNav>
       </div>
 
-Richer Example
+#### General Notes ####
 
-
+Use the MenuItem subcomponent to place content.  Use the active prop to set the
+item to active styling.  You can also use an onClick handler to deal with
+navigating the user to the appropriate location.
 
 #### Supported Fragments ####
 
 ```javascript
-
-`PrimaryAction`     : left button area
-`Title`             : maybe title
-`ActionButton`      : secondary action button
-`Widget`            : container for stats
-`Widget.Label`      : label formatted text
-`Widget.Value`      : value formatted text
-`Drawer`            : collapsable content
-
+`MenuItem`     : Area to display content in the left nav
 ```
