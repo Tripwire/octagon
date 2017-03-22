@@ -29,8 +29,8 @@
 @headerVerticalPadding: 1.25rem;
 @headerHorizontalPadding: 1.5rem;
 @headerPadding: @headerVerticalPadding @headerHorizontalPadding;
-@headerBackground: @white;
-@headerColor: @darkTextColor;
+@headerBackground: @blue;
+@headerColor: @white;
 @headerFontSize: @huge;
 @headerBoxShadow: none;
 @headerFontWeight: bold;
@@ -64,7 +64,7 @@
 /* Inner Close Position (Tablet/Mobile) */
 @innerCloseTop: (@headerVerticalPadding - @closeHitBoxOffset + (@lineHeight - 1em));
 @innerCloseRight: 1rem;
-@innerCloseColor: @textColor;
+@innerCloseColor: @white;
 
 /* Mobile Positions */
 @mobileHeaderPadding: 0.75rem 1rem;

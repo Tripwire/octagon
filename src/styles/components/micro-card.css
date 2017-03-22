@@ -31,6 +31,12 @@
     top: 5px;
 
   }
+  & .text-critical{
+    color: var(--red);
+  }
+  & .text-warning{
+    color: var(--yellow);
+  }
   & .microcard__message {
     display: block;
     

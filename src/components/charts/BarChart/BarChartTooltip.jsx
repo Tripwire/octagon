@@ -59,7 +59,7 @@ const ToolTip = (props) => {
         transform={transformLine}
       />
       <text is visibility={visibility} transform={transformText} >
-        <tspan is x='0' y='10' text-anchor='left' font-size='12px' fill='#657d8e'>{`OPERATIONS (${props.tooltip.data.value})`}</tspan>
+        <tspan is x='0' y='10' text-anchor='left' font-size='12px' fill='#657d8e'>{`${props.tooltip.title} (${props.tooltip.data.value})`}</tspan>
         <tspan is x='0' y='20' text-anchor='left' dy='12px' font-size='12px' fill='#657d8e'>{props.tooltip.data.key}</tspan>
       </text>
 
