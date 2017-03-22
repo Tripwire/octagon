@@ -23,15 +23,21 @@ class LargeCard extends React.Component {
 
   render () {
     return (
-      <div className={`large_card  is-fullview-open-${this.props.showCard} ${this.props.className} `} style={this.props.style}>
-        <Flexbox flexDirection='row' className='large_card__container'>
+      <Flexbox className={`large_card  is-fullview-open-${this.props.showCard} ${this.props.className} `} style={this.props.style}>
+        <Flexbox flexDirection='row' flexGrow={3} className={`large_card__container ` + ((this.props.framed) ? 'framed' : '')}>
           {this.props.children}
         </Flexbox>
-      </div>
+      </Flexbox>
     )
   }
 }
-LargeCard.propTypes = {
 
+LargeCard.defaultProps = {
+  className: '',
+  framed: false
+}
+LargeCard.propTypes = {
+  className: React.PropTypes.string,
+  framed: React.PropTypes.bool
 }
 export default LargeCard
