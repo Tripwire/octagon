@@ -1,8 +1,8 @@
 Standard Large Card
      
      const Flexbox = require('flexbox-react').default;
-     <div style={{height: '275px'}}>
-     <LargeCard showCard>
+     <div style={{height: '300px'}}>
+     <LargeCard showCard framed>
         <LargeCard.Gutter color='critical' />
         <LargeCard.Content style={{height: '275px'}}>
           <Flexbox flexDirection='column' flexGrow={1} className='column'>
