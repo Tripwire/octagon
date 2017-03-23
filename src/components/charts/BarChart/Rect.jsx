@@ -62,7 +62,7 @@ const Rect = (props) => {
         />
        : '' }
         { (props.showXLabel)
-        ? <text x={(xScale(d.x)) + (xScale.bandwidth() / 2)} key={`${i}-t`} width={xScale.bandwidth()} y={innerHeight + 13} fill={palette.grey} textAnchor='middle'>
+        ? <text fontSize={props.XLabelFontSize} x={(xScale(d.x)) + (xScale.bandwidth() / 2)} key={`${i}-t`} width={xScale.bandwidth()} y={innerHeight + 13} fill={palette.grey} textAnchor='middle'>
           {xDateLabel}
         </text>
       : '' }
@@ -88,14 +88,16 @@ Rect.propTypes = {
   xScale: func.isRequired,
   yScale: func.isRequired,
   showXLabel: React.PropTypes.bool,
-  showIcon: React.PropTypes.bool
+  showIcon: React.PropTypes.bool,
+  XLabelFontSize: string
 }
 
 Rect.defaultProps = {
   borderRadius: 3,
   fill: palette.blue,
   showXLabel: false,
-  showIcon: false
+  showIcon: false,
+  XLabelFontSize: '16'
 }
 
 export default Rect
