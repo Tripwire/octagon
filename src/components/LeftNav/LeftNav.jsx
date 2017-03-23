@@ -6,13 +6,9 @@ class LeftNav extends React.Component {
 
   render () {
     return (
-      <div className='nav__left-container'>
-
-        <nav className='nav__left '>
-          {this.props.children}
-        </nav>
-
-      </div>
+      <nav className='nav__left ' {...this.props}>
+        {this.props.children}
+      </nav>
     )
   }
 }

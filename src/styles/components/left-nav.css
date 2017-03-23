@@ -1,6 +1,4 @@
 @import '../variables.css';
-.nav__left-container {
-}
 .nav__left {
     background: color(var(--cloudburst));
     color: white;
