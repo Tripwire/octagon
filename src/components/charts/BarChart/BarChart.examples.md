@@ -10,6 +10,7 @@ Standard Area AreaChart
        xDataType='date'
        showIcon
        showXLabel
+       XLabelFontSize='12'
        tooltipTitle='OPERATIONS'
       />
     </div>

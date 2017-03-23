@@ -89,6 +89,7 @@ class BarChart extends React.Component {
               xDataType={xDataType}
               showXLabel={showXLabel}
               showIcon={showIcon}
+              XLabelFontSize={this.props.XLabelFontSize}
             />
             <ToolTip tooltip={this.state.tooltip} yScale={yScale} />
           </g>
@@ -108,7 +109,8 @@ BarChart.propTypes = {
   xDataType: string,
   showXLabel: bool,
   showIcon: bool,
-  tooltipTitle: string
+  tooltipTitle: string,
+  XLabelFontSize: string
 }
 
 BarChart.defaultProps = {
@@ -120,7 +122,8 @@ BarChart.defaultProps = {
   xDataType: 'month',
   showXLabel: false,
   showIcon: false,
-  tooltipTitle: ''
+  tooltipTitle: '',
+  XLabelFontSize: '16'
 }
 
 export default BarChart
