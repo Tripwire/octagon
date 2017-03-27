@@ -1,28 +1,28 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
-import colorPallete from '../colorPallete'
+import palette from '../../palette'
 
 const MicroCardGutter = (props) => {
   let color = ''
   switch (props.color) {
     case 'critical':
-      color = colorPallete.red
+      color = palette.red
       break
     case 'warning':
-      color = colorPallete.yellow
+      color = palette.yellow
       break
     case 'normal':
-      color = colorPallete.blue
+      color = palette.blue
       break
     case 'blue':
-      color = colorPallete.blue
+      color = palette.blue
       break
     default:
       color = props.color
   }
 
   return (
-    <Flexbox className='microcard state__indicator' style={{backgroundColor: color}} width='8px' />
+    <Flexbox className='microcard state__indicator' style={{ backgroundColor: color }} width='8px' />
   )
 }
 
