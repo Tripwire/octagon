@@ -11,3 +11,4 @@ Top Nav Example
         </TopNav.Content>
       </TopNav>
 
+Use the align prop to lay content out.  Accepted values are 'left' and 'right'.  
