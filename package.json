@@ -45,7 +45,7 @@
     "react-remarkable": "^1.1.1",
     "react-styleguidist": "beta",
     "react-test-renderer": "^15.4.0",
-    "ripcord": "^0.25.5",
+    "ripcord": "^1.1.1",
     "rucksack-css": "^0.9.1",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
