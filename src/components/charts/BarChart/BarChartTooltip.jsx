@@ -8,14 +8,14 @@ const ToolTip = (props) => {
   let width = 150
   let height = 70
   let transformText = 'translate( 10 , 10)'
-  const transformArrow = `translate(${width / 2 - 15}, ${height - 2})`
-  const transformLine = `translate(${width / 2 - 15}, ${height})`
+  const transformArrow = `translate(${(width / 2) - 15}, ${height - 2})`
+  const transformLine = `translate(${(width / 2) - 15}, ${height})`
 
   if (props.tooltip.display === true) {
     const position = props.tooltip.pos
     x = position.x
     visibility = 'visible'
-    transform = `translate(${x - width / 2 + 5}, ${(-1) * (props.tooltip.data.value)})`
+    transform = `translate(${x - (width / 2) + 5}, ${(-1) * (props.tooltip.data.value)})`
   } else {
     visibility = 'hidden'
   }
@@ -59,7 +59,7 @@ const ToolTip = (props) => {
         transform={transformLine}
       />
       <text is visibility={visibility} transform={transformText} >
-        <tspan is x='0' y='10' text-anchor='left' font-size='12px' fill='#657d8e'>{`OPERATIONS (${props.tooltip.data.value})`}</tspan>
+        <tspan is x='0' y='10' text-anchor='left' font-size='12px' fill='#657d8e'>{`${props.tooltip.title} (${props.tooltip.data.value})`}</tspan>
         <tspan is x='0' y='20' text-anchor='left' dy='12px' font-size='12px' fill='#657d8e'>{props.tooltip.data.key}</tspan>
       </text>
 
@@ -72,4 +72,3 @@ ToolTip.propTypes = {
 }
 
 export default ToolTip
-

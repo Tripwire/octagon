@@ -18,7 +18,7 @@ function kill () {
   })
 }
 
-const staticContentDir = path.join(projectRoot, 'storybook-static', 'styleguide')
+const staticContentDir = path.join(projectRoot, 'styleguide')
 const server = cp.spawn('httpster', ['-d', staticContentDir], { cwd: npmBin, stdio: 'inherit' })
 processHandles.push(server.childProcess)
 

@@ -30,3 +30,5 @@ styleguide
 backstop_data/*
 !backstop_data/bitmaps_reference
 !backstop_data/casper_scripts
+*.iml
+*.idea

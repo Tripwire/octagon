@@ -6,15 +6,11 @@
     "lib"
   ],
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
-    "@kadira/storybook-addon-knobs": "^1.4.1",
-    "@kadira/storybook-addon-notes": "^1.0.1",
-    "@kadira/storybook-addons": "^1.6.1",
     "@semantic-release/condition-codeship": "^1.1.0",
     "@semantic-release/release-notes-generator": "^2.0.0",
-    "autoprefixer": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.7",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -31,8 +27,10 @@
     "coveralls": "^2.11.15",
     "cross-spawn-promise": "^0.9.2",
     "faker": "^4.1.0",
+    "file-loader": "^0.10.1",
     "fs-extra": "^2.0.0",
     "gh-pages": "^0.12.0",
+    "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.4",
     "httpster": "^1.0.3",
@@ -49,42 +47,47 @@
     "react-remarkable": "^1.1.1",
     "react-styleguidist": "beta",
     "react-test-renderer": "^15.4.0",
-    "ripcord": "^0.25.5",
+    "ripcord": "^1.1.1",
     "rucksack-css": "^0.9.1",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
     "semantic-ui": "^2.2.6",
     "standard": "^9.0.0",
-    "storybook-host": "^1.0.7",
-    "url": "^0.11.0"
+    "style-loader": "^0.13.2",
+    "url": "^0.11.0",
+    "webpack": "^1.13.1"
   },
   "dependencies": {
-    "d3": "^4.4.0",
+    "d3": "^4.7.1",
     "elegant-icons": "^0.0.1",
-    "flexbox-react": "^4.1.0",
-    "glob": "^7.1.1",
+    "flexbox-react": "^4.2.1",
     "lato-font": "^2.0.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "semantic-ui-react": "^0.66.0"
   },
   "scripts": {
     "build": "node scripts/build",
-    "build-storybook": "node scripts/build storybook",
-    "storybook": "start-storybook -p 6007",
-    "secure": "nsp check",
-    "lint": "standard 'src/**/*.js' '.storybook/**/*.js' 'scripts/**/*.js' 'test/**/*.js' 'stories/**/*.js'",
-    "pretest": "npm run build-storybook",
+    "lint": "standard",
     "test": "node scripts/test",
     "test:report": "backstop openReport",
+    "secure": "nsp check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start"
   },
+  "standard": {
+    "ignore": [
+      "lib",
+      "semantic",
+      "styleguide"
+    ],
+    "parser": "babel-eslint"
+  },
   "ripcord": {
     "rules": [
-      "precommit-script"
+      "precommit"
     ]
   },
   "jest": {
@@ -99,6 +102,7 @@
     }
   },
   "pre-commit": [
+    "build",
     "lint",
     "test",
     "check-licenses",

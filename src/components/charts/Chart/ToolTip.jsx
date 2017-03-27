@@ -7,7 +7,7 @@ const ToolTip = (props) => {
   let y = 0
   let width = 150
   let height = 70
-  let transformText = `translate(${width / 2}, ${height / 2 - 5})`
+  let transformText = `translate(${width / 2}, ${(height / 2) - 5})`
   let transformArrow = ''
 
   if (props.tooltip.display === true) {
@@ -16,11 +16,11 @@ const ToolTip = (props) => {
     y = position.y
     visibility = 'visible'
     if (y > height) {
-      transform = `translate(${x - width / 2}, ${y - height - 20})`
-      transformArrow = `translate(${width / 2 - 20}, ${height - 2})`
+      transform = `translate(${x - (width / 2)}, ${y - height - 20})`
+      transformArrow = `translate(${(width / 2) - 20}, ${height - 2})`
     } else if (y < height) {
-      transform = `translate(${x - width / 2}, ${Math.round(y) + 20})`
-      transformArrow = `translate(${width / 2 - 20}, 0) rotate(180, 20, 0)`
+      transform = `translate(${x - (width / 2)}, ${Math.round(y) + 20})`
+      transformArrow = `translate(${(width / 2) - 20}, 0) rotate(180, 20, 0)`
     }
   } else {
     visibility = 'hidden'
@@ -48,4 +48,3 @@ ToolTip.propTypes = {
 }
 
 export default ToolTip
-

@@ -16,7 +16,7 @@
       "removeSelectors": [],
       "selectorExpansion": true,
       "selectors": [
-        ".rsg--Playground--preview"
+        "[data-reactroot]:not(.hasSidebar-0-5)"
       ],
       "readyEvent": null,
       "delay": 5000,

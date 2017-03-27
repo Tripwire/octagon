@@ -1,53 +1,59 @@
 # react-octagon
 
-<img src="https://raw.githubusercontent.com/cdaringe/octagon/master/img/octagon.png" height="80px" />
+<img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon.png" height="80px" />
 
-[ ![Codeship Status for Tripwire/octagon](https://app.codeship.com/projects/de913c80-aab0-0134-4a1e-5ab626077bc6/status?branch=master)](https://app.codeship.com/projects/192040) [![Coverage Status](https://coveralls.io/repos/github/Tripwire/octagon/badge.svg?branch=master)](https://coveralls.io/github/Tripwire/octagon?branch=master) ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[ ![Codeship Status for Tripwire/octagon](https://app.codeship.com/projects/de913c80-aab0-0134-4a1e-5ab626077bc6/status?branch=master)](https://app.codeship.com/projects/192040)  ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-pattern library (storybook) & react component api
+octagon is a react component library.  **see the [latest interactive library documentation here](https://tripwire.github.io/octagon/)**.
 
-see the latest storybook [here](https://tripwire.github.io/octagon/)
+this package provides:
 
-this package simply applies a custom theme over semantic-ui, re-exports react-semantic-ui components, and demonstrates some practical usages through storybook.  **if you are looking for a ground up framework, please instead jump directly to [react-semantic-ui](http://react.semantic-ui.com/).**
+  - a custom semantic-ui theme,
+  - a subset of _semantic-ui-react (SUIR)_ components,
+  - a set of additional react components to facilitate Tripwire UI.
+
+ **If you are looking for a ground up framework, please instead jump directly to [semantic-ui-react](http://react.semantic-ui.com/)**, as this project is generally just an opionionated implementation of the SUI ecosystem.
+
+<img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon-styleguide.gif" width="50%" />
 
 ## install
 
-`npm install --save octagon` or `yarn add --dev octagon`
-
-## usage - pattern library / storybook
-
-- clone this repository
-- run `yarn` from the project directory
-- run `yarn start`
-
-open the url shown to see the latest storybook!
-
-<img src="https://github.com/cdaringe/octagon/blob/master/img/octagon-storybook-in-use.mov.gif?raw=true" width="50%" />
+`npm install --save react-octagon` or `yarn add --dev react-octagon`
 
 ## usage - react component library
 
-octagon imports, occasionally wraps, and re-exports piece-wise components from [react-semantic-ui](http://react.semantic-ui.com/).  **you may generally refer to those docs for API usage**.
+octagon imports, occasionally wraps, and re-exports piece-wise components from [semantic-ui-react](http://react.semantic-ui.com/).  **you may generally refer to those docs for API usage**.
+
+To use it:
 
 - add octagon's CSS into your app using whatever css bundling you prefer
-  - `import 'octagon/lib/styles/semantic.css'`
+  - **your build system must be able to bundle static assets**.  that is, this code exports components that have code like `require('./widget.css')`
 - import components from the lib
-  - `import SomeComponent from 'octagon/lib/components/suir/<SomeComponent>`
+
+```js
+import 'react-octagon/lib/styles/semantic.css'
+import Segment from 'react-octagon/lib/components/suir/Segment'
+import FavoriteButton from 'react-octagon/lib/components/FavoriteButton'
+
+class MyWigdet () {
+  render () {
+    return (
+      <Segment>
+        <FavoriteButton isFavorited />
+      </Segment>
+    )
+  }
+}
+```
 
 ## development
 
 - clone this repository
 - run `yarn`
+- run `yarn start`
+- open the URL to play w/ components as you develop them
 
-now you're off to the races :horse_racing:!  this package offers two different development modes, depending on your use case.  you can run both development modes in parallel, if needed.
-
-### component and styles development
-
-**useful** for when you're developing styles and components for this package only.  in other words, "storybook" development.
-
-`yarn run storybook-dev`
-
-- watches the styles project for changes and rebuilds styles on changes. refreshes the storybook UI.
-- watches the react component source for changes and rebuilds components & stories on changes. refreshes the storybook UI.
+now you're off to the races :horse_racing:!  theme changes, components, & examples will update automatically.  Make sure that your examples source components from within the `src/` dir!
 
 **for information on how to adjust the theme styles**, see [THEMING.md](THEMEING.md).
 

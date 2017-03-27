@@ -7,7 +7,7 @@ const path = require('path')
 const ghPages = require('gh-pages')
 const pkg = 'github.com/Tripwire/octagon.git'
 const repo = `https://${process.env.GH_TOKEN}@${pkg}`
-const staticDocs = path.join(__dirname, '..', 'storybook-static')
+const staticDocs = path.join(__dirname, '..', 'styleguide')
 const projectRoot = path.join(__dirname, '..')
 
 if (process.env.CI_BRANCH !== 'master') {
@@ -17,7 +17,7 @@ if (process.env.CI_BRANCH !== 'master') {
 
 const SPAWN_OPTS = { cwd: projectRoot }
 
-const docs = () => spawn('npm', ['run', 'build-storybook'], Object.assign(SPAWN_OPTS, { stdio: 'inherit' }))
+const docs = () => spawn('npm', ['run', 'styleguide:build'], Object.assign(SPAWN_OPTS, { stdio: 'inherit' }))
 const semantic = () => {
   return spawn('npm', ['run', 'semantic-release'], SPAWN_OPTS)
   .catch(err => {
@@ -35,8 +35,8 @@ const publish = () => {
 Promise.resolve()
 .then(() => console.log('executing semantic-release'))
 .then(semantic)
-.then(() => console.log('building storybook'))
+.then(() => console.log('building styleguide'))
 .then(docs)
-.then(() => console.log('publishing storybook'))
+.then(() => console.log('publishing styleguide'))
 .then(publish)
 .then(() => console.log('fin.'))
