@@ -84,7 +84,7 @@
   },
   "ripcord": {
     "rules": [
-      "precommit-script"
+      "precommit"
     ]
   },
   "jest": {
