@@ -27,7 +27,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.18.0",
     "babel-standalone": "^6.18.2",
-    "backstopjs": "^2.6.7",
+    "backstopjs": "canary",
     "coveralls": "^2.11.15",
     "cross-spawn-promise": "^0.9.2",
     "faker": "^4.1.0",
