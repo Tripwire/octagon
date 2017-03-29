@@ -5,7 +5,6 @@ import '../../styles/components/top-nav.css'
 class TopNav extends React.Component {
   static Content = TopNavContent;
   static LocalTime = LocalTime;
-
   render () {
     return (
       <div className='nav__main clearfix'>
@@ -13,6 +12,10 @@ class TopNav extends React.Component {
       </div>
     )
   }
+}
+
+TopNav.propTypes = {
+  children: React.PropTypes.node
 }
 
 export default TopNav
