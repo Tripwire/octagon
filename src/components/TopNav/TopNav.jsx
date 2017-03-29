@@ -15,6 +15,7 @@ class TopNav extends React.Component {
 }
 
 TopNav.propTypes = {
+  /** One of: Content, LocalTime, Node */
   children: React.PropTypes.node
 }
 
