@@ -18,7 +18,8 @@ LeftNav.defaultProps = {
 }
 
 LeftNav.propTypes = {
-
+  /** One of: MenuItem, Node */
+  children: React.PropTypes.node
 }
 
 export default LeftNav

@@ -1,4 +1,4 @@
-Simple Card Example
+LeftNav Example
         
         const iconDashboard = require('../../assets/icon_mainav_dash_selected.svg');
         const iconOperations = require('../../assets/icon_mainav_ops_selected.svg');
@@ -17,8 +17,9 @@ navigating the user to the appropriate location.
 
 Manually applied style on this component is only to prevent overrun inside of Styleguide.
 
-#### Supported Fragments ####
+## LeftNav Subcomponents ##
 
 ```javascript
-`MenuItem`     : Area to display content in the left nav
-```
+MenuItem
+      active : boolean //default : false
+      image : src path  //default: ''
