@@ -47,6 +47,26 @@ commits should be small, targetted, and focused.  unfocused changes need to be s
 
 ### step 4: test
 
+
+#### running the tests
+
+- `yarn test` is the entry point to run the tests
+- octagon tests use [saucelabs](http://saucelabs.com).
+  - if you do not have an account with them, you can either:
+    - create one & use your own account to test with,
+    - request creds from the maintainers to test against this project,
+    - test against a local selenium copy. warning, different OS == ++fragility, but better than nothing.
+      - to test against a local selenium:
+        - `npm install -g selenium-standalone`
+        - `selenium-standalone install` (install browser drivers)
+        - `WEBJERKY_LOCAL=true npm test`
+
+in the saucelabs cases, you must have `SAUCE_USERNAME` & `SAUCE_ACCESS_KEY` in your env.  i have a shell function that adds them to my env when needed.
+
+#### updating the tests
+
+if your tests fail, but the images are good/approved, export `WEBJERK_APPROVE_CHANGES=true`. this will port you `run` images to `ref`.
+
 bug fixes and features **should come with tests**.  ideally, screenshots and snapshots are included for visual targetted changes.
 
 ### step 5: push

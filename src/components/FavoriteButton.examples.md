@@ -1,10 +1,8 @@
-const FavoriteButton = require('../src/components/FavoriteButton');
-
-Is Favorited:
+Favorite Button Favorited
 
     <FavoriteButton isFavorited />
 
-Not Favorited:
+Favorite Button Not Favorited
 
     <FavoriteButton />
 

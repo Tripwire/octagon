@@ -1,8 +1,8 @@
-Stopped Operation:
+StartStopButton Stopped
 
      <StopStartButton isStopped style={{fontSize: '25px'}} />
 
-Running Operation:
+StartStopButton Running
 
     <StopStartButton style={{fontSize: '25px'}} />
 

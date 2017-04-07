@@ -32,6 +32,7 @@
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.4",
+    "httpster": "^1.0.3",
     "javascript-natural-sort": "^0.7.1",
     "jest": "^19.0.2",
     "nsp": "^2.6.2",
@@ -53,6 +54,7 @@
     "standard": "^9.0.0",
     "style-loader": "^0.13.2",
     "url": "^0.11.0",
+    "webjerky": "^0.2.1",
     "webpack": "^1.13.1"
   },
   "dependencies": {
@@ -68,7 +70,7 @@
     "build": "node scripts/build",
     "secure": "nsp check",
     "lint": "standard",
-    "test": "echo 'TBD'",
+    "test": "node scripts/test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",

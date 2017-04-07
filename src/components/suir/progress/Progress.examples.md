@@ -1,3 +1,5 @@
+# Progress Basic
+
     const Progress = require('semantic-ui-react').Progress;
     <div>
       <div>

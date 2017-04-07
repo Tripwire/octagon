@@ -1,4 +1,4 @@
-## No whitespace (pure css)
+## Grid No Whitespace (pure css)
 
     <div className='ui padded equal height grid' style={{height: '100%'}}>
       <div className='sixteen wide stretched column'>
@@ -12,7 +12,7 @@
     </div>
 
 
-##  No whitespace grid (SUIR)
+## Grid No Whitespace (SUIR)
 
     const Grid = require('semantic-ui-react').Grid;
     const colProps = {
@@ -34,7 +34,7 @@
     </Grid>
 
 
-## No whitespace, 2 column
+## Grid No whitespace 2 column
 
     const Grid = require('semantic-ui-react').Grid;
     const colProps = { textAlign: 'center' };

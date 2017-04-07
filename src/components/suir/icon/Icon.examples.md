@@ -1,4 +1,4 @@
-## Set
+## Icon Set
 
     const Icon = require('semantic-ui-react').Icon;
     <div>

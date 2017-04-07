@@ -1,3 +1,4 @@
+## Message Basic
     const Message = require('semantic-ui-react').Message;
     <div>
       <Message success>

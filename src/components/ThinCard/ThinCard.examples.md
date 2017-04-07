@@ -1,11 +1,11 @@
-Simple Card Example
-      
+ThinCard Simple
+
       <ThinCard data={{id: 0}} folder={false}>
         <ThinCard.PrimaryAction><StopStartButton isStopped /></ThinCard.PrimaryAction>
         <ThinCard.Title>I'm stopped</ThinCard.Title>
       </ThinCard>
 
-Richer Example
+ThinCard Rich
 
     <ThinCard data={{id: 0}} folder drawer={<ThinCard.Drawer>test</ThinCard.Drawer>}>
         <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>

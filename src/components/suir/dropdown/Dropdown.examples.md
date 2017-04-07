@@ -1,4 +1,4 @@
-## Default
+## Dropdown Basic
 
      const Dropdown = require('semantic-ui-react').Dropdown;
      <Dropdown
