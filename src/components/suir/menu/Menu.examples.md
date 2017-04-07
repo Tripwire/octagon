@@ -1,3 +1,4 @@
+## Menu Basic
     const Menu = require('semantic-ui-react').Menu;
     const Segment = require('semantic-ui-react').Segment;
     <div>

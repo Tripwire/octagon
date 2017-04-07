@@ -1,4 +1,4 @@
-## States
+## Chekbox States
 
     const Checkbox = require('semantic-ui-react').Checkbox;
     <div>

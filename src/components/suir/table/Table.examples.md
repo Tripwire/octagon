@@ -1,4 +1,4 @@
-## Generic
+## Table Generic
 
     const Table = require('semantic-ui-react').Table;
     <Table selectable>
@@ -29,7 +29,7 @@
       </Table.Body>
     </Table>
 
-## Hover States
+## Table Hover States
 
     const Table = require('semantic-ui-react').Table;
     <Table selectable>
@@ -55,7 +55,7 @@
       </Table.Body>
     </Table>
 
-## Sortable
+## Table Sortable
 
     const Table = require('semantic-ui-react').Table;
     <Table selectable sortable>

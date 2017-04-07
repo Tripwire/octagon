@@ -1,10 +1,10 @@
-Standard Card
-     
+MircoCard Standard
+
     <MicroCard cardContent={{
         id: 0,
         isFavorited: true,
         title: 'test'
-        }} 
+        }}
     style={{marginRight: '10px'}}  >
         <MicroCard.Gutter color='critical' />
         <MicroCard.Content cardContent={{
@@ -17,7 +17,7 @@ Standard Card
         <MicroCard.Action  />
       </MicroCard>
 
-MicroCard with more detail
+MicroCard Rich
 
       const Flexbox = require('flexbox-react');
       const alertIconUri = require('../../assets/alert-icon.svg');

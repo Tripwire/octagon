@@ -7,6 +7,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch Test",
+      "program": "${workspaceRoot}/scripts/test.js",
+      "cwd": "${workspaceRoot}",
+      "protocol": "auto"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "build",
       "program": "${workspaceRoot}/scripts/build.js",
       "cwd": "${workspaceRoot}"

@@ -1,5 +1,5 @@
-Standard Large Card
-     
+Large Card Basic
+
      const Flexbox = require('flexbox-react').default;
      <div style={{height: '300px'}}>
      <LargeCard showCard framed>
