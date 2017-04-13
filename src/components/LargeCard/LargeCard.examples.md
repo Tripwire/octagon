@@ -1,5 +1,5 @@
 Standard Large Card
-     
+
      const Flexbox = require('flexbox-react').default;
      <div style={{height: '300px'}}>
      <LargeCard showCard framed>
@@ -17,9 +17,9 @@ Standard Large Card
           </Flexbox>
           <Flexbox flexDirection='column' flexGrow={3}>
             <Flexbox flexDirection='row' marginBottom="35px">
-              <LargeCard.KeyValue name='item' value={29} />
-              <LargeCard.KeyValue name='item' value={29} />
-              <LargeCard.KeyValue name='item' value={29} />
+              <LargeCard.KeyValue label='item1' value={29} data-hook='item1' />
+              <LargeCard.KeyValue label='item2' value={30} />
+              <LargeCard.KeyValue label='item3' value={31} />
             </Flexbox>
             <LargeCard.RecentList items={[
             {

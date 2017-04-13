@@ -1,9 +1,11 @@
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import React from 'react'
 
 const LargeCardKeyValue = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <div className={`summary_info ${props.className}`} onClick={props.onClick}>
-      <span className='label'>{props.name}</span>
+    <div {...externalAttributes} className={`summary_info ${props.className}`}>
+      <span className='label'>{props.label}</span>
       <span className='count'>{props.value}</span>
     </div>
   )
