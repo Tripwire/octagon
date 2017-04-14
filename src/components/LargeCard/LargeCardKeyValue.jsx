@@ -1,5 +1,5 @@
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const LargeCardKeyValue = (props) => {
   const externalAttributes = filterAttributesFromProps(props)

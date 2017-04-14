@@ -1,10 +1,15 @@
+import Flexbox from 'flexbox-react'
 import React from 'react'
 import Icon from '../suir/icon/Icon'
-import Flexbox from 'flexbox-react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const LargeCardRecentList = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox flexDirection='column' flexGrow={1} className={props.className}>
+    <Flexbox
+      {...externalAttributes}
+      flexDirection='column'
+      flexGrow={1}>
 
       <h4 className='label'>Recent</h4>
       {props.items.map((item) => {
