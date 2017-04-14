@@ -63,4 +63,4 @@ now you're off to the races :horse_racing:!  theme changes, components, & exampl
 
 ## contributing
 
-want to contribute?  please see [THEMEING.md](THEMEING.md) & [CONTRIBUTING.md](CONTRIBUTING.md).
+want to contribute?  please see [THEMEING.md](THEMEING.md) && [CONTRIBUTING.md](CONTRIBUTING.md).
