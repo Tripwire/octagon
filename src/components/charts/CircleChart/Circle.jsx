@@ -22,24 +22,24 @@ const CircleChart = (props) => {
             .outerRadius(radius - 1)
   const externalAttributes = filterAttributesFromProps(props)
   return (
-    <div>
+    <div {...externalAttributes} >
       <svg width={boxSize} height={boxSize}>
         <g transform='translate(55,55)'>
-          <g {...externalAttributes} className={`progress-meter ${props.className}`}>
+          <g className='progress-meter'>
             <path
-              {...externalAttributes} className={`background ${props.className}`}
+              className='background'
               fill='#8faec1'
               fillOpacity={backgroundOpacity}
               d={arcbg.endAngle(twoPi)()}
             />
             <path
-              {...externalAttributes} className={`foreground ${props.className}`}
+              className='foreground'
               fill={color}
               fillOpacity='1'
               d={arc.endAngle(twoPi * endPercent)()}
             />
             <text
-              {...externalAttributes} className={`current-progress ${props.className}`}
+              className='current-progress'
               fill={color}
               textAnchor='middle'
               dy='.35em'
