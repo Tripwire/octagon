@@ -5,6 +5,7 @@ import ToolTip from './ToolTip'
 import Dots from '../Chart/Dots'
 import ChartOverlay from '../Chart/ChartOverlay'
 import * as ChartUtils from '../Chart/utils'
+import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 var d3 = Object.assign({}, require('d3-shape'), require('d3-format'), require('d3-axis'))
 
@@ -136,8 +137,9 @@ class AreaChart extends React.Component {
       .scale(yScale)
       .ticks(5)
 
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div className='area__chart__container'>
+      <div {...externalAttributes} className={`area-chart__container ${this.props.className}`}>
         <svg width={width} height={innerHeight}>
           <g transform='translate(2, 4)'>
             <PlotArea

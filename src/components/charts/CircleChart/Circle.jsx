@@ -1,5 +1,7 @@
 import React from 'react'
 import palette from '../../../palette'
+import filterAttributesFromProps from '../../../util/externalAttributeFilter'
+
 var d3 = Object.assign({}, require('d3-shape'))
 
 const twoPi = Math.PI * 2
@@ -18,25 +20,26 @@ const CircleChart = (props) => {
             .startAngle(0)
             .innerRadius(radius - 4)
             .outerRadius(radius - 1)
+  const externalAttributes = filterAttributesFromProps(props)
   return (
     <div>
       <svg width={boxSize} height={boxSize}>
         <g transform='translate(55,55)'>
-          <g className='progress-meter'>
+          <g {...externalAttributes} className={`progress-meter ${props.className}`}>
             <path
-              className='background'
+              {...externalAttributes} className={`background ${props.className}`}
               fill='#8faec1'
               fillOpacity={backgroundOpacity}
               d={arcbg.endAngle(twoPi)()}
             />
             <path
-              className='foreground'
+              {...externalAttributes} className={`foreground ${props.className}`}
               fill={color}
               fillOpacity='1'
               d={arc.endAngle(twoPi * endPercent)()}
             />
             <text
-              className='current-progress'
+              {...externalAttributes} className={`current-progress ${props.className}`}
               fill={color}
               textAnchor='middle'
               dy='.35em'

@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import Rect from './Rect'
 import ToolTip from './BarChartTooltip'
 import * as ChartUtils from '../Chart/utils'
+import filterAttributesFromProps from '../../../util/externalAttributeFilter'
+
 var d3 = Object.assign({}, require('d3-time-format'), require('d3-axis'))
 const { array, number, object, string, bool } = PropTypes
 class BarChart extends React.Component {
@@ -72,8 +74,9 @@ class BarChart extends React.Component {
 
     const yScale = ChartUtils.yScaleLinear(data, innerHeight, 0)
 
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div className='bar-chart__container svg-overflow-visible'>
+      <div {...externalAttributes} className={`bar-chart__container svg-overflow-visible ${this.props.className}`}>
         <svg width={width} height={height}>
           <g transform={transform}>
             <Rect
