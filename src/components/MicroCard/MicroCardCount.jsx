@@ -1,9 +1,11 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const MicroCardCount = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox className='microcard__count'>{props.value}</Flexbox>
+    <Flexbox {...externalAttributes} className={`microcard__count ${props.className}`}>{props.value}</Flexbox>
   )
 }
 
