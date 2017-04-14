@@ -13,6 +13,13 @@
     },
     {
       "type": "node",
+      "request": "launch",
+      "name": "Test",
+      "program": "${workspaceRoot}/scripts/test.js",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "type": "node",
       "request": "attach",
       "name": "Attach to Process",
       "port": 5858
