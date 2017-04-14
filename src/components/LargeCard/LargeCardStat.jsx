@@ -1,10 +1,12 @@
-import React from 'react'
 import Flexbox from 'flexbox-react'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const LargeCardStat = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox className={`stats ${props.className}`} flexDirection='row'>
-      <span className='label'>{props.name}</span>
+    <Flexbox {...externalAttributes} className={`stats ${props.className}`} flexDirection='row'>
+      <span className='label'>{props.label}</span>
       <span className='value'>{props.value}</span>
     </Flexbox>
   )
@@ -16,7 +18,7 @@ LargeCardStat.defaultProps = {
 }
 
 LargeCardStat.propTypes = {
-  name: React.PropTypes.string,
+  label: React.PropTypes.string,
   value: React.PropTypes.number
 }
 

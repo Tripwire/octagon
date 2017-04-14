@@ -12,7 +12,7 @@ Standard Large Card
             </Flexbox>
             <Flexbox flexDirection="column">
                 Place left column content here
-                <LargeCard.Stat name='assets' value={294} />
+                <LargeCard.Stat label='assets' value={294} />
             </Flexbox>
           </Flexbox>
           <Flexbox flexDirection='column' flexGrow={3}>
