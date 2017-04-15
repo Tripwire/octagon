@@ -12,8 +12,8 @@ class MicroCardContent extends React.Component {
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
       <Flexbox flexDirection='column' paddingBottom='10px' paddingLeft='10px' paddingTop='5px'>
-        {(this.props.title) ?
-        <Flexbox {...externalAttributes} className={`box__header ${this.props.className}`}>{this.props.title}</Flexbox>
+        {(this.props.title)
+          ? <Flexbox {...externalAttributes} className={`box__header ${this.props.className}`}>{this.props.title}</Flexbox>
         : ''}
         <Flexbox flexGrow={2}>
           {this.props.children}

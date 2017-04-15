@@ -18,10 +18,10 @@ const MicroCardContentMessage = (props) => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox
-    {...externalAttributes}
-    flexDirection='column'
-    justifyContent='center'
-    className={`microcard__message ${status} ${props.className}`}
+      {...externalAttributes}
+      flexDirection='column'
+      justifyContent='center'
+      className={`microcard__message ${status} ${props.className}`}
     >
       {props.children}
     </Flexbox>

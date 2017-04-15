@@ -25,10 +25,10 @@ const MicroCardGutter = (props) => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox
-    {...externalAttributes}
-    className={`microcard state__indicator ${props.className}`}
-    style={{ backgroundColor: color }}
-    width='8px'
+      {...externalAttributes}
+      className={`microcard state__indicator ${props.className}`}
+      style={{ backgroundColor: color }}
+      width='8px'
     />
   )
 }
