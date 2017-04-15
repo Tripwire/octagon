@@ -41,10 +41,12 @@ class LargeCard extends React.Component {
 
 LargeCard.defaultProps = {
   className: '',
-  framed: false
+  framed: false,
+  showCard: false
 }
 LargeCard.propTypes = {
   className: React.PropTypes.string,
-  framed: React.PropTypes.bool
+  framed: React.PropTypes.bool,
+  showCard: React.PropTypes.bool
 }
 export default LargeCard
