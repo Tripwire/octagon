@@ -1,11 +1,12 @@
-import React from 'react'
 import Flexbox from 'flexbox-react'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import Icon from '../suir/icon/Icon'
 
 const ThinCardDrawer = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <div>
-
+    <div {...externalAttributes}>
       {(!props.expanded) ? (
         <Flexbox className='drawer' flexDirection='row' onClick={props.expandGroupToggle}>
           <Flexbox className='drawer__side' flexGrow={3} />
@@ -38,7 +39,6 @@ ThinCardDrawer.defaultProps = {
 }
 ThinCardDrawer.propTypes = {
   expanded: React.PropTypes.bool,
-  onClick: React.PropTypes.func
-
+  expandGroupToggle: React.PropTypes.func
 }
 export default ThinCardDrawer
