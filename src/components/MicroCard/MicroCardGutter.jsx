@@ -1,6 +1,7 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import palette from '../../palette'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const MicroCardGutter = (props) => {
   let color = ''
@@ -21,8 +22,14 @@ const MicroCardGutter = (props) => {
       color = props.color
   }
 
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox className='microcard state__indicator' style={{ backgroundColor: color }} width='8px' />
+    <Flexbox
+    {...externalAttributes}
+    className={`microcard state__indicator ${props.className}`}
+    style={{ backgroundColor: color }}
+    width='8px'
+    />
   )
 }
 

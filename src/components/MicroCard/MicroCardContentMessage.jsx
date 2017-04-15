@@ -1,5 +1,6 @@
 import React from 'react'
 import Flexbox from 'flexbox-react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const MicroCardContentMessage = (props) => {
   let status = ''
@@ -14,8 +15,14 @@ const MicroCardContentMessage = (props) => {
     default:
       status = ''
   }
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox flexDirection='column' justifyContent='center' className={`microcard__message ${status} `}>
+    <Flexbox
+    {...externalAttributes}
+    flexDirection='column'
+    justifyContent='center'
+    className={`microcard__message ${status} ${props.className}`}
+    >
       {props.children}
     </Flexbox>
   )
