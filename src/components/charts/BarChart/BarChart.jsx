@@ -14,6 +14,7 @@ class BarChart extends React.Component {
         display: false,
         color: null,
         title: '',
+        height: '',
         data: { key: '', value: '' },
         pos: { x: '', y: '' }
       }
@@ -28,6 +29,7 @@ class BarChart extends React.Component {
         display: true,
         color: e.target.getAttribute('fill'),
         title: this.props.tooltipTitle,
+        height: e.target.getAttribute('data-tooltip-pos') - 35,
         data: {
           key: e.target.getAttribute('data-key'),
           value: e.target.getAttribute('data-value')
