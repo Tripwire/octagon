@@ -27,11 +27,17 @@ const Rect = (props) => {
       iconUri = criticalIconUri
     }
     return (
-      <g key={`${i}-g`}>
+      <g
+        key={`${i}-g`}
+        onMouseEnter={props.showToolTip}
+        onMouseOut={props.hideToolTip}
+      >
+
         <rect
           className='shadow'
           fill={fillColor}
           height={innerHeight - yScale(d.y)}
+          data-tooltip-pos={innerHeight - yScale(d.y)}
           key={i}
           cx={xScale(d.x) + 5}
           cy={yScale(d.y)}
@@ -42,8 +48,24 @@ const Rect = (props) => {
           y={yScale(d.y)}
           data-key={xDataKey}
           data-value={d.y}
-          onMouseEnter={props.showToolTip}
-          onMouseOut={props.hideToolTip}
+
+      />
+        <rect
+          fill={fillColor}
+          fillOpacity={0}
+          height={innerHeight}
+          data-tooltip-pos={innerHeight - yScale(d.y)}
+          key={`${i}-container`}
+          cx={xScale(d.x) + 5}
+          cy={innerHeight}
+          rx={borderRadius}
+          ry={borderRadius}
+          width={xScale.bandwidth()}
+          x={xScale(d.x)}
+          y={0}
+          data-key={xDataKey}
+          data-value={d.y}
+
       />
         { (props.showIcon)
         ? <image
@@ -51,7 +73,7 @@ const Rect = (props) => {
           xlinkHref={iconUri}
           x={(xScale(d.x))}
           key={`${i}-i`}
-          y={(innerHeight - yScale(d.y)) / 2}
+          y={innerHeight / 2}
           width={xScale.bandwidth()}
           height='50px'
           className='svgicon'
