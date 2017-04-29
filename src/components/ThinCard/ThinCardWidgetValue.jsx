@@ -1,9 +1,15 @@
-import React from 'react'
 import Flexbox from 'flexbox-react'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const ThinCardWidgetValue = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox alignItems='center' className={` ${props.className} thincard__widget_value`} style={props.style}>
+    <Flexbox
+      {...externalAttributes}
+      alignItems='center'
+      className={`${props.className} thincard__widget_value`}
+      style={props.style}>
       {props.children}
     </Flexbox>
   )
