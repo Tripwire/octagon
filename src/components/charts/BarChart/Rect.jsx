@@ -26,65 +26,70 @@ const Rect = (props) => {
       fillColor = palette.red
       iconUri = criticalIconUri
     }
+
+    const filledInRectangleHeight = innerHeight - yScale(d.y)
+    let iconY = innerHeight / 1.5
+    if (yScale(d.y) > 83) {
+      iconY = yScale(d.y) - 8 - 25
+    }
+
     return (
-      <g
-        key={`${i}-g`}
-        onMouseEnter={props.showToolTip}
-        onMouseOut={props.hideToolTip}
-      >
+      <g key={`${i}-g`}>
 
         <rect
-          className='shadow'
-          fill={fillColor}
-          height={innerHeight - yScale(d.y)}
-          data-tooltip-pos={innerHeight - yScale(d.y)}
-          key={i}
-          cx={xScale(d.x) + 5}
-          cy={yScale(d.y)}
-          rx={borderRadius}
-          ry={borderRadius}
-          width={xScale.bandwidth()}
           x={xScale(d.x)}
           y={yScale(d.y)}
-          data-key={xDataKey}
-          data-value={d.y}
-
-      />
-        <rect
+          width={xScale.bandwidth()}
+          height={filledInRectangleHeight}
+          className='shadow'
           fill={fillColor}
-          fillOpacity={0}
-          height={innerHeight}
-          data-tooltip-pos={innerHeight - yScale(d.y)}
-          key={`${i}-container`}
-          cx={xScale(d.x) + 5}
-          cy={innerHeight}
+          data-tooltip-pos={filledInRectangleHeight}
+          key={i}
           rx={borderRadius}
           ry={borderRadius}
-          width={xScale.bandwidth()}
-          x={xScale(d.x)}
-          y={0}
           data-key={xDataKey}
           data-value={d.y}
-
+      />
+        <rect
+          x={xScale(d.x)}
+          y={0}
+          width={xScale.bandwidth()}
+          height={innerHeight}
+          fill={fillColor}
+          fillOpacity={0}
+          data-tooltip-pos={filledInRectangleHeight}
+          key={`${i}-container`}
+          rx={borderRadius}
+          ry={borderRadius}
+          data-key={xDataKey}
+          data-value={d.y}
+          data-tooltip-x={xScale(d.x) + 5}
+          data-tooltip-y={innerHeight}
+          onMouseEnter={props.showToolTip}
+          onMouseOut={props.hideToolTip}
       />
         { (props.showIcon)
         ? <image
           xmlns='http://www.w3.org/2000/svg'
-          xlinkHref={iconUri}
           x={(xScale(d.x))}
-          key={`${i}-i`}
-          y={innerHeight / 2}
+          y={iconY}
           width={xScale.bandwidth()}
           height='50px'
+          xlinkHref={iconUri}
+          key={`${i}-i`}
           className='svgicon'
-          cx={xScale(d.x)}
-          cy={yScale(d.y)}
           pointerEvents='none'
-
         />
        : '' }
         { (props.showXLabel)
-        ? <text fontSize={props.XLabelFontSize} x={(xScale(d.x)) + (xScale.bandwidth() / 2)} key={`${i}-t`} width={xScale.bandwidth()} y={innerHeight + 13} fill={palette.grey} textAnchor='middle'>
+        ? <text
+          fontSize={props.XLabelFontSize}
+          x={(xScale(d.x)) + (xScale.bandwidth() / 2)}
+          key={`${i}-t`}
+          width={xScale.bandwidth()}
+          y={innerHeight + 13}
+          fill={palette.grey}
+          textAnchor='middle'>
           {xDateLabel}
         </text>
       : '' }

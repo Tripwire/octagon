@@ -35,8 +35,8 @@ class BarChart extends React.Component {
           value: e.target.getAttribute('data-value')
         },
         pos: {
-          x: e.target.getAttribute('cx'),
-          y: e.target.getAttribute('cy')
+          x: e.target.getAttribute('data-tooltip-x'),
+          y: e.target.getAttribute('data-tooltip-y')
         }
       }
     })
