@@ -52,28 +52,20 @@ class OperationsHistoryBarChart extends React.Component {
   }
 
   render () {
-    const { barPadding, borderRadius, height, margin, width, xDataType, showXLabel, showIcon } = this.props
+    const { barPadding, borderRadius, height, margin, width, showXLabel, showIcon } = this.props
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
-    let xScale = null
     const data = JSON.parse(JSON.stringify(this.props.data))
-    const xScaleTimeLineData = JSON.parse(JSON.stringify(this.props.data))
+    const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
+    data.forEach((d) => {
+      d.label = parseDate(d.label)
+    })
+    const xSeries = data.map((d) => {
+      return {x: d.label}
+    })
 
-    if (this.props.xDataType === 'date') {
-      const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
-      data.forEach((d) => {
-        d.x = parseDate(d.x)
-      })
-      xScaleTimeLineData.forEach((d) => {
-        d.x = parseDate(d.x)
-      })
-
-      xScale = ChartUtils.xScaleBand(data, innerWidth, barPadding)
-    } else {
-      xScale = ChartUtils.xScaleLinear(data, innerWidth, barPadding)
-    }
-
+    const xScale = ChartUtils.xScaleBand(xSeries, innerWidth, barPadding)
     const yScale = ChartUtils.yScaleLinear(data, innerHeight, 0)
 
     const externalAttributes = filterAttributesFromProps(this.props)
@@ -91,7 +83,7 @@ class OperationsHistoryBarChart extends React.Component {
               transform={transform}
               xScale={xScale}
               yScale={yScale}
-              xDataType={xDataType}
+              xDataType='date'
               showXLabel={showXLabel}
               showIcon={showIcon}
               XLabelFontSize={this.props.XLabelFontSize}
@@ -111,7 +103,6 @@ OperationsHistoryBarChart.propTypes = {
   height: number,
   margin: object,
   width: number,
-  xDataType: string,
   showXLabel: bool,
   showIcon: bool,
   tooltipTitle: string,
@@ -124,7 +115,6 @@ OperationsHistoryBarChart.defaultProps = {
   height: 70,
   margin: { top: 0, right: 5, bottom: -5, left: 10 },
   width: 200,
-  xDataType: 'month',
   showXLabel: false,
   showIcon: false,
   tooltipTitle: '',
