@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import Rect from './Rect'
-import ToolTip from './BarChartTooltip'
+import ToolTip from './OperationsHistoryBarChartTooltip'
 import * as ChartUtils from '../Chart/utils'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 var d3 = Object.assign({}, require('d3-time-format'), require('d3-axis'))
 const { array, number, object, string, bool } = PropTypes
-class BarChart extends React.Component {
+class OperationsHistoryBarChart extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -104,7 +104,7 @@ class BarChart extends React.Component {
   }
 }
 
-BarChart.propTypes = {
+OperationsHistoryBarChart.propTypes = {
   barPadding: number,
   borderRadius: number,
   data: array.isRequired,
@@ -118,7 +118,7 @@ BarChart.propTypes = {
   XLabelFontSize: string
 }
 
-BarChart.defaultProps = {
+OperationsHistoryBarChart.defaultProps = {
   barPadding: 0.1,
   borderRadius: 3,
   height: 70,
@@ -131,4 +131,4 @@ BarChart.defaultProps = {
   XLabelFontSize: '16'
 }
 
-export default BarChart
+export default OperationsHistoryBarChart

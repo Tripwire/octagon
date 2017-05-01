@@ -1,7 +1,7 @@
-Standard BarChart
+Standard OperationsHistoryBarChart
 
     <div style={{marginTop: "85px"}}>
-    <BarChart
+    <OperationsHistoryBarChart
        barPadding={0.3}
        borderRadius={0}
        data={[ 
