@@ -60,6 +60,14 @@ class OperationsHistoryBarChart extends React.Component {
     const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
     data.forEach((d) => {
       d.label = parseDate(d.label)
+      d.y = d.normal + d.warning + d.critical
+      if (d.critical > 0) {
+        d.currentState = 'critical'
+      } else if (d.warning > 0) {
+        d.currentState = 'warning'
+      } else {
+        d.currentState = 'normal'
+      }
     })
     const xSeries = data.map((d) => {
       return {x: d.label}

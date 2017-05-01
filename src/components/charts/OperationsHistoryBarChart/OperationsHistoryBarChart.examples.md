@@ -5,16 +5,16 @@ Standard OperationsHistoryBarChart
        barPadding={0.3}
        borderRadius={0}
        data={[ 
-        { label: '12-10-2016 01:02:00', y: 2, currentState: 'warning' },
-        { label: '12-11-2016 03:15:00', y: 5, currentState: 'warning' },
-        { label: '12-12-2016 05:22:00', y: 10, currentState: 'warning' },
-        { label: '12-13-2016 05:22:00', y: 15, currentState: 'warning' },
-        { label: '12-14-2016 05:22:00', y: 20, currentState: 'warning' },
-        { label: '12-15-2016 05:22:00', y: 25, currentState: 'warning' },
-        { label: '12-16-2016 05:22:00', y: 30, currentState: 'warning' },
-        { label: '12-17-2016 05:22:00', y: 55, currentState: 'warning' },
-        { label: '12-18-2016 05:22:00', y: 75, currentState: 'critical' },
-        { label: '12-19-2016 05:22:00', y: 50, currentState: 'normal' } ]}
+        { label: '12-10-2016 01:02:00', normal: 0, warning: 2, critical: 0 },
+        { label: '12-11-2016 03:15:00', normal: 0, warning: 5, critical: 0 },
+        { label: '12-12-2016 05:22:00', normal: 0, warning: 10, critical: 0 },
+        { label: '12-13-2016 05:22:00', normal: 0, warning: 15, critical: 0 },
+        { label: '12-14-2016 05:22:00', normal: 0, warning: 20, critical: 0 },
+        { label: '12-15-2016 05:22:00', normal: 0, warning: 25, critical: 0 },
+        { label: '12-16-2016 05:22:00', normal: 0, warning: 30, critical: 0 },
+        { label: '12-17-2016 05:22:00', normal: 0, warning: 55, critical: 0 },
+        { label: '12-18-2016 05:22:00', normal: 25, warning: 0, critical: 50 },
+        { label: '12-19-2016 05:22:00', normal: 50, warning: 0, critical: 0 } ]}
        height={120}
        width={500}
        showIcon
@@ -32,16 +32,16 @@ Sample data series:
 
 ```javascript
 [
-  { label: '12-10-2016 01:02:00', y: 2, currentState: 'warning' },
-  { label: '12-11-2016 03:15:00', y: 5, currentState: 'warning' },
-  { label: '12-12-2016 05:22:00', y: 10, currentState: 'warning' },
-  { label: '12-13-2016 05:22:00', y: 15, currentState: 'warning' },
-  { label: '12-14-2016 05:22:00', y: 20, currentState: 'warning' },
-  { label: '12-15-2016 05:22:00', y: 25, currentState: 'warning' },
-  { label: '12-16-2016 05:22:00', y: 30, currentState: 'warning' },
-  { label: '12-17-2016 05:22:00', y: 55, currentState: 'warning' },
-  { label: '12-18-2016 05:22:00', y: 75, currentState: 'critical' },
-  { label: '12-19-2016 05:22:00', y: 50, currentState: 'normal' }
+  { label: '12-10-2016 01:02:00', normal: 0, warning: 2, critical: 0 },
+  { label: '12-11-2016 03:15:00', normal: 0, warning: 5, critical: 0 },
+  { label: '12-12-2016 05:22:00', normal: 0, warning: 10, critical: 0 },
+  { label: '12-13-2016 05:22:00', normal: 0, warning: 15, critical: 0 },
+  { label: '12-14-2016 05:22:00', normal: 0, warning: 20, critical: 0 },
+  { label: '12-15-2016 05:22:00', normal: 0, warning: 25, critical: 0 },
+  { label: '12-16-2016 05:22:00', normal: 0, warning: 30, critical: 0 },
+  { label: '12-17-2016 05:22:00', normal: 0, warning: 55, critical: 0 },
+  { label: '12-18-2016 05:22:00', normal: 25, warning: 0, critical: 50 },
+  { label: '12-19-2016 05:22:00', normal: 50, warning: 0, critical: 0 }
 ]
 ```
 
