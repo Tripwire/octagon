@@ -59,6 +59,11 @@ const Rect = (props) => {
           ry={borderRadius}
           data-key={xDataKey}
           data-value={d.y}
+          data-tooltip-current-state={d.currentState}
+          data-tooltip-date={d3.timeFormat('%A %B %-d')(d.label)}
+          data-tooltip-critical-count={d.critical}
+          data-tooltip-warning-count={d.warning}
+          data-tooltip-normal-count={d.normal}
           data-tooltip-x={xScale(d.label) + 5}
           data-tooltip-y={innerHeight}
           onMouseEnter={props.showToolTip}

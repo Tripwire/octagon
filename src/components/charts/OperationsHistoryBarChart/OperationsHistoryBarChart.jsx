@@ -13,9 +13,8 @@ class OperationsHistoryBarChart extends React.Component {
       tooltip: {
         display: false,
         color: null,
-        title: '',
         height: '',
-        data: { key: '', value: '' },
+        data: { date: '', criticalCount: '', warningCount: '', normalCount: '' },
         pos: { x: '', y: '' }
       }
     }
@@ -28,11 +27,12 @@ class OperationsHistoryBarChart extends React.Component {
       tooltip: {
         display: true,
         color: e.target.getAttribute('fill'),
-        title: this.props.tooltipTitle,
         height: e.target.getAttribute('data-tooltip-pos') - 35,
         data: {
-          key: e.target.getAttribute('data-key'),
-          value: e.target.getAttribute('data-value')
+          date: e.target.getAttribute('data-tooltip-date'),
+          criticalCount: e.target.getAttribute('data-tooltip-critical-count'),
+          warningCount: e.target.getAttribute('data-tooltip-warning-count'),
+          normalCount: e.target.getAttribute('data-tooltip-normal-count')
         },
         pos: {
           x: e.target.getAttribute('data-tooltip-x'),
@@ -46,7 +46,7 @@ class OperationsHistoryBarChart extends React.Component {
     this.setState({
       tooltip: {
         display: false,
-        data: { key: '', value: '' }
+        data: { date: '', criticalCount: '', warningCount: '', normalCount: '' }
       }
     })
   }
@@ -57,9 +57,9 @@ class OperationsHistoryBarChart extends React.Component {
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
     const data = JSON.parse(JSON.stringify(this.props.data))
-    const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
     data.forEach((d) => {
-      d.label = parseDate(d.label)
+      // TODO d.label is actually a date once it's parsed in, so we should rename it to d.date
+      d.label = d3.timeParse('%m-%d-%Y %H:%M:%S')(d.label)
       d.y = d.normal + d.warning + d.critical
       if (d.critical > 0) {
         d.currentState = 'critical'
@@ -113,7 +113,6 @@ OperationsHistoryBarChart.propTypes = {
   width: number,
   showXLabel: bool,
   showIcon: bool,
-  tooltipTitle: string,
   XLabelFontSize: string
 }
 
@@ -125,7 +124,6 @@ OperationsHistoryBarChart.defaultProps = {
   width: 200,
   showXLabel: false,
   showIcon: false,
-  tooltipTitle: '',
   XLabelFontSize: '16'
 }
 
