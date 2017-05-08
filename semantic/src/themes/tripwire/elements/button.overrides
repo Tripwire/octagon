@@ -6,7 +6,7 @@
 .ui.tripwire.button {
   color: @grey;
   border: 2px solid #A6A8AB;
-  background: transparent;
+  background: @white;
   border-radius: 0px;
 }
 
@@ -22,10 +22,10 @@
   background: @blue;
 }
 
+.ui.tripwire.button:focus,
 .ui.tripwire.button:hover {
   border-color: @blue;
   color: @blue;
-  background: transparent;
 }
 .ui.tripwire.button:active {
   border-color: @blue;
@@ -66,22 +66,22 @@
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover {
-  background-color: @blue;
-  border-color: @blue;
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
   color: @white;
   text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:focus,
 .ui.positive.button:focus {
-  background-color: @blue;
-  border-color: @blue;
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
   color: @white;
   text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: @blue;
-  border-color: @blue;
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
   color: @white;
   text-shadow: @positiveTextShadow;
 }
@@ -89,8 +89,8 @@
 .ui.positive.buttons .active.button:active,
 .ui.positive.active.button,
 .ui.positive.button .active.button:active {
-  background-color: @blue;
-  border-color: @blue;
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
   color: @white;
   text-shadow: @positiveTextShadow;
 }
@@ -114,32 +114,32 @@
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
+  background: @secondaryColorHover;
+  color: @grey;
+  border: 2px solid @secondaryColorHover;
   text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .button:focus,
 .ui.negative.button:focus {
-  background: @white;
+  background: @secondaryColorHover;
   color: @grey;
-  border: 2px solid #A6A8AB;
+  border: 2px solid @secondaryColorHover;
   text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
+  background: @secondaryColorHover;
+  color: @grey;
+  border: 2px solid @secondaryColorHover;
   text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .active.button,
 .ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
 .ui.negative.button .active.button:active {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
+  background: @secondaryColorHover;
+  color: @grey;
+  border: 2px solid @secondaryColorHover;
   text-shadow: @negativeTextShadow;
 }
 
