@@ -11,14 +11,10 @@ const Rect = (props) => {
   const { borderRadius, data, fill, innerHeight, xScale, yScale } = props
 
   const rects = data.map((d, i) => {
-    let xDataKey = d.x
-    let xDateLabel = ''
+    let xDataKey = d3.timeFormat('%m/%d/%Y (%H:%M)')(d.label)
+    let xDateLabel = d3.timeFormat('%m/%d')(d.label)
     let iconUri = ''
     let fillColor = fill
-    if (props.xDataType === 'date') {
-      xDataKey = d3.timeFormat('%m/%d/%Y (%H:%M)')(d.x)
-      xDateLabel = d3.timeFormat('%m/%d')(d.x)
-    }
     if (d.currentState === 'warning') {
       fillColor = palette.yellow
       iconUri = warningIconUri
@@ -37,7 +33,7 @@ const Rect = (props) => {
       <g key={`${i}-g`}>
 
         <rect
-          x={xScale(d.x)}
+          x={xScale(d.label)}
           y={yScale(d.y)}
           width={xScale.bandwidth()}
           height={filledInRectangleHeight}
@@ -51,7 +47,7 @@ const Rect = (props) => {
           data-value={d.y}
       />
         <rect
-          x={xScale(d.x)}
+          x={xScale(d.label)}
           y={0}
           width={xScale.bandwidth()}
           height={innerHeight}
@@ -63,7 +59,12 @@ const Rect = (props) => {
           ry={borderRadius}
           data-key={xDataKey}
           data-value={d.y}
-          data-tooltip-x={xScale(d.x) + 5}
+          data-tooltip-current-state={d.currentState}
+          data-tooltip-date={d3.timeFormat('%A %B %-d')(d.label)}
+          data-tooltip-critical-count={d.critical}
+          data-tooltip-warning-count={d.warning}
+          data-tooltip-normal-count={d.normal}
+          data-tooltip-x={xScale(d.label) + 5}
           data-tooltip-y={innerHeight}
           onMouseEnter={props.showToolTip}
           onMouseOut={props.hideToolTip}
@@ -71,7 +72,7 @@ const Rect = (props) => {
         { (props.showIcon)
         ? <image
           xmlns='http://www.w3.org/2000/svg'
-          x={(xScale(d.x))}
+          x={(xScale(d.label))}
           y={iconY}
           width={xScale.bandwidth()}
           height='50px'
@@ -84,7 +85,7 @@ const Rect = (props) => {
         { (props.showXLabel)
         ? <text
           fontSize={props.XLabelFontSize}
-          x={(xScale(d.x)) + (xScale.bandwidth() / 2)}
+          x={(xScale(d.label)) + (xScale.bandwidth() / 2)}
           key={`${i}-t`}
           width={xScale.bandwidth()}
           y={innerHeight + 13}
@@ -111,7 +112,6 @@ Rect.propTypes = {
   innerHeight: number.isRequired,
   hideToolTip: func.isRequired,
   showToolTip: func.isRequired,
-  xDataType: string.isRequired,
   xScale: func.isRequired,
   yScale: func.isRequired,
   showXLabel: React.PropTypes.bool,
