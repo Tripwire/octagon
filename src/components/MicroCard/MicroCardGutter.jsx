@@ -29,7 +29,6 @@ const MicroCardGutter = (props) => {
       {...externalAttributes}
       className={`microcard state__indicator ${props.className}`}
       style={{ backgroundColor: color }}
-      width='8px'
     />
   )
 }
