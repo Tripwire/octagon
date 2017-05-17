@@ -1,5 +1,6 @@
 import '../../styles/components/large-card.css'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import LargeCardAction from './LargeCardAction'
@@ -45,8 +46,8 @@ LargeCard.defaultProps = {
   showCard: false
 }
 LargeCard.propTypes = {
-  className: React.PropTypes.string,
-  framed: React.PropTypes.bool,
-  showCard: React.PropTypes.bool
+  className: PropTypes.string,
+  framed: PropTypes.bool,
+  showCard: PropTypes.bool
 }
 export default LargeCard

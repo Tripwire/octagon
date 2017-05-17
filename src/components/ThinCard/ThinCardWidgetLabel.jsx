@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
@@ -21,8 +22,8 @@ ThinCardWidgetLabel.defaultProps = {
 }
 
 ThinCardWidgetLabel.propTypes = {
-  style: React.PropTypes.object,
-  className: React.PropTypes.object
+  style: PropTypes.object,
+  className: PropTypes.object
 }
 
 export default ThinCardWidgetLabel

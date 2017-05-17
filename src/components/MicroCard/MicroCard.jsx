@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import MicroCardGutter from './MicroCardGutter'
@@ -32,7 +33,7 @@ class MicroCard extends React.Component {
 }
 
 MicroCard.propTypes = {
-  cardContent: React.PropTypes.object
+  cardContent: PropTypes.object
 }
 
 export default MicroCard

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import * as d3 from 'd3'
 import Flexbox from 'flexbox-react'
@@ -83,7 +84,7 @@ const NotificationItem = (props) => {
   )
 }
 NotificationItem.propTypes = {
-  notification: React.PropTypes.object,
-  data: React.PropTypes.array
+  notification: PropTypes.object,
+  data: PropTypes.array
 }
 export default NotificationItem

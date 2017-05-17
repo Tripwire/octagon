@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 // import Immutable from 'immutable';
 var d3 = Object.assign({}, require('d3-time-format'))
@@ -29,12 +30,12 @@ const Dots = (props) => {
 }
 
 Dots.propTypes = {
-  showToolTip: React.PropTypes.func,
-  hideToolTip: React.PropTypes.func,
-  data: React.PropTypes.array,
-  xScale: React.PropTypes.func,
-  yScale: React.PropTypes.func,
-  xDataType: React.PropTypes.string
+  showToolTip: PropTypes.func,
+  hideToolTip: PropTypes.func,
+  data: PropTypes.array,
+  xScale: PropTypes.func,
+  yScale: PropTypes.func,
+  xDataType: PropTypes.string
 }
 
 Dots.defaultProps = {

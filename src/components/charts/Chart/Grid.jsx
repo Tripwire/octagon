@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import ReactDOM from 'react-dom'
 var d3 = Object.assign({}, require('d3-selection'))
@@ -30,9 +31,9 @@ class Grid extends React.Component {
 }
 
 Grid.propTypes = {
-  height: React.PropTypes.number,
-  grid: React.PropTypes.func,
-  gridType: React.PropTypes.oneOf(['x', 'y'])
+  height: PropTypes.number,
+  grid: PropTypes.func,
+  gridType: PropTypes.oneOf(['x', 'y'])
 }
 
 export default Grid

@@ -1,5 +1,6 @@
 import '../../styles/components/thin-card.css'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import ThinCardTitle from './ThinCardTitle'
@@ -48,7 +49,7 @@ ThinCard.defaultProps = {
   noBorder: false
 }
 ThinCard.propTypes = {
-  folder: React.PropTypes.bool,
-  noBorder: React.PropTypes.bool
+  folder: PropTypes.bool,
+  noBorder: PropTypes.bool
 }
 export default ThinCard

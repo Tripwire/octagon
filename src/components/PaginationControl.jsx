@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import '../styles/components/pagination-control.css'
@@ -90,10 +91,10 @@ class PaginationControl extends React.Component {
 }
 
 PaginationControl.propTypes = {
-  totalItems: React.PropTypes.number.isRequired,
-  navigateToPage: React.PropTypes.func.isRequired,
-  perPage: React.PropTypes.number.isRequired,
-  controlsDisabled: React.PropTypes.bool
+  totalItems: PropTypes.number.isRequired,
+  navigateToPage: PropTypes.func.isRequired,
+  perPage: PropTypes.number.isRequired,
+  controlsDisabled: PropTypes.bool
 }
 
 export default PaginationControl

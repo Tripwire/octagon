@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const TopNavContent = (props) => {
@@ -15,7 +16,7 @@ TopNavContent.defaultProps = {
 }
 
 TopNavContent.propTypes = {
-  align: React.PropTypes.string
+  align: PropTypes.string
 }
 
 export default TopNavContent

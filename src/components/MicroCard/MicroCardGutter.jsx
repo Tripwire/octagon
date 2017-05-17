@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import palette from '../../palette'
@@ -38,7 +39,7 @@ MicroCardGutter.defaultProps = {
 }
 
 MicroCardGutter.propTypes = {
-  color: React.PropTypes.string
+  color: PropTypes.string
 
 }
 

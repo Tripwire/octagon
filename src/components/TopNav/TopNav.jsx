@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import TopNavContent from './TopNavContent'
 import LocalTime from './TopNavLocalTime'
@@ -16,7 +17,7 @@ class TopNav extends React.Component {
 
 TopNav.propTypes = {
   /** One of: Content, LocalTime, Node */
-  children: React.PropTypes.node
+  children: PropTypes.node
 }
 
 export default TopNav

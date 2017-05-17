@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import Icon from '../suir/icon/Icon'
@@ -38,7 +39,7 @@ ThinCardDrawer.defaultProps = {
   expanded: false
 }
 ThinCardDrawer.propTypes = {
-  expanded: React.PropTypes.bool,
-  expandGroupToggle: React.PropTypes.func
+  expanded: PropTypes.bool,
+  expandGroupToggle: PropTypes.func
 }
 export default ThinCardDrawer

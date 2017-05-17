@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
@@ -18,8 +19,8 @@ LargeCardStat.defaultProps = {
 }
 
 LargeCardStat.propTypes = {
-  label: React.PropTypes.string,
-  value: React.PropTypes.number
+  label: PropTypes.string,
+  value: PropTypes.number
 }
 
 export default LargeCardStat

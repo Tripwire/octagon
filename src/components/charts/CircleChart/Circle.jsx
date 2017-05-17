@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import palette from '../../../palette'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
@@ -56,13 +57,13 @@ const CircleChart = (props) => {
 }
 
 CircleChart.propTypes = {
-  color: React.PropTypes.string,
-  border: React.PropTypes.number,
-  endPercent: React.PropTypes.number,
-  radius: React.PropTypes.number,
-  padding: React.PropTypes.number,
-  endPercentValue: React.PropTypes.string,
-  backgroundOpacity: React.PropTypes.number
+  color: PropTypes.string,
+  border: PropTypes.number,
+  endPercent: PropTypes.number,
+  radius: PropTypes.number,
+  padding: PropTypes.number,
+  endPercentValue: PropTypes.string,
+  backgroundOpacity: PropTypes.number
 }
 
 CircleChart.defaultProps = {

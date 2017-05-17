@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
@@ -33,7 +34,7 @@ MicroCardContentMessage.defaultProps = {
 }
 
 MicroCardContentMessage.propTypes = {
-  status: React.PropTypes.string
+  status: PropTypes.string
 }
 
 export default MicroCardContentMessage

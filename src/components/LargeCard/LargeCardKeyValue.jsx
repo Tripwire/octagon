@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
@@ -17,8 +18,8 @@ LargeCardKeyValue.defaultProps = {
 }
 
 LargeCardKeyValue.propTypes = {
-  name: React.PropTypes.string,
-  value: React.PropTypes.number
+  name: PropTypes.string,
+  value: PropTypes.number
 }
 
 export default LargeCardKeyValue

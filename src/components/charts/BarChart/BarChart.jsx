@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Rect from './Rect'
 import ToolTip from './BarChartTooltip'
 import * as ChartUtils from '../Chart/utils'

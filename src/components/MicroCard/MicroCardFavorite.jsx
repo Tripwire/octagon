@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import FavoriteButton from '../FavoriteButton'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
@@ -16,7 +17,7 @@ MicroCardFavorite.defaultProps = {
 }
 
 MicroCardFavorite.propTypes = {
-  isFavorited: React.PropTypes.bool
+  isFavorited: PropTypes.bool
 }
 
 export default MicroCardFavorite

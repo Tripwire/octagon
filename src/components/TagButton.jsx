@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 
@@ -33,6 +34,6 @@ TagButton.defaultProps = {
 }
 
 TagButton.propTypes = {
-  tag: React.PropTypes.object
+  tag: PropTypes.object
 }
 export default TagButton

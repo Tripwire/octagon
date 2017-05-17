@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
@@ -14,7 +15,7 @@ MicroCardCount.defaultProps = {
 }
 
 MicroCardCount.propTypes = {
-  color: React.PropTypes.string
+  color: PropTypes.string
 
 }
 
