@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import '../styles/components/favorite-button.css'
 
@@ -20,7 +21,7 @@ FavoriteButton.defaultProps = {
 }
 
 FavoriteButton.propTypes = {
-  isFavorited: React.PropTypes.bool
+  isFavorited: PropTypes.bool
 }
 
 export default FavoriteButton

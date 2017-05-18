@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
@@ -19,8 +20,8 @@ ThinCardActionButton.defaultProps = {
 }
 
 ThinCardActionButton.propTypes = {
-  style: React.PropTypes.object,
-  innerDivClassName: React.PropTypes.object
+  style: PropTypes.object,
+  innerDivClassName: PropTypes.object
 }
 
 export default ThinCardActionButton

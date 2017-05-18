@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import palette from '../../palette'
@@ -28,7 +29,6 @@ const MicroCardGutter = (props) => {
       {...externalAttributes}
       className={`microcard state__indicator ${props.className}`}
       style={{ backgroundColor: color }}
-      width='8px'
     />
   )
 }
@@ -38,7 +38,7 @@ MicroCardGutter.defaultProps = {
 }
 
 MicroCardGutter.propTypes = {
-  color: React.PropTypes.string
+  color: PropTypes.string
 
 }
 

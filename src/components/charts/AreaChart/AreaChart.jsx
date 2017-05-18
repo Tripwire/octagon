@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import PlotArea from './PlotArea'
 import Axis from './Axis'
@@ -183,18 +184,18 @@ class AreaChart extends React.Component {
 }
 
 AreaChart.propTypes = {
-  data: React.PropTypes.array.isRequired,
-  dotVisible: React.PropTypes.bool,
-  height: React.PropTypes.number,
-  hideAxisX: React.PropTypes.bool,
-  hideAxisY: React.PropTypes.bool,
-  tooltipContentType: React.PropTypes.array.isRequired,
-  tooltipVisible: React.PropTypes.bool,
-  width: React.PropTypes.number,
-  xDataType: React.PropTypes.string.isRequired,
-  yBuffer: React.PropTypes.number.isRequired,
-  tooltipWidth: React.PropTypes.number,
-  tooltipHeight: React.PropTypes.number
+  data: PropTypes.array.isRequired,
+  dotVisible: PropTypes.bool,
+  height: PropTypes.number,
+  hideAxisX: PropTypes.bool,
+  hideAxisY: PropTypes.bool,
+  tooltipContentType: PropTypes.array.isRequired,
+  tooltipVisible: PropTypes.bool,
+  width: PropTypes.number,
+  xDataType: PropTypes.string.isRequired,
+  yBuffer: PropTypes.number.isRequired,
+  tooltipWidth: PropTypes.number,
+  tooltipHeight: PropTypes.number
 }
 
 AreaChart.defaultProps = {

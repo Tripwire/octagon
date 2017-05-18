@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import MicroCardContentStatus from './MicroCardContentStatus'
@@ -28,7 +29,7 @@ MicroCardContent.defaultProps = {
 }
 
 MicroCardContent.propTypes = {
-  title: React.PropTypes.string
+  title: PropTypes.string
 }
 
 export default MicroCardContent

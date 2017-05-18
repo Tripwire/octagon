@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Icon from './suir/icon/Icon'
 import '../styles/components/stop-start-button.css'
@@ -20,9 +21,9 @@ StopStartButton.defaultProps = {
 }
 
 StopStartButton.propTypes = {
-  isStopped: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  style: React.PropTypes.object
+  isStopped: PropTypes.bool,
+  onClick: PropTypes.func,
+  style: PropTypes.object
 }
 
 export default StopStartButton

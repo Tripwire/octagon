@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import palette from '../../../palette'
 var d3 = Object.assign({}, require('d3-time-format'))
 
@@ -114,8 +115,8 @@ Rect.propTypes = {
   xDataType: string.isRequired,
   xScale: func.isRequired,
   yScale: func.isRequired,
-  showXLabel: React.PropTypes.bool,
-  showIcon: React.PropTypes.bool,
+  showXLabel: PropTypes.bool,
+  showIcon: PropTypes.bool,
   XLabelFontSize: string
 }
 

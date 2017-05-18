@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import ReactDOM from 'react-dom'
 var d3 = Object.assign({}, require('d3-selection'), require('d3-axis'))
 

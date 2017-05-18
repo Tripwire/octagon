@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import Icon from '../suir/icon/Icon'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
@@ -49,7 +50,7 @@ LargeCardRecentList.defaultProps = {
 }
 
 LargeCardRecentList.propTypes = {
-  items: React.PropTypes.array
+  items: PropTypes.array
 }
 
 export default LargeCardRecentList

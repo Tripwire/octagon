@@ -1,4 +1,5 @@
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
@@ -18,8 +19,8 @@ LargeCardTitle.defaultProps = {
 }
 
 LargeCardTitle.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string
+  title: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default LargeCardTitle
