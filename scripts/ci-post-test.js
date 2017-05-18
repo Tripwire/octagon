@@ -15,7 +15,10 @@ if (process.env.CI_BRANCH !== 'master') {
   process.exit(0)
 }
 
-const SPAWN_OPTS = { cwd: projectRoot }
+const SPAWN_OPTS = {
+  cwd: projectRoot,
+  stdio: 'inherit'
+}
 
 const docs = () => spawn('npm', ['run', 'styleguide:build'], Object.assign(SPAWN_OPTS, { stdio: 'inherit' }))
 const semantic = () => {
@@ -27,6 +30,7 @@ const semantic = () => {
       throw err
     }
   })
+  .then(() => console.log('semantic-release complete!'))
 }
 const publish = () => {
   return pify(ghPages.publish)(staticDocs, { repo, silent: true })
