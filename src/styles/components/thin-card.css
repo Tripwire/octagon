@@ -92,12 +92,24 @@
     background-color: #dbdee1;
     border-top: 3px solid var(--blue);
   }
-  & .drawer__center {
+  & .drawer__expand_button {
     background-color: var(--blue);
     border-bottom: 2px solid var(--blue);
     color: white;
+    width: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
   }
-  & .drawer__center_copy {
+  & .drawer__collapse_button {
+    background-color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    color: white;
+    width: 100%;
+    justify-content: center;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  & .drawer__button {
     font-size: 12px;
   }
   & .text-large {
