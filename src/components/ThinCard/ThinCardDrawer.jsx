@@ -10,7 +10,6 @@ const ThinCardDrawer = (props) => {
     <div {...externalAttributes}>
       {(!props.expanded) ? (
         <Flexbox className='drawer' flexDirection='row' onClick={props.expandGroupToggle}>
-          <Flexbox className='drawer__side' flexGrow={3} />
           <Flexbox className='drawer__center' width='150px' paddingLeft='1em' paddingRight='1em'>
             <Flexbox alignItems='center' className='drawer__center_copy' flexGrow={2}>EXPAND</Flexbox>
             <Flexbox><Icon className='ei arrow_carrot-down text-large' /></Flexbox>
