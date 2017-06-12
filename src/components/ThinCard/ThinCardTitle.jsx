@@ -17,13 +17,12 @@ const ThinCardTitle = (props) => {
 }
 
 ThinCardTitle.defaultProps = {
-  style: {},
-  className: {}
+  style: {}
 }
 
 ThinCardTitle.propTypes = {
   style: PropTypes.object,
-  className: PropTypes.object
+  className: PropTypes.string
 }
 
 export default ThinCardTitle

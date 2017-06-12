@@ -17,13 +17,12 @@ const ThinCardWidgetLabel = (props) => {
 }
 
 ThinCardWidgetLabel.defaultProps = {
-  style: {},
-  className: {}
+  style: {}
 }
 
 ThinCardWidgetLabel.propTypes = {
   style: PropTypes.object,
-  className: PropTypes.object
+  className: PropTypes.string
 }
 
 export default ThinCardWidgetLabel
