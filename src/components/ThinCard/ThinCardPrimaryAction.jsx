@@ -17,13 +17,12 @@ const ThinCardPrimaryAction = (props) => {
 }
 
 ThinCardPrimaryAction.defaultProps = {
-  style: {},
-  className: {}
+  style: {}
 }
 
 ThinCardPrimaryAction.propTypes = {
   style: PropTypes.object,
-  className: PropTypes.object
+  className: PropTypes.string
 }
 
 export default ThinCardPrimaryAction

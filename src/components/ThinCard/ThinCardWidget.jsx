@@ -43,7 +43,7 @@ ThinCardWidget.defaultProps = {
 ThinCardWidget.propTypes = {
   borderLeft: PropTypes.bool,
   borderRight: PropTypes.bool,
-  className: PropTypes.object,
+  className: PropTypes.string,
   onClick: PropTypes.func
 }
 
