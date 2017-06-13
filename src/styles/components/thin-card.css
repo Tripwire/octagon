@@ -92,6 +92,10 @@
     background-color: #dbdee1;
     border-top: 3px solid var(--blue);
   }
+  & .drawer__side_blue {
+    background-color: var(--blue);
+    border-top: 3px solid var(--blue);
+  }
   & .drawer__expand_button {
     background-color: var(--blue);
     border-bottom: 2px solid var(--blue);
@@ -104,8 +108,7 @@
     background-color: var(--blue);
     border-bottom: 2px solid var(--blue);
     color: white;
-    width: 100%;
-    justify-content: center;
+    width: 100px;
     padding-left: 1em;
     padding-right: 1em;
   }
