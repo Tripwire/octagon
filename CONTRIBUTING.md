@@ -142,5 +142,5 @@ because the reviewers have hit the buttons before.
 
 ### ci testing
 
-every pull request needs to be tested.  ci tests are autmoated and require no extra
-effort on behalf o fo the author.
+every pull request needs to be tested.  ci tests are automated and require no extra
+effort on behalf of the author.
