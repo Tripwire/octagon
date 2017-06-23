@@ -1,24 +1,24 @@
 ## Generic
 
     const Button = require('semantic-ui-react').Button;
-    <Button className='tripwire'>Test button</Button>
+    <Button className=''>Test button</Button>
 
 ## Disabled Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button className='tripwire' disabled >Some Copy </Button>
+    <Button className='' disabled >Some Copy </Button>
 
 ## Active Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button className='tripwire' active>
+    <Button className='' active>
         Some Copy
     </Button>
 
 ## Positive Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button positive className='tripwire'>
+    <Button positive className=''>
       <i className='icon_check' style={{marginRight: '10px'}} />
         Positive
       </Button>
@@ -26,7 +26,7 @@
 ## Negative Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button negative className='tripwire'>
+    <Button negative className=''>
     <i className='icon_close' style={{marginRight: '10px'}} />
     Negative
     </Button>
