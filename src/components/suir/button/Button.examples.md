@@ -55,4 +55,13 @@
       </div>
     </div>
 
+## Adjacent Buttons
+
+    const Button = require('semantic-ui-react').Button;
+    <div>
+      <Button>Good Button</Button>
+      <Button color='red'>Best Button</Button>
+      <Button color='purple'>!! OMG FAVORITE Button !!</Button>
+    </div>
+
 See full input documentation [here](http://react.semantic-ui.com/elements/button)
