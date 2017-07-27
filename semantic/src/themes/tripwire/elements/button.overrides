@@ -3,46 +3,47 @@
 *******************************/
 
 
-.ui.tripwire.button {
+.ui.button {
   color: @grey;
   border: 2px solid #A6A8AB;
   background: @white;
   border-radius: 0px;
 }
 
-.ui.tripwire.button:active,
-.ui.tripwire.active.button:active {
+.ui.button:active,
+.ui.active.button:active {
   border-color: @blue;
   color: @white;
   background: @blue;
 }
-.ui.tripwire.active.button {
+.ui.active.button {
   border-color: @blue;
   color: @white;
   background: @blue;
 }
 
-.ui.tripwire.button:focus,
-.ui.tripwire.button:hover {
+.ui.button:focus,
+.ui.button:hover {
   border-color: @blue;
   color: @blue;
+  background: @white;
 }
-.ui.tripwire.button:active {
+.ui.button:active {
   border-color: @blue;
   color: @white;
   background: @blue;
 }
-.ui.tripwire.active.button {
+.ui.active.button {
   border-color: @blue;
   color: @white;
   background: @blue;
 }
-.ui.tripwire.active.button:hover {
+.ui.active.button:hover {
   border-color: @blue;
   color: @white;
   background: @blue;
 }
-.ui.tripwire.active.button:active {
+.ui.active.button:active {
   border-color: @blue;
   color: @white;
   background: @blue;
@@ -150,6 +151,7 @@
 .ui.icon.button {
   color: @grey;
   background: transparent;
+  border: 0;
 }
 .ui.icon.button:hover {
   color: @blue;
