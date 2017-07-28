@@ -6,10 +6,15 @@
 ## Positive Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button positive className=''>
-      <i className='icon_check' style={{marginRight: '10px'}} />
+    <div>
+      <Button positive className=''>
         Positive
       </Button>
+      <Button positive className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Positive with Icon
+      </Button>
+    </div>
 
 ## Negative Button
 

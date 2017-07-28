@@ -11,7 +11,10 @@
 }
 
 .ui.button.primary {
-  border: none;
+  border: 2px solid @primaryColor;
+}
+.ui.button.primary:hover {
+  border-color: @primaryColorHover;
 }
 
 .ui.button:active,
