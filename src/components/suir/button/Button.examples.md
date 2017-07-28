@@ -3,18 +3,6 @@
     const Button = require('semantic-ui-react').Button;
     <Button className=''>Test button</Button>
 
-## Disabled Button
-
-    const Button = require('semantic-ui-react').Button;
-    <Button className='' disabled >Some Copy </Button>
-
-## Active Button
-
-    const Button = require('semantic-ui-react').Button;
-    <Button className='' active>
-        Some Copy
-    </Button>
-
 ## Positive Button
 
     const Button = require('semantic-ui-react').Button;
@@ -29,6 +17,54 @@
     <Button negative className=''>
     <i className='icon_close' style={{marginRight: '10px'}} />
     Negative
+    </Button>
+
+## Primary Button
+
+    const Button = require('semantic-ui-react').Button;
+    <div>
+      <Button primary className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Primary
+      </Button>
+      <Button primary active className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Primary Active
+      </Button>
+      <Button primary disabled className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Primary Disabled
+      </Button>
+    </div>
+
+## Secondary Button
+
+    const Button = require('semantic-ui-react').Button;
+    <div>
+      <Button secondary className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Secondary
+      </Button>
+      <Button secondary active className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Secondary Active
+      </Button>
+      <Button secondary disabled className=''>
+        <i className='icon_check' style={{marginRight: '10px'}} />
+        Secondary Disabled
+      </Button>
+    </div>
+
+## Disabled Button
+
+    const Button = require('semantic-ui-react').Button;
+    <Button className='' disabled >Some Copy </Button>
+
+## Active Button
+
+    const Button = require('semantic-ui-react').Button;
+    <Button className='' active>
+        Some Copy
     </Button>
 
 ## Icon Button
