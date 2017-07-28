@@ -10,6 +10,10 @@
   border-radius: 0px;
 }
 
+.ui.button.primary {
+  border: none;
+}
+
 .ui.button:active,
 .ui.active.button:active {
   border-color: @blue;
@@ -24,9 +28,8 @@
 
 .ui.button:focus,
 .ui.button:hover {
-  border-color: @blue;
-  color: @blue;
-  background: @white;
+  border-color: @hoverBackgroundColor;
+  color: @white;
 }
 .ui.button:active {
   border-color: @blue;
