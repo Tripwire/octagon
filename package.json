@@ -76,7 +76,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p validate lint test check-vulnerablities"
+    "precommit": "run-p lint test check-vulnerablities"
   },
   "standard": {
     "ignore": [
