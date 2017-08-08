@@ -32,8 +32,10 @@
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "html-loader": "^0.4.4",
+    "husky": "^0.14.3",
     "javascript-natural-sort": "^0.7.1",
     "jest": "^19.0.2",
+    "npm-run-all": "^4.0.2",
     "nsp": "^2.6.2",
     "perish": "^1.0.1",
     "pify": "^2.3.0",
@@ -45,7 +47,7 @@
     "react-remarkable": "^1.1.1",
     "react-styleguidist": "^5.2.1",
     "react-test-renderer": "^15.5.4",
-    "ripcord": "^1.1.1",
+    "ripcord": "^3.1.0",
     "rucksack-css": "^0.9.1",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
@@ -61,9 +63,9 @@
     "flexbox-react": "^4.3.3",
     "lato-font": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "semantic-ui-react": "^0.68.3"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "semantic-ui-react": "^0.71.3"
   },
   "scripts": {
     "build": "node scripts/build",
@@ -73,7 +75,10 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "start": "node scripts/start"
+    "start": "node scripts/start",
+    "precommit": "run-p validate lint test check-vulnerablities",
+    "validate": "ripcord check",
+    "check-vulnerablities": "nsp check"
   },
   "standard": {
     "ignore": [
@@ -82,11 +87,6 @@
       "styleguide"
     ],
     "parser": "babel-eslint"
-  },
-  "ripcord": {
-    "rules": [
-      "precommit"
-    ]
   },
   "jest": {
     "collectCoverage": true,
@@ -99,12 +99,6 @@
       }
     }
   },
-  "pre-commit": [
-    "lint",
-    "test",
-    "check-licenses",
-    "secure"
-  ],
   "release": {
     "generateNotes": "./node_modules/@semantic-release/release-notes-generator",
     "verifyConditions": [
@@ -114,6 +108,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Tripwire/octagon.git"
+  },
+  "ripcord": {
+    "rules": [
+      "check-vulnerablities",
+      "lint",
+      "precommit",
+      "validate"
+    ]
   },
   "version": "0.0.0-development"
 }
