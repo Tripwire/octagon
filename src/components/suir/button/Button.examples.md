@@ -1,69 +1,94 @@
-## Generic
-
-    const Button = require('semantic-ui-react').Button;
-    <Button className=''>Test button</Button>
-
 ## Positive Button
 
     const Button = require('semantic-ui-react').Button;
     <div>
-      <Button positive className=''>
-        Positive
-      </Button>
+      <Button positive className=''>Positive</Button>
       <Button positive className=''>
         <i className='icon_check' style={{marginRight: '10px'}} />
         Positive with Icon
       </Button>
+      <Button positive active className=''>Positive Active</Button>
+      <Button positive disabled className=''>Positive Disabled</Button>
     </div>
 
 ## Negative Button
 
     const Button = require('semantic-ui-react').Button;
-    <Button negative className=''>
-    <i className='icon_close' style={{marginRight: '10px'}} />
-    Negative
-    </Button>
+    <div>
+      <Button negative className=''>
+        <i className='icon_close' style={{marginRight: '10px'}} />
+        Negative
+      </Button>
+      <Button negative active className=''>Negative Active</Button>
+      <Button negative disabled className=''>Negative Disabled</Button>
+    </div>
 
-## Primary Button
+## Generic
 
     const Button = require('semantic-ui-react').Button;
     <div>
-      <Button primary className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Primary
-      </Button>
-      <Button primary active className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Primary Active
-      </Button>
-      <Button primary disabled className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Primary Disabled
-      </Button>
+      <Button className=''>Generic</Button>
+      <Button active className=''>Generic Active</Button>
+      <Button disabled className=''>Generic Disabled</Button>
     </div>
 
-## Secondary Button
+## Button Groups
 
     const Button = require('semantic-ui-react').Button;
     <div>
-      <Button secondary className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Secondary
-      </Button>
-      <Button secondary active className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Secondary Active
-      </Button>
-      <Button secondary disabled className=''>
-        <i className='icon_check' style={{marginRight: '10px'}} />
-        Secondary Disabled
-      </Button>
+      <div>
+        <Button.Group>
+          <Button>Generic One</Button>
+          <Button>Generic Two</Button>
+          <Button>Generic Three</Button>
+        </Button.Group>
+      </div>
+      <p />
+      <div>
+          <Button.Group>
+          <Button positive>Positive One</Button>
+          <Button positive>Positive Two</Button>
+          <Button positive>Positive Three</Button>
+        </Button.Group>
+      </div>
+      <p />
+      <div>
+        <Button.Group>
+          <Button negative>Negative One</Button>
+          <Button negative>Negative Two</Button>
+          <Button negative>Negative Three</Button>
+        </Button.Group>
+      </div>
+      <p />
+      <div>
+        <Button.Group>
+          <Button >Generic One</Button>
+          <Button positive>Positive Two</Button>
+          <Button negative>Negative Three</Button>
+        </Button.Group>
+      </div>
     </div>
 
-## Disabled Button
+## Test
 
     const Button = require('semantic-ui-react').Button;
-    <Button className='' disabled >Some Copy </Button>
+    <div>
+      <div>
+          <Button>Generic </Button>
+          <Button disabled>Generic disabled</Button>
+      </div>
+      <p />
+      <div>
+          <Button positive>Positive </Button>
+          <Button positive disabled>Positive disabled</Button>
+      </div>
+      <p />
+      <div>
+          <Button negative>Negative </Button>
+          <Button negative disabled>Negative disabled</Button>
+      </div>
+    </div>
+
 
 ## Active Button
 

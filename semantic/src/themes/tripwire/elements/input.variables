@@ -81,7 +81,7 @@
 
 /* Error */
 @errorBackground: @negativeBackgroundColor;
-@errorColor: @negativeTextColor;
+@errorColor: @invertedTextColor;
 @errorBorder: @negativeBorderColor;
 @errorBoxShadow: none;
 
