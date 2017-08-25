@@ -131,6 +131,21 @@
   opacity @defaultDuration @defaultEasing
 ;
 
+/*
+note that this double box shadow is a pretty good copy of the webkit default:
+  outline: 5px auto @selectedSolidWhiteBorderColor 0;
+
+The alternative was
+outline-color:  @selectedSolidWhiteBorderColor;
+outline-offset: 1px;
+outline-style: solid;
+outline-width: 2px;
+
+which ends out being a hard edged box rather than the slightly blurred outline
+*/
+
+@focusedButtonShadow: 0 0 0 1px @white, 0 0 1px 4px #bfbebe;
+
 /*-------------------
         Types
 --------------------*/
@@ -315,6 +330,12 @@
 @lightGreyTextShadow: @textShadow;
 
 
+@disabledText: #ababab;
+@genericDisabledBorder: #cccccc;
+@negativeDisabledBorder: #cccccc;
+@negativeBorder: #bdc3c7;
+@negativeInverted: #999999;
+
 /* Ordinality */
 @primaryBackgroundImage: @coloredBackgroundImage;
 @primaryTextColor: @invertedTextColor;
@@ -330,10 +351,10 @@
 @positiveTextColor: @invertedTextColor;
 @positiveTextShadow: @invertedTextShadow;
 @positiveBoxShadow: @coloredBoxShadow;
-
+@positiveDisabledBackground: #ebebeb;
 
 @negativeBackgroundImage: @coloredBackgroundImage;
-@negativeTextColor: @invertedTextColor;
+@negativeTextColor: #454545;
 @negativeTextShadow: @invertedTextShadow;
 @negativeBoxShadow: @coloredBoxShadow;
 
