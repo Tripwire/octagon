@@ -107,10 +107,10 @@ module.exports = {
     if (cache && cache.srcHash === srcHash && cache.semanticHash === semanticHash) {
       return console.log('SKIPPING STYLEGUIDE BUILD')
     }
+    await execa('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
     await Promise.all([
       db.writeAsync('srcHash', srcHash),
       db.writeAsync('semanticHash', semanticHash)
     ])
-    return execa('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
   }
 }
