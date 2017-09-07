@@ -4,7 +4,7 @@
   font-size: 20px !important;
 }
 .large_card {
-  background: #F0F0F1;
+  background: #f8f8f8;
   left: 0;
   min-height: 100%;
   opacity: 0;
@@ -41,7 +41,7 @@
 .large_card__container {
   background: white;
   clear: fix;
-  
+
   min-height: 94%;
   position: relative;
   & .label {
@@ -95,7 +95,7 @@
     & .count__label {
       display: block;
       font-size: var(--xsmall);
-      
+
     }
     & .count__total {
       color: var(--textPurple);
@@ -118,8 +118,8 @@
     color: rgb(166, 168, 171);
     text-transform: uppercase;
     text-align: left;
-    
-  } 
+
+  }
   & .header{
     margin-bottom: 20px !important;
   }
@@ -130,7 +130,7 @@
       margin-left: 20px;
     }
   }
-  
+
 
 
   & .summary_info {

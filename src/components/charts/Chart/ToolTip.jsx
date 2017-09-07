@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const ToolTip = (props) => {
@@ -44,7 +45,7 @@ const ToolTip = (props) => {
 }
 
 ToolTip.propTypes = {
-  tooltip: React.PropTypes.object
+  tooltip: PropTypes.object
 }
 
 export default ToolTip

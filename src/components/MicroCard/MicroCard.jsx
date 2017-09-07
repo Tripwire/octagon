@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import MicroCardGutter from './MicroCardGutter'
@@ -6,6 +7,7 @@ import MicroCardFavorite from './MicroCardFavorite'
 import MicroCardContent from './MicroCardContent'
 import MicroCardCount from './MicroCardCount'
 import '../../styles/components/micro-card.css'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 class MicroCard extends React.Component {
   static Gutter = MicroCardGutter;
@@ -14,8 +16,9 @@ class MicroCard extends React.Component {
   static Content = MicroCardContent;
   static Count = MicroCardCount;
   render () {
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <Flexbox
+      <Flexbox {...externalAttributes}
         flexDirection='row'
         key={this.props.cardContent.id}
         className={`microcard bordered ${this.props.className}`}
@@ -30,7 +33,7 @@ class MicroCard extends React.Component {
 }
 
 MicroCard.propTypes = {
-  cardContent: React.PropTypes.object
+  cardContent: PropTypes.object
 }
 
 export default MicroCard

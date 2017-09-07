@@ -1,2 +1,2 @@
-import Radio from 'semantic-ui-react/dist/commonjs/modules/Radio'
+import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio/Radio'
 export default Radio

@@ -1,9 +1,12 @@
+import PropTypes from 'prop-types'
 import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const LargeCardKeyValue = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <div className={`summary_info ${props.className}`} onClick={props.onClick}>
-      <span className='label'>{props.name}</span>
+    <div {...externalAttributes} className={`summary_info ${props.className}`}>
+      <span className='label'>{props.label}</span>
       <span className='count'>{props.value}</span>
     </div>
   )
@@ -15,8 +18,8 @@ LargeCardKeyValue.defaultProps = {
 }
 
 LargeCardKeyValue.propTypes = {
-  name: React.PropTypes.string,
-  value: React.PropTypes.number
+  name: PropTypes.string,
+  value: PropTypes.number
 }
 
 export default LargeCardKeyValue

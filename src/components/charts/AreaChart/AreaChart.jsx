@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import PlotArea from './PlotArea'
 import Axis from './Axis'
@@ -5,6 +6,7 @@ import ToolTip from './ToolTip'
 import Dots from '../Chart/Dots'
 import ChartOverlay from '../Chart/ChartOverlay'
 import * as ChartUtils from '../Chart/utils'
+import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 var d3 = Object.assign({}, require('d3-shape'), require('d3-format'), require('d3-axis'))
 
@@ -136,8 +138,9 @@ class AreaChart extends React.Component {
       .scale(yScale)
       .ticks(5)
 
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div className='area__chart__container'>
+      <div {...externalAttributes} className={`area-chart__container ${this.props.className}`}>
         <svg width={width} height={innerHeight}>
           <g transform='translate(2, 4)'>
             <PlotArea
@@ -181,18 +184,18 @@ class AreaChart extends React.Component {
 }
 
 AreaChart.propTypes = {
-  data: React.PropTypes.array.isRequired,
-  dotVisible: React.PropTypes.bool,
-  height: React.PropTypes.number,
-  hideAxisX: React.PropTypes.bool,
-  hideAxisY: React.PropTypes.bool,
-  tooltipContentType: React.PropTypes.array.isRequired,
-  tooltipVisible: React.PropTypes.bool,
-  width: React.PropTypes.number,
-  xDataType: React.PropTypes.string.isRequired,
-  yBuffer: React.PropTypes.number.isRequired,
-  tooltipWidth: React.PropTypes.number,
-  tooltipHeight: React.PropTypes.number
+  data: PropTypes.array.isRequired,
+  dotVisible: PropTypes.bool,
+  height: PropTypes.number,
+  hideAxisX: PropTypes.bool,
+  hideAxisY: PropTypes.bool,
+  tooltipContentType: PropTypes.array.isRequired,
+  tooltipVisible: PropTypes.bool,
+  width: PropTypes.number,
+  xDataType: PropTypes.string.isRequired,
+  yBuffer: PropTypes.number.isRequired,
+  tooltipWidth: PropTypes.number,
+  tooltipHeight: PropTypes.number
 }
 
 AreaChart.defaultProps = {

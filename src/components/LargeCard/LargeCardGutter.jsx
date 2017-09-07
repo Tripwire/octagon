@@ -1,8 +1,10 @@
+import Flexbox from 'flexbox-react'
 import React from 'react'
 import palette from '../../palette'
-import Flexbox from 'flexbox-react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const LargeCardGutter = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   let color = ''
   switch (props.color) {
     case 'critical':
@@ -21,7 +23,11 @@ const LargeCardGutter = (props) => {
       color = props.color
   }
   return (
-    <Flexbox className='fullview__left_border' width='9px' style={{ backgroundColor: color }} />
+    <Flexbox
+      {...externalAttributes}
+      className={`fullview__left_border ${props.className}`}
+      width='9px'
+      style={{ backgroundColor: color }} />
   )
 }
 

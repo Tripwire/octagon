@@ -3,49 +3,61 @@
 *******************************/
 
 
-.ui.tripwire.button {
-  color: @grey;
-  border: 2px solid #A6A8AB;
-  background: transparent;
-  border-radius: 0px;
+.ui.button {
+  color: @blue;
+  border: 2px solid @blue;
+  background: @white;
+  border-radius: 2px;
 }
 
-.ui.tripwire.button:active,
-.ui.tripwire.active.button:active {
-  border-color: @blue;
-  color: @white;
-  background: @blue;
-}
-.ui.tripwire.active.button {
-  border-color: @blue;
-  color: @white;
-  background: @blue;
+.ui.buttons .button:first-child,
+.ui.button.primary {
+  border: 2px solid @primaryColor;
 }
 
-.ui.tripwire.button:hover {
+.ui.button.primary:hover {
+  border-color: @primaryColorHover;
+}
+
+.ui.button:focus {
   border-color: @blue;
   color: @blue;
-  background: transparent;
+  background: @white;
+  box-shadow: @focusedButtonShadow;
 }
-.ui.tripwire.button:active {
+
+.ui.button:hover {
   border-color: @blue;
-  color: @white;
+  color: @invertedTextColor;
   background: @blue;
 }
-.ui.tripwire.active.button {
+
+.ui.button:active,
+.ui.active.button:active,
+.ui.active.button {
   border-color: @blue;
-  color: @white;
+  color: @invertedTextColor;
+  background: @blue;
+  box-shadow: @focusedButtonShadow;
+}
+
+.ui.active.button:hover {
+  border-color: @blue;
+  color: @invertedTextColor;
   background: @blue;
 }
-.ui.tripwire.active.button:hover {
+.ui.active.button:active {
   border-color: @blue;
-  color: @white;
+  color: @invertedTextColor;
   background: @blue;
+  box-shadow: @focusedButtonShadow;
 }
-.ui.tripwire.active.button:active {
-  border-color: @blue;
-  color: @white;
-  background: @blue;
+
+.ui.disabled.button {
+  background-color: @white;
+  border-color: @genericDisabledBorder;
+  color: @disabledText;
+  opacity: 100 !important;
 }
 
 /*---------------
@@ -57,44 +69,53 @@
 .ui.positive.button {
   background-color: @blue;
   border-color: @blue;
-  color: @white;
+  color: @invertedTextColor;
   text-shadow: @positiveTextShadow;
   background-image: @coloredBackgroundImage;
 }
+
+.ui.buttons .ui.positive.button:first-child {
+  border-style: solid;
+  border-width: 2px;
+}
+
 .ui.positive.button {
   box-shadow: @coloredBoxShadow;
-}
-.ui.positive.buttons .button:hover,
-.ui.positive.button:hover {
-  background-color: @blue;
-  border-color: @blue;
-  color: @white;
-  text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:focus,
 .ui.positive.button:focus {
   background-color: @blue;
   border-color: @blue;
-  color: @white;
+  color: @invertedTextColor;
+  text-shadow: @positiveTextShadow;
+  box-shadow: @focusedButtonShadow;
+}
+.ui.positive.buttons .button:hover,
+.ui.positive.button:hover {
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
+  color: @invertedTextColor;
   text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:active,
-.ui.positive.button:active {
-  background-color: @blue;
-  border-color: @blue;
-  color: @white;
-  text-shadow: @positiveTextShadow;
-}
+.ui.positive.button:active,
 .ui.positive.buttons .active.button,
 .ui.positive.buttons .active.button:active,
 .ui.positive.active.button,
 .ui.positive.button .active.button:active {
-  background-color: @blue;
-  border-color: @blue;
-  color: @white;
+  background-color: @primaryColorHover;
+  border-color: @primaryColorHover;
+  color: @invertedTextColor;
   text-shadow: @positiveTextShadow;
+  box-shadow: @focusedButtonShadow;
 }
 
+.ui.positive.disabled.button {
+  background-color: @positiveDisabledBackground;
+  border-color: @positiveDisabledBackground;
+  color: @disabledText;
+  opacity: 100 !important;
+}
 
 /*---------------
      Negative
@@ -104,43 +125,52 @@
 .ui.negative.buttons .button,
 .ui.negative.button {
   background: @white;
-  color: @grey;
-  border: 2px solid #A6A8AB;
+  color: @negativeTextColor;
+  border: 2px solid @negativeBorder;
   text-shadow: @negativeTextShadow;
   background-image: @coloredBackgroundImage;
 }
 .ui.negative.button {
   box-shadow: @coloredBoxShadow;
 }
-.ui.negative.buttons .button:hover,
-.ui.negative.button:hover {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
-  text-shadow: @negativeTextShadow;
+.ui.buttons .ui.negative.button:first-child {
+  border: 2px solid @negativeBorder;
 }
 .ui.negative.buttons .button:focus,
 .ui.negative.button:focus {
   background: @white;
-  color: @grey;
-  border: 2px solid #A6A8AB;
+  color: @negativeTextColor;
+  border: 2px solid @negativeBorder;
+  text-shadow: @negativeTextShadow;
+  background-image: @coloredBackgroundImage;
+  box-shadow: @focusedButtonShadow;
+}
+.ui.negative.buttons .button:hover,
+.ui.negative.button:hover,
+.ui.buttons .ui.negative.button:hover:first-child {
+  background: @negativeInverted;
+  color: @invertedTextColor;
+  border: 2px solid @negativeInverted;
   text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .button:active,
-.ui.negative.button:active {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
-  text-shadow: @negativeTextShadow;
-}
+.ui.negative.button:active,
 .ui.negative.buttons .active.button,
 .ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
 .ui.negative.button .active.button:active {
-  background: @white;
-  color: @blue;
-  border: 2px solid @blue;
+  background: #999999;
+  color: @invertedTextColor;
+  border: 2px solid @negativeInverted;
   text-shadow: @negativeTextShadow;
+  box-shadow: @focusedButtonShadow;
+}
+
+.ui.negative.disabled.button {
+  background-color: @white;
+  border-color: @negativeDisabledBorder;
+  color: @disabledText;
+  opacity: 100 !important;
 }
 
 /*--------------
@@ -150,6 +180,7 @@
 .ui.icon.button {
   color: @grey;
   background: transparent;
+  border: 0;
 }
 .ui.icon.button:hover {
   color: @blue;

@@ -1,27 +1,32 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import palette from '../../../palette'
-var d3 = Object.assign({}, require('d3-shape'))
+import filterAttributesFromProps from '../../../util/externalAttributeFilter'
+
+const d3 = Object.assign({}, require('d3-shape'))
 
 const twoPi = Math.PI * 2
-// const formatPercent = d3.format('.0%');
 
 const CircleChart = (props) => {
-  const { color, border, endPercent, radius, padding, backgroundOpacity } = props
+  const {color, border, endPercent, radius, padding, backgroundOpacity} = props
+  const center = radius + padding
   const boxSize = (radius + padding) * 2
   const endPercentValue = props.endPercentValue
 
   const arc = d3.arc()
-            .startAngle(0)
-            .innerRadius(radius)
-            .outerRadius(radius - border)
+    .startAngle(0)
+    .innerRadius(radius)
+    .outerRadius(radius - border)
   const arcbg = d3.arc()
-            .startAngle(0)
-            .innerRadius(radius - 4)
-            .outerRadius(radius - 1)
+    .startAngle(0)
+    .innerRadius(radius - 4)
+    .outerRadius(radius - 1)
+  const externalAttributes = filterAttributesFromProps(props)
+
   return (
-    <div>
+    <div {...externalAttributes} >
       <svg width={boxSize} height={boxSize}>
-        <g transform='translate(55,55)'>
+        <g transform={`translate(${center},${center})`}>
           <g className='progress-meter'>
             <path
               className='background'
@@ -53,13 +58,13 @@ const CircleChart = (props) => {
 }
 
 CircleChart.propTypes = {
-  color: React.PropTypes.string,
-  border: React.PropTypes.number,
-  endPercent: React.PropTypes.number,
-  radius: React.PropTypes.number,
-  padding: React.PropTypes.number,
-  endPercentValue: React.PropTypes.string,
-  backgroundOpacity: React.PropTypes.number
+  color: PropTypes.string,
+  border: PropTypes.number,
+  endPercent: PropTypes.number,
+  radius: PropTypes.number,
+  padding: PropTypes.number,
+  endPercentValue: PropTypes.string,
+  backgroundOpacity: PropTypes.number
 }
 
 CircleChart.defaultProps = {

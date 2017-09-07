@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const ToolTip = (props) => {
@@ -8,19 +9,19 @@ const ToolTip = (props) => {
   let width = 150
   let height = 70
   let transformText = 'translate( 10 , 10)'
-  const transformArrow = `translate(${(width / 2) - 15}, ${height - 2})`
+  const transformArrow = `translate(${(width / 2) - 15}, ${height})`
   const transformLine = `translate(${(width / 2) - 15}, ${height})`
 
   if (props.tooltip.display === true) {
     const position = props.tooltip.pos
     x = position.x
     visibility = 'visible'
-    transform = `translate(${x - (width / 2) + 5}, ${(-1) * (props.tooltip.data.value)})`
+    transform = `translate(${x - (width / 2) + 5}, ${(-1) * (props.tooltip.height)})`
   } else {
     visibility = 'hidden'
   }
   return (
-    <g transform={transform}>
+    <g transform={transform} pointerEvents='none'>
       <polygon
         class='shadow'
         is points='10,0  30,0  20,10'
@@ -47,15 +48,15 @@ const ToolTip = (props) => {
       />
       <line
         visibility={visibility}
-        x1='14'
+        x1='13'
         y1='0'
-        x2='26'
+        x2='27'
         y2='0'
         is
         opacity='1'
         stroke-opacity='1'
         stroke='white'
-        stroke-width='2px'
+        stroke-width='3px'
         transform={transformLine}
       />
       <text is visibility={visibility} transform={transformText} >
@@ -68,7 +69,7 @@ const ToolTip = (props) => {
 }
 
 ToolTip.propTypes = {
-  tooltip: React.PropTypes.object
+  tooltip: PropTypes.object
 }
 
 export default ToolTip
