@@ -88,12 +88,12 @@
     "check-vulnerablities": "nsp check"
   },
   "standard": {
+    "parser": "babel-eslint",
     "ignore": [
       "lib",
       "semantic",
       "styleguide"
-    ],
-    "parser": "babel-eslint"
+    ]
   },
   "jest": {
     "collectCoverage": true,

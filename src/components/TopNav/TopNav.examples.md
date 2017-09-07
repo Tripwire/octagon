@@ -1,13 +1,13 @@
 Top Nav Example
-      
+
       const logo = require('../../assets/tripwire-logo.png');
       <TopNav>
         <TopNav.Content align="left">
-            <img src={logo} alt="TripWire Logo" width="75" />
+          <img src={logo} alt="TripWire Logo" width="75" />
         </TopNav.Content>
         <TopNav.Content align="right">
-              Audrey&nbsp;&nbsp;
-              <TopNav.LocalTime />
+          Audrey&nbsp;&nbsp;
+          <TopNav.LocalTime date={new Date(100000)} />
         </TopNav.Content>
       </TopNav>
 
@@ -15,9 +15,8 @@ Top Nav Example
 
 ```javascript
 Content
-      align : one of [ left, right ]
+      align: one of [ left, right ]
 
 LocalTime
-      // no props available
+      date: Date (test only)
 ```
- 

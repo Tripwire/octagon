@@ -43,7 +43,6 @@ const NotificationItem = (props) => {
     currentTime = timeFormatted
     sameTimeGroup = false
   }
-  console.log(sameTimeGroup)
   currentTime = timeFormatted
   if (props.data.length === 1) {
     currentTime = ''

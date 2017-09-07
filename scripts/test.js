@@ -1,32 +1,31 @@
 'use strict'
 
 require('perish')
-
 const path = require('path')
-const cp = require('child_process')
-const projectRoot = path.resolve(__dirname, '..')
-const npmBin = path.resolve(projectRoot, 'node_modules', '.bin')
+const execa = require('execa')
+const bb = require('bluebird')
+const builder = require('./builder')
 
-let processHandles = []
-function kill () {
-  processHandles.forEach(handle => { try { handle.kill() } catch (err) {} })
+const PROJECT_ROOT_DIR = path.resolve(__dirname, '..')
+const NPM_BIN_DIR = path.resolve(PROJECT_ROOT_DIR, 'node_modules', '.bin')
+const STATIC_CONTENT_DIR = path.join(PROJECT_ROOT_DIR, 'styleguide')
+const BACKSTOP_BIN = path.join(NPM_BIN_DIR, 'backstop')
+
+const test = {
+  async start () {
+    await builder.styleguide()
+    const server = execa('httpster', ['-d', STATIC_CONTENT_DIR], { cwd: NPM_BIN_DIR, stdio: 'inherit' })
+    server.on('exit', () => this.kill())
+    server.on('error', () => { throw new Error('httpster unable to serve') })
+    await bb.delay(5000)
+    try {
+      const backstop = await execa(BACKSTOP_BIN, ['test'], { cwd: PROJECT_ROOT_DIR, stdio: 'inherit' })
+      backstop.on('exit', code => process.exit(code))
+      process.on('exit', this.kill.bind(this))
+    } finally {
+      server.kill()
+    }
+  }
 }
 
-const staticContentDir = path.join(projectRoot, 'styleguide')
-const server = cp.spawn('httpster', ['-d', staticContentDir], { cwd: npmBin, stdio: 'inherit' })
-processHandles.push(server)
-server.on('exit', code => {
-  if (code) throw new Error('httpster unable to serve')
-  kill()
-})
-
-const backstopBin = path.join(npmBin, 'backstop')
-let backstop
-
-setTimeout(() => {
-  backstop = cp.spawn(backstopBin, ['test'], { cwd: projectRoot, stdio: 'inherit' })
-  processHandles.push(backstop.childProcess)
-  backstop.on('exit', code => process.exit(code))
-}, 5000)
-
-process.on('exit', kill)
+test.start()

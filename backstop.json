@@ -1,38 +1,48 @@
 {
-  "id": "prod_test",
+  "id": "octagon",
   "viewports": [
     {
-      "name": "tablet_h",
+      "label": "tablet",
       "width": 1024,
       "height": 768
     }
   ],
-  "debug": true,
+  "onBeforeScript": "chromy/onBefore.js",
+  "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
       "label": "Octagon",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:3333",
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "selectorExpansion": true,
-      "selectors": [
-        "[data-reactroot]:not(.hasSidebar-0-5)"
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 2000,
+      "hideSelectors": [
+        ".hide-in-test"
       ],
-      "readyEvent": null,
-      "delay": 5000,
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": "",
+      "selectors": [
+        "[data-reactroot]:not(.hasSidebar-0-2)"
+      ],
+      "selectorExpansion": true,
       "misMatchThreshold" : 0.1,
-      "onBeforeScript": "onBefore.js",
-      "onReadyScript": "onReady.js"
+      "requireSameDimensions": true
     }
   ],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
     "bitmaps_test": "backstop_data/bitmaps_test",
-    "casper_scripts": "backstop_data/casper_scripts",
+    "engine_scripts": "backstop_data/engine_scripts",
     "html_report": "backstop_data/html_report",
     "ci_report": "backstop_data/ci_report"
   },
-  "casperFlags": [],
-  "engine": "phantomjs",
-  "report": []
+  "report": ["browser"],
+  "engine": "chrome",
+  "engineFlags": [],
+  "debug": false,
+  "debugWindow": false
 }
