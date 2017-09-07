@@ -18,7 +18,7 @@ this package provides:
 
 ## install
 
-`npm install --save react-octagon` or `yarn add --dev react-octagon`
+`npm install --save react-octagon` or `npm add --dev react-octagon`
 
 ## usage - react component library
 
@@ -49,8 +49,8 @@ class MyWigdet () {
 ## development
 
 - clone this repository
-- run `yarn`
-- run `yarn start`
+- run `npm`
+- run `npm start`
 - open the URL to play w/ components as you develop them
 
 now you're off to the races :horse_racing:!  theme changes, components, & examples will update automatically.  Make sure that your examples source components from within the `src/` dir!
@@ -59,7 +59,7 @@ now you're off to the races :horse_racing:!  theme changes, components, & exampl
 
 ### react component api distribution
 
-**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  You must run `yarn run build` to get a fresh set of react components!
+**useful** if you've `npm link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  You must run `npm run build` to get a fresh set of react components!
 
 ## contributing
 
