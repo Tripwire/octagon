@@ -20,7 +20,6 @@ const SPAWN_OPTS = {
   stdio: 'inherit'
 }
 
-const docs = () => spawn('npm', ['run', 'styleguide:build'], Object.assign(SPAWN_OPTS, { stdio: 'inherit' }))
 const semantic = () => {
   return spawn('npm', ['run', 'semantic-release'], SPAWN_OPTS)
   .catch(err => {
@@ -39,8 +38,6 @@ const publish = () => {
 Promise.resolve()
 .then(() => console.log('executing semantic-release'))
 .then(semantic)
-.then(() => console.log('building styleguide'))
-.then(docs)
 .then(() => console.log('publishing styleguide'))
 .then(publish)
 .then(() => console.log('fin.'))

@@ -15,13 +15,10 @@ const test = {
   async start () {
     await builder.styleguide()
     const server = execa('httpster', ['-d', STATIC_CONTENT_DIR], { cwd: NPM_BIN_DIR, stdio: 'inherit' })
-    server.on('exit', () => this.kill())
     server.on('error', () => { throw new Error('httpster unable to serve') })
     await bb.delay(5000)
     try {
-      const backstop = await execa(BACKSTOP_BIN, ['test'], { cwd: PROJECT_ROOT_DIR, stdio: 'inherit' })
-      backstop.on('exit', code => process.exit(code))
-      process.on('exit', this.kill.bind(this))
+      await execa(BACKSTOP_BIN, ['test'], { cwd: PROJECT_ROOT_DIR, stdio: 'inherit' })
     } finally {
       server.kill()
     }
