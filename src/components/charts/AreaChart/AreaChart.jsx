@@ -1,3 +1,4 @@
+import '../../../styles/components/area-chart.css'
 import PropTypes from 'prop-types'
 import React from 'react'
 import PlotArea from './PlotArea'
@@ -9,8 +10,6 @@ import * as ChartUtils from '../Chart/utils'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 var d3 = Object.assign({}, require('d3-shape'), require('d3-format'), require('d3-axis'))
-
-import '../../../styles/components/area-chart.css'
 
 class AreaChart extends React.Component {
   constructor (props) {

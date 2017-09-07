@@ -1,8 +1,0 @@
-exports[`test Button rendered 1`] = `
-<button
-  className="ui button"
-  onClick={[Function]}
-  tabIndex={undefined}>
-  TestButton
-</button>
-`;

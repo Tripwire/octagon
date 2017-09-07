@@ -8,6 +8,11 @@ const fs = require('fs-extra')
 const path = require('path')
 const pify = require('pify')
 const os = require('os')
+const execa = require('execa')
+const bb = require('bluebird')
+const folderHash = require('folder-hash')
+const toilet = require('toiletdb')
+const db = bb.promisifyAll(toilet(path.resolve(__dirname, 'cache.json')))
 
 const exec = pify(cp.exec, { multiArgs: true })
 const copy = pify(fs.copy)
@@ -22,7 +27,8 @@ module.exports = {
   get projectRoot () { return path.resolve(__dirname, '..') },
   get semanticDist () { return path.join(this.semanticPath, 'dist') },
   get semanticPath () { return path.join(this.projectRoot, 'semantic') },
-  get postCssConfig () { return path.join(this.projectRoot, 'scripts', 'postcss.config.js') },
+  get srcPath () { return path.join(this.projectRoot, 'src') },
+  get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
   get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
   get styleguidistDist () { return path.join(this.projectRoot, 'styleguide') },
@@ -31,14 +37,13 @@ module.exports = {
    * Build full lib.
    * @returns {Promise}
    */
-  build () {
-    return Promise.resolve()
-    .then(() => this.clean())
-    .then(() => this.octagonComponentJs())
-    .then(() => this.octagonComponentCss())
-    .then(() => this.octagonCopyAssets())
-    .then(() => this.semanticInit())
-    .then(() => console.log('dist build successfully'))
+  async build () {
+    await this.clean()
+    await this.octagonComponentJs()
+    await this.octagonComponentCss()
+    await this.octagonCopyAssets()
+    await this.semanticInit()
+    console.log('dist build successfully')
   },
   clean () {
     return Promise.all([
@@ -54,45 +59,58 @@ module.exports = {
   getBin (bin) {
     return path.join(this.projectRoot, 'node_modules', '.bin', bin) + (isWin ? '.cmd' : '')
   },
-  octagonComponentJs (opts) {
+  async octagonComponentJs (opts) {
     opts = opts || {}
     const args = [this.getBin('babel'), 'src', '-d', this.componentDist, '--source-maps']
     if (opts.watch) args.push('--watch')
-    return Promise.resolve()
-    .then(() => mkdirp(this.componentDist))
-    .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(([stdout]) => console.log(stdout))
+    await mkdirp(this.componentDist)
+    const [stdout] = await exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' })
+    console.log(stdout)
   },
-  octagonComponentCss (opts) {
+  async octagonComponentCss (opts) {
     opts = opts || {}
     const outputDir = path.join(this.componentDist, 'styles', 'components')
     const inputDir = path.join(this.projectRoot, 'src', 'styles', 'components', '*.css')
     const args = [this.getBin('postcss'), inputDir, '-d', outputDir, '-c', this.postCssConfig]
-    return Promise.resolve()
-    .then(() => mkdirp(this.componentDist))
-    .then(() => exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' }))
-    .then(([stdout]) => console.log(stdout))
+    await mkdirp(this.componentDist)
+    const [stdout] = await exec(args.join(' '), { cwd: this.projectRoot, stdio: 'inherit' })
+    console.log(stdout)
   },
-  octagonCopyAssets (opts) {
+  async octagonCopyAssets (opts) {
     const assetSource = path.join(this.projectRoot, 'src', 'assets')
     const fontsDest = path.resolve(this.distDir, 'styles', 'themes', 'tripwire', 'assets', 'fonts')
     const latoSrc = path.resolve(this.projectRoot, 'node_modules', 'lato-font', 'fonts')
     const latoDest = path.join(fontsDest, 'lato')
     const elegantSrc = path.resolve(this.projectRoot, 'node_modules', 'elegant-icons', 'fonts')
     const elegantDest = path.join(fontsDest, 'elegant-icons')
-    return Promise.resolve('success')
-    .then(() => copy(assetSource, this.assetsDist))
-    .then(() => copy(latoSrc, latoDest))
-    .then(() => copy(elegantSrc, elegantDest))
+    await copy(assetSource, this.assetsDist)
+    await copy(latoSrc, latoDest)
+    await copy(elegantSrc, elegantDest)
   },
-  semanticBuild () {
-    return exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
-    .then(([stdout]) => console.log(stdout))
+  async semanticBuild () {
+    const [stdout] = await exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
+    console.log(stdout)
   },
-  semanticInit () {
+  async semanticInit () {
     // source maps not yet available!
     // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
-    return this.semanticBuild()
-    .then(() => this.copySemanticAssets())
+    await this.semanticBuild()
+    return this.copySemanticAssets()
+  },
+  async styleguide () {
+    await db.openAsync()
+    const cache = await db.readAsync()
+    const [ { hash: srcHash }, { hash: semanticHash } ] = await Promise.all([
+      folderHash.hashElement(this.srcPath),
+      folderHash.hashElement(this.semanticPath)
+    ])
+    if (cache && cache.srcHash === srcHash && cache.semanticHash === semanticHash) {
+      return console.log('SKIPPING STYLEGUIDE BUILD')
+    }
+    await execa('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
+    await Promise.all([
+      db.writeAsync('srcHash', srcHash),
+      db.writeAsync('semanticHash', semanticHash)
+    ])
   }
 }
