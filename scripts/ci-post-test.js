@@ -24,7 +24,7 @@ const semantic = () => {
   return spawn('npm', ['run', 'semantic-release'], SPAWN_OPTS)
   .catch(err => {
     // @TODO debrittle-ify, as feasible.
-    if (!err.stderr || !err.stderr.toString().match(/ENOCHANGE/)) {
+    if (!err.stderr || (err.stderr && !err.stderr.toString().match(/ENOCHANGE/))) {
       console.error(err.stderr.toString())
       throw err
     }
