@@ -9,7 +9,7 @@
 /* Button */
 @verticalMargin: 0em;
 @horizontalMargin: 0.8em;
-@backgroundColor: #E0E1E2;
+@backgroundColor: @white;
 @backgroundImage: none;
 @background: @backgroundColor @backgroundImage;
 @lineHeight: 1em;
@@ -23,10 +23,10 @@
 @tapColor: transparent;
 @fontFamily: @pageFont;
 @fontWeight: 400;
-@textColor: rgba(0, 0, 0, 0.6);
+@textColor: @blue;
 @textShadow: none;
 @invertedTextShadow: @textShadow;
-@borderRadius: 0px;
+@borderRadius: 2px;
 @verticalAlign: baseline;
 
 /* Internal Shadow */
@@ -84,17 +84,17 @@
 --------------------*/
 
 /* Hovered */
-@hoverBackgroundColor: #999;
+@hoverBackgroundColor: @blue;
 @hoverBackgroundImage: @backgroundImage;
 @hoverBoxShadow: @boxShadow;
-@hoverColor: @hoveredTextColor;
+@hoverColor: @white;
 @iconHoverOpacity: 0.85;
 
 /* Focused */
 @focusBackgroundColor: @hoverBackgroundColor;
 @focusBackgroundImage: '';
 @focusBoxShadow: '';
-@focusColor: @hoveredTextColor;
+@focusColor: @white;
 @iconFocusOpacity: 0.85;
 
 /* Disabled */
@@ -102,25 +102,25 @@
 @disabledBoxShadow: none;
 
 /* Pressed Down */
-@downBackgroundColor: #BABBBC;
+@downBackgroundColor: darken(@blue, 20%);
 @downBackgroundImage: '';
 @downPressedShadow: none;
 @downBoxShadow:
   @borderBoxShadow,
   @downPressedShadow
 ;
-@downColor: @pressedTextColor;
+@downColor: @white;
 
 /* Active */
-@activeBackgroundColor: #C0C1C2;
+@activeBackgroundColor: darken(@blue, 10%);
 @activeBackgroundImage: none;
-@activeColor: @selectedTextColor;
+@activeColor: @white;
 @activeBoxShadow: @borderBoxShadow;
 
 /* Active + Hovered */
-@activeHoverBackgroundColor: @activeBackgroundColor;
+@activeHoverBackgroundColor: @blue;
 @activeHoverBackgroundImage: none;
-@activeHoverColor: @activeColor;
+@activeHoverColor: @white;
 @activeHoverBoxShadow: @activeBoxShadow;
 
 /* Loading */
@@ -233,7 +233,7 @@ which ends out being a hard edged box rather than the slightly blurred outline
 
 /* Basic Down */
 @basicDownBackground: #F8F8F8;
-@basicDownTextColor: @pressedTextColor;
+@basicDownTextColor: @white;
 @basicDownBoxShadow:
   0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
   0px 1px 4px 0px @borderColor inset
@@ -262,7 +262,7 @@ which ends out being a hard edged box rather than the slightly blurred outline
 
 
 /* Basic Group */
-@basicGroupBorder: @basicBorderSize solid @borderColor;
+@basicGroupBorder: 0;
 @basicGroupBoxShadow: none;
 
 /*-------------------
@@ -354,7 +354,7 @@ which ends out being a hard edged box rather than the slightly blurred outline
 @positiveDisabledBackground: #ebebeb;
 
 @negativeBackgroundImage: @coloredBackgroundImage;
-@negativeTextColor: #454545;
+@negativeTextColor: @white;
 @negativeTextShadow: @invertedTextShadow;
 @negativeBoxShadow: @coloredBoxShadow;
 
