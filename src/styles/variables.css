@@ -2,8 +2,8 @@
   --warningred: #c0382b;
   --warningyellow: #ff9e2c;
   --blue: #3498db;
-  --twgray: #586A7B;
-  --textPurple: #A676B2;
+  --twgray: var(--darkblue);
+  --textPurple: var(--purple);
   --black: #272F34;
   --darkblue: #586A7A;
   --darkgray: #777776;
