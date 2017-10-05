@@ -1,4 +1,4 @@
-import './large-card.css'
+import '../../styles/components/large-card.css'
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
