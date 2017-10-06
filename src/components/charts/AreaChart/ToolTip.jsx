@@ -29,15 +29,16 @@ const ToolTip = (props) => {
   return (
     <g transform={transform}>
       <polygon
-        class='shadow'
-        is points='10,0  30,0  20,10'
+        className='shadow'
+        points='10,0  30,0  20,10'
         transform={transformArrow}
         fill='#ffffff' opacity='1'
         stroke='#A676B2'
-        stroke-width='1px'
+        strokeWidth='1px'
         visibility={visibility}
       />
-      <rect class='shadow' is width={width} height={height} rx='0' ry='0' visibility={visibility} fill='#ffffff' stroke='#A676B2' stroke-width='1px' />
+      <rect className='shadow' width={width} height={height} rx='0' ry='0' visibility={visibility}
+        fill='#ffffff' stroke='#A676B2' strokeWidth='1px' />
       {/* we want tooltip content a little flexible by allow passing direct from whatever call Tooltip */}
       <g visibility={visibility} transform={transformText}>
         {props.children}

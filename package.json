@@ -49,6 +49,8 @@
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "postcss-neat": "^2.5.3",
+    "react": "^15 || ^16",
+    "react-dom": "^15 || ^16",
     "react-remarkable": "^1.1.1",
     "react-styleguidist": "^5.2.1",
     "react-test-renderer": "^15.5.4",
@@ -64,14 +66,16 @@
     "webpack": "^3.5.6"
   },
   "dependencies": {
-    "d3": "^4.7.1",
+    "d3": "^4.11.0",
     "elegant-icons": "^0.0.1",
-    "flexbox-react": "^4.3.3",
+    "flexbox-react": "^4.4.0",
     "lato-font": "^2.0.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "semantic-ui-react": "^0.72.0"
+    "prop-types": "^15.6.0",
+    "semantic-ui-react": "^0.74.2"
+  },
+  "peerDependencies": {
+    "react": "^15 || ^16",
+    "react-dom": "^15 || ^16"
   },
   "scripts": {
     "build": "node scripts/build",
