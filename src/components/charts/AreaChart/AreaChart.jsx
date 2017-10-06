@@ -72,7 +72,7 @@ class AreaChart extends React.Component {
                 <g key={index}>
                   <polygon fill='#A676B2' points='38,-3 34,1 42,1' />
                   <text>
-                    <tspan className={type} is text-anchor='middle' x='58px' y='2px' font-size='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                    <tspan className={type} textAnchor='middle' x='58px' y='2px' fontSize='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
                   </text>
                 </g>
               )
@@ -81,7 +81,7 @@ class AreaChart extends React.Component {
                 <g key={index}>
                   <polygon fill='#A676B2' points='38,17 34,13 42,13' />
                   <text>
-                    <tspan className={type} is text-anchor='middle' x='60px' y='18px' font-size='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                    <tspan className={type} textAnchor='middle' x='60px' y='18px' fontSize='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
                   </text>
                 </g>
               )
@@ -89,7 +89,7 @@ class AreaChart extends React.Component {
             return (
               <g key={index}>
                 <text>
-                  <tspan className={type} is text-anchor='middle' x='-20px' y='15px' font-size='28px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                  <tspan className={type} textAnchor='middle' x='-20px' y='15px' fontSize='28px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
                 </text>
               </g>
             )

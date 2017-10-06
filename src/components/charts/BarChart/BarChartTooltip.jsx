@@ -23,28 +23,27 @@ const ToolTip = (props) => {
   return (
     <g transform={transform} pointerEvents='none'>
       <polygon
-        class='shadow'
-        is points='10,0  30,0  20,10'
+        className='shadow'
+        points='10,0  30,0  20,10'
         transform={transformArrow}
         fill='#ffffff'
         opacity='1'
-        stroke-width='2px'
+        strokeWidth='2px'
         stroke={props.tooltip.color}
         visibility={visibility}
       />
 
       <rect
         width={width}
-        is
         height={height}
         rx='0'
         ry='0'
         visibility={visibility}
         fill='#ffffff'
         opacity='1'
-        stroke-opacity='1'
+        strokeOpacity='1'
         stroke={props.tooltip.color}
-        stroke-width='2px'
+        strokeWidth='2px'
       />
       <line
         visibility={visibility}
@@ -52,16 +51,15 @@ const ToolTip = (props) => {
         y1='0'
         x2='27'
         y2='0'
-        is
         opacity='1'
-        stroke-opacity='1'
+        strokeOpacity='1'
         stroke='white'
-        stroke-width='3px'
+        strokeWidth='3px'
         transform={transformLine}
       />
-      <text is visibility={visibility} transform={transformText} >
-        <tspan is x='0' y='10' text-anchor='left' font-size='12px' fill='#657d8e'>{`${props.tooltip.title} (${props.tooltip.data.value})`}</tspan>
-        <tspan is x='0' y='20' text-anchor='left' dy='12px' font-size='12px' fill='#657d8e'>{props.tooltip.data.key}</tspan>
+      <text visibility={visibility} transform={transformText} >
+        <tspan x='0' y='10' textAnchor='left' fontSize='12px' fill='#657d8e'>{`${props.tooltip.title} (${props.tooltip.data.value})`}</tspan>
+        <tspan x='0' y='20' textAnchor='left' dy='12px' fontSize='12px' fill='#657d8e'>{props.tooltip.data.key}</tspan>
       </text>
 
     </g>
