@@ -36,5 +36,8 @@ function watchWatchCssTheme () {
   })
 }
 
+
+
 builder.build()
-.then(watchWatchCssTheme)
+//TODO: fix watcher -> less-loader
+//.then(watchWatchCssTheme)
