@@ -5,7 +5,6 @@
 /*-------------------
        Fonts
 --------------------*/
-
 @fontName          : 'Lato';
 @fontSmoothing     : antialiased;
 
@@ -13,7 +12,7 @@
 @pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 @googleFontName    : @fontName;
-@importGoogleFonts : true;
+@importGoogleFonts : false;
 @googleFontSizes   : '400,700,400italic,700italic';
 @googleSubset      : 'latin';
 
@@ -58,13 +57,13 @@
 ---------------*/
 
 @headerFontWeight : bold;
-@headerLineHeight : unit((18 / 14), em);
+@headerLineHeight : 1.2857em;
 
-@h1 : unit((28 / 14), rem);
-@h2 : unit((24 / 14), rem);
-@h3 : unit((18 / 14), rem);
-@h4 : unit((15 / 14), rem);
-@h5 : unit((14 / 14), rem);
+@h1 : 2rem;
+@h2 : 1.714rem;
+@h3 : 1.28rem;
+@h4 : 1.071rem;
+@h5 : 1rem;
 
 /*--------------
    Form Input
@@ -81,8 +80,8 @@
 @inputPlaceholderColor: lighten(@inputColor, 75);
 @inputPlaceholderFocusColor: lighten(@inputColor, 45);
 
-/* Line Height Default For Inputs in Browser (Descendors are 17px at 14px base em) */
-@inputLineHeight: unit((17 / 14), em);
+/* Line Height Default For Inputs in Browser */
+@inputLineHeight: 1.2142em;
 
 /*-------------------
     Focused Input
@@ -140,30 +139,6 @@
 @linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
-    Scroll Bars
---------------------*/
-
-@useCustomScrollbars: true;
-
-@customScrollbarWidth: 10px;
-
-@trackBackground: rgba(0, 0, 0, 0.1);
-@trackBorderRadius: 0px;
-
-@thumbBorderRadius: 5px;
-@thumbBackground: rgba(0, 0, 0, 0.25);
-@thumbTransition: color 0.2s ease;
-
-@thumbInactiveBackground: rgba(0, 0, 0, 0.15);
-@thumbHoverBackground: rgba(128, 135, 139, 0.8);
-
-/* Inverted */
-@trackInvertedBackground: rgba(255, 255, 255, 0.1);
-@thumbInvertedBackground: rgba(255, 255, 255, 0.25);
-@thumbInvertedInactiveBackground: rgba(255, 255, 255, 0.15);
-@thumbInvertedHoverBackground: rgba(255, 255, 255, 0.35);
-
-/*-------------------
   Highlighted Text
 --------------------*/
 
@@ -215,19 +190,21 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@red              : #DB2828;
+@red              : #c0382b;
 @orange           : #F2711C;
-@yellow           : #FBBD08;
+@yellow           : #ff9e2c;
 @olive            : #B5CC18;
 @green            : #21BA45;
 @teal             : #00B5AD;
-@blue             : #2185D0;
+@blue             : #3498db;
 @violet           : #6435C9;
-@purple           : #A333C8;
+@purple           : #A676B2;
 @pink             : #E03997;
 @brown            : #A5673F;
-@grey             : #767676;
+@grey             : #586A7B;
 @black            : #1B1C1D;
+
+
 
 /*---  Light Colors  ---*/
 @lightRed         : #FF695E;
@@ -374,6 +351,7 @@
 --------------------*/
 
 /* For source only. Modified in gulp for dist */
+/* ANDREW FIX*/
 @imagePath : './themes/default/assets/images';
 @fontPath  : './themes/default/assets/fonts';
 

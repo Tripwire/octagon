@@ -1,3 +1,5 @@
 /*******************************
         Global Overrides
 *******************************/
+@imagePath : './themes/default/assets/images';
+@fontPath  : './themes/default/assets/fonts';
