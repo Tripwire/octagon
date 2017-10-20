@@ -13,6 +13,7 @@ const bb = require('bluebird')
 const folderHash = require('folder-hash')
 const toilet = require('toiletdb')
 const db = bb.promisifyAll(toilet(path.resolve(__dirname, 'cache.json')))
+const less = require('less')
 
 const exec = pify(cp.exec, { multiArgs: true })
 const copy = pify(fs.copy)
@@ -25,8 +26,7 @@ module.exports = {
   get coverageDir () { return path.join(this.projectRoot, 'coverage') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
-  get semanticDist () { return path.join(this.semanticPath, 'dist') },
-  get semanticPath () { return path.join(this.projectRoot, 'semantic') },
+  get semanticPath () { return path.join(this.projectRoot, 'semantic-ui-less') },
   get srcPath () { return path.join(this.projectRoot, 'src') },
   get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
   get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
@@ -43,18 +43,14 @@ module.exports = {
     await this.octagonComponentCss()
     await this.octagonCopyAssets()
     await this.semanticInit()
-    console.log('dist build successfully')
+    console.log('Lib built successfully')
   },
   clean () {
     return Promise.all([
       remove(this.coverageDir),
       remove(this.distDir),
-      remove(this.semanticDist),
       remove(this.styleguidistDist)
     ])
-  },
-  copySemanticAssets () {
-    return copy(this.semanticDist, this.stylesDist)
   },
   getBin (bin) {
     return path.join(this.projectRoot, 'node_modules', '.bin', bin) + (isWin ? '.cmd' : '')
@@ -87,9 +83,22 @@ module.exports = {
     await copy(latoSrc, latoDest)
     await copy(elegantSrc, elegantDest)
   },
+  async copySemanticAssets () {
+    console.log('Copying Semantic Assets')
+    const assetsSource = path.join(this.semanticPath, 'themes', 'default','assets')
+    const defaultDir = path.join(this.distDir, 'styles', 'themes','default')
+    const assetsDest = path.join(defaultDir,'assets')
+    await mkdirp(assetsDest)
+    await copy(assetsSource, assetsDest)
+  },
   async semanticBuild () {
-    const [stdout] = await exec([this.getBin('gulp'), 'build'].join(' '), { cwd: this.semanticPath, stdio: 'inherit' })
-    console.log(stdout)
+    console.log('Building Semantic Less')
+    const lessInputSource =path.join(this.semanticPath, 'semantic.less')
+    const lessInputStream = fs.readFileSync(lessInputSource).toString()
+    const outputPath  = path.join(this.componentDist, 'styles','semantic.css')
+    const options = {filename: lessInputSource}
+    const output = await less.render(lessInputStream, options)
+    return fs.writeFile(outputPath, output.css)
   },
   async semanticInit () {
     // source maps not yet available!
