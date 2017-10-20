@@ -40,6 +40,7 @@
     "husky": "^0.14.3",
     "javascript-natural-sort": "^0.7.1",
     "jest": "^21.0.1",
+    "less": "^2.7.2",
     "npm-run-all": "^4.1.1",
     "nsp": "^2.6.2",
     "perish": "^1.0.1",
@@ -70,6 +71,7 @@
     "flexbox-react": "^4.4.0",
     "lato-font": "^2.0.0",
     "prop-types": "^15.6.0",
+    "semantic-ui-less": "^2.2.12",
     "semantic-ui-react": "^0.74.2"
   },
   "peerDependencies": {
