@@ -1,5 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-@invertedBackground: #454545;
-@borderRadius: 0;

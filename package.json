@@ -58,7 +58,6 @@
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
-    "semantic-ui": "^2.2.6",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "toiletdb": "^1.4.0",
