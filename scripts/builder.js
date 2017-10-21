@@ -14,6 +14,7 @@ const folderHash = require('folder-hash')
 const toilet = require('toiletdb')
 const db = bb.promisifyAll(toilet(path.resolve(__dirname, 'cache.json')))
 const less = require('less')
+const link = require('fs-symlink')
 
 const exec = pify(cp.exec, { multiArgs: true })
 const copy = pify(fs.copy)
@@ -26,7 +27,8 @@ module.exports = {
   get coverageDir () { return path.join(this.projectRoot, 'coverage') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
-  get semanticPath () { return path.join(this.projectRoot, 'semantic-ui-less') },
+  get semanticPath () { return path.join('semantic-ui-less') },
+  get semanticUiLessPath () { return path.join(this.projectRoot, 'node_modules/semantic-ui-less') },
   get srcPath () { return path.join(this.projectRoot, 'src') },
   get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
   get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
@@ -47,6 +49,10 @@ module.exports = {
   },
   clean () {
     return Promise.all([
+      // potentially we should move our config, overrides, theme, etc. from 'semantic'
+      // to a new location. Semantic (or a rename of it) would be removed and rebuilt
+      // each time with symlinks and some copies 
+      // alternatively we could remove the symlinks on each build
       remove(this.coverageDir),
       remove(this.distDir),
       remove(this.styleguidistDist)
@@ -93,12 +99,21 @@ module.exports = {
   },
   async semanticBuild () {
     console.log('Building Semantic Less')
-    const lessInputSource =path.join(this.semanticPath, 'semantic.less')
+    const definitionsPath = path.join(this.semanticUiLessPath, 'definitions')
+    const definitionsDest = path.join(this.semanticPath, 'definitions')
+    const defaultThemePath = path.join(this.semanticUiLessPath, 'themes','default')
+    const defaultThemeDest = path.join(this.semanticPath, 'themes','default')
+
+    // await fs.symlink(definitionsPath, definitionsDest,function() {console.log('success')})
+    await link(definitionsPath, definitionsDest)
+    await link(defaultThemePath, defaultThemeDest)
+
+    const lessInputSource = path.join(this.semanticPath, 'semantic.less')
     const lessInputStream = fs.readFileSync(lessInputSource).toString()
     const outputPath  = path.join(this.componentDist, 'styles','semantic.css')
     const options = {filename: lessInputSource}
     const output = await less.render(lessInputStream, options)
-    return fs.writeFile(outputPath, output.css)
+    return await fs.writeFile(outputPath, output.css)
   },
   async semanticInit () {
     // source maps not yet available!
