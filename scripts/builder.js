@@ -27,7 +27,7 @@ module.exports = {
   get coverageDir () { return path.join(this.projectRoot, 'coverage') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
-  get semanticPath () { return path.join('semantic-ui-less') },
+  get tempBuildDir () { return path.join('semanticTempBuildDir') },
   get semanticUiLessPath () { return path.join(this.projectRoot, 'node_modules/semantic-ui-less') },
   get srcPath () { return path.join(this.projectRoot, 'src') },
   get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
@@ -49,10 +49,7 @@ module.exports = {
   },
   clean () {
     return Promise.all([
-      // potentially we should move our config, overrides, theme, etc. from 'semantic'
-      // to a new location. Semantic (or a rename of it) would be removed and rebuilt
-      // each time with symlinks and some copies 
-      // alternatively we could remove the symlinks on each build
+      remove(this.tempBuildDir),
       remove(this.coverageDir),
       remove(this.distDir),
       remove(this.styleguidistDist)
@@ -89,44 +86,61 @@ module.exports = {
     await copy(latoSrc, latoDest)
     await copy(elegantSrc, elegantDest)
   },
-  async copySemanticAssets () {
+  async semanticBuild () {
+    console.log('Building Semantic Less')
+    const definitionsPath = path.join(this.semanticUiLessPath, 'definitions')
+    const definitionsDest = path.join(this.tempBuildDir, 'definitions')
+    const defaultThemePath = path.join(this.semanticUiLessPath, 'themes','default')
+    const defaultThemeDest = path.join(this.tempBuildDir, 'themes','default')
+    const twThemePath = path.join(this.srcPath, 'themes','tripwire')
+    const twThemeDest = path.join(this.tempBuildDir, 'themes','tripwire')
+    const themeLessPath = path.join(this.semanticUiLessPath, 'theme.less')
+    const themeLessDest = path.join(this.tempBuildDir, 'theme.less')
+    const themeConfigPath = path.join(this.srcPath, 'theme.config')
+    const themeConfigDest = path.join(this.tempBuildDir, 'theme.config')
+    const semanticLessSrc = path.join(this.semanticUiLessPath, 'semantic.less')
+    const semanticLessPath = path.join(this.tempBuildDir, 'semantic.less')
+
+    await link(twThemePath, twThemeDest)
+    await link(definitionsPath, definitionsDest)
+    await link(defaultThemePath, defaultThemeDest)
+    await link(themeLessPath, themeLessDest)
+    await link(themeConfigPath, themeConfigDest)
+    await link(semanticLessSrc, semanticLessPath)
+    await this.semanticOverwriteStylePaths()
+
+    const lessInputStream = await fs.readFileSync(semanticLessPath).toString()
+    const outputPath  = path.join(this.componentDist, 'styles','semantic.css')
+    const options = {filename: semanticLessPath}
+    const output = await less.render(lessInputStream, options)
+    return await fs.writeFile(outputPath, output.css)
+  },
+  async semanticCopyAssets () {
     console.log('Copying Semantic Assets')
-    const assetsSource = path.join(this.semanticPath, 'themes', 'default','assets')
+    const assetsSource = path.join(this.tempBuildDir, 'themes', 'default','assets')
     const defaultDir = path.join(this.distDir, 'styles', 'themes','default')
     const assetsDest = path.join(defaultDir,'assets')
     await mkdirp(assetsDest)
     await copy(assetsSource, assetsDest)
   },
-  async semanticBuild () {
-    console.log('Building Semantic Less')
-    const definitionsPath = path.join(this.semanticUiLessPath, 'definitions')
-    const definitionsDest = path.join(this.semanticPath, 'definitions')
-    const defaultThemePath = path.join(this.semanticUiLessPath, 'themes','default')
-    const defaultThemeDest = path.join(this.semanticPath, 'themes','default')
-
-    // await fs.symlink(definitionsPath, definitionsDest,function() {console.log('success')})
-    await link(definitionsPath, definitionsDest)
-    await link(defaultThemePath, defaultThemeDest)
-
-    const lessInputSource = path.join(this.semanticPath, 'semantic.less')
-    const lessInputStream = fs.readFileSync(lessInputSource).toString()
-    const outputPath  = path.join(this.componentDist, 'styles','semantic.css')
-    const options = {filename: lessInputSource}
-    const output = await less.render(lessInputStream, options)
-    return await fs.writeFile(outputPath, output.css)
-  },
   async semanticInit () {
     // source maps not yet available!
     // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
     await this.semanticBuild()
-    return this.copySemanticAssets()
+    return this.semanticCopyAssets()
+  },
+  async semanticOverwriteStylePaths () {
+      await mkdirp(path.join(this.tempBuildDir, 'site','globals'))
+      const siteVarsDest = path.join(this.tempBuildDir, 'site','globals','site.variables')
+      const siteVarsText = '@imagePath : "./themes/default/assets/images";\n@fontPath  : "./themes/default/assets/fonts";'
+      fs.writeFile(siteVarsDest, siteVarsText)
   },
   async styleguide () {
     await db.openAsync()
     const cache = await db.readAsync()
     const [ { hash: srcHash }, { hash: semanticHash } ] = await Promise.all([
       folderHash.hashElement(this.srcPath),
-      folderHash.hashElement(this.semanticPath)
+      folderHash.hashElement(this.tempBuildDir)
     ])
     if (cache && cache.srcHash === srcHash && cache.semanticHash === semanticHash) {
       return console.log('SKIPPING STYLEGUIDE BUILD')
