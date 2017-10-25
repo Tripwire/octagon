@@ -55,7 +55,6 @@
     "react-remarkable": "^1.1.1",
     "react-styleguidist": "^5.2.1",
     "react-test-renderer": "^15.5.4",
-    "ripcord": "^3.1.0",
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
@@ -89,8 +88,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p validate lint test check-vulnerablities",
-    "validate": "ripcord check",
+    "precommit": "run-p lint test check-vulnerablities",
     "check-vulnerablities": "nsp check"
   },
   "standard": {
@@ -121,14 +119,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Tripwire/octagon.git"
-  },
-  "ripcord": {
-    "rules": [
-      "check-vulnerablities",
-      "lint",
-      "precommit",
-      "validate"
-    ]
   },
   "version": "0.0.0-development"
 }
