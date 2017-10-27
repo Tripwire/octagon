@@ -2,7 +2,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const andrewtest = 'test'
+
 module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -28,17 +28,18 @@ module.exports = {
         loader: 'file-loader?name=[name].[ext]'
       },
       {
-            test: /\.less$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "less-loader", options: {
-                    rootpath: path.resolve(__dirname, './semanticTempBuildDir/')
-                }
-            }]
-      },   
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader',
+          options: {
+            rootpath: path.resolve(__dirname, './semanticTempBuildDir/')
+          }
+        }]
+      },
       {
         test: /\.css?$/,
         loaders: [

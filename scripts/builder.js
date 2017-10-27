@@ -117,7 +117,7 @@ module.exports = {
     const outputPath = path.join(this.componentDist, 'styles', 'semantic.css')
     const options = {filename: semanticLessPath}
     const output = await less.render(lessInputStream, options)
-    return await fs.writeFile(outputPath, output.css)
+    return fs.writeFile(outputPath, output.css)
   },
   async semanticCopyAssets () {
     console.log('Copying Semantic Assets')
