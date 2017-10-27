@@ -6,5 +6,7 @@
 
 'use strict'
 
+const builder = require('./builder')
+
 builder.build()
-// Watcher is now less-loader
+// Watcher is now
