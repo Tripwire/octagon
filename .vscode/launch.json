@@ -9,20 +9,29 @@
       "request": "launch",
       "name": "build",
       "program": "${workspaceRoot}/scripts/build.js",
-      "cwd": "${workspaceRoot}"
+      "cwd": "${workspaceRoot}",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Test",
       "program": "${workspaceRoot}/scripts/test.js",
-      "cwd": "${workspaceRoot}"
+      "cwd": "${workspaceRoot}",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     },
     {
       "type": "node",
       "request": "attach",
       "name": "Attach to Process",
-      "port": 5858
+      "port": 5858,
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     }
   ]
 }
