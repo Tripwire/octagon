@@ -156,9 +156,10 @@ module.exports = {
   },
   async styleguideServer () {
     await this.build()
-    const recompileCss = debounce(async path => {
+    var compileChain = Promise.resolve() // poor mains queueing
+    const recompileCss = debounce(path => {
       console.log(`${path} changed`)
-      this.buildSemantic()
+      compileChain = compileChain.then(() => this.buildSemantic())
     }, 1000)
     const watcher = chokidar.watch(this.twSuiThemeSrcPath)
     watcher.on('ready', () => {
