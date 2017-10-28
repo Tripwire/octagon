@@ -27,7 +27,7 @@ module.exports = {
   },
   getComponentPathLine (componentPath) {
     const name = path.basename(componentPath, '.jsx')
-    return 'import ' + name + ' from ../src/components/' + name + ''
+    return `import ${name} from ../src/components/${name}`
   },
   skipComponentsWithoutExample: true,
   webpackConfig: require('./styleguide.webpack.config.js')

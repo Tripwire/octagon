@@ -1,7 +1,6 @@
 ## CSS Theme
 
-    //require('../../../lib/styles/semantic.css')
-    require('../../../semanticTempBuildDir/semantic.less')
+    require('../../../lib/styles/semantic.css')
     const Label = require('semantic-ui-react').Label;
     const Icon = require('semantic-ui-react').Icon;
     <Label>

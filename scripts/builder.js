@@ -7,11 +7,9 @@ const fs = require('fs-extra')
 const path = require('path')
 const os = require('os')
 const execa = require('execa')
-const bb = require('bluebird')
-const folderHash = require('folder-hash')
-const toilet = require('toiletdb')
-const db = bb.promisifyAll(toilet(path.resolve(__dirname, 'cache.json')))
 const less = require('less')
+const chokidar = require('chokidar')
+const debounce = require('lodash/debounce')
 
 const isWin = os.platform().match(/^win/)
 
@@ -20,9 +18,17 @@ module.exports = {
   get coverageDir () { return path.join(this.projectRoot, 'coverage') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
-  get tempBuildDir () { return path.join(this.projectRoot, 'semanticTempBuildDir') },
+  get tempSemanticBuildDir () {
+    if (!this._tmpBuildDir) {
+      var target = path.resolve(os.tmpdir(), 'octagon-build')
+      fs.mkdirpSync(target)
+      this._tmpBuildDir = target
+    }
+    return this._tmpBuildDir
+  },
   get semanticUiLessPath () { return path.join(this.projectRoot, 'node_modules/semantic-ui-less') },
   get srcPath () { return path.join(this.projectRoot, 'src') },
+  get twSuiThemeSrcPath () { return path.join(this.srcPath, 'semantic-ui-theme') },
   get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
   get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
   get stylesDist () { return path.join(this.distDir, 'styles') },
@@ -37,7 +43,7 @@ module.exports = {
     await fs.mkdirp(this.distDir)
     return Promise.all([
       this.buildOctagonNative(),
-      this.semanticInit()
+      this.buildSemantic()
     ])
   },
   async buildOctagonNative () {
@@ -47,9 +53,17 @@ module.exports = {
       this.octagonCopyAssets()
     ])
   },
+  async buildSemantic () {
+    // source maps not yet available!
+    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
+    await fs.remove(this.tempSemanticBuildDir)
+    await fs.mkdirp(this.tempSemanticBuildDir)
+    await this.semanticBuild()
+    return this.semanticCopyAssets()
+  },
   clean () {
     return Promise.all([
-      fs.remove(this.tempBuildDir),
+      fs.remove(this.tempSemanticBuildDir),
       fs.remove(this.coverageDir),
       fs.remove(this.distDir),
       fs.remove(this.styleguidistDist)
@@ -91,18 +105,18 @@ module.exports = {
   async semanticBuild () {
     // pull these from semantic-ui-less node modules
     const definitionsPath = path.join(this.semanticUiLessPath, 'definitions')
-    const definitionsDest = path.join(this.tempBuildDir, 'definitions')
+    const definitionsDest = path.join(this.tempSemanticBuildDir, 'definitions')
     const defaultThemePath = path.join(this.semanticUiLessPath, 'themes', 'default')
-    const defaultThemeDest = path.join(this.tempBuildDir, 'themes', 'default')
+    const defaultThemeDest = path.join(this.tempSemanticBuildDir, 'themes', 'default')
     const themeLessPath = path.join(this.semanticUiLessPath, 'theme.less')
-    const themeLessDest = path.join(this.tempBuildDir, 'theme.less')
+    const themeLessDest = path.join(this.tempSemanticBuildDir, 'theme.less')
     const semanticLessSrc = path.join(this.semanticUiLessPath, 'semantic.less')
-    const semanticLessPath = path.join(this.tempBuildDir, 'semantic.less')
+    const semanticLessPath = path.join(this.tempSemanticBuildDir, 'semantic.less')
     // tw config and theme files
-    const themeConfigPath = path.join(this.srcPath, 'theme.config')
-    const themeConfigDest = path.join(this.tempBuildDir, 'theme.config')
-    const themeBuildPath = path.join(this.tempBuildDir, 'themes')
-    const twThemePath = path.join(this.srcPath, 'themes', 'tripwire')
+    const themeConfigPath = path.join(this.twSuiThemeSrcPath, 'theme.config')
+    const themeConfigDest = path.join(this.tempSemanticBuildDir, 'theme.config')
+    const themeBuildPath = path.join(this.tempSemanticBuildDir, 'themes')
+    const twThemePath = path.join(this.twSuiThemeSrcPath, 'themes', 'tripwire')
     const twThemeDest = path.join(themeBuildPath, 'tripwire')
 
     await fs.mkdirp(themeBuildPath)
@@ -128,38 +142,39 @@ module.exports = {
     return fs.writeFile(outputPath, output.css)
   },
   async semanticCopyAssets () {
-    const assetsSource = path.join(this.tempBuildDir, 'themes', 'default', 'assets')
+    const assetsSource = path.join(this.tempSemanticBuildDir, 'themes', 'default', 'assets')
     const defaultDir = path.join(this.distDir, 'styles', 'themes', 'default')
     const assetsDest = path.join(defaultDir, 'assets')
     await fs.mkdirp(assetsDest)
     return fs.copy(assetsSource, assetsDest)
   },
-  async semanticInit () {
-    // source maps not yet available!
-    // ref: https://github.com/Semantic-Org/Semantic-UI/issues/2171
-    await this.semanticBuild()
-    return this.semanticCopyAssets()
-  },
   async semanticOverwriteStylePaths () {
-    await fs.mkdirp(path.join(this.tempBuildDir, 'site', 'globals'))
-    const siteVarsDest = path.join(this.tempBuildDir, 'site', 'globals', 'site.variables')
+    await fs.mkdirp(path.join(this.tempSemanticBuildDir, 'site', 'globals'))
+    const siteVarsDest = path.join(this.tempSemanticBuildDir, 'site', 'globals', 'site.variables')
     const siteVarsText = '@imagePath : "/themes/default/assets/images";\n@fontPath  : "/themes/default/assets/fonts";'
     return fs.writeFile(siteVarsDest, siteVarsText)
   },
-  async styleguide () {
-    await db.openAsync()
-    const cache = await db.readAsync()
-    const [ { hash: srcHash }, { hash: semanticHash } ] = await Promise.all([
-      folderHash.hashElement(this.srcPath),
-      folderHash.hashElement(this.tempBuildDir)
-    ])
-    if (cache && cache.srcHash === srcHash && cache.semanticHash === semanticHash) {
-      return console.log('SKIPPING STYLEGUIDE BUILD')
+  async styleguideServer () {
+    await this.build()
+    const recompileCss = debounce(async path => {
+      console.log(`${path} changed`)
+      this.buildSemantic()
+    }, 1000)
+    const watcher = chokidar.watch(this.twSuiThemeSrcPath)
+    watcher.on('ready', () => {
+      return watcher
+      .on('add', recompileCss)
+      .on('change', recompileCss)
+      .on('unlink', recompileCss)
+    })
+    try {
+      await execa(
+        'npx',
+        ['styleguidist', 'server'],
+        { cwd: this.projectRoot, stdio: 'inherit' }
+      )
+    } finally {
+      watcher.close()
     }
-    await execa('npm', ['run', 'styleguide:build'], { cwd: this.projectRoot, stdio: 'inherit' })
-    await Promise.all([
-      db.writeAsync('srcHash', srcHash),
-      db.writeAsync('semanticHash', semanticHash)
-    ])
   }
 }

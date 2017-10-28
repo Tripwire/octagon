@@ -17,6 +17,16 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "start",
+      "program": "${workspaceRoot}/scripts/start.js",
+      "cwd": "${workspaceRoot}",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Test",
       "program": "${workspaceRoot}/scripts/test.js",
       "cwd": "${workspaceRoot}",

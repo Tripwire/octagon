@@ -33,4 +33,3 @@ backstop_data/*
 *.iml
 *.idea
 cache.json
-semanticTempBuildDir
