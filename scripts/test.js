@@ -13,7 +13,11 @@ const BACKSTOP_BIN = path.join(NPM_BIN_DIR, 'backstop')
 
 const test = {
   async start () {
-    await builder.styleguide()
+    await execa(
+      'npm',
+      ['run', 'styleguide:build'],
+      { pwd: builder.projectRoot, stdio: 'inherit' }
+    )
     const server = execa('httpster', ['-d', STATIC_CONTENT_DIR], { cwd: NPM_BIN_DIR, stdio: 'inherit' })
     server.on('error', () => { throw new Error('httpster unable to serve') })
     await bb.delay(5000)
