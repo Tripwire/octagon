@@ -25,13 +25,13 @@
     "babel-standalone": "^6.18.2",
     "backstopjs": "^3.0.24",
     "bluebird": "^3.5.0",
+    "chokidar": "^1.7.0",
     "coveralls": "^2.11.15",
     "cross-spawn-promise": "^0.10.1",
     "execa": "^0.8.0",
     "faker": "^4.1.0",
     "file-loader": "^0.10.1",
-    "folder-hash": "^1.1.1",
-    "fs-extra": "^2.0.0",
+    "fs-extra": "^4.0.2",
     "gh-pages": "^1.0.0",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
@@ -40,6 +40,7 @@
     "husky": "^0.14.3",
     "javascript-natural-sort": "^0.7.1",
     "jest": "^21.0.1",
+    "less": "^2.7.2",
     "npm-run-all": "^4.1.1",
     "nsp": "^2.6.2",
     "perish": "^1.0.1",
@@ -52,16 +53,13 @@
     "react": "^15 || ^16",
     "react-dom": "^15 || ^16",
     "react-remarkable": "^1.1.1",
-    "react-styleguidist": "^5.2.1",
+    "react-styleguidist": "^5.5.10",
     "react-test-renderer": "^15.5.4",
-    "ripcord": "^3.1.0",
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
-    "semantic-ui": "^2.2.6",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
-    "toiletdb": "^1.4.0",
     "url": "^0.11.0",
     "webpack": "^3.5.6"
   },
@@ -71,6 +69,7 @@
     "flexbox-react": "^4.4.0",
     "lato-font": "^2.0.0",
     "prop-types": "^15.6.0",
+    "semantic-ui-less": "^2.2.12",
     "semantic-ui-react": "^0.74.2"
   },
   "peerDependencies": {
@@ -84,11 +83,9 @@
     "test:report": "backstop openReport",
     "secure": "nsp check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p validate lint test check-vulnerablities",
-    "validate": "ripcord check",
+    "precommit": "run-p lint test check-vulnerablities",
     "check-vulnerablities": "nsp check"
   },
   "standard": {
@@ -119,14 +116,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Tripwire/octagon.git"
-  },
-  "ripcord": {
-    "rules": [
-      "check-vulnerablities",
-      "lint",
-      "precommit",
-      "validate"
-    ]
   },
   "version": "0.0.0-development"
 }
