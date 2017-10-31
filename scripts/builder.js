@@ -151,7 +151,7 @@ module.exports = {
   async semanticOverwriteStylePaths () {
     await fs.mkdirp(path.join(this.tempSemanticBuildDir, 'site', 'globals'))
     const siteVarsDest = path.join(this.tempSemanticBuildDir, 'site', 'globals', 'site.variables')
-    const siteVarsText = '@imagePath : "/themes/default/assets/images";\n@fontPath  : "/themes/default/assets/fonts";'
+    const siteVarsText = '@imagePath : "themes/default/assets/images";\n@fontPath  : "themes/default/assets/fonts";'
     return fs.writeFile(siteVarsDest, siteVarsText)
   },
   async styleguideServer () {
