@@ -13,7 +13,7 @@
     {
       "label": "Octagon",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:3333",
+      "url": "http://staticserver:3333",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -26,7 +26,7 @@
       "clickSelector": "",
       "postInteractionWait": "",
       "selectors": [
-        "[data-reactroot]:not(.hasSidebar-0-2)"
+        "[data-preview]"
       ],
       "selectorExpansion": true,
       "misMatchThreshold" : 0.1,
@@ -40,8 +40,8 @@
     "html_report": "backstop_data/html_report",
     "ci_report": "backstop_data/ci_report"
   },
-  "report": ["browser"],
-  "engine": "chrome",
+  "report": ["CI"],
+  "engine": "slimerjs",
   "engineFlags": [],
   "debug": false,
   "debugWindow": false

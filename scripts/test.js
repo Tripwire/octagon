@@ -22,7 +22,22 @@ const test = {
     server.on('error', () => { throw new Error('httpster unable to serve') })
     await bb.delay(5000)
     try {
-      await execa(BACKSTOP_BIN, ['test'], { cwd: PROJECT_ROOT_DIR, stdio: 'inherit' })
+      await execa(
+        'docker',
+        [
+          'run',
+          '--rm',
+          '-p',
+          '3333:3333',
+          '-it',
+          '-v',
+          `${PROJECT_ROOT_DIR}:/src`,
+          'backstopjs/backstopjs',
+          'test'
+        ], {
+          cwd: PROJECT_ROOT_DIR,
+          stdio: 'inherit'
+        })
     } finally {
       server.kill()
     }
