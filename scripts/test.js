@@ -9,7 +9,6 @@ const builder = require('./builder')
 const PROJECT_ROOT_DIR = path.resolve(__dirname, '..')
 const NPM_BIN_DIR = path.resolve(PROJECT_ROOT_DIR, 'node_modules', '.bin')
 const STATIC_CONTENT_DIR = path.join(PROJECT_ROOT_DIR, 'styleguide')
-const BACKSTOP_BIN = path.join(NPM_BIN_DIR, 'backstop')
 
 const test = {
   async start () {
