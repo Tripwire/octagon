@@ -1,10 +1,13 @@
-import React from 'react'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const ThinCardActionButton = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox alignItems='center' flexGrow={3}>
-      <div onClick={props.onClick} className={`thincard__action_button ${props.ClassName}`} style={props.style}>
+    <Flexbox {...externalAttributes} alignItems='center' flexGrow={3}>
+      <div className={`thincard__action_button ${props.innerDivClassName}`} style={props.style}>
         {props.children}
       </div>
     </Flexbox>
@@ -13,13 +16,12 @@ const ThinCardActionButton = (props) => {
 
 ThinCardActionButton.defaultProps = {
   style: {},
-  className: {}
+  innerDivClassName: {}
 }
 
 ThinCardActionButton.propTypes = {
-  style: React.PropTypes.object,
-  className: React.PropTypes.object,
-  onClick: React.PropTypes.func
+  style: PropTypes.object,
+  innerDivClassName: PropTypes.object
 }
 
 export default ThinCardActionButton

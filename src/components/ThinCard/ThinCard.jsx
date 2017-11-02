@@ -1,12 +1,13 @@
-import React from 'react'
-
+import '../../styles/components/thin-card.css'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import ThinCardTitle from './ThinCardTitle'
 import ThinCardPrimaryAction from './ThinCardPrimaryAction'
 import ThinCardActionButton from './ThinCardActionButton'
 import ThinCardWidget from './ThinCardWidget'
 import ThinCardDrawer from './ThinCardDrawer'
-import '../../styles/components/thin-card.css'
 
 class ThinCard extends React.Component {
   static Title = ThinCardTitle
@@ -23,8 +24,13 @@ class ThinCard extends React.Component {
     if (this.props.folder) {
       borderClass += ' thincard__folderpad'
     }
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <Flexbox flexDirection='column' className={`thincard__row ${borderClass}`} key={this.props.data.id}>
+      <Flexbox
+        {...externalAttributes}
+        flexDirection='column'
+        className={`thincard__row ${borderClass} ${this.props.className}`}
+        key={this.props.data.id}>
 
         {(this.props.folder) ? (
           <div className='topedge' />
@@ -43,7 +49,7 @@ ThinCard.defaultProps = {
   noBorder: false
 }
 ThinCard.propTypes = {
-  folder: React.PropTypes.bool,
-  noBorder: React.PropTypes.bool
+  folder: PropTypes.bool,
+  noBorder: PropTypes.bool
 }
 export default ThinCard

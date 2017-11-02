@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 var d3 = Object.assign({}, require('d3-shape'))
 const { array, func, string } = PropTypes
 

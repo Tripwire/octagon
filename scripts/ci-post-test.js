@@ -15,18 +15,21 @@ if (process.env.CI_BRANCH !== 'master') {
   process.exit(0)
 }
 
-const SPAWN_OPTS = { cwd: projectRoot }
+const SPAWN_OPTS = {
+  cwd: projectRoot,
+  stdio: 'inherit'
+}
 
-const docs = () => spawn('npm', ['run', 'styleguide:build'], Object.assign(SPAWN_OPTS, { stdio: 'inherit' }))
 const semantic = () => {
   return spawn('npm', ['run', 'semantic-release'], SPAWN_OPTS)
   .catch(err => {
     // @TODO debrittle-ify, as feasible.
-    if (!err.stderr || !err.stderr.toString().match(/ENOCHANGE/)) {
+    if (!err.stderr || (err.stderr && !err.stderr.toString().match(/ENOCHANGE/))) {
       console.error(err.stderr.toString())
       throw err
     }
   })
+  .then(() => console.log('semantic-release complete!'))
 }
 const publish = () => {
   return pify(ghPages.publish)(staticDocs, { repo, silent: true })
@@ -35,8 +38,6 @@ const publish = () => {
 Promise.resolve()
 .then(() => console.log('executing semantic-release'))
 .then(semantic)
-.then(() => console.log('building styleguide'))
-.then(docs)
 .then(() => console.log('publishing styleguide'))
 .then(publish)
 .then(() => console.log('fin.'))

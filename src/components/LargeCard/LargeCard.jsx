@@ -1,15 +1,16 @@
-import React from 'react'
+import '../../styles/components/large-card.css'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import LargeCardAction from './LargeCardAction'
 import LargeCardClose from './LargeCardClose'
-import LargeCardGutter from './LargeCardGutter'
 import LargeCardContent from './LargeCardContent'
+import LargeCardGutter from './LargeCardGutter'
 import LargeCardKeyValue from './LargeCardKeyValue'
 import LargeCardRecentList from './LargeCardRecentList'
-import LargeCardTitle from './LargeCardTitle'
 import LargeCardStat from './LargeCardStat'
-
-import '../../styles/components/large-card.css'
+import LargeCardTitle from './LargeCardTitle'
 
 class LargeCard extends React.Component {
   static Action = LargeCardAction;
@@ -22,9 +23,16 @@ class LargeCard extends React.Component {
   static Stat = LargeCardStat;
 
   render () {
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <Flexbox className={`large_card  is-fullview-open-${this.props.showCard} ${this.props.className} `} style={this.props.style}>
-        <Flexbox flexDirection='row' flexGrow={3} className={`large_card__container ` + ((this.props.framed) ? 'framed' : '')}>
+      <Flexbox
+        {...externalAttributes}
+        className={`large_card is-fullview-open-${this.props.showCard} ${this.props.className}`}
+        style={this.props.style}>
+        <Flexbox
+          flexDirection='row'
+          flexGrow={3}
+          className={`large_card__container ` + ((this.props.framed) ? 'framed' : '')}>
           {this.props.children}
         </Flexbox>
       </Flexbox>
@@ -34,10 +42,12 @@ class LargeCard extends React.Component {
 
 LargeCard.defaultProps = {
   className: '',
-  framed: false
+  framed: false,
+  showCard: false
 }
 LargeCard.propTypes = {
-  className: React.PropTypes.string,
-  framed: React.PropTypes.bool
+  className: PropTypes.string,
+  framed: PropTypes.bool,
+  showCard: PropTypes.bool
 }
 export default LargeCard

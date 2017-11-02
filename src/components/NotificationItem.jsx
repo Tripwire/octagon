@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import * as d3 from 'd3'
 import Flexbox from 'flexbox-react'
@@ -42,7 +43,6 @@ const NotificationItem = (props) => {
     currentTime = timeFormatted
     sameTimeGroup = false
   }
-  console.log(sameTimeGroup)
   currentTime = timeFormatted
   if (props.data.length === 1) {
     currentTime = ''
@@ -54,7 +54,9 @@ const NotificationItem = (props) => {
   return (
 
     <li className={` ${notificationClass}`} key={props.notification.id} >
-      <Flexbox alignItems='center' className={`notification__selection notification__state-${props.notification.state} same-timegroup-${sameTimeGroup}`}>
+      <Flexbox alignItems='center'
+        className={`notification__selection notification__state-${props.notification.state}
+        same-timegroup-${sameTimeGroup}`}>
         <Flexbox flexDirection='row' flexGrow={3}>
           {sameTimeGroup
           ? <Flexbox className='no-timegroup' paddingRight='30px' />
@@ -62,7 +64,10 @@ const NotificationItem = (props) => {
               <Flexbox className='notification__time' alignItems='center' paddingLeft='15px' paddingRight='15px'>
                 {timeFormatted}H
             </Flexbox>
-              <Flexbox className={`notification__connection__dot notification__connection__dot_${props.notification.state}`} alignItems='center' marginRight='15px' />
+              <Flexbox
+                className={`notification__connection__dot notification__connection__dot_${props.notification.state}`}
+                alignItems='center'
+                marginRight='15px' />
             </Flexbox>
         }
           <span className='notification__vertical__line' />
@@ -74,7 +79,10 @@ const NotificationItem = (props) => {
             {notificationCount}&nbsp;{props.notification.name}
           </Flexbox>
         </Flexbox>
-        <Flexbox flexDirection='column' height='100%' alignItems='flex-end' justifyContent='center' className={`icon-right icon-right-${props.notification.state}`}>
+        <Flexbox flexDirection='column' height='100%'
+          alignItems='flex-end'
+          justifyContent='center'
+          className={`icon-right icon-right-${props.notification.state}`}>
           <i className='arrow_carrot-right' />
         </Flexbox>
       </Flexbox>
@@ -83,7 +91,7 @@ const NotificationItem = (props) => {
   )
 }
 NotificationItem.propTypes = {
-  notification: React.PropTypes.object,
-  data: React.PropTypes.array
+  notification: PropTypes.object,
+  data: PropTypes.array
 }
 export default NotificationItem

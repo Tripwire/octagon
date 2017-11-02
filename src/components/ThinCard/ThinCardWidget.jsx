@@ -1,5 +1,7 @@
-import React from 'react'
 import Flexbox from 'flexbox-react'
+import PropTypes from 'prop-types'
+import React from 'react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import ThinCardWidgetLabel from './ThinCardWidgetLabel'
 import ThinCardWidgetValue from './ThinCardWidgetValue'
 
@@ -16,8 +18,17 @@ class ThinCardWidget extends React.Component {
       borderClass += 'borderRight '
     }
 
+    const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <Flexbox onClick={this.props.onClick} alignItems='center' className={` ${borderClass} ${this.props.className}`} paddingRight='15px' paddingLeft='15px' marginBottom='10px' marginTop='10px'>
+      <Flexbox
+        {...externalAttributes}
+        onClick={this.props.onClick}
+        alignItems='center'
+        className={`${borderClass} ${this.props.className}`}
+        paddingRight='15px'
+        paddingLeft='15px'
+        marginBottom='10px'
+        marginTop='10px'>
         {this.props.children}
       </Flexbox>
     )
@@ -30,10 +41,10 @@ ThinCardWidget.defaultProps = {
 }
 
 ThinCardWidget.propTypes = {
-  borderLeft: React.PropTypes.bool,
-  borderRight: React.PropTypes.bool,
-  className: React.PropTypes.object,
-  onClick: React.PropTypes.func
+  borderLeft: PropTypes.bool,
+  borderRight: PropTypes.bool,
+  className: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export default ThinCardWidget

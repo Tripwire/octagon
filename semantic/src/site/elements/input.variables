@@ -1,9 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-@borderRadius: 2px;
-@focusBorderColor: #3498db;
-@inputVerticalPadding: @relative10px;
-@inputHorizontalPadding: @relative8px;
-@placeholderColor: #999;
-@transition: border 0.3s ease 0s;

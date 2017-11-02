@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
+import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
 const alertIconUri = require('../../assets/alert-icon.svg')
 const warningIconUri = require('../../assets/warning-yellow.svg')
@@ -16,10 +18,10 @@ const MicroCardContentStatus = (props) => {
     default:
       icon = ''
   }
-
+  const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox marginRight='5px'>
-      <img className='microcard__stateIcon' src={icon} alt='icon' />
+      <img {...externalAttributes} className={`microcard__stateIcon ${props.className}`} src={icon} alt='icon' />
     </Flexbox>
   )
 }
@@ -29,7 +31,7 @@ MicroCardContentStatus.defaultProps = {
 }
 
 MicroCardContentStatus.propTypes = {
-  status: React.PropTypes.string
+  status: PropTypes.string
 }
 
 export default MicroCardContentStatus
