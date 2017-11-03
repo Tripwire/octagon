@@ -33,3 +33,4 @@ backstop_data/*
 *.iml
 *.idea
 cache.json
+.octagon-native-sections.json

@@ -1,4 +1,4 @@
-## Set
+#### Set
 
     const Icon = require('semantic-ui-react').Icon;
     <div>
@@ -138,5 +138,6 @@
 Note that these icons are namespaced with the class `ei` which enables you to access the Elegant Icons while retaining the usage of the Semantic UI Icon component.
 
 ```jsx
-<Icon className='ei icon_error-circle_alt' /> // ei + <icon-class>
+const Icon = require('semantic-ui-react').Icon;
+<Icon className='ei icon_error-circle_alt' />
 ```

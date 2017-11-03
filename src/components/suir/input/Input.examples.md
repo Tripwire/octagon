@@ -1,9 +1,9 @@
-## Standard
+#### Standard
 
     const Input = require('semantic-ui-react').Input;
     <Input />
 
-## Search Input
+#### Search Input
 
      const Input = require('semantic-ui-react').Input;
      <Input
@@ -12,7 +12,7 @@
           style={{width: '400px'}}
         />
 
-## States
+#### States
 
     const Input = require('semantic-ui-react').Input;
     <div>

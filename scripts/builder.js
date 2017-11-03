@@ -3,6 +3,7 @@
  */
 'use strict'
 
+const bb = require('bluebird')
 const fs = require('fs-extra')
 const path = require('path')
 const os = require('os')
@@ -15,6 +16,7 @@ const isWin = os.platform().match(/^win/)
 
 module.exports = {
   get componentDist () { return path.join(this.distDir) },
+  get componentSrcPath () { return path.join(this.srcPath, 'components') },
   get coverageDir () { return path.join(this.projectRoot, 'coverage') },
   get distDir () { return path.join(this.projectRoot, 'lib') },
   get projectRoot () { return path.resolve(__dirname, '..') },
@@ -155,7 +157,10 @@ module.exports = {
     return fs.writeFile(siteVarsDest, siteVarsText)
   },
   async styleguideServer () {
-    await this.build()
+    await Promise.all([
+      this.styleguideWriteNativeSections(),
+      this.build()
+    ])
     var compileChain = Promise.resolve() // poor mains queueing
     const recompileCss = debounce(path => {
       console.log(`${path} changed`)
@@ -177,5 +182,40 @@ module.exports = {
     } finally {
       watcher.close()
     }
+  },
+    /**
+   * Writes a sections array to disk async such that styleguidist may pretty print
+   * groupings
+   * @link https://react-styleguidist.js.org/docs/components.html#sections
+   * @returns {Promise}
+   */
+  async styleguideWriteNativeSections () {
+    const HIGHER_ORDER_GROUPS = [
+      'charts'
+    ]
+    const nativeComponentPath = path.resolve(this.componentSrcPath, 'native')
+    const nativeComponentFilenames = (await fs.readdir(nativeComponentPath)).map(basename => path.join(nativeComponentPath, basename))
+    const nativeComponentDirectories = await bb.filter(
+      nativeComponentFilenames,
+      async filename => {
+        const stat = await fs.stat(filename)
+        const isDir = stat.isDirectory()
+        return isDir
+      }
+    )
+    const standardNativeComponentDirectories = nativeComponentDirectories.filter(
+      dir => !HIGHER_ORDER_GROUPS.some(group => dir.match(new RegExp(`${group}$`)))
+    )
+    const higherOrderSections = HIGHER_ORDER_GROUPS
+    .map(name => ({ name, components: `${path.resolve(nativeComponentPath, name)}/**/*.jsx` }))
+
+    const standardSections = standardNativeComponentDirectories
+    .map(directory => ({ name: path.basename(directory), components: `${directory}/**/*.jsx` }))
+
+    const sections = higherOrderSections.concat(standardSections)
+    await fs.writeFile(
+      path.resolve(this.projectRoot, '.octagon-native-sections.json'),
+      JSON.stringify(sections, null, 2)
+    )
   }
 }

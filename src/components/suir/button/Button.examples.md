@@ -1,4 +1,4 @@
-## Positive Button
+#### Positive Button
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -11,7 +11,7 @@
       <Button positive disabled className=''>Positive Disabled</Button>
     </div>
 
-## Negative Button
+#### Negative Button
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -23,7 +23,7 @@
       <Button negative disabled className=''>Negative Disabled</Button>
     </div>
 
-## Generic
+#### Generic
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -32,7 +32,7 @@
       <Button disabled className=''>Generic Disabled</Button>
     </div>
 
-## Button Groups
+#### Button Groups
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -69,7 +69,7 @@
       </div>
     </div>
 
-## Test
+#### Test
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -90,14 +90,14 @@
     </div>
 
 
-## Active Button
+#### Active Button
 
     const Button = require('semantic-ui-react').Button;
     <Button className='' active>
         Some Copy
     </Button>
 
-## Icon Button
+#### Icon Button
 
     const Button = require('semantic-ui-react').Button;
     <div>
@@ -121,7 +121,7 @@
       </div>
     </div>
 
-## Adjacent Buttons
+#### Adjacent Buttons
 
     const Button = require('semantic-ui-react').Button;
     <div>
