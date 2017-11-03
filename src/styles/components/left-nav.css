@@ -1,0 +1,56 @@
+@import '../variables.css';
+.nav__left {
+  background: color(var(--cloudburst));
+  color: white;
+  min-height: 100vh;
+  height: 100%;
+  left: 0;
+  list-style: none;
+  position: relative;
+  top: 0px;
+  width: 65px;
+  & .nave__item {
+    color: white;
+  }
+  & .icon_container{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    & .active-icon{
+      opacity: 1;
+    }
+  }
+  & .icon_nav{
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    opacity: .4;
+  }
+
+  & .icon_container-active {
+    border-left: 4px solid white;
+    opacity: 1;
+    & .icon_nav:hover{
+      opacity: 1;
+    }
+  }
+  & .icon_container-inactive{
+    & .icon_nav:hover{
+      opacity: .7;
+    }
+  }
+  & .nav__link {
+    color: white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    text-align: center;
+    & span {
+      font-size: 2em;
+    }
+  }
+  & .icon__nav {
+    font-size: 2rem;
+  }
+}
