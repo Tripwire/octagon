@@ -183,7 +183,7 @@ module.exports = {
       watcher.close()
     }
   },
-    /**
+  /**
    * Writes a sections array to disk async such that styleguidist may pretty print
    * groupings
    * @link https://react-styleguidist.js.org/docs/components.html#sections
