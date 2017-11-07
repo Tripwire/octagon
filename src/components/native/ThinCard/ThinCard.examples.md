@@ -33,6 +33,32 @@
 </ThinCard>
 ```
 
+Richer Example (Expanded)
+
+```js
+<ThinCard data={{id: 0}} folder expanded={true} drawer={<ThinCard.Drawer expanded={true}><div style={{padding: '10px'}}>test</div></ThinCard.Drawer>}>
+  <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
+  <ThinCard.Title>I'm ready to go!</ThinCard.Title>
+  <ThinCard.ActionButton>MANAGE</ThinCard.ActionButton>
+  <ThinCard.Widget borderLeft>
+    <ThinCard.Widget.Label style={{marginRight: '30px'}}>
+      LABEL
+    </ThinCard.Widget.Label>
+    <ThinCard.Widget.Value>
+      1234
+    </ThinCard.Widget.Value>
+  </ThinCard.Widget>
+  <ThinCard.Widget borderLeft>
+    <ThinCard.Widget.Label style={{marginRight: '30px'}}>
+      FOO
+    </ThinCard.Widget.Label>
+    <ThinCard.Widget.Value>
+      BAR
+    </ThinCard.Widget.Value>
+  </ThinCard.Widget>
+</ThinCard>
+```
+
 #### Supported Fragments
 
 ```js static
