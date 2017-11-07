@@ -1,11 +1,13 @@
 :root {
   --warningred: #c0382b;
   --warningyellow: #ff9e2c;
+  --lightblue: #bde9ff;
+  --darkblue: #586A7A;
   --blue: #3498db;
+  --denimblue: #1c75bd;
   --twgray: var(--darkblue);
   --textPurple: var(--purple);
   --black: #272F34;
-  --darkblue: #586A7A;
   --darkgray: #777776;
   --gray: #A6A8AB;
   --lightgray: #E5E6E7;
@@ -24,7 +26,6 @@
   --buttonBorder: #BBBDBF;
   --buttonActiveColor: white;
   --taggray: #ededed;
-  --lightblue: #bde9ff;
   --textGray: #657d8e;
   --base-border-radius: 0;
 }
