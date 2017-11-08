@@ -181,6 +181,7 @@
   color: @grey;
   background: transparent;
   border: 0;
+  margin: .4em .8em .4em .8em;
 }
 .ui.icon.button:hover {
   color: @blue;
