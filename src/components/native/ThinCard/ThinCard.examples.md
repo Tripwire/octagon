@@ -3,7 +3,7 @@
 ```js
 <ThinCard data={{id: 0}} folder={false}>
   <ThinCard.PrimaryAction><StopStartButton isStopped /></ThinCard.PrimaryAction>
-  <ThinCard.Title>I'm stopped</ThinCard.Title>
+  <ThinCard.Title>I&apos;m stopped</ThinCard.Title>
 </ThinCard>
 ```
 
@@ -12,7 +12,7 @@
 ```js
 <ThinCard data={{id: 0}} folder drawer={<ThinCard.Drawer>test</ThinCard.Drawer>}>
   <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
-  <ThinCard.Title>I'm ready to go!</ThinCard.Title>
+  <ThinCard.Title>I&apos;m ready to go!</ThinCard.Title>
   <ThinCard.ActionButton>MANAGE</ThinCard.ActionButton>
   <ThinCard.Widget borderLeft>
     <ThinCard.Widget.Label style={{marginRight: '30px'}}>
@@ -38,7 +38,7 @@ Richer Example (Expanded)
 ```js
 <ThinCard data={{id: 0}} folder expanded={true} drawer={<ThinCard.Drawer expanded={true}><div style={{padding: '10px'}}>test</div></ThinCard.Drawer>}>
   <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
-  <ThinCard.Title>I'm ready to go!</ThinCard.Title>
+  <ThinCard.Title>I&apos;m ready to go!</ThinCard.Title>
   <ThinCard.ActionButton>MANAGE</ThinCard.ActionButton>
   <ThinCard.Widget borderLeft>
     <ThinCard.Widget.Label style={{marginRight: '30px'}}>
