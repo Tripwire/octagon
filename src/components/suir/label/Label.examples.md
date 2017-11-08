@@ -1,4 +1,4 @@
-## Simple Label
+#### Simple Label
 
     const Label = require('semantic-ui-react').Label;
     const Icon = require('semantic-ui-react').Icon;
@@ -6,7 +6,7 @@
       <Icon name='mail' /> 23
     </Label>
 
-## Form Labels
+#### Form Labels
 
     const Form = require('semantic-ui-react').Form;
     const Divider = require('semantic-ui-react').Divider;

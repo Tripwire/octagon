@@ -1,4 +1,4 @@
-## CSS Theme
+#### CSS Theme
 
     require('../../../lib/styles/semantic.css')
     const Label = require('semantic-ui-react').Label;

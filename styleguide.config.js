@@ -13,9 +13,12 @@ if (!semanticCSSStat.isFile) throw new Error('semantic css file invalid')
 module.exports = {
   title: 'Octagon Style Guide',
   sections: [
-    { name: 'Octagon Native', components: './src/**/*.jsx' },
     {
-      name: 'SUIR Native',
+      name: 'Octagon Native',
+      sections: require('./.octagon-native-sections.json') // generated prestyleguide for performance
+    },
+    {
+      name: 'Semantic-Ui-React',
       sections: suirExamples.map(ex => ({
         name: path.basename(ex).replace(/\.examples\.md/g, ''),
         content: ex
@@ -29,6 +32,6 @@ module.exports = {
     const name = path.basename(componentPath, '.jsx')
     return `import ${name} from ../src/components/${name}`
   },
-  skipComponentsWithoutExample: true,
+  skipComponentsWithoutExample: false,
   webpackConfig: require('./styleguide.webpack.config.js')
 }
