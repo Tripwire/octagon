@@ -4,7 +4,7 @@
   font-size: 20px !important;
 }
 .large_card {
-  background: #f8f8f8;
+  background: var(--formBackgroundColor);
   left: -10000px;
   min-height: 100%;
   opacity: 0;
@@ -20,8 +20,8 @@
     visibility: visible;
   }
 }
-.textGray{
-  color: var(--textGray);
+.primaryTextColor{
+  color: var(--primaryTextColor);
 }
 .textBlue{
   color: var(--blue);
@@ -41,7 +41,7 @@
   min-height: 94%;
   position: relative;
   & .label {
-    color: rgb(166, 168, 171);
+    color: var(--primaryTextColor);
     display: block;
     font-size: 10px;
     margin-bottom: 10px;
@@ -49,7 +49,7 @@
     text-align: left;
   }
   & .close__fullview {
-    color: #58687B;
+    color: var(--dimGray);
     cursor: pointer;
     font-size: 50px;
     position: absolute;
@@ -62,9 +62,14 @@
     font-size: 50px;
     color: var(--blue);
   }
-  & .title{
+  & .card-title{
     font-size: 17.5px;
-    color: var(--textGray);
+    color: var(--primaryTextColor);
+  }
+  & .friendly-name{
+    font-size: var(--small);
+    color: var(--primaryTextColor);
+    font-style: italic;
   }
   & .column{
     padding-right: 15px;
@@ -73,7 +78,7 @@
   }
   & .stats{
     & .label {
-      color: var(--textGray);
+      color: var(--primaryTextColor);
       margin-right: 15px;
     }
     & .value {
@@ -99,7 +104,7 @@
   & .history__summary__detail {
     @neat-span-columns 4 8;
     border-right: 1px solid var(--gray);
-    color: rgb(166, 168, 171);
+    color: var(--primaryTextColor);
     display: block;
     font-size: 11.2px;
     font-size: 0.7rem;
@@ -123,7 +128,7 @@
     text-align: left;
     padding: 0 5px;
     & .label {
-      color: rgb(166, 168, 171);
+      color: var(--primaryTextColor);
       display: block;
       font-size: 10px;
       margin-bottom: 10px;
@@ -131,7 +136,7 @@
       text-align: left;
     }
     & .count {
-      color: var(--twgray);
+      color: var(--primaryTextColor);
       font-size: 38px;
       font-weight: 300;
       padding: 25px 0 15px 0;
@@ -145,7 +150,7 @@
     color: color(var(--warningyellow));
   }
   & .recent_list-normal {
-    color: color(var(--twgray));
+    color: color(var(--primaryTextColor));
   }
   & .fullview__goto__button {
     bottom: 20px;
@@ -154,8 +159,8 @@
     min-width: 80px;
     right: 20px;
     &.button-warning {
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
+      border: 2px solid var(--warningyellow);
+      color: var(--warningyellow);
     }
     &.button-normal {
       border: 2px solid var(--gray);

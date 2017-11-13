@@ -62,7 +62,7 @@
     font-size: 2.65rem;
     position: absolute;
     right: 25px;
-    color: #A6A8AB;
+    color: var(--silverGray);
   }
 }
 

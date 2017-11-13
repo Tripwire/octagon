@@ -81,7 +81,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     font-size: 2em;
   }
   & .popover__label {
-    color: var(--lightblue);
+    color: var(--lightBlue);
     display: inline-block;
     padding: 10px;
   }
@@ -392,7 +392,6 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     & span {
       display: block;
       float: left;
-
     }
 
   }
@@ -474,11 +473,11 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 .all__notifications{
   margin-right: 7px;
   cursor: pointer;
-  color: var(--twgray);
+  color: var(--twGray);
   & .all__notifications__go{
     font-size: 12px;
     font-weight: bold;
-    border: 2px solid var(--twgray);
+    border: 2px solid var(--twGray);
     padding: 2px 7px;
   }
 }
