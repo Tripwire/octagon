@@ -62,7 +62,7 @@
     font-size: 50px;
     color: var(--blue);
   }
-  & .card-title{
+  & .title{
     font-size: 17.5px;
     color: var(--primaryTextColor);
   }
