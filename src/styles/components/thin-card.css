@@ -52,16 +52,16 @@
     margin-left: 10px;
     font-size: 24px;
     margin-right: 1em;
-    color: var(--twGray);
+    color: var(--textGray);
   }
   & .thincard__widget_label {
     display: block;
-    color: var(--twGray);
+    color: var(--textGray);
     text-transform: uppercase;
   }
   & .thincard__widget_value {
     font-size: 24px;
-    color: var(--twGray);
+    color: var(--textGray);
     font-weight: 300;
   }
   & .primary-content {

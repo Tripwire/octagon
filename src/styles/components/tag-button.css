@@ -1,7 +1,7 @@
 @import '../variables.css';
 .tags__view_all_notifications{
  cursor: pointer;
- color: var(--twGray);
+ color: var(--textGray);
 }
 .tags__view_all_notifications:hover{
  cursor: pointer;

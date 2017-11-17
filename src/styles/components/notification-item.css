@@ -473,11 +473,11 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 .all__notifications{
   margin-right: 7px;
   cursor: pointer;
-  color: var(--twGray);
+  color: var(--textGray);
   & .all__notifications__go{
     font-size: 12px;
     font-weight: bold;
-    border: 2px solid var(--twGray);
+    border: 2px solid var(--textGray);
     padding: 2px 7px;
   }
 }
