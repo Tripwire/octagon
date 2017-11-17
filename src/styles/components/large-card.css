@@ -66,7 +66,7 @@
     font-size: 17.5px;
     color: var(--primaryTextColor);
   }
-  & .friendly-name{
+  & .friendly_name{
     font-size: var(--small);
     color: var(--primaryTextColor);
     font-style: italic;
