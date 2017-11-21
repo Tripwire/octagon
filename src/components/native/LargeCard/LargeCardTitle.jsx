@@ -8,7 +8,7 @@ const LargeCardTitle = (props) => {
   return (
     <Flexbox {...externalAttributes} flexGrow={3} flexDirection='column'>
       <div title={props.title} className='title'>{props.title}</div>
-      <div title={props.description} className='text-small textGray'>{props.description}</div>
+      <div title={props.description} className='friendly_name'>{props.description}</div>
     </Flexbox>
   )
 }

@@ -1,3 +1,5 @@
+@import '../variables.css';
+
 .area__chart__container {
   z-index: 999;
   & svg {
@@ -16,7 +18,7 @@
 
   & .axis .tick text {
     text-transform: uppercase;
-    fill: #000000;
+    fill: var(--white);
     
   }
   
