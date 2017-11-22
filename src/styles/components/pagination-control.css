@@ -3,7 +3,7 @@
   
   & .pagination__button {
     border: 1px solid var(--buttonBorder);
-    color: var(--twgray);
+    color: var(--textGray);
     cursor: pointer;
     display: inline-block;
     padding: 0px;

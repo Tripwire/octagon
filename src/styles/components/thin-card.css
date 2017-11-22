@@ -52,16 +52,16 @@
     margin-left: 10px;
     font-size: 24px;
     margin-right: 1em;
-    color: var(--twgray);
+    color: var(--textGray);
   }
   & .thincard__widget_label {
     display: block;
-    color: var(--twgray);
+    color: var(--textGray);
     text-transform: uppercase;
   }
   & .thincard__widget_value {
     font-size: 24px;
-    color: var(--twgray);
+    color: var(--textGray);
     font-weight: 300;
   }
   & .primary-content {
@@ -87,6 +87,17 @@
   }
   & .drawer {
     cursor: pointer;
+    &:hover {
+      & .drawer__side {
+        border-color: var(--denimBlue);
+      }
+      & .drawer__expand_button,
+      & .drawer__collapse_button,
+      & .drawer__side_blue {
+        background-color: var(--denimBlue);
+        border-color: var(--denimBlue);
+      }
+    }
   }
   & .drawer__side {
     background-color: #dbdee1;

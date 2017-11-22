@@ -1,30 +1,79 @@
 :root {
+/* Yung's palette */ 
+
+
+  /* COLORS */
+  /* primary */
+  --buntingBlue: #28324e;
+  --cobaltBlue: #075ea6;
+  --denimBlue: #1c75bd;
+  --peterriverBlue: #3498db;
+
+  /*--black: #000000;*/
+  --nightriderGray: #2d2d2d;
+  --charcoalGray: #454545;
+  --dimGray: #666666;
+  --nobelGray: #999999;
+  --silverGray: #bdc3c7;
+  --gainsboroGray: #d8d8d8;
+  --whisperGray: #ebebeb;
+  --whitesmoke: #f5f5f5;
+  --white: #ffffff;
+
+  /* secondary */
+  --supernovaYellow: #ffb72a;
+  --neoncarrotYellow: #ff9e2c;
+  --tangerineOrange: #ff7b00;
+/* Yung's palette */
+
+
+
+  /* Components Colors */
+  --headerColor: var(--buntingBlue);
+  --primaryTextColor: var(--buntingBlue);
+  --hyperlinkColor: var(--denimBlue);
+  --defaultButtonColor: var(--peterriverBlue);
+
+  --formBackgroundColor: var(--whitesmoke);
+
+
+
   --warningred: #c0382b;
-  --warningyellow: #ff9e2c;
-  --blue: #3498db;
-  --twgray: var(--darkblue);
+  --warningyellow: var(--neoncarrotYellow);
+  --lightBlue: #bde9ff;
+
+
+
+
+  /* Basic Colors used in components*/
+
+  --blue: var(--peterriverBlue);
+  --textGray: var(--dimGray);
+  --yellow: var(--supernovaYellow);
+
   --textPurple: var(--purple);
   --black: #272F34;
-  --darkblue: #586A7A;
   --darkgray: #777776;
   --gray: #A6A8AB;
   --lightgray: #E5E6E7;
   --white: #fff;
   --red: #E96C64;
-  --yellow: #F8AE4B;
-  --cloudburst: #363d43;
+  
+  --cloudburst: #363d43; /* was used for sidebar - Yung's theme uses slightly lighter charcoal #454545*/
   --purple: #A976B2;
   --green: #00A69C;
   --darkgreen: #169D8F;
   --orange: #FFA500;
+ 
+  --buttonBorder: #BBBDBF;
+  --buttonActiveColor: white;
+  --taggray: #ededed;
+  
+  /* other */
   --xsmall: 0.7rem;
   --small: 0.85rem;
   --semibold: 600;
   --subtitlesize: 14px;
-  --buttonBorder: #BBBDBF;
-  --buttonActiveColor: white;
-  --taggray: #ededed;
-  --lightblue: #bde9ff;
-  --textGray: #657d8e;
+
   --base-border-radius: 0;
 }

@@ -7,7 +7,8 @@ const allowedExternalAttributes = [
   /^data-.*$/,
   /^id$/,
   /^name$/,
-  /^on.*$/
+  /^on.*$/,
+  /^style.*$/
 ]
 
 export default function filterAttributesFromProps (props) {
