@@ -30,6 +30,9 @@
       "name": "Test",
       "program": "${workspaceRoot}/scripts/test.js",
       "cwd": "${workspaceRoot}",
+      "env": {
+        "DEBUG": "webjerk*"
+      },
       "skipFiles": [
         "<node_internals>/**/*.js"
       ]
@@ -38,7 +41,7 @@
       "type": "node",
       "request": "attach",
       "name": "Attach to Process",
-      "port": 5858,
+      "port": 9229,
       "skipFiles": [
         "<node_internals>/**/*.js"
       ]

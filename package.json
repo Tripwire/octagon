@@ -58,9 +58,11 @@
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
+    "snapjerk": "^0.2.7",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "url": "^0.11.0",
+    "webjerk-snaps-adapter-puppeteer": "*",
     "webpack": "^3.5.6"
   },
   "dependencies": {
