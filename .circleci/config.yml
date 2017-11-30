@@ -51,8 +51,8 @@ jobs:
       - run:
           name: send report to github
           command: |
-          echo "machine surge.surge.sh" >> ~/.netrc
-          echo "    login $SURGE_LOGIN" >> ~/.netrc
-          echo "    password $SURGE_TOKEN" >> ~/.netrc
-          git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
-          if [ "$CI_BRANCH" != "master" ]; then surge-review -p styleguide || true; fi
+            echo "machine surge.surge.sh" >> ~/.netrc
+            echo "    login $SURGE_LOGIN" >> ~/.netrc
+            echo "    password $SURGE_TOKEN" >> ~/.netrc
+            git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
+            if [ "$CI_BRANCH" != "master" ]; then surge-review -p styleguide || true; fi
