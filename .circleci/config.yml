@@ -34,9 +34,25 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # clean
       - run: docker network prune --force
-      - run: npm run styleguide:build
+
+      # lint
       - run: npm run lint
+
+      # build
+      - run: npm run build
+      - run: npm run styleguide:build
+
+      # test
       - run: DEBUG=webjerk* npm test -- --verbose
 
+      # report
+      - run:
+        name: send report to github
+        command: |
+          echo "machine surge.surge.sh" >> ~/.netrc
+          echo "    login $SURGE_LOGIN" >> ~/.netrc
+          echo "    password $SURGE_TOKEN" >> ~/.netrc
+          git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
+          if [ "$CI_BRANCH" != "master" ]; then surge-review -p styleguide || true; fi
