@@ -58,7 +58,7 @@
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
-    "snapjerk": "^0.2.7",
+    "snapjerk": "^0.2.9",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "url": "^0.11.0",
@@ -81,8 +81,7 @@
   "scripts": {
     "build": "node scripts/build",
     "lint": "standard",
-    "test": "node scripts/test",
-    "test:report": "backstop openReport",
+    "test": "DEBUG=webjerk* snapjerk",
     "secure": "nsp check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prestyleguide:build": "node scripts/prestyleguide",
@@ -98,17 +97,6 @@
       "semantic",
       "styleguide"
     ]
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    }
   },
   "release": {
     "generateNotes": "./node_modules/@semantic-release/release-notes-generator",

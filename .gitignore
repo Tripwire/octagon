@@ -34,3 +34,4 @@ backstop_data/*
 *.idea
 cache.json
 .octagon-native-sections.json
+snaps/run
