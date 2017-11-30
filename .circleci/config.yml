@@ -49,8 +49,8 @@ jobs:
 
       # report
       - run:
-        name: send report to github
-        command: |
+          name: send report to github
+          command: |
           echo "machine surge.surge.sh" >> ~/.netrc
           echo "    login $SURGE_LOGIN" >> ~/.netrc
           echo "    password $SURGE_TOKEN" >> ~/.netrc
