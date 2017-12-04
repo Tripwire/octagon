@@ -5,8 +5,9 @@ var path = require('path')
 
 module.exports = {
   staticDirectory: path.resolve(__dirname, './styleguide'),
-  snapDefinitionsFromWindow: function querySnapDefinitions (divs, message) {
+  snapDefinitionsFromWindow: async function querySnapDefinitions (divs, message) {
     // @NOTE this JS is run in the browser context
+    await new Promise(res => setTimeout(res, 500)) // eslint-ignore-line
 
     // hide hidden nodes
     Array.from(document.querySelectorAll('.hide-in-test'))
