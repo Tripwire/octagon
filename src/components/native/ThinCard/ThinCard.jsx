@@ -10,12 +10,6 @@ import ThinCardWidget from './ThinCardWidget'
 import ThinCardDrawer from './ThinCardDrawer'
 
 class ThinCard extends React.Component {
-  static Title = ThinCardTitle
-  static PrimaryAction = ThinCardPrimaryAction
-  static ActionButton = ThinCardActionButton
-  static Widget = ThinCardWidget
-  static Drawer = ThinCardDrawer
-
   render () {
     let borderClass = ''
     if (this.props.noBorder) {
@@ -44,6 +38,11 @@ class ThinCard extends React.Component {
     )
   }
 }
+ThinCard.Title = ThinCardTitle
+ThinCard.PrimaryAction = ThinCardPrimaryAction
+ThinCard.ActionButton = ThinCardActionButton
+ThinCard.Widget = ThinCardWidget
+ThinCard.Drawer = ThinCardDrawer
 ThinCard.defaultProps = {
   folder: true,
   noBorder: false

@@ -4,12 +4,6 @@ import LeftNavMenuItem from './LeftNavMenuItem'
 import '../../../styles/components/left-nav.css'
 
 class LeftNav extends React.Component {
-  static MenuItem = LeftNavMenuItem
-  static propTypes = {
-    /** One of: MenuItem, Node */
-    children: PropTypes.node
-  }
-
   render () {
     return (
       <nav className='nav__left ' {...this.props}>
@@ -17,6 +11,11 @@ class LeftNav extends React.Component {
       </nav>
     )
   }
+}
+LeftNav.MenuItem = LeftNavMenuItem
+LeftNav.propTypes = {
+  /** One of: MenuItem, Node */
+  children: PropTypes.node
 }
 
 LeftNav.defaultProps = {

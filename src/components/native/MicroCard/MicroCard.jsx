@@ -10,11 +10,6 @@ import '../../../styles/components/micro-card.css'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 class MicroCard extends React.Component {
-  static Gutter = MicroCardGutter;
-  static Action = MicroCardAction;
-  static Favorite = MicroCardFavorite;
-  static Content = MicroCardContent;
-  static Count = MicroCardCount;
   render () {
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
@@ -30,7 +25,11 @@ class MicroCard extends React.Component {
     )
   }
 }
-
+MicroCard.Gutter = MicroCardGutter
+MicroCard.Action = MicroCardAction
+MicroCard.Favorite = MicroCardFavorite
+MicroCard.Content = MicroCardContent
+MicroCard.Count = MicroCardCount
 MicroCard.propTypes = {
   cardContent: PropTypes.object
 }

@@ -6,9 +6,6 @@ import ThinCardWidgetLabel from './ThinCardWidgetLabel'
 import ThinCardWidgetValue from './ThinCardWidgetValue'
 
 class ThinCardWidget extends React.Component {
-  static Label = ThinCardWidgetLabel
-  static Value = ThinCardWidgetValue
-
   render () {
     let borderClass = ''
     if (this.props.borderLeft) {
@@ -34,6 +31,8 @@ class ThinCardWidget extends React.Component {
     )
   }
 }
+ThinCardWidget.Label = ThinCardWidgetLabel
+ThinCardWidget.Value = ThinCardWidgetValue
 
 ThinCardWidget.defaultProps = {
   borderLeft: false,

@@ -5,8 +5,6 @@ import LocalTime from './TopNavLocalTime'
 import '../../../styles/components/top-nav.css'
 
 class TopNav extends React.Component {
-  static Content = TopNavContent;
-  static LocalTime = LocalTime;
   render () {
     return (
       <div className='nav__main clearfix'>
@@ -15,6 +13,8 @@ class TopNav extends React.Component {
     )
   }
 }
+TopNav.Content = TopNavContent
+TopNav.LocalTime = LocalTime
 
 TopNav.propTypes = {
   /** One of: Content, LocalTime, Node */
