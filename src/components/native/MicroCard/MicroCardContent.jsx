@@ -6,9 +6,6 @@ import MicroCardContentMessage from './MicroCardContentMessage'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 class MicroCardContent extends React.Component {
-  static Status = MicroCardContentStatus;
-  static Message = MicroCardContentMessage;
-
   render () {
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
@@ -23,6 +20,8 @@ class MicroCardContent extends React.Component {
     )
   }
 }
+MicroCardContent.Status = MicroCardContentStatus
+MicroCardContent.Message = MicroCardContentMessage
 
 MicroCardContent.defaultProps = {
   title: ''

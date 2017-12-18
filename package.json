@@ -23,22 +23,17 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.18.0",
     "babel-standalone": "^6.18.2",
-    "backstopjs": "^3.0.24",
     "bluebird": "^3.5.0",
     "chokidar": "^1.7.0",
     "coveralls": "^2.11.15",
     "cross-spawn-promise": "^0.10.1",
     "execa": "^0.8.0",
-    "faker": "^4.1.0",
     "file-loader": "^0.10.1",
     "fs-extra": "^4.0.2",
     "gh-pages": "^1.0.0",
-    "glob": "^7.1.1",
-    "gulp": "^3.9.1",
     "html-loader": "^0.5.1",
     "httpster": "^1.0.3",
     "husky": "^0.14.3",
-    "javascript-natural-sort": "^0.7.1",
     "jest": "^21.0.1",
     "less": "^2.7.2",
     "npm-run-all": "^4.1.1",
@@ -58,10 +53,11 @@
     "rucksack-css": "^1.0.2",
     "semantic-release": "^6.3.2",
     "semantic-release-cli": "^3.0.2",
+    "snapjerk": "^0.2.15",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "url": "^0.11.0",
-    "webpack": "^3.5.6"
+    "webpack": "3.5.6"
   },
   "dependencies": {
     "d3": "^4.11.0",
@@ -79,8 +75,7 @@
   "scripts": {
     "build": "node scripts/build",
     "lint": "standard",
-    "test": "node scripts/test",
-    "test:report": "backstop openReport",
+    "test": "DEBUG=webjerk* snapjerk",
     "secure": "nsp check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prestyleguide:build": "node scripts/prestyleguide",
@@ -96,17 +91,6 @@
       "semantic",
       "styleguide"
     ]
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    }
   },
   "release": {
     "generateNotes": "./node_modules/@semantic-release/release-notes-generator",

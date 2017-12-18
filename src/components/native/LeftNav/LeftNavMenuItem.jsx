@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Menu item for navigation menu
@@ -27,9 +28,9 @@ LeftNavMenuItem.defaultProps = {
 }
 
 LeftNavMenuItem.propTypes = {
-  active: React.PropTypes.bool,
+  active: PropTypes.bool,
   /** image URI */
-  image: React.PropTypes.string
+  image: PropTypes.string
 }
 
 export default LeftNavMenuItem

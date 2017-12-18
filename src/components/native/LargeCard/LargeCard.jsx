@@ -13,15 +13,6 @@ import LargeCardStat from './LargeCardStat'
 import LargeCardTitle from './LargeCardTitle'
 
 class LargeCard extends React.Component {
-  static Action = LargeCardAction;
-  static Close = LargeCardClose;
-  static Gutter = LargeCardGutter;
-  static Content = LargeCardContent;
-  static KeyValue = LargeCardKeyValue;
-  static RecentList = LargeCardRecentList;
-  static Title = LargeCardTitle;
-  static Stat = LargeCardStat;
-
   render () {
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
@@ -39,6 +30,14 @@ class LargeCard extends React.Component {
     )
   }
 }
+LargeCard.Action = LargeCardAction
+LargeCard.Close = LargeCardClose
+LargeCard.Gutter = LargeCardGutter
+LargeCard.Content = LargeCardContent
+LargeCard.KeyValue = LargeCardKeyValue
+LargeCard.RecentList = LargeCardRecentList
+LargeCard.Title = LargeCardTitle
+LargeCard.Stat = LargeCardStat
 
 LargeCard.defaultProps = {
   className: '',
