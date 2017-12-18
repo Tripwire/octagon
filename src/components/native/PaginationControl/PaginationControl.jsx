@@ -72,9 +72,8 @@ class PaginationControl extends React.Component {
       if (invalidPage) {
         return disabledClass
       }
-    } else {
-      return ''
     }
+    return ''
   }
 
   saveInput () {
@@ -108,22 +107,23 @@ class PaginationControl extends React.Component {
     var isDisabledAttribute = this.props.controlsDisabled ? 'disabled' : false
     return (
       <Flexbox flexDirection='row' className='pagination'>
-        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoFirstPage}>
+        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoFirstPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
           <i className='arrow_carrot-2left' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoPrevPage}>
+        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoPrevPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
         <Flexbox className={`pagination__page-number ${this.isDisabled()}`} alignItems='center'>
+          <span>Page</span>
           <input className={`pagination__input ${this.isDisabled()}`} type='text' value={`${inputPage}`} disabled={isDisabledAttribute}
-            onChange={this.handleInputChange} onBlur={this.saveInput} onKeyDown={this.handleInputKeyDown} />
+            onChange={this.handleInputChange} onBlur={this.saveInput} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
           <span> of</span>
           <span className='pagination__page-total'>{this.state.totalPages}</span>
         </Flexbox>
-        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoNextPage}>
+        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoNextPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
           <i className='arrow_carrot-right' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoLastPage}>
+        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoLastPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
           <i className='arrow_carrot-2right' aria-hidden='true' />
         </button>
       </Flexbox>

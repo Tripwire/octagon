@@ -33,8 +33,17 @@
   color: var(--primaryBlue);
 }
 
+.pagination__prev {
+  border-right: 0;
+}
+
+.pagination__next {
+  border-left: 0;
+}
+
 .pagination__input {
-  width: 2em;
+  border: 1px solid #bdc3c7;
+  width: 2.5em;
 }
 
 .pagination__page-number {
@@ -54,7 +63,7 @@
 }
 
 .pagination__input {
-  margin-right: 5px;
+  margin: 0 5px;
 }
 
 .pagination__page-total {
@@ -63,8 +72,16 @@
 
 .pagination_disabled,
 .pagination_disabled:hover {
-  border: 1px solid var(--lightgray);
-  color: var(--lightgray);
-  cursor: default;
+  color: var(--gainsboroGray);
+  cursor: not-allowed;
   background-color: white;
+}
+
+.pagination__page-number.pagination_disabled,
+.pagination__page-number .pagination_disabled {
+  color: var(--mainPaginationColor);
+}
+
+.pagination_disabled:focus {
+  outline: 0;
 }
