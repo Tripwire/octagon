@@ -1,13 +1,13 @@
 #### Enabled Pagination
 
 ```js
-<PaginationControl totalItems={20} perPage={5} navigateToPage={() => {}} />
+<PaginationControl totalPages={20} navigateToPage={() => {}} />
 ```
 
 #### Disabled Pagination
 
 ```js
-<PaginationControl totalItems={20} perPage={5} controlsDisabled={true} navigateToPage={() => {}} />
+<PaginationControl totalPages={20} controlsDisabled={true} navigateToPage={() => {}} />
 ```
 
 Handle the pagination of the resource with navigateToPage.  An example of usage:
