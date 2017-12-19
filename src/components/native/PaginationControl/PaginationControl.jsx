@@ -7,93 +7,136 @@ class PaginationControl extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isPrevPageValid: false,
-      isNextPageValid: true,
       currentPage: 1,
-      totalItems: props.totalItems,
-      lastPage: Math.ceil(props.totalItems / props.perPage)
+      inputPage: 1,
+      totalPages: props.totalPages
     }
-    this.nextPage = this.nextPage.bind(this)
-    this.prevPage = this.prevPage.bind(this)
-    this.validatePage = this.validatePage.bind(this)
-    this.resetPagination = this.resetPagination.bind(this)
+
+    this.gotoFirstPage = this.gotoFirstPage.bind(this)
+    this.gotoPrevPage = this.gotoPrevPage.bind(this)
+    this.gotoNextPage = this.gotoNextPage.bind(this)
+    this.gotoLastPage = this.gotoLastPage.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.saveInput = this.saveInput.bind(this)
+    this.handleInputKeyDown = this.handleInputKeyDown.bind(this)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.perPage !== this.props.perPage) {
-      this.resetPagination()
+  gotoFirstPage () {
+    this.gotoPage(1)
+  }
+
+  gotoPrevPage () {
+    this.gotoPage(this.state.currentPage - 1)
+  }
+
+  gotoNextPage () {
+    this.gotoPage(this.state.currentPage + 1)
+  }
+
+  gotoLastPage () {
+    this.gotoPage(this.state.totalPages)
+  }
+
+  gotoPage (page) {
+    if (this.isValidPage(page)) {
+      this.props.navigateToPage(page)
+      this.setState({currentPage: page})
+      this.setState({inputPage: page})
     }
   }
 
-  resetPagination () {
-    this.setState({
-      currentPage: 1,
-      isPrevPageValid: false,
-      isNextPageValid: true
-    })
+  greaterThanFirstPage (page) {
+    const firstPage = 1
+    return page >= firstPage
   }
 
-  nextPage () {
-    if (this.props.controlsDisabled) {
-      return false
-    }
-    if (this.state.isNextPageValid) {
-      const currentPage = this.state.currentPage
-      this.props.navigateToPage(currentPage + 1)
-      this.setState({ currentPage: currentPage + 1 }, this.validatePage)
-    }
-    return false
+  lessThanLastPage (page) {
+    const lastPage = this.state.totalPages
+    return page <= lastPage
   }
 
-  prevPage () {
-    if (this.props.controlsDisabled) {
-      return false
-    }
-    if (this.state.isPrevPageValid) {
-      const currentPage = this.state.currentPage
-      this.props.navigateToPage(currentPage - 1)
-      this.setState({ currentPage: currentPage - 1 }, this.validatePage)
-    }
-    return false
+  isValidPage (page) {
+    return (this.greaterThanFirstPage(page) && this.lessThanLastPage(page))
   }
 
-  validatePage () {
-    const currentPage = this.state.currentPage
-    this.setState({
-      isNextPageValid: currentPage < this.state.lastPage,
-      isPrevPageValid: currentPage > 1
-    })
+  isDisabled (btnType) {
+    const controlsDisabled = this.props.controlsDisabled
+    const disabledClass = 'pagination_disabled'
+
+    if (controlsDisabled) {
+      return disabledClass
+    } else if (btnType) {
+      const btnMap = {'prev': -1, 'next': 1}
+      const linkedPage = this.state.currentPage + btnMap[btnType]
+      const invalidPage = !this.isValidPage(linkedPage)
+
+      if (invalidPage) {
+        return disabledClass
+      }
+    }
+    return ''
+  }
+
+  saveInput () {
+    let inputValue = this.state.inputPage
+
+    if (inputValue === '') {
+      return this.setState({inputPage: this.state.currentPage})
+    }
+
+    if (!this.greaterThanFirstPage(inputValue)) {
+      inputValue = 0
+    } else if (!this.lessThanLastPage(inputValue)) {
+      inputValue = this.state.totalPages
+    }
+
+    this.gotoPage(inputValue)
+  }
+
+  handleInputKeyDown (event) {
+    const ENTER = 13
+    if (event.keyCode === ENTER) {
+      this.saveInput()
+    }
+  }
+
+  handleInputChange (event) {
+    let inputValue = parseInt(event.target.value) || ''
+    return this.setState({inputPage: inputValue})
   }
 
   render () {
-    let disabledClass = ''
-    if (this.props.controlsDisabled) {
-      disabledClass = 'disabled'
-    }
-    let currentCount = this.state.currentPage * this.props.perPage > this.state.totalItems ? this.state.totalItems : this.state.currentPage * this.props.perPage
+    let inputPage = this.state.inputPage
+    var isDisabledAttribute = this.props.controlsDisabled ? 'disabled' : false
     return (
-      <Flexbox flexDirection='row' className='consoles__pagination'>
-        <Flexbox className={`pagination__button pagination__prev ${disabledClass} ${this.state.isPrevPageValid ? '' : 'disabled'}`} onClick={this.prevPage}>
+      <Flexbox flexDirection='row' className='pagination'>
+        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoFirstPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
+          <i className='arrow_carrot-2left' aria-hidden='true' />
+        </button>
+        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoPrevPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
           <i className='arrow_carrot-left' aria-hidden='true' />
+        </button>
+        <Flexbox className={`pagination__page-number ${this.isDisabled()}`} alignItems='center'>
+          <span>Page</span>
+          <input className={`pagination__input ${this.isDisabled()}`} type='text' value={`${inputPage}`} disabled={isDisabledAttribute}
+            onChange={this.handleInputChange} onBlur={this.saveInput} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
+          <span> of</span>
+          <span className='pagination__page-total'>{this.state.totalPages}</span>
         </Flexbox>
-        <Flexbox className='pagination__count' alignItems='center'>
-          <span className='count__current'>{currentCount}</span>
-          <span>of</span>
-          <span className='count__total'>{this.state.totalItems}</span>
-        </Flexbox>
-        <Flexbox className={`pagination__button pagination__next ${disabledClass} ${this.state.isNextPageValid ? '' : 'disabled'}`} onClick={this.nextPage}>
+        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoNextPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
           <i className='arrow_carrot-right' aria-hidden='true' />
-        </Flexbox>
+        </button>
+        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoLastPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
+          <i className='arrow_carrot-2right' aria-hidden='true' />
+        </button>
       </Flexbox>
-
     )
   }
 }
 
 PaginationControl.propTypes = {
-  totalItems: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
   navigateToPage: PropTypes.func.isRequired,
-  perPage: PropTypes.number.isRequired,
   controlsDisabled: PropTypes.bool
 }
 

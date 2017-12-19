@@ -1,68 +1,88 @@
 @import '../variables.css';
-.consoles__pagination {
-  
-  & .pagination__button {
-    border: 1px solid var(--buttonBorder);
-    color: var(--textGray);
-    cursor: pointer;
-    display: inline-block;
-    padding: 0px;
-    font-size: 28px;
-    height: 30px;
-    -webkit-user-select: none;
-    -moz-user-select: none;   
-    -ms-user-select: none;   
-    user-select: none;     
-  }
-  & .pagination__button:active{
-    border: 1px solid var(--blue);
-    color: white !important;
-    background-color: var(--blue);
-  }
-  & .pagination__button:hover{
-    border: 1px solid var(--blue);
-    color: var(--blue);
 
-  }
-  & .pagination__button.disabled {
-    border: 1px solid var(--lightgray);
-    color: var(--lightgray) !important;
-  }
-  & .pagination__button.disabled:active {
-    background-color: white !important;
-    border: 1px solid var(--lightgray) !important;
-    color: var(--lightgray) !important;
-  }
-  & .pagination__prev {
-
-  }
-  & .pagination__next {
-
-  }
-  & .pagination__count {
-    border: 1px solid color(#BBBDBF);
-    color: color(#586A7B);
-    font-size: var(--small);
-    margin-left: 1px;
-    margin-right: 1px;
-    padding-left: 4px;
-    padding-right: 4px;
-    height: 30px;
-    text-transform: uppercase;
-    text-align: center;
-    -webkit-user-select: none;  
-    -moz-user-select: none; 
-    -ms-user-select: none;
-    user-select: none;
-    cursor: default;
-    & .count__current {
-      margin-right: 5px;
-    }
-    & .count__total {
-      margin-left: 5px;
-    }
-  }
+:root {
+  /* this color may change once colors are finalized. Not part of Yung's UXPin*/
+  --mainPaginationColor: #657d8e;
 }
 
+.pagination {
+  color: var(--mainPaginationColor);
+}
 
+.pagination__button {
+  border: 1px solid var(--silverGray);
+  color: var(--mainPaginationColor);
+  cursor: pointer;
+  display: inline-block;
+  padding: 0px;
+  font-size: 28px;
+  height: 30px;
+  background-color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+.pagination__button:hover{
+  color: white;
+  background-color: var(--primaryBlue);
+}
+
+.pagination__button:active{
+  color: var(--primaryBlue);
+}
+
+.pagination__prev {
+  border-right: 0;
+}
+
+.pagination__next {
+  border-left: 0;
+}
+
+.pagination__input {
+  border: 1px solid #bdc3c7;
+  width: 30px;
+  padding: 0 2px;
+}
+
+.pagination__page-number {
+  border: 1px solid var(--silverGray);
+  color: var(--mainPaginationColor);
+  font-size: var(--small);
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.pagination__input {
+  margin: 0 5px;
+}
+
+.pagination__page-total {
+  margin-left: 5px;
+}
+
+.pagination_disabled,
+.pagination_disabled:hover {
+  color: var(--gainsboroGray);
+  cursor: not-allowed;
+  background-color: white;
+}
+
+.pagination__page-number.pagination_disabled,
+.pagination__page-number .pagination_disabled {
+  color: var(--mainPaginationColor);
+}
+
+.pagination_disabled:focus {
+  outline: 0;
+}

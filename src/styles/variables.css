@@ -1,6 +1,5 @@
 :root {
-/* Yung's palette */ 
-
+/* Start Yung's palette */ 
 
   /* COLORS */
   /* primary */
@@ -24,9 +23,7 @@
   --supernovaYellow: #ffb72a;
   --neoncarrotYellow: #ff9e2c;
   --tangerineOrange: #ff7b00;
-/* Yung's palette */
-
-
+/* End Yung's palette */
 
   /* Components Colors */
   --headerColor: var(--buntingBlue);
@@ -36,18 +33,16 @@
 
   --formBackgroundColor: var(--whitesmoke);
 
-
+  --disabledColor: var(--gainsboroGray);
 
   --warningred: #c0382b;
   --warningyellow: var(--neoncarrotYellow);
   --lightBlue: #bde9ff;
 
-
-
-
   /* Basic Colors used in components*/
 
   --blue: var(--peterriverBlue);
+  --primaryBlue: var(--blue);
   --textGray: var(--dimGray);
   --yellow: var(--supernovaYellow);
 
