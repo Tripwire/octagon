@@ -43,7 +43,8 @@
 
 .pagination__input {
   border: 1px solid #bdc3c7;
-  width: 2.5em;
+  width: 30px;
+  padding: 0 2px;
 }
 
 .pagination__page-number {
