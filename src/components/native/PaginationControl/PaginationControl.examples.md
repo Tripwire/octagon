@@ -7,7 +7,7 @@
 #### Disabled Pagination
 
 ```js
-<PaginationControl totalPages={1} controlsDisabled={true} navigateToPage={() => {}} />
+<PaginationControl totalPages={1} controlsDisabled navigateToPage={() => {}} />
 ```
 
 Handle the pagination of the resource with navigateToPage.  An example of usage:
