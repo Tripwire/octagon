@@ -11,6 +11,7 @@ class PaginationControl extends React.Component {
       inputPage: 1,
       totalPages: props.totalPages
     }
+
     this.gotoFirstPage = this.gotoFirstPage.bind(this)
     this.gotoPrevPage = this.gotoPrevPage.bind(this)
     this.gotoNextPage = this.gotoNextPage.bind(this)
@@ -79,6 +80,10 @@ class PaginationControl extends React.Component {
   saveInput () {
     let inputValue = this.state.inputPage
 
+    if (inputValue === '') {
+      return this.setState({inputPage: this.state.currentPage})
+    }
+
     if (!this.greaterThanFirstPage(inputValue)) {
       inputValue = 0
     } else if (!this.lessThanLastPage(inputValue)) {
@@ -96,10 +101,8 @@ class PaginationControl extends React.Component {
   }
 
   handleInputChange (event) {
-    const inputValue = parseInt(event.target.value)
-    if (inputValue) {
-      this.setState({inputPage: inputValue})
-    }
+    let inputValue = parseInt(event.target.value) || ''
+    return this.setState({inputPage: inputValue})
   }
 
   render () {
