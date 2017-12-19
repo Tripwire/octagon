@@ -14,13 +14,6 @@
 
 ```js
 
-
-function navigateToPage(page) {
-debugger
-  this.setState({ currentNotes: this.getNotes(page) })
-}
-
-
 class PaginationContainer extends React.Component {
 
 	constructor () {
