@@ -56,7 +56,7 @@
     "snapjerk": "^0.2.15",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
-    "surge-review": "^1.1.0",
+    "surge-review": "^1.1.1",
     "url": "^0.11.0",
     "webpack": "3.5.6"
   },
