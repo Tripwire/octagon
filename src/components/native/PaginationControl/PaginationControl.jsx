@@ -22,6 +22,7 @@ export default class PaginationControl extends React.PureComponent {
     this.isDisabled = this.isDisabled.bind(this)
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.onBlur = this.onBlur.bind(this)
   }
 
   gotoFirstPage () {
@@ -80,6 +81,12 @@ export default class PaginationControl extends React.PureComponent {
     return ''
   }
 
+  onBlur (evt) {
+    const { onBlur } = this.props
+    if (!onBlur) return
+    onBlur(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
+  }
+
   onChange (evt) {
     this.props.onChange(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
   }
@@ -109,7 +116,7 @@ export default class PaginationControl extends React.PureComponent {
           <span>Page</span>
           <input className={`pagination__input ${this.isDisabled()}`}
             type='text' value={`${page || ''}`} disabled={disabled}
-            onChange={this.onChange} onBlur={this.onChange} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
+            onChange={this.onChange} onBlur={this.onBlur} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
           <span> of</span>
           <span className='pagination__page-total'>{totalPages || '∞'}</span>
         </Flexbox>
@@ -129,10 +136,15 @@ export default class PaginationControl extends React.PureComponent {
 PaginationControl.propTypes = {
   disabled: PropTypes.bool,
   /**
+   * Called when the control is blurred.
+   * @param {Number} page target page number
+   */
+  onBlur: PropTypes.func.isRequired,
+  /**
    * Called when the page changes.
    * @param {Number} page target page number
    */
   onChange: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
+  page: PropTypes.number,
   totalPages: PropTypes.number
 }

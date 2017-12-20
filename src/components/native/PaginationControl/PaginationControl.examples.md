@@ -18,6 +18,9 @@ initialState = { page: 2 }
 initialState = { page: 1 }
 ;<section style={{border: '1px solid black', padding: '1em'}}>
   <div>My page is: {state.page}</div>
-  <PaginationControl page={state.page} totalPages={20} onChange={page => { setState({ page}) }} />
+  <PaginationControl page={state.page} totalPages={20}
+    onBlur={page => { setState({ page: page || 1}) }}
+    onChange={page => { setState({ page }) }}
+  />
 </section>
 ```
