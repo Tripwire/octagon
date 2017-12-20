@@ -2,14 +2,16 @@
 
 ```js
 initialState = { page: 1 }
-;<PaginationControl page={state.page} onChange={page => setState({ page })} />
+;<PaginationControl page={state.page} onChange={page => setState({ page })}
+  onBlur={() => null} />
 ```
 
 #### Disabled Pagination
 
 ```js
 initialState = { page: 2 }
-;<PaginationControl page={state.page} onChange={page => setState({ page })} disabled />
+;<PaginationControl page={state.page} onChange={page => setState({ page })}
+  onBlur={() => null} disabled />
 ```
 
 #### Enabled Pagination within Container
