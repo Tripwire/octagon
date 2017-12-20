@@ -56,6 +56,7 @@
     "snapjerk": "^0.2.19",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
+    "surge-review": "^1.1.1",
     "url": "^0.11.0",
     "webpack": "3.5.6"
   },
@@ -79,6 +80,7 @@
     "secure": "nsp check",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prestyleguide:build": "node scripts/prestyleguide",
+    "ci:update-pull-request-with-styleguide": "surge-review --publish-dir styleguide --pull-request $CIRCLE_PULL_REQUEST",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
     "precommit": "run-p lint test check-vulnerablities",
