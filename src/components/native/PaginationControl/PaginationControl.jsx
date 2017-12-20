@@ -2,23 +2,28 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Flexbox from 'flexbox-react'
 import '../../../styles/components/pagination-control.css'
+import isNil from 'lodash/isNil'
+import invariant from 'invariant'
 
-class PaginationControl extends React.Component {
+const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
+
+export default class PaginationControl extends React.PureComponent {
   constructor (props) {
     super(props)
-    this.state = {
-      currentPage: 1,
-      inputPage: 1,
-      totalPages: props.totalPages
-    }
-
+    invariant(props.onBlur, '`onBlur` prop missing')
+    invariant(props.onChange, '`onChange` prop missing')
+    invariant(props.page, '`page` prop missing')
     this.gotoFirstPage = this.gotoFirstPage.bind(this)
     this.gotoPrevPage = this.gotoPrevPage.bind(this)
     this.gotoNextPage = this.gotoNextPage.bind(this)
     this.gotoLastPage = this.gotoLastPage.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.saveInput = this.saveInput.bind(this)
+    this.isPageWithinLowerBound = this.isPageWithinLowerBound.bind(this)
+    this.isPageWithinUpperBound = this.isPageWithinUpperBound.bind(this)
+    this.isValidPage = this.isValidPage.bind(this)
+    this.isDisabled = this.isDisabled.bind(this)
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this)
+    this.onChange = this.onChange.bind(this)
+    this.onBlur = this.onBlur.bind(this)
   }
 
   gotoFirstPage () {
@@ -26,50 +31,50 @@ class PaginationControl extends React.Component {
   }
 
   gotoPrevPage () {
-    this.gotoPage(this.state.currentPage - 1)
+    const { page } = this.props
+    this.gotoPage(page - 1)
   }
 
   gotoNextPage () {
-    this.gotoPage(this.state.currentPage + 1)
+    const { page } = this.props
+    this.gotoPage(page + 1)
   }
 
   gotoLastPage () {
-    this.gotoPage(this.state.totalPages)
+    const { totalPages } = this.props
+    if (!isNil(totalPages)) this.gotoPage(totalPages)
   }
 
   gotoPage (page) {
     if (this.isValidPage(page)) {
-      this.props.navigateToPage(page)
-      this.setState({currentPage: page})
-      this.setState({inputPage: page})
+      this.props.onChange(page)
     }
   }
 
-  greaterThanFirstPage (page) {
+  isPageWithinLowerBound (page) {
     const firstPage = 1
     return page >= firstPage
   }
 
-  lessThanLastPage (page) {
-    const lastPage = this.state.totalPages
-    return page <= lastPage
+  isPageWithinUpperBound (page) {
+    const { totalPages } = this.props
+    if (isNil(totalPages)) return true
+    return page <= totalPages
   }
 
   isValidPage (page) {
-    return (this.greaterThanFirstPage(page) && this.lessThanLastPage(page))
+    return (this.isPageWithinLowerBound(page) && this.isPageWithinUpperBound(page))
   }
 
   isDisabled (btnType) {
-    const controlsDisabled = this.props.controlsDisabled
+    const { disabled, page } = this.props
     const disabledClass = 'pagination_disabled'
 
-    if (controlsDisabled) {
+    if (disabled) {
       return disabledClass
     } else if (btnType) {
-      const btnMap = {'prev': -1, 'next': 1}
-      const linkedPage = this.state.currentPage + btnMap[btnType]
+      const linkedPage = page + NAV_VERB_TO_INT_MAP[btnType]
       const invalidPage = !this.isValidPage(linkedPage)
-
       if (invalidPage) {
         return disabledClass
       }
@@ -77,56 +82,51 @@ class PaginationControl extends React.Component {
     return ''
   }
 
-  saveInput () {
-    let inputValue = this.state.inputPage
-
-    if (inputValue === '') {
-      return this.setState({inputPage: this.state.currentPage})
-    }
-
-    if (!this.greaterThanFirstPage(inputValue)) {
-      inputValue = 0
-    } else if (!this.lessThanLastPage(inputValue)) {
-      inputValue = this.state.totalPages
-    }
-
-    this.gotoPage(inputValue)
+  onBlur (evt) {
+    const { onBlur } = this.props
+    if (!onBlur) return
+    onBlur(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
   }
 
-  handleInputKeyDown (event) {
+  onChange (evt) {
+    this.props.onChange(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
+  }
+
+  handleInputKeyDown (evt) {
     const ENTER = 13
-    if (event.keyCode === ENTER) {
-      this.saveInput()
+    if (evt.keyCode === ENTER) {
+      this.onChange(evt)
     }
-  }
-
-  handleInputChange (event) {
-    let inputValue = parseInt(event.target.value) || ''
-    return this.setState({inputPage: inputValue})
   }
 
   render () {
-    let inputPage = this.state.inputPage
-    var isDisabledAttribute = this.props.controlsDisabled ? 'disabled' : false
+    const { page, disabled, totalPages } = this.props
+    const isPrevDisabled = this.isDisabled('prev')
+    const isNextDisabled = this.isDisabled('next')
     return (
       <Flexbox flexDirection='row' className='pagination'>
-        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoFirstPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
+        <button className={`pagination__button pagination__prev ${isPrevDisabled}`}
+          onClick={this.gotoFirstPage} tabIndex={`${isPrevDisabled ? -1 : 0}`}>
           <i className='arrow_carrot-2left' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__prev ${this.isDisabled('prev')}`} onClick={this.gotoPrevPage} tabIndex={`${this.isDisabled('prev') ? -1 : 0}`}>
+        <button className={`pagination__button pagination__prev ${isPrevDisabled}`}
+          onClick={this.gotoPrevPage} tabIndex={`${isPrevDisabled ? -1 : 0}`}>
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
         <Flexbox className={`pagination__page-number ${this.isDisabled()}`} alignItems='center'>
           <span>Page</span>
-          <input className={`pagination__input ${this.isDisabled()}`} type='text' value={`${inputPage}`} disabled={isDisabledAttribute}
-            onChange={this.handleInputChange} onBlur={this.saveInput} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
+          <input className={`pagination__input ${this.isDisabled()}`}
+            type='text' value={`${page || ''}`} disabled={disabled}
+            onChange={this.onChange} onBlur={this.onBlur} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
           <span> of</span>
-          <span className='pagination__page-total'>{this.state.totalPages}</span>
+          <span className='pagination__page-total'>{totalPages || '∞'}</span>
         </Flexbox>
-        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoNextPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
+        <button className={`pagination__button pagination__next ${isNextDisabled}`}
+          onClick={this.gotoNextPage} tabIndex={`${isNextDisabled ? -1 : 0}`}>
           <i className='arrow_carrot-right' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__next ${this.isDisabled('next')}`} onClick={this.gotoLastPage} tabIndex={`${this.isDisabled('next') ? -1 : 0}`}>
+        <button className={`pagination__button pagination__next ${isNextDisabled}`}
+          onClick={this.gotoLastPage} tabIndex={`${isNextDisabled ? -1 : 0}`}>
           <i className='arrow_carrot-2right' aria-hidden='true' />
         </button>
       </Flexbox>
@@ -135,9 +135,17 @@ class PaginationControl extends React.Component {
 }
 
 PaginationControl.propTypes = {
-  totalPages: PropTypes.number.isRequired,
-  navigateToPage: PropTypes.func.isRequired,
-  controlsDisabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * Called when the control is blurred.
+   * @param {Number} page target page number
+   */
+  onBlur: PropTypes.func.isRequired,
+  /**
+   * Called when the page changes.
+   * @param {Number} page target page number
+   */
+  onChange: PropTypes.func.isRequired,
+  page: PropTypes.number,
+  totalPages: PropTypes.number
 }
-
-export default PaginationControl

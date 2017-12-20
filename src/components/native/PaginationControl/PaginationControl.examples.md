@@ -1,45 +1,28 @@
 #### Enabled Pagination
 
 ```js
-<PaginationControl totalPages={20} navigateToPage={() => {}} />
+initialState = { page: 1 }
+;<PaginationControl page={state.page} onChange={page => setState({ page })}
+  onBlur={() => null} />
 ```
 
 #### Disabled Pagination
 
 ```js
-<PaginationControl totalPages={1} controlsDisabled navigateToPage={() => {}} />
+initialState = { page: 2 }
+;<PaginationControl page={state.page} onChange={page => setState({ page })}
+  onBlur={() => null} disabled />
 ```
 
 #### Enabled Pagination within Container
 
 ```js
-
-class PaginationContainer extends React.Component {
-
-	constructor () {
-		this.state = { pageNumber: 1 }
-	}
-
-	render () {
-		return (
-			<section style={{border: '1px solid black'}}>
-				<div>My page is:{this.state.pageNumber}</div>
-  			<PaginationControl totalPages={20} navigateToPage={(page) => { this.setState({pageNumber: page}) }} />
-  		</section>
-		)
-	}
-
-};
-
-	<PaginationContainer></PaginationContainer>
-
-```
-
-Handle the pagination of the resource with navigateToPage.  An example of usage:
-
-```js static
-navigateToPage(page) {
-  this.setState({ pageNumber: page })
-}
-
+initialState = { page: 1 }
+;<section style={{border: '1px solid black', padding: '1em'}}>
+  <div>My page is: {state.page}</div>
+  <PaginationControl page={state.page} totalPages={20}
+    onBlur={page => { setState({ page: page || 1}) }}
+    onChange={page => { setState({ page }) }}
+  />
+</section>
 ```
