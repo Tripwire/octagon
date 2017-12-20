@@ -10,8 +10,9 @@ const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
 export default class PaginationControl extends React.PureComponent {
   constructor (props) {
     super(props)
+    invariant(props.onBlur, '`onBlur` prop missing')
     invariant(props.onChange, '`onChange` prop missing')
-    invariant(props.page, '`onChange` prop missing')
+    invariant(props.page, '`page` prop missing')
     this.gotoFirstPage = this.gotoFirstPage.bind(this)
     this.gotoPrevPage = this.gotoPrevPage.bind(this)
     this.gotoNextPage = this.gotoNextPage.bind(this)
