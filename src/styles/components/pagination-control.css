@@ -7,6 +7,7 @@
 
 .pagination {
   color: var(--mainPaginationColor);
+  height: 30px;
 }
 
 .pagination__button {
@@ -16,12 +17,8 @@
   display: inline-block;
   padding: 0px;
   font-size: 28px;
-  height: 30px;
+  max-height: 30px;
   background-color: white;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .pagination__button:hover{
@@ -45,22 +42,23 @@
   border: 1px solid #bdc3c7;
   width: 30px;
   padding: 0 2px;
+  height: 14px;
 }
 
 .pagination__page-number {
   border: 1px solid var(--silverGray);
   color: var(--mainPaginationColor);
   font-size: var(--small);
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 30px;
+  padding: 0 10px;
+  line-height: 30px;
   text-transform: uppercase;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   cursor: default;
+  display: inline-block;
+  vertical-align: top;
+  height: 30px;
+  max-height: 30px;
+  background-color: white;
 }
 
 .pagination__input {
