@@ -15,8 +15,8 @@ initialState = { page: 2 }
 #### Pagination with unknown Total Number of Pages
 
 ```js
-initialState = { page: 2 }
-;<PaginationControl page={state.page} onPageChange={() => null} disabled />
+initialState = { page: 1 }
+;<PaginationControl page={state.page} onPageChange={page => setState({ page })} />
 ```
 
 #### Enabled Pagination within Container

@@ -81,7 +81,7 @@ export default class PaginationControl extends React.PureComponent {
         return DISABLED_ATTRIBUTES
       }
 
-      const linkedPage = page + (NAV_VERB_TO_INT_MAP[btnType] || 0)
+      const linkedPage = page + (NAV_VERB_TO_INT_MAP[btnType] || 1)
       const invalidPage = !this.isValidPage(linkedPage)
       if (invalidPage) {
         return DISABLED_ATTRIBUTES
