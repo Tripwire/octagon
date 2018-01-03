@@ -6,8 +6,9 @@
 }
 
 .pagination {
-  color: var(--mainPaginationColor);
+  display: inline-block;
   height: 30px;
+  color: var(--mainPaginationColor);
 }
 
 .pagination__button {
@@ -69,16 +70,11 @@
   margin-left: 5px;
 }
 
-.pagination_disabled,
-.pagination_disabled:hover {
+.pagination :disabled,
+.pagination :disabled:hover {
   color: var(--gainsboroGray);
   cursor: not-allowed;
   background-color: white;
-}
-
-.pagination__page-number.pagination_disabled,
-.pagination__page-number .pagination_disabled {
-  color: var(--mainPaginationColor);
 }
 
 .pagination_disabled:focus {

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Flexbox from 'flexbox-react'
 import '../../../styles/components/pagination-control.css'
 import isNil from 'lodash/isNil'
 import invariant from 'invariant'
 
 const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
+const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: 'disabled' }
+const ENABLED_ATTRIBUTE = { tabIndex: 0 }
 
 export default class PaginationControl extends React.PureComponent {
   constructor (props) {
@@ -60,6 +61,7 @@ export default class PaginationControl extends React.PureComponent {
   isPageWithinUpperBound (page) {
     const { totalPages } = this.props
     if (isNil(totalPages)) return true
+
     return page <= totalPages
   }
 
@@ -69,27 +71,31 @@ export default class PaginationControl extends React.PureComponent {
 
   isDisabled (btnType) {
     const { disabled, page } = this.props
-    const disabledClass = 'pagination_disabled'
 
     if (disabled) {
-      return disabledClass
-    } else if (btnType) {
-      const linkedPage = page + NAV_VERB_TO_INT_MAP[btnType]
+      return DISABLED_ATTRIBUTES
+    }
+
+    if (btnType) {
+      if (btnType === 'last' && !this.props.totalPages) {
+        return DISABLED_ATTRIBUTES
+      }
+
+      const linkedPage = page + (NAV_VERB_TO_INT_MAP[btnType] || 0)
       const invalidPage = !this.isValidPage(linkedPage)
       if (invalidPage) {
-        return disabledClass
+        return DISABLED_ATTRIBUTES
       }
     }
-    return ''
+
+    return ENABLED_ATTRIBUTE
   }
 
   onBlur (evt) {
-console.log('Blurring the lines')
     this.gotoPage(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
   }
 
   handleInputKeyDown (evt) {
-    debugger
     const ENTER = 13
     if (evt.keyCode === ENTER) {
       this.onBlur(evt)
@@ -97,33 +103,32 @@ console.log('Blurring the lines')
   }
 
   render () {
-    const { page, disabled, totalPages } = this.props
-    const isPrevDisabled = this.isDisabled('prev')
-    const isNextDisabled = this.isDisabled('next')
+    const { page, totalPages } = this.props
+    const isDisabled = this.isDisabled
+
     return (
       <div className='pagination'>
-        <button className={`pagination__button pagination__prev ${isPrevDisabled}`}
-          onClick={this.gotoFirstPage} tabIndex={`${isPrevDisabled ? -1 : 0}`}>
+        <button className={`pagination__button pagination__prev`}
+          onClick={this.gotoFirstPage} {...isDisabled('prev')} >
           <i className='arrow_carrot-2left' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__prev ${isPrevDisabled}`}
-          onClick={this.gotoPrevPage} tabIndex={`${isPrevDisabled ? -1 : 0}`}>
+        <button className={`pagination__button pagination__prev`}
+          onClick={this.gotoPrevPage} {...isDisabled('prev')} >
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
-        <div className={`pagination__page-number ${this.isDisabled()}`} >
+        <div className={`pagination__page-number`} >
           <span>Page</span>
-          <input className={`pagination__input ${this.isDisabled()}`} type='text'
-            key={`${page}`} defaultValue={`${page}`} disabled={disabled}
-            onBlur={this.onBlur} onKeyDown={this.handleInputKeyDown} tabIndex={`${this.isDisabled() ? -1 : 0}`} />
+          <input className={`pagination__input`} type='text' key={`${page}`} defaultValue={`${page}`}
+            onBlur={this.onBlur} onKeyDown={this.handleInputKeyDown} {...isDisabled()} />
           <span>of</span>
-          <span className='pagination__page-total'>{totalPages || '∞'}</span>
+          <span className='pagination__page-total'>{totalPages || '...'}</span>
         </div>
-        <button className={`pagination__button pagination__next ${isNextDisabled}`}
-          onClick={this.gotoNextPage} tabIndex={`${isNextDisabled ? -1 : 0}`}>
+        <button className={`pagination__button pagination__next`}
+          onClick={this.gotoNextPage} {...isDisabled('next')} >
           <i className='arrow_carrot-right' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__next ${isNextDisabled}`}
-          onClick={this.gotoLastPage} tabIndex={`${isNextDisabled ? -1 : 0}`}>
+        <button className={`pagination__button pagination__next`}
+          onClick={this.gotoLastPage} {...isDisabled('last')} >
           <i className='arrow_carrot-2right' aria-hidden='true' />
         </button>
       </div>
@@ -139,13 +144,13 @@ PaginationControl.propTypes = {
    */
   onPageChange: PropTypes.func.isRequired,
   /**
-   * Called when the page changes.
-   * @param {Number} page target page number
+   * Called when the page changes with NAN or out-of-bounds number.
+   * @param {Error} error NAN or out-of-bounds number.
    */
   onPageError: PropTypes.func,
-  /**
-   * Called when the page changes with NAN or out-of-bounds number.
-   * @param {Error} NAN or out-of-bounds number.
+   /**
+   * Called when the page changes.
+   * @param {Number} page target page number
    */
   page: PropTypes.number,
   totalPages: PropTypes.number
