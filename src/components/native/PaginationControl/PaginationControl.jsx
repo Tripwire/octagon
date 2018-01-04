@@ -126,7 +126,10 @@ export default class PaginationControl extends React.PureComponent {
             key={`${page}`} defaultValue={`${page}`}
             onBlur={this.handleUserInput} onKeyDown={this.handleInputKeyDown} {...isDisabled()} />
           <span>of</span>
-          <span className='pagination__page-total'>{totalPages || '...'}</span>
+          <span className='pagination__page-total'>
+            {totalPages || <em className='pagination__page-number_total-pages-unknown'>...</em>}
+
+          </span>
         </div>
         <button className={`pagination__button pagination__next`}
           onClick={this.gotoNextPage} {...isDisabled('next')} >

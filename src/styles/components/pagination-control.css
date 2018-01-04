@@ -3,6 +3,11 @@
 :root {
   /* this color may change once colors are finalized. Not part of Yung's UXPin*/
   --mainPaginationColor: #657d8e;
+  --mainPaginationBorderColor: var(--silverGray);
+  --disabledColor: var(--gainsboroGray);
+  --paginationBackgroundColor: white;
+  --paginationHeight: 30px;
+  --paginationSpaceBetweenWords: 5px;
 }
 
 /* For Firefox */
@@ -15,24 +20,24 @@ input[type=number]::-webkit-outer-spin-button {
 
 .pagination {
   display: inline-block;
-  height: 30px;
+  height: var(--paginationHeight);
   color: var(--mainPaginationColor);
   margin: 0 4px;
+  background-color: var(--paginationBackgroundColor);
 }
 
 .pagination__button {
-  border: 1px solid var(--silverGray);
+  border: 1px solid var(--mainPaginationBorderColor);
   color: var(--mainPaginationColor);
   cursor: pointer;
   display: inline-block;
   padding: 0px;
   font-size: 28px;
-  max-height: 30px;
-  background-color: white;
+  max-height: var(--paginationHeight);
 }
 
 .pagination__button:hover{
-  color: white;
+  color: var(--paginationBackgroundColor);
   background-color: var(--primaryBlue);
 }
 
@@ -49,39 +54,48 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .pagination__page-number {
-  border: 1px solid var(--silverGray);
+  border: 1px solid var(--mainPaginationBorderColor);
   color: var(--mainPaginationColor);
   font-size: var(--small);
   padding: 0 10px;
-  line-height: 30px;
+  line-height: var(--paginationHeight);
   text-transform: uppercase;
   text-align: center;
   cursor: default;
   display: inline-block;
   vertical-align: top;
-  height: 30px;
-  max-height: 30px;
-  background-color: white;
+  height: var(--paginationHeight);
+  max-height: var(--paginationHeight);
+}
+
+.pagination__page-number * {
+  vertical-align: middle;
+}
+
+.pagination__page-number_total-pages-unknown {
+  font-size: 20px;
+  line-height: calc(var(--paginationHeight)/2);
+  vertical-align: baseline;
 }
 
 .pagination__input {
-  border: 1px solid #bdc3c7;
+  border: 1px solid var(--mainPaginationBorderColor);
   width: 40px;
   height: 16px;
-  margin: 7px 5px;
+  margin: 7px var(--paginationSpaceBetweenWords);
   padding: 1px 4px;
 }
 
 .pagination__page-total {
-  margin-left: 5px;
-  line-height: 30px;
+  margin-left: var(--paginationSpaceBetweenWords);
+  line-height: var(--paginationHeight);
 }
 
 .pagination :disabled,
 .pagination :disabled:hover {
-  color: var(--gainsboroGray);
+  color: var(--disabledColor);
   cursor: not-allowed;
-  background-color: white;
+  background-color: var(--paginationBackgroundColor);
 }
 
 .pagination_disabled:focus {
