@@ -2,10 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import '../../../styles/components/pagination-control.css'
 import isNil from 'lodash/isNil'
+import isNumber from 'lodash/isNumber'
 import invariant from 'invariant'
 
 const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
-const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: 'disabled' }
+const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: 'true' }
 const ENABLED_ATTRIBUTE = { tabIndex: 0 }
 
 export default class PaginationControl extends React.PureComponent {
@@ -22,7 +23,7 @@ export default class PaginationControl extends React.PureComponent {
     this.isValidPage = this.isValidPage.bind(this)
     this.isDisabled = this.isDisabled.bind(this)
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this)
-    this.onBlur = this.onBlur.bind(this)
+    this.handleUserInput = this.handleUserInput.bind(this)
   }
 
   gotoFirstPage () {
@@ -45,12 +46,15 @@ export default class PaginationControl extends React.PureComponent {
   }
 
   gotoPage (page) {
-    if (!this.isPageWithinLowerBound(page)) {
-      this.props.onPageError(Error('Requested page is less than lower bound.'))
+    let payload = {page: page}
+    if (!isNumber(page)) {
+      payload.error = 'Invalid Number'
+    } else if (!this.isPageWithinLowerBound(page)) {
+      payload.error = 'Number less than lower bound'
     } else if (!this.isPageWithinUpperBound(page)) {
-      this.props.onPageError(Error('Requested page is greater than upper bound.'))
+      payload.error = 'Number greater than upper bound'
     }
-    this.props.onPageChange(page)
+    this.props.onPageChange(payload)
   }
 
   isPageWithinLowerBound (page) {
@@ -70,14 +74,14 @@ export default class PaginationControl extends React.PureComponent {
   }
 
   isDisabled (btnType) {
-    const { disabled, page } = this.props
+    const { disabled, page, totalPages } = this.props
 
     if (disabled) {
       return DISABLED_ATTRIBUTES
     }
 
     if (btnType) {
-      if (btnType === 'last' && !this.props.totalPages) {
+      if (btnType === 'last' && isNil(totalPages)) {
         return DISABLED_ATTRIBUTES
       }
 
@@ -91,14 +95,14 @@ export default class PaginationControl extends React.PureComponent {
     return ENABLED_ATTRIBUTE
   }
 
-  onBlur (evt) {
-    this.gotoPage(evt.target.value === '' ? null : parseInt(evt.target.value, 10))
+  handleUserInput (evt) {
+    this.gotoPage(parseInt(evt.target.value, 10))
   }
 
   handleInputKeyDown (evt) {
     const ENTER = 13
     if (evt.keyCode === ENTER) {
-      this.onBlur(evt)
+      this.handleUserInput(evt)
     }
   }
 
@@ -118,8 +122,9 @@ export default class PaginationControl extends React.PureComponent {
         </button>
         <div className={`pagination__page-number`} >
           <span>Page</span>
-          <input className={`pagination__input`} type='text' key={`${page}`} defaultValue={`${page}`}
-            onBlur={this.onBlur} onKeyDown={this.handleInputKeyDown} {...isDisabled()} />
+          <input className={`pagination__input`} type='number' min='1' max={totalPages}
+            key={`${page}`} defaultValue={`${page}`}
+            onBlur={this.handleUserInput} onKeyDown={this.handleInputKeyDown} {...isDisabled()} />
           <span>of</span>
           <span className='pagination__page-total'>{totalPages || '...'}</span>
         </div>
@@ -143,11 +148,6 @@ PaginationControl.propTypes = {
    * @param {Number} page target page number
    */
   onPageChange: PropTypes.func.isRequired,
-  /**
-   * Called when the page changes with NAN or out-of-bounds number.
-   * @param {Error} error NAN or out-of-bounds number.
-   */
-  onPageError: PropTypes.func,
    /**
    * Called when the page changes.
    * @param {Number} page target page number

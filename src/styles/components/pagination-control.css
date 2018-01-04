@@ -5,10 +5,19 @@
   --mainPaginationColor: #657d8e;
 }
 
+/* For Firefox */
+input[type='number'],
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance:textfield;
+}
+
 .pagination {
   display: inline-block;
   height: 30px;
   color: var(--mainPaginationColor);
+  margin: 0 4px;
 }
 
 .pagination__button {
@@ -39,13 +48,6 @@
   border-left: 0;
 }
 
-.pagination__input {
-  border: 1px solid #bdc3c7;
-  width: 30px;
-  padding: 0 2px;
-  height: 14px;
-}
-
 .pagination__page-number {
   border: 1px solid var(--silverGray);
   color: var(--mainPaginationColor);
@@ -63,11 +65,16 @@
 }
 
 .pagination__input {
-  margin: 0 5px;
+  border: 1px solid #bdc3c7;
+  width: 40px;
+  height: 16px;
+  margin: 7px 5px;
+  padding: 1px 4px;
 }
 
 .pagination__page-total {
   margin-left: 5px;
+  line-height: 30px;
 }
 
 .pagination :disabled,
