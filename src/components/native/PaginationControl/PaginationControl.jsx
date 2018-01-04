@@ -6,7 +6,7 @@ import isNumber from 'lodash/isNumber'
 import invariant from 'invariant'
 
 const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
-const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: 'true' }
+const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: true }
 const ENABLED_ATTRIBUTE = { tabIndex: 0 }
 
 export default class PaginationControl extends React.PureComponent {
