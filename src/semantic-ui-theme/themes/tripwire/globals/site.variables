@@ -707,7 +707,7 @@
 ;
 
 /*---  Colors  ---*/
-@primaryColorHover    : saturate(darken(@primaryColor, 5), 10, relative);
+@primaryColorHover    : #1c75bd; /* https://github.com/Tripwire/octagon/issues/144 */
 @secondaryColorHover  : saturate(lighten(@secondaryColor, 5), 10, relative);
 
 @redHover             : saturate(darken(@red, 5), 10, relative);
