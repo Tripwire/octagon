@@ -3,29 +3,42 @@
 :root {
   /* this color may change once colors are finalized. Not part of Yung's UXPin*/
   --mainPaginationColor: #657d8e;
+  --mainPaginationBorderColor: var(--silverGray);
+  --disabledColor: var(--gainsboroGray);
+  --paginationBackgroundColor: white;
+  --paginationHeight: 30px;
+  --paginationSpaceBetweenWords: 5px;
+}
+
+/* For Firefox */
+input[type='number'],
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance:textfield;
 }
 
 .pagination {
+  display: inline-block;
+  height: var(--paginationHeight);
   color: var(--mainPaginationColor);
+  margin: 0 4px;
+  background-color: var(--paginationBackgroundColor);
 }
 
 .pagination__button {
-  border: 1px solid var(--silverGray);
+  border: 1px solid var(--mainPaginationBorderColor);
   color: var(--mainPaginationColor);
+  background-color: var(--paginationBackgroundColor);
   cursor: pointer;
   display: inline-block;
   padding: 0px;
   font-size: 28px;
-  height: 30px;
-  background-color: white;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  max-height: var(--paginationHeight);
 }
 
 .pagination__button:hover{
-  color: white;
+  color: var(--paginationBackgroundColor);
   background-color: var(--primaryBlue);
 }
 
@@ -41,46 +54,49 @@
   border-left: 0;
 }
 
-.pagination__input {
-  border: 1px solid #bdc3c7;
-  width: 30px;
-  padding: 0 2px;
-}
-
 .pagination__page-number {
-  border: 1px solid var(--silverGray);
+  border: 1px solid var(--mainPaginationBorderColor);
   color: var(--mainPaginationColor);
   font-size: var(--small);
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 30px;
+  padding: 0 10px;
+  line-height: var(--paginationHeight);
   text-transform: uppercase;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   cursor: default;
+  display: inline-block;
+  vertical-align: top;
+  height: var(--paginationHeight);
+  max-height: var(--paginationHeight);
+}
+
+.pagination__page-number * {
+  vertical-align: middle;
+}
+
+.pagination__page-number_total-pages-unknown {
+  font-size: 20px;
+  line-height: calc(var(--paginationHeight)/2);
+  vertical-align: baseline;
 }
 
 .pagination__input {
-  margin: 0 5px;
+  border: 1px solid var(--mainPaginationBorderColor);
+  width: 40px;
+  height: 16px;
+  margin: 7px var(--paginationSpaceBetweenWords);
+  padding: 1px 4px;
 }
 
 .pagination__page-total {
-  margin-left: 5px;
+  margin-left: var(--paginationSpaceBetweenWords);
+  line-height: var(--paginationHeight);
 }
 
-.pagination_disabled,
-.pagination_disabled:hover {
-  color: var(--gainsboroGray);
+.pagination :disabled,
+.pagination :disabled:hover {
+  color: var(--disabledColor);
   cursor: not-allowed;
-  background-color: white;
-}
-
-.pagination__page-number.pagination_disabled,
-.pagination__page-number .pagination_disabled {
-  color: var(--mainPaginationColor);
+  background-color: var(--paginationBackgroundColor);
 }
 
 .pagination_disabled:focus {
