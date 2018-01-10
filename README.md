@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon.png" height="80px" />
 
-[ ![Codeship Status for Tripwire/octagon](https://app.codeship.com/projects/de913c80-aab0-0134-4a1e-5ab626077bc6/status?branch=master)](https://app.codeship.com/projects/192040)  ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![CircleCI](https://circleci.com/gh/Tripwire/octagon.svg?style=svg)](https://circleci.com/gh/Tripwire/octagon) ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 octagon is a react component library.  **see the [latest interactive library documentation here](https://tripwire.github.io/octagon/)**.
 
