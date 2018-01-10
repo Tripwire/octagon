@@ -8,9 +8,9 @@ Trial
 
 ## Context
 
-Octagon strives to be a view layer for consumers.  Applications manage their state via their own independent mechanisms.  State embedded in Octagon componets may reduce the declaritive capabilities of components & the React mantra, and deviate from the pure view layer mantra we wish to provide.  Embedded state reduces the ablitity for apps to "declare" Octagon components into view state.
+Octagon strives to be a view layer for consumers.  Applications manage their state via their own independent mechanisms.  State embedded within Octagon components may reduce the declaritive ability of said components & violate the top-down, _"config via props"_ React mantra.  Consequently, stateful components generally deviate from the pure view layer goals we wish to provide.  Embedded state reduces the ablitity for apps to "declare" Octagon components into view state.
 
-Example, if a `<OctoNavItem />` maintains state on whether that navigation page is active or not, if a user reloaded the page, an active item may suddenly show as not active.
+Example, consider if a `<OctoNavItem />` maintains state on whether or not that navigation page is active or not.  If a user reloaded the page, an active item may suddenly show as not active, because that component's state is lost on reload.
 
 Instead, the API should be stateless, and be used like: `<OctoNavItem active />`.
 
