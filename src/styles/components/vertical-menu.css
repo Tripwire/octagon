@@ -1,0 +1,54 @@
+@import '../variables.css';
+
+
+:root {
+  /* this color may change once colors are finalized. Not part of Yung's UXPin*/
+  --vmenuBorderColor: var(--gainsboroGray);
+  --vmenuTextColor: var(--charcoalGray);
+  --vmenuItemBackgroundColor: var(--whitesmoke);
+}
+
+.vmenu,
+.vmenu__content {
+  padding: 0;
+  width: 180px;
+  list-style: none;
+}
+
+.vmenu__item {
+  border: 1px solid var(--vmenuBorderColor);
+}
+
+.vmenu__item:first-child {
+  border-bottom: none;
+}
+
+.vmenu__item:last-child {
+  border-top: none;
+}
+
+.vmenu__link {
+  position: relative;
+  padding: 1em;
+  display: block;
+  color: var(--vmenuTextColor);
+}
+
+.vmenu__link_active {
+  background-color: var(--vmenuItemBackgroundColor);
+}
+
+.vmenu__link:hover {
+  background-color: var(--vmenuItemBackgroundColor);
+  color: var(--vmenuTextColor);
+}
+
+.vmenu__icon {
+  color: var(--primaryBlue);
+  font-size: 24px;
+  font-weight: bolder;
+  position: absolute;
+  right: .25em;
+  top: 50%;
+  transform: translateY(-50%);
+}
