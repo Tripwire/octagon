@@ -1,3 +1,57 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+@menuBorderColor: #d8d8d8;
+@menuTextColor: #454545;
+@menuItemBackgroundColor: #f5f5f5;
+@ElegantIconArrowCarrotRight: '5';
+
+.ui.vertical.nav.menu {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  box-shadow: none;
+  font-size: 16px;
+  .item {
+    border: 1px solid @menuBorderColor;
+    cursor: pointer;
+    box-shadow: none;
+    padding: 1em;
+    color: @menuTextColor;
+    position: relative;
+    display: block;
+    &.active {
+      background-color: @menuItemBackgroundColor;
+      &:after {
+        content: @ElegantIconArrowCarrotRight;
+        color: @primaryColor;
+        font-family: 'ElegantIcons';
+        font-size: 24px;
+        font-weight: bolder;
+        position: absolute;
+        right: .25em;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &:before {
+      height: 0px;
+    }
+    &:hover {
+      background-color: @menuItemBackgroundColor;
+      color: @menuTextColor;
+    }
+
+  }
+  .item:first-child {
+    border-bottom: 0;
+    border-radius: 0 !important;
+  }
+
+  .item:last-child {
+    border-top: 0;
+    border-radius: 0 !important;
+  }
+}
