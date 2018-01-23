@@ -15,15 +15,18 @@
   box-shadow: none;
   font-size: 16px;
   .item {
+    position: relative;
+		display: block;
     border: 1px solid @menuBorderColor;
-    cursor: pointer;
     box-shadow: none;
     padding: 1em;
     color: @menuTextColor;
-    position: relative;
-    display: block;
+    word-wrap: break-word;
+    cursor: pointer;
     &.active {
       background-color: @menuItemBackgroundColor;
+      font-weight: bold;
+      padding-right: 2em;
       &:after {
         content: @ElegantIconArrowCarrotRight;
         color: @primaryColor;
