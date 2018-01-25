@@ -6,7 +6,6 @@
     "lib"
   ],
   "devDependencies": {
-    "@semantic-release/condition-codeship": "^1.1.0",
     "@semantic-release/release-notes-generator": "^3.0.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
@@ -25,6 +24,7 @@
     "babel-standalone": "^6.18.2",
     "bluebird": "^3.5.0",
     "chokidar": "^1.7.0",
+    "condition-circle": "^2.0.1",
     "coveralls": "^2.11.15",
     "cross-spawn-promise": "^0.10.1",
     "execa": "^0.8.0",
@@ -96,9 +96,7 @@
   },
   "release": {
     "generateNotes": "./node_modules/@semantic-release/release-notes-generator",
-    "verifyConditions": [
-      "./node_modules/@semantic-release/condition-codeship"
-    ]
+    "verifyConditions": "condition-circle"
   },
   "repository": {
     "type": "git",
