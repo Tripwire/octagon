@@ -1,8 +1,9 @@
 'use strict'
 
 require('perish')
+const isDev = (process.env.NODE_ENV || '').match(/dev/)
 const pify = require('pify')
-const spawn = require('cross-spawn-promise')
+const execa = require('execa')
 const path = require('path')
 const ghPages = require('gh-pages')
 const pkg = 'github.com/Tripwire/octagon.git'
@@ -16,28 +17,24 @@ if (process.env.CIRCLE_BRANCH !== 'master') {
 }
 
 const SPAWN_OPTS = {
-  cwd: projectRoot,
-  stdio: 'inherit'
+  cwd: projectRoot
 }
 
-const semantic = () => {
-  return spawn('npm', ['run', 'semantic-release'], SPAWN_OPTS)
-  .catch(err => {
+void async function postTest () { // eslint-disable-line
+  console.log('executing semantic-release')
+  try {
+    const args = ['run', 'semantic-release', isDev ? '-d' : ''].filter(Boolean)
+    await execa('npm', args, SPAWN_OPTS)
+  } catch (err) {
     // @TODO debrittle-ify, as feasible.
-    if (!err.stderr || (err.stderr && !err.stderr.toString().match(/ENOCHANGE/))) {
+    if (!err.stderr) throw err
+    console.log(err.stdout)
+    // let ENOCHANGES occur
+    if (err.stderr && !err.stderr.toString().match(/ENOCHANGE/)) {
       console.error(err.stderr.toString())
       throw err
     }
-  })
-  .then(() => console.log('semantic-release complete!'))
-}
-const publish = () => {
-  return pify(ghPages.publish)(staticDocs, { repo, silent: true })
-}
-
-Promise.resolve()
-.then(() => console.log('executing semantic-release'))
-.then(semantic)
-.then(() => console.log('publishing styleguide'))
-.then(publish)
-.then(() => console.log('fin.'))
+  }
+  console.log('publishing styleguide')
+  await pify(ghPages.publish)(staticDocs, { repo, silent: true })
+}()
