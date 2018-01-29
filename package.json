@@ -94,7 +94,9 @@
     ]
   },
   "release": {
-    "generateNotes": "./node_modules/@semantic-release/release-notes-generator",
+    "generateNotes": {
+      "preset": "angular"
+    },
     "verifyConditions": "condition-circle"
   },
   "repository": {
