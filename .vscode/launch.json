@@ -11,7 +11,9 @@
       "program": "${workspaceFolder}/scripts/ci-post-test.js",
       "env": {
         "NODE_ENV": "development",
-        "CIRCLE_BRANCH": "master"
+        "CIRCLE_BRANCH": "master",
+        "GH_TOKEN": "fake-token",
+        "NPM_TOKEN": "such-fake-token"
       }
     },
     {

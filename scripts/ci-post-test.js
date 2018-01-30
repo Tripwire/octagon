@@ -1,7 +1,7 @@
 'use strict'
 
 require('perish')
-const isDev = (process.env.NODE_ENV || '').match(/dev/)
+const isDev = !!(process.env.NODE_ENV || '').match(/dev/)
 const pify = require('pify')
 const execa = require('execa')
 const path = require('path')
@@ -24,11 +24,11 @@ void async function postTest () { // eslint-disable-line
   console.log('executing semantic-release')
   try {
     const args = ['run', 'semantic-release', isDev ? '-d' : ''].filter(Boolean)
-    await execa('npm', args, SPAWN_OPTS)
+    var proc = await execa('npm', args, SPAWN_OPTS)
+    if (proc.stdout) console.log(proc.stdout)
   } catch (err) {
     // @TODO debrittle-ify, as feasible.
     if (!err.stderr) throw err
-    console.log(err.stdout)
     // let ENOCHANGES occur
     if (err.stderr && !err.stderr.toString().match(/ENOCHANGE/)) {
       console.error(err.stderr.toString())
