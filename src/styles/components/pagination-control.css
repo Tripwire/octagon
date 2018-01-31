@@ -35,6 +35,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0px;
   font-size: 28px;
   max-height: var(--paginationHeight);
+  overflow: hidden;
+  position: relative;
 }
 
 .pagination__button:hover{
@@ -44,6 +46,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .pagination__button:active{
   color: var(--primaryBlue);
+}
+
+.pagination__button:focus{
+  z-index: 1;
 }
 
 .pagination__prev {
@@ -97,8 +103,4 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--disabledColor);
   cursor: not-allowed;
   background-color: var(--paginationBackgroundColor);
-}
-
-.pagination_disabled:focus {
-  outline: 0;
 }
