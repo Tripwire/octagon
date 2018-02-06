@@ -6,21 +6,25 @@
   --mainPaginationBorderColor: var(--silverGray);
   --disabledColor: var(--gainsboroGray);
   --paginationBackgroundColor: white;
+
   --paginationHeight: 30px;
+  --paginationMaxHeight: 32px; /* height + border*/
   --paginationSpaceBetweenWords: 5px;
 }
 
-/* For Firefox */
-input[type='number'],
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance:textfield;
+/* removes buttons from textfield */
+.pagination input[type="number"]::-webkit-outer-spin-button,
+.pagination input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pagination input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .pagination {
   display: inline-block;
-  height: var(--paginationHeight);
   color: var(--mainPaginationColor);
   margin: 0 4px;
   background-color: var(--paginationBackgroundColor);
@@ -33,8 +37,9 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: pointer;
   display: inline-block;
   padding: 0px;
-  font-size: 28px;
-  max-height: var(--paginationHeight);
+  font-size: var(--paginationHeight);
+  line-height: var(--paginationHeight);
+  max-height: var(--paginationMaxHeight);
   overflow: hidden;
   position: relative;
 }
@@ -65,14 +70,13 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--mainPaginationColor);
   font-size: var(--small);
   padding: 0 10px;
-  line-height: var(--paginationHeight);
+  line-height: 1;
   text-transform: uppercase;
   text-align: center;
   cursor: default;
   display: inline-block;
   vertical-align: top;
-  height: var(--paginationHeight);
-  max-height: var(--paginationHeight);
+  max-height: var(--paginationMaxHeight);
 }
 
 .pagination__page-number * {
@@ -95,7 +99,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .pagination__page-total {
   margin-left: var(--paginationSpaceBetweenWords);
-  line-height: var(--paginationHeight);
 }
 
 .pagination :disabled,
