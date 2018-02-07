@@ -113,10 +113,12 @@ export default class PaginationControl extends React.PureComponent {
     return (
       <div className='pagination'>
         <button className={`pagination__button pagination__prev`}
+          data-hook='pagination-button-first-page'
           onClick={this.gotoFirstPage} {...isDisabled('prev')} >
           <i className='arrow_carrot-2left' aria-hidden='true' />
         </button>
         <button className={`pagination__button pagination__prev`}
+          data-hook='pagination-button-prev-page'
           onClick={this.gotoPrevPage} {...isDisabled('prev')} >
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
@@ -132,10 +134,12 @@ export default class PaginationControl extends React.PureComponent {
           </span>
         </div>
         <button className={`pagination__button pagination__next`}
+          data-hook='pagination-button-next-page'
           onClick={this.gotoNextPage} {...isDisabled('next')} >
           <i className='arrow_carrot-right' aria-hidden='true' />
         </button>
         <button className={`pagination__button pagination__next`}
+          data-hook='pagination-button-last-page'
           onClick={this.gotoLastPage} {...isDisabled('last')} >
           <i className='arrow_carrot-2right' aria-hidden='true' />
         </button>
