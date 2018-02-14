@@ -3,7 +3,7 @@
 .text-large{
   font-size: 20px !important;
 }
-.large_card {
+.octagon.large_card {
   background: var(--formBackgroundColor);
   left: -10000px;
   min-height: 100%;
@@ -35,7 +35,7 @@
 .framed{
   margin: 10px 20px 10px 20px;
 }
-.large_card__container {
+.octagon .large_card__container {
   background: white;
   clear: fix;
   min-height: 94%;

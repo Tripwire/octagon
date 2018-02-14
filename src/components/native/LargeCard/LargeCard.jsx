@@ -18,7 +18,7 @@ class LargeCard extends React.Component {
     return (
       <Flexbox
         {...externalAttributes}
-        className={`large_card is-fullview-open-${this.props.showCard} ${this.props.className}`}
+        className={`octagon large_card is-fullview-open-${this.props.showCard} ${this.props.className}`}
         style={this.props.style}>
         <Flexbox
           flexDirection='row'
