@@ -7,7 +7,7 @@ import '../../../styles/components/top-nav.css'
 class TopNav extends React.Component {
   render () {
     return (
-      <div className='nav__main clearfix'>
+      <div className='octagon nav__main clearfix'>
         {this.props.children}
       </div>
     )
