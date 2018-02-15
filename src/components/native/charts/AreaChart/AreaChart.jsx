@@ -139,7 +139,7 @@ class AreaChart extends React.Component {
 
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div {...externalAttributes} className={`area-chart__container ${this.props.className || ''}`}>
+      <div {...externalAttributes} className={`octagon area-chart__container ${this.props.className || ''}`}>
         <svg width={width} height={innerHeight}>
           <g transform='translate(2, 4)'>
             <PlotArea
