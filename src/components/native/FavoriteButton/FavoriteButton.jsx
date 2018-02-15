@@ -10,7 +10,7 @@ const FavoriteButton = (props) => {
     favoriteIconClass = 'icon_star_alt star_gray'
   }
   return (
-    <div className='favorite-button'>
+    <div className='octagon favorite-button'>
       <i className={favoriteIconClass} />
     </div>
   )
