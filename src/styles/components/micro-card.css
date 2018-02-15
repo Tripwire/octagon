@@ -1,6 +1,6 @@
 @import '../variables.css';
 
-.microcard {
+.octagon.microcard {
   cursor: pointer;
   display: block;
   color: var(--darkgray);
@@ -20,7 +20,7 @@
     color: var(--textGray);
   }
 
-  &.state__indicator {
+  & .state__indicator {
     float: left;
     width: 8px;
     height: 100%
