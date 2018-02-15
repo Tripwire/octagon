@@ -111,7 +111,7 @@ export default class PaginationControl extends React.PureComponent {
     const isDisabled = this.isDisabled
 
     return (
-      <div className='pagination'>
+      <div className='octagon pagination'>
         <button className={`pagination__button pagination__prev`}
           data-hook='pagination-button-first-page'
           onClick={this.gotoFirstPage} {...isDisabled('prev')} >
