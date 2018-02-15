@@ -13,7 +13,7 @@ const alertIconUri = require('../../../assets/alert-icon.svg')
 const notificationUri = require('../../../assets/icon_activity_notification.svg')
 
 const NotificationItem = (props) => {
-  let notificationClass = 'notification__item'
+  let notificationClass = 'octagon notification__item'
   let iconUrl = ''
   if (props.notification.state === 'critical') {
     iconUrl = alertIconUri
@@ -48,7 +48,7 @@ const NotificationItem = (props) => {
     currentTime = ''
   }
   if (props.notification.id === props.currentTargetNotificationId) {
-    notificationClass = 'notification__item currentTarget'
+    notificationClass += ' currentTarget'
   }
 
   return (
