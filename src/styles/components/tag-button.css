@@ -8,163 +8,168 @@
  color: var(--blue);
  text-decoration: underline;
 }
-.tagContainer:hover > .tagContainerMiddle{
-  border-color: var(--blue);
-  background-color: white;
-  color: #5ca3de;
-  cursor: pointer;
-}
-.tagContainer:hover > .tagContainerMiddleAll{
-  border-color: var(--blue);
-  background-color: white;
-  color: #5ca3de;
-  cursor: pointer;
-}
-.tagContainer:hover > .tagArrow{
-  border-left: 13px solid var(--blue);
-  cursor: pointer;
-    
-}
-.tagContainer:hover > .tagArrow > div{
-  border-left: 11px solid white;
-    
-}
 
-.tagContainer:hover > .tagContainerValue{
-  background-color: var(--blue);
-  color: white;
-  border-color: var(--blue);
-}
-.tagContainer .tagContainerMiddle{
-  border-top: 2px solid #586B7C;
-  border-bottom: 2px solid #586B7C;
-  border-left: 2px solid #586B7C;
-  text-transform: uppercase;
-  color: #738391;
-  background-color: #ededed;
-  font-size: 11px;
-  padding-left: 1em;
-  padding-right: 1em;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  height: 26px;
-  cursor: pointer;
-}
-.tagContainer .tagContainerMiddleAll{
-  border-top: 2px solid #586B7C;
-  border-bottom: 2px solid #586B7C;
-  border-left: 2px solid #586B7C;
-  border-right: 2px solid #586B7C;
-  text-transform: uppercase;
-  color: #738391;
-  font-size: 11px;
-  padding-left: 1em;
-  padding-right: 1em;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  height: 26px;
-  cursor: pointer;
-}
-.tagContainer .tagArrow {
+.tagContainer {
+  &:hover > .tagContainerMiddle{
+    border-color: var(--blue);
+    background-color: white;
+    color: #5ca3de;
+    cursor: pointer;
+  }
+  &:hover > .tagContainerMiddleAll{
+    border-color: var(--blue);
+    background-color: white;
+    color: #5ca3de;
+    cursor: pointer;
+  }
+  &:hover > .tagArrow{
+    border-left: 13px solid var(--blue);
+    cursor: pointer;
+  }
+  &:hover > .tagArrow > div{
+    border-left: 11px solid white;
+  }
+  &:hover > .tagContainerValue{
+    background-color: var(--blue);
+    color: white;
+    border-color: var(--blue);
+  }
+
+  & .tagContainerMiddle{
+    border-top: 2px solid #586B7C;
+    border-bottom: 2px solid #586B7C;
+    border-left: 2px solid #586B7C;
+    text-transform: uppercase;
+    color: #738391;
+    background-color: #ededed;
+    font-size: 11px;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 26px;
+    cursor: pointer;
+  }
+  & .tagContainerMiddleAll{
+    border-top: 2px solid #586B7C;
+    border-bottom: 2px solid #586B7C;
+    border-left: 2px solid #586B7C;
+    border-right: 2px solid #586B7C;
+    text-transform: uppercase;
+    color: #738391;
+    font-size: 11px;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 26px;
+    cursor: pointer;
+  }
+  & .tagArrow {
     width: 0; 
     height: 0; 
     border-top: 13px solid transparent;
     border-bottom: 13px solid transparent;
     border-left: 13px solid #586B7C;
     cursor: pointer;
-}
-.tagContainer .tagContainerValue{
-  border-top: 2px solid #586B7C;
-  border-bottom: 2px solid #586B7C;
-  border-left: 2px solid #586B7C;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #D0D2D3;
-  color: #738391;
-  font-size: 11px;
-  height: 26px;
-  cursor: pointer;
+    & > div {
+      width: 0;
+      position: relative;
+      left: -14px;
+      top: -11px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 11px solid #ededed;
+      cursor: pointer;
+    }
+    & .selectedTagContainer{
+      cursor: pointer;
+      margin-left: 1em;
+    }
+  }
 
+  & .tagContainerValue{
+    border-top: 2px solid #586B7C;
+    border-bottom: 2px solid #586B7C;
+    border-left: 2px solid #586B7C;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #D0D2D3;
+    color: #738391;
+    font-size: 11px;
+    height: 26px;
+    cursor: pointer;
+  }
 }
-.tagContainer .tagArrow > div {
-    width: 0;
-    position: relative;
-    left: -14px;
-    top: -11px;
-    border-top: 11px solid transparent;
-    border-bottom: 11px solid transparent;
-    border-left: 11px solid #ededed;
+
+.selectedTagContainer {
+  & .tagContainerMiddle{
+    border-top: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    border-left: 2px solid white;
+    text-transform: uppercase;
+    color: white;
+    font-size: 11px;
+    background-color: var(--blue);
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 26px;
+    cursor: pointer;
+  }
+  & .tagContainerMiddleAll{
+    border: 2px solid var(--blue);
+    text-transform: uppercase;
+    color: white;
+    font-size: 11px;
+    background-color: var(--blue);
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 26px;
+    cursor: pointer;
+  }
+  & .tagArrow {
+      width: 0; 
+      height: 0; 
+      border-top: 13px solid transparent;
+      border-bottom: 13px solid transparent;
+      border-left: 13px solid var(--blue);
+      cursor: pointer;
+  }
+  & .tagContainerValue{
+    border-top: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    border-left: 2px solid var(--blue);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: var(--blue);
+    color: white;
+    font-size: 11px;
+    height: 26px;
     cursor: pointer;
 
+  }
+  & .tagArrow > div {
+      width: 0;
+      position: relative;
+      left: -14px;
+      top: -11px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 11px solid var(--blue);
+      cursor: pointer;
+  }
 }
-.selectedTagContainer{
-  cursor: pointer;
-  margin-left: 1em;
-}
-.selectedTagContainer .tagContainerMiddle{
-  border-top: 2px solid var(--blue);
-  border-bottom: 2px solid var(--blue);
-  border-left: 2px solid white;
-  text-transform: uppercase;
-  color: white;
-  font-size: 11px;
-  background-color: var(--blue);
-  padding-left: 1em;
-  padding-right: 1em;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  height: 26px;
-  cursor: pointer;
-}
-.selectedTagContainer .tagContainerMiddleAll{
-  border: 2px solid var(--blue);
-  text-transform: uppercase;
-  color: white;
-  font-size: 11px;
-  background-color: var(--blue);
-  padding-left: 1em;
-  padding-right: 1em;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  height: 26px;
-  cursor: pointer;
-}
-.selectedTagContainer .tagArrow {
-    width: 0; 
-    height: 0; 
-    border-top: 13px solid transparent;
-    border-bottom: 13px solid transparent;
-    border-left: 13px solid var(--blue);
-    cursor: pointer;
-}
-.selectedTagContainer .tagContainerValue{
-  border-top: 2px solid var(--blue);
-  border-bottom: 2px solid var(--blue);
-  border-left: 2px solid var(--blue);
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: var(--blue);
-  color: white;
-  font-size: 11px;
-  height: 26px;
-  cursor: pointer;
 
-}
-.selectedTagContainer .tagArrow > div {
-    width: 0;
-    position: relative;
-    left: -14px;
-    top: -11px;
-    border-top: 11px solid transparent;
-    border-bottom: 11px solid transparent;
-    border-left: 11px solid var(--blue);
-    cursor: pointer;
-}
+
