@@ -1,13 +1,13 @@
 @import '../variables.css';
-.thincard__noborder {
+.octagon.thincard__noborder {
   border: 0px !important;
 }
 
-.thincard__folderpad {
+.octagon.thincard__folderpad {
   margin-top: 10px;
 }
 
-.thincard__row {
+.octagon.thincard__row {
   border: 1px solid #D0D2D3;
   background-color: white;
   position: relative;
