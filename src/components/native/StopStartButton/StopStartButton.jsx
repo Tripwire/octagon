@@ -5,8 +5,9 @@ import '../../../styles/components/stop-start-button.css'
 
 const StopStartButton = (props) => {
   let iconClass = 'octagon ei stop-start-button '
-  if (props.className)
-     iconClass = `${iconClass} ${props.className}`
+  if (props.className) {
+    iconClass = `${iconClass} ${props.className}`
+  }
   if (props.isStopped) {
     iconClass = `${iconClass} icon_pause_alt2`
   } else {
