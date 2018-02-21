@@ -1,11 +1,8 @@
 @import '../variables.css';
 
-.notification__wrapper {
-}
 .tagContainer{
   cursor: pointer;
   margin-left: 1em;
-
 }
 
 .ui.dropdown .menu{
@@ -29,13 +26,11 @@
   top: 0;
   transition: transform 0.4s;
   width: 320px;
-      -webkit-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
--moz-box-shadow: -3px 0px 9px-40px rgba(0,0,0,0.31);
-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
+  -webkit-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
+  -moz-box-shadow: -3px 0px 9px-40px rgba(0,0,0,0.31);
+  box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   &.is-sidebar-expanded-true {
     transform: translateX(255px);
-
-
   }
 }
 
@@ -197,48 +192,46 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 
 .notification__item {
   position: relative;
+  &.currentTarget,
   &:hover {
     transition: background 0.4s;
     background: #D0D2D3;
+    & .notification__selection {
+      color: #CA5318;
+      & .icon-right {
+        color: white;
+      }
+      & .icon-right-critical{
+        background: var(--warningred);
+      }
+      & .icon-right-warning{
+        background: var(--yellow);
+      }
+      & .icon-right-normal{
+        background: gray;
+      }
+      & .icon-right-viewall{
+        background: gray;
+      }
+      & .notification__connection__dot {
+        border: 0;
+      }
+      & .notification__connection__dot_warning{
+        background: var(--yellow);
+      }
+      & .notification__connection__dot_critical{
+        background: var(--warningred);
+      }
+      & .notification__connection__dot_normal{
+        background: gray;
+      }
+    }
   }
-  &.currentTarget {
-    transition: background 0.4s;
-    background: #D0D2D3;
-  }
-}
-
-.notification__item.currentTarget, .notification__item:hover {
-  & .notification__selection {
-    color: #CA5318;
-    & .icon-right {
-
-      color: white;
-
-    }
-    & .icon-right-critical{
-      background: var(--warningred);
-    }
-    & .icon-right-warning{
-      background: var(--yellow);
-    }
-    & .icon-right-normal{
-      background: gray;
-    }
-    & .icon-right-viewall{
-      background: gray;
-    }
-    & .notification__connection__dot {
-      border: 0;
-
-    }
-    & .notification__connection__dot_warning{
-      background: var(--yellow);
-    }
-    & .notification__connection__dot_critical{
-      background: var(--warningred);
-    }
-    & .notification__connection__dot_normal{
-      background: gray;
+  &:last-child {
+    & .notification__selection {
+      & .notification__vertical__line {
+        display: none;
+      }
     }
   }
 }
@@ -361,13 +354,6 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & .notification__time, & .notification__detail {
     color: var(--textGray);
     /*font-weight: bold;*/
-  }
-}
-.notification__item:last-child {
-  & .notification__selection {
-    & .notification__vertical__line {
-      display: none;
-    }
   }
 }
 
@@ -652,7 +638,6 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
 }
 
-
 .notification__section {
   border-bottom: 2px solid white;
   & .notification__content {
@@ -765,6 +750,4 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & input.cmn-toggle-round:checked + label:after {
     margin-left: 30px;
   }
-
-
 }

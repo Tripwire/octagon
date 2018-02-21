@@ -6,7 +6,7 @@ import '../../../styles/components/left-nav.css'
 class LeftNav extends React.Component {
   render () {
     return (
-      <nav className='nav__left ' {...this.props}>
+      <nav className='octagon nav__left ' {...this.props}>
         {this.props.children}
       </nav>
     )

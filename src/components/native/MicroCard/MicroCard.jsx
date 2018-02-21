@@ -16,7 +16,7 @@ class MicroCard extends React.Component {
       <Flexbox {...externalAttributes}
         flexDirection='row'
         key={this.props.cardContent.id}
-        className={`microcard bordered ${this.props.className}`}
+        className={`octagon microcard bordered ${this.props.className}`}
         style={this.props.style}
         onClick={this.props.onClick}
       >

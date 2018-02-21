@@ -23,7 +23,7 @@ class ThinCard extends React.Component {
       <Flexbox
         {...externalAttributes}
         flexDirection='column'
-        className={`thincard__row ${borderClass} ${this.props.className}`}
+        className={`octagon thincard__row ${borderClass} ${this.props.className}`}
         key={this.props.data.id}>
 
         {(this.props.folder) ? (

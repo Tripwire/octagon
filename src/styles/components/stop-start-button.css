@@ -1,15 +1,19 @@
 @import '../variables.css';
-.stop-start-button {
-    cursor: pointer;
+
+.octagon {
+  &.stop-start-button {
+      cursor: pointer;
   }
 
-  .stop-start-button:hover {
-    color: var(--blue) !important;
+  &.stop-start-button:hover {
+    color: var(--blue);
   }
 
-  .icon_pause_alt2{
+  &.icon_pause_alt2{
       color: var(--blue);
   }
-  .arrow_triangle-right_alt2{
+  
+  &.arrow_triangle-right_alt2{
       color: var(--dimGray);
   }
+}

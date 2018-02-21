@@ -1,5 +1,5 @@
 @import '../variables.css';
-.nav__left {
+.octagon.nav__left {
   background: color(var(--cloudburst));
   color: var(--white);
   min-height: 100vh;

@@ -4,7 +4,7 @@ import Flexbox from 'flexbox-react'
 import '../../../styles/components/tag-button.css'
 
 const TagButton = (props) => {
-  let tagClass = 'tagContainer'
+  let tagClass = 'octagon tagContainer'
   if (props.selectedTagId === props.tag.id) {
     tagClass = 'selectedTagContainer'
   }
