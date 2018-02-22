@@ -11,13 +11,12 @@ this will launch the Styleguide. all of you changes to files are hot-reloaded. i
 ### production build
 
 * **build octagon** `npm build`
- * this will create the lib bundle which will contain production build
+  * this will create the lib bundle which will contain production build
 * **build styleguide** 'npm run styleguide:build'
- * this will create the Styleguide to be used for testing
-* **test octagon** `npm test`
- * run our automated tests `npm t` including image-diffing 
- * manually test against modern browsers
-* make sure your component meets [basic acceptance criteria](#basic-acceptance-criteria)
+  * this will create the Styleguide to be used for testing
+* **test octagon** 
+  * both automated and manual tests ([see testing info](#step-4-test))
+* **make sure your component meets the [basic acceptance criteria](#basic-acceptance-criteria)**
 
 ### building components
 
@@ -128,7 +127,14 @@ commits should be small, targetted, and focused.  unfocused changes need to be s
 
 ### step 4: test
 
-bug fixes and features **should come with tests**.  ideally, screenshots and snapshots are included for visual targetted changes.
+* run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
+* run `npm test` to use our tests against your changes including webjerk image diffing
+* **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
+> if you approve of the changes Snapjerk displays you need will to update the refset:
+> * new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env
+> * new changed images: set WEBJERK_APPROVE_CHANGES=1 in your env
+> * removed images: simplying remove the images from your reference set
+* manually test against modern browsers
 
 ### step 5: push
 
@@ -221,28 +227,10 @@ after you push new changes to your branch, you need to get
 approval for these new changes again, even if github shows "approved"
 because the reviewers have hit the buttons before.
 
-## testing
-
-every component or issue must be tested before being pushed to github and subsequently merged after [PR approval](#pull-request-approvals).
-
-### local testing
-
-* run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
-* run `npm test` to use our tests against your changes including webjerk image diffing
-* **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
-> if you approve of the changes Snapjerk displays you need will to update the refset:
-> * new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env
-> * new changed images: set WEBJERK_APPROVE_CHANGES=1 in your env
-> * removed images: simplying remove the images from your reference set
-
-
-### automated testing 
-*  ci tests are automated (using circleci) trigger on each push to github and require no extra effort on behalf of the author.
-
 
 ## basic acceptance criteria
 1. component has been [reviewed](#pull-request-approvals) by at least one developer
-1. component has been reviewd by UX
+1. component has been reviewed by UX
 1. component passes all [tests](#testing) automated and manual
 1. component has sufficient examples to prove prove handling of various states
  * including a simple dummy app interacting with component api
