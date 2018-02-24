@@ -12,24 +12,23 @@ import LargeCardRecentList from './LargeCardRecentList'
 import LargeCardStat from './LargeCardStat'
 import LargeCardTitle from './LargeCardTitle'
 
-class LargeCard extends React.Component {
-  render () {
-    const externalAttributes = filterAttributesFromProps(this.props)
-    return (
+const LargeCard = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
+  return (
+    <Flexbox
+      {...externalAttributes}
+      className={`octagon large_card is-fullview-open-${props.showCard} ${props.className}`}
+      style={props.style}>
       <Flexbox
-        {...externalAttributes}
-        className={`octagon large_card is-fullview-open-${this.props.showCard} ${this.props.className}`}
-        style={this.props.style}>
-        <Flexbox
-          flexDirection='row'
-          flexGrow={3}
-          className={`large_card__container ` + ((this.props.framed) ? 'framed' : '')}>
-          {this.props.children}
-        </Flexbox>
+        flexDirection='row'
+        flexGrow={3}
+        className={`large_card__container ` + ((props.framed) ? 'framed' : '')}>
+        {props.children}
       </Flexbox>
-    )
-  }
+    </Flexbox>
+  )
 }
+
 LargeCard.Action = LargeCardAction
 LargeCard.Close = LargeCardClose
 LargeCard.Gutter = LargeCardGutter
