@@ -9,22 +9,21 @@ import MicroCardCount from './MicroCardCount'
 import '../../../styles/components/micro-card.css'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
-class MicroCard extends React.Component {
-  render () {
-    const externalAttributes = filterAttributesFromProps(this.props)
-    return (
-      <Flexbox {...externalAttributes}
-        flexDirection='row'
-        key={this.props.cardContent.id}
-        className={`octagon microcard bordered ${this.props.className}`}
-        style={this.props.style}
-        onClick={this.props.onClick}
-      >
-        {this.props.children}
-      </Flexbox>
-    )
-  }
+const MicroCard = (props) => {
+  const externalAttributes = filterAttributesFromProps(props)
+  return (
+    <Flexbox {...externalAttributes}
+      flexDirection='row'
+      key={props.cardContent.id}
+      className={`octagon microcard bordered ${props.className}`}
+      style={props.style}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </Flexbox>
+  )
 }
+
 MicroCard.Gutter = MicroCardGutter
 MicroCard.Action = MicroCardAction
 MicroCard.Favorite = MicroCardFavorite
