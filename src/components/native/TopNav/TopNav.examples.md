@@ -8,7 +8,7 @@ const logo = require('../../../assets/tripwire-logo.png');
   </TopNav.Content>
   <TopNav.Content align="right">
     Audrey
-    <TopNav.LocalTime date={new Date(100000)} />
+  {/* dropdown or logout link goes here */}
   </TopNav.Content>
 </TopNav>
 ```

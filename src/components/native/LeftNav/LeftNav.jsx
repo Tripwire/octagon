@@ -3,14 +3,12 @@ import PropTypes from 'prop-types'
 import LeftNavMenuItem from './LeftNavMenuItem'
 import '../../../styles/components/left-nav.css'
 
-class LeftNav extends React.Component {
-  render () {
-    return (
-      <nav className='octagon nav__left ' {...this.props}>
-        {this.props.children}
-      </nav>
-    )
-  }
+const LeftNav = (props) => {
+  return (
+    <nav className='octagon nav__left ' {...props}>
+      {props.children}
+    </nav>
+  )
 }
 LeftNav.MenuItem = LeftNavMenuItem
 LeftNav.propTypes = {
