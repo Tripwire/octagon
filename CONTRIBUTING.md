@@ -8,20 +8,9 @@
 
 this will launch the Styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
 
-### production build
-
-- **build octagon** `npm build`
--- this will create the lib bundle which will contain production build
-- **build styleguide** 'npm run styleguide:build'
--- this will create the Styleguide to be used for testing
-- **test octagon** `npm test`
--- tests will likely initially fail if you have created a new component or updated a component. this is because we using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.
--- if you approve of the changes Snapjerk displaysyou need to update the refset:
---- new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env
---- new changed images: set WEBJERK_APPROVE_CHANGES=1 in your env
---- removed images: simplying remove the images from your reference set
-
 ### building components
+
+when building components, please follow our [Architecture Decisions](github.com/Tripwire/octagon/blob/master/doc/architecture/decisions). each component should include an accompanying example in a markdown file. 
 
 #### react-based functional stateless components
 octagon components are considered view-layer components and should generally be functional stateless components (see [ADR002](https://github.com/Tripwire/octagon/blob/master/doc/architecture/decisions/0002-components-shall-be-stateless-by-default.md)).
@@ -83,6 +72,18 @@ native octagon components use [cssnext](http://cssnext.io) and should follow [BE
 SUIR octagon components use LESS for styling. more information can be found on [Semantic UI's themeing page](https://semantic-ui.com/usage/theming.html). to theme SUIR components, navigate to your theme folder and add your styles in the to the component's: `.variables` and `.overides` files.
 (e.g. button.variables & button.overrides)
 
+### build for production
+
+- **build octagon** `npm run build`
+  - this will create the lib bundle which will contain production build
+  - this can be ingested by applications to use Octagon components
+- **build styleguide** `npm run styleguide:build`
+  - this will create the Styleguide folder and run Styleguidist
+  - note: this build is what is currently used for testing
+- **test octagon** 
+  - both automated and manual tests ([see testing info](#step-4-test))
+- **make sure your component meets the [acceptance criteria](#acceptance-criteria)**
+
 ## code of conduct
 
 the code of conduct (coc) explains the *bare minimum* behavior
@@ -130,7 +131,14 @@ commits should be small, targetted, and focused.  unfocused changes need to be s
 
 ### step 4: test
 
-bug fixes and features **should come with tests**.  ideally, screenshots and snapshots are included for visual targetted changes.
+- run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
+- run `npm test` to use our tests against your changes including webjerk image diffing
+- **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
+> if you approve of the changes Snapjerk displays you need will to update the reference set:
+> - new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env
+> - new changed images: set WEBJERK_APPROVE_CHANGES=1 in your env
+> - removed images: simplying remove the images from your reference set
+- manually test against modern browsers (Chrome evergreen, FF evergreen, & Edge)
 
 ### step 5: push
 
@@ -209,8 +217,8 @@ your name on it. congratulations and thanks for your contribution!
 
 ### pull request approvals
 
-a pull request is approved either by saying "+1" or a thumbs up emoji.  if the author
-has merge access, he/she may merge after getting collaborator approval.  otherwise,
+a pull request is approved either by saying "+1" or a thumbs up emoji. if the author
+has merge access, he/she may merge after getting collaborator approval. otherwise,
 the collaborator should recognize the case where the change author does not have
 merge access, and should merge on behalf of the author.
 
@@ -223,7 +231,10 @@ after you push new changes to your branch, you need to get
 approval for these new changes again, even if github shows "approved"
 because the reviewers have hit the buttons before.
 
-### ci testing
+### acceptance criteria
 
-every pull request needs to be tested.  ci tests are automated and require no extra
-effort on behalf of the author.
+1. component has been reviewed by at least one technical project member
+1. component has been reviewed by UX team member
+1. component passes all [tests](#step-4-test) (automated and manual)
+1. component has sufficient examples to prove prove handling of various states
+1. component includes `data-hooks` for QA testing
