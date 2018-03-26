@@ -1,2 +1,2 @@
-import Checkbox from 'semantic-ui-react/dist/commonjs/elements/Checkbox'
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox'
 export default Checkbox
