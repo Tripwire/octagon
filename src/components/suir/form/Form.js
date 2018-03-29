@@ -1,2 +1,2 @@
-import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
+import Form from 'semantic-ui-react/dist/es/collections/Form'
 export default Form

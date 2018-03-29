@@ -1,2 +1,2 @@
-import Reveal from 'semantic-ui-react/dist/commonjs/elements/Reveal'
+import Reveal from 'semantic-ui-react/dist/es/elements/Reveal'
 export default Reveal

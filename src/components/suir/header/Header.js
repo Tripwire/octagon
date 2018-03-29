@@ -1,2 +1,2 @@
-import Header from 'semantic-ui-react/dist/commonjs/elements/Header'
+import Header from 'semantic-ui-react/dist/es/elements/Header'
 export default Header
