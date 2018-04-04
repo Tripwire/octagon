@@ -1,2 +1,2 @@
-import Grid from 'semantic-ui-react/dist/es/collections/Grid'
+import Grid from 'semantic-ui-react/dist/commonjs/collections/Grid'
 export default Grid

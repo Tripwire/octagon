@@ -1,2 +1,2 @@
-import Popup from 'semantic-ui-react/dist/es/modules/Popup'
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup'
 export default Popup

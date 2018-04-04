@@ -1,2 +1,2 @@
-import Label from 'semantic-ui-react/dist/es/elements/Label'
+import Label from 'semantic-ui-react/dist/commonjs/elements/Label'
 export default Label

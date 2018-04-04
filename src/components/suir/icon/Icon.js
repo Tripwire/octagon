@@ -1,2 +1,2 @@
-import Icon from 'semantic-ui-react/dist/es/elements/Icon'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 export default Icon

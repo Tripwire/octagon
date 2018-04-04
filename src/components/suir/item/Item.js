@@ -1,2 +1,2 @@
-import Item from 'semantic-ui-react/dist/es/views/Item'
+import Item from 'semantic-ui-react/dist/commonjs/views/Item'
 export default Item

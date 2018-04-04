@@ -1,2 +1,2 @@
-import Step from 'semantic-ui-react/dist/es/elements/Step'
+import Step from 'semantic-ui-react/dist/commonjs/elements/Step'
 export default Step

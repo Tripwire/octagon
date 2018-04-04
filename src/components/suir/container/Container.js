@@ -1,2 +1,2 @@
-import Container from 'semantic-ui-react/dist/es/elements/Container'
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container'
 export default Container
