@@ -1,2 +1,2 @@
-import Segment from 'semantic-ui-react/dist/es/elements/Segment'
+import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment'
 export default Segment
