@@ -1,2 +1,2 @@
-import Loader from 'semantic-ui-react/dist/commonjs/elements/Loader'
+import Loader from 'semantic-ui-react/dist/es/elements/Loader'
 export default Loader

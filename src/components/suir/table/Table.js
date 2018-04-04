@@ -1,2 +1,2 @@
-import Table from 'semantic-ui-react/dist/commonjs/collections/Table'
+import Table from 'semantic-ui-react/dist/es/collections/Table'
 export default Table

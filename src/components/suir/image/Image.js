@@ -1,2 +1,2 @@
-import Image from 'semantic-ui-react/dist/commonjs/elements/Image'
+import Image from 'semantic-ui-react/dist/es/elements/Image'
 export default Image
