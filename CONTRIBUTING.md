@@ -10,7 +10,7 @@ this will launch the Styleguide. all of you changes to files are hot-reloaded. i
 
 ### building components
 
-when building components, please follow our [Architecture Decisions](github.com/Tripwire/octagon/blob/master/doc/architecture/decisions). each component should include an accompanying example in a markdown file. 
+when building components, please follow our [Architecture Decisions](github.com/Tripwire/octagon/blob/master/doc/architecture/decisions). each component should include an accompanying example in a markdown file.
 
 #### react-based functional stateless components
 octagon components are considered view-layer components and should generally be functional stateless components (see [ADR002](https://github.com/Tripwire/octagon/blob/master/doc/architecture/decisions/0002-components-shall-be-stateless-by-default.md)).
@@ -27,7 +27,7 @@ octagon components are considered view-layer components and should generally be 
       if (obj.error) {
         console.error(obj.error)
       } else {
-        setState({ page: obj.page}) 
+        setState({ page: obj.page})
       }
     }}
   />
@@ -80,7 +80,7 @@ SUIR octagon components use LESS for styling. more information can be found on [
 - **build styleguide** `npm run styleguide:build`
   - this will create the Styleguide folder and run Styleguidist
   - note: this build is what is currently used for testing
-- **test octagon** 
+- **test octagon**
   - both automated and manual tests ([see testing info](#step-4-test))
 - **make sure your component meets the [acceptance criteria](#acceptance-criteria)**
 
@@ -137,7 +137,7 @@ commits should be small, targetted, and focused.  unfocused changes need to be s
 > if you approve of the changes Snapjerk displays you need will to update the reference set:
 > - new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env
 > - new changed images: set WEBJERK_APPROVE_CHANGES=1 in your env
-> - removed images: simplying remove the images from your reference set
+> - removed images: simply remove the images from your reference set
 - manually test against modern browsers (Chrome evergreen, FF evergreen, & Edge)
 
 ### step 5: push
