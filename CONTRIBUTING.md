@@ -3,7 +3,8 @@
 ## development (adding components)
 
 ### starting the environment
-- run `npm start`
+
+- run `yarn start`
 - open the URL (probably `localhost:6060`) to play w/ components as you develop them
 
 this will launch the Styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
@@ -74,10 +75,10 @@ SUIR octagon components use LESS for styling. more information can be found on [
 
 ### build for production
 
-- **build octagon** `npm run build`
+- **build octagon** `yarn build`
   - this will create the lib bundle which will contain production build
   - this can be ingested by applications to use Octagon components
-- **build styleguide** `npm run styleguide:build`
+- **build styleguide** `yarn styleguide:build`
   - this will create the Styleguide folder and run Styleguidist
   - note: this build is what is currently used for testing
 - **test octagon**
