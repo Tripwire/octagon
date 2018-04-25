@@ -1,13 +1,13 @@
 @import '../variables.css';
-.thincard__noborder {
+.octagon.thincard__noborder {
   border: 0px !important;
 }
 
-.thincard__folderpad {
+.octagon.thincard__folderpad {
   margin-top: 10px;
 }
 
-.thincard__row {
+.octagon.thincard__row {
   border: 1px solid #D0D2D3;
   background-color: white;
   position: relative;
@@ -52,16 +52,16 @@
     margin-left: 10px;
     font-size: 24px;
     margin-right: 1em;
-    color: var(--twgray);
+    color: var(--textGray);
   }
   & .thincard__widget_label {
     display: block;
-    color: var(--twgray);
+    color: var(--textGray);
     text-transform: uppercase;
   }
   & .thincard__widget_value {
     font-size: 24px;
-    color: var(--twgray);
+    color: var(--textGray);
     font-weight: 300;
   }
   & .primary-content {
@@ -87,17 +87,43 @@
   }
   & .drawer {
     cursor: pointer;
+    &:hover {
+      & .drawer__side {
+        border-color: var(--denimBlue);
+      }
+      & .drawer__expand_button,
+      & .drawer__collapse_button,
+      & .drawer__side_blue {
+        background-color: var(--denimBlue);
+        border-color: var(--denimBlue);
+      }
+    }
   }
   & .drawer__side {
     background-color: #dbdee1;
     border-top: 3px solid var(--blue);
   }
-  & .drawer__center {
+  & .drawer__side_blue {
+    background-color: var(--blue);
+    border-top: 3px solid var(--blue);
+  }
+  & .drawer__expand_button {
     background-color: var(--blue);
     border-bottom: 2px solid var(--blue);
     color: white;
+    width: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
   }
-  & .drawer__center_copy {
+  & .drawer__collapse_button {
+    background-color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    color: white;
+    width: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  & .drawer__button {
     font-size: 12px;
   }
   & .text-large {

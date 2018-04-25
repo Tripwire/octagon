@@ -1,0 +1,18 @@
+version: '3'
+services:
+  staticserver:
+    image: node:alpine
+    expose:
+      - 3333
+    volumes:
+      - "${PWD}:/src"
+    command: ["node", "/src/node_modules/.bin/httpster", "-d", "/src/styleguide"]
+
+  backstop:
+    image: backstopjs/backstopjs
+    environment:
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+    volumes:
+      - "${PWD}:/src"
+    command: ["test"]

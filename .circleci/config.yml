@@ -1,0 +1,68 @@
+# Javascript Node CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install node@9.4.0
+          command: |
+            set +e
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install v9.4.0
+            nvm alias default v9.4.0
+
+            # Each step uses the same `$BASH_ENV`, so need to modify it
+            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+            echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: nvm use node && npm install --verbose
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # clean
+      - run: docker network prune --force
+
+      # lint
+      - run: npm run lint
+
+      # build
+      - run: npm run build
+      - run: npm run styleguide:build
+
+      # test
+      - run: DEBUG=webjerk* npm test -- --verbose
+
+      # report
+      - run:
+          name: send report to github
+          command: |
+            echo "machine surge.surge.sh" >> ~/.netrc
+            echo "    login $SURGE_LOGIN" >> ~/.netrc
+            echo "    password $SURGE_TOKEN" >> ~/.netrc
+            git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
+            if [ "$CIRCLE_BRANCH" != "master" ]; then npm run ci:update-pull-request-with-styleguide || true; fi
+
+      # cut a release
+      - run:
+          name: release
+          command: |
+            node scripts/ci-post-test.js
+
+      # https://circleci.com/docs/2.0/artifacts/
+      - store_artifacts:
+          path: snaps/run

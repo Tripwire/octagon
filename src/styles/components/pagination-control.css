@@ -1,68 +1,113 @@
 @import '../variables.css';
-.consoles__pagination {
-  
-  & .pagination__button {
-    border: 1px solid var(--buttonBorder);
-    color: var(--twgray);
-    cursor: pointer;
+
+:root {
+  /* this color may change once colors are finalized. Not part of Yung's UXPin*/
+  --mainPaginationColor: #657d8e;
+  --mainPaginationBorderColor: var(--silverGray);
+  --disabledColor: var(--gainsboroGray);
+  --paginationBackgroundColor: white;
+  --paginationHeight: 30px;
+  --paginationMaxHeight: 32px; /* height + border*/
+  --paginationSpaceBetweenWords: 5px;
+}
+
+.octagon {
+/* removes buttons from textfield */
+  &.pagination input[type="number"]::-webkit-outer-spin-button,
+  &.pagination input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  &.pagination input[type="number"] {
+      -moz-appearance: textfield;
+  }
+
+  &.pagination {
     display: inline-block;
-    padding: 0px;
-    font-size: 28px;
-    height: 30px;
-    -webkit-user-select: none;
-    -moz-user-select: none;   
-    -ms-user-select: none;   
-    user-select: none;     
+    color: var(--mainPaginationColor);
+    margin: 0 4px;
+    background-color: var(--paginationBackgroundColor);
   }
-  & .pagination__button:active{
-    border: 1px solid var(--blue);
-    color: white !important;
-    background-color: var(--blue);
-  }
-  & .pagination__button:hover{
-    border: 1px solid var(--blue);
-    color: var(--blue);
 
-  }
-  & .pagination__button.disabled {
-    border: 1px solid var(--lightgray);
-    color: var(--lightgray) !important;
-  }
-  & .pagination__button.disabled:active {
-    background-color: white !important;
-    border: 1px solid var(--lightgray) !important;
-    color: var(--lightgray) !important;
-  }
-  & .pagination__prev {
-
-  }
-  & .pagination__next {
-
-  }
-  & .pagination__count {
-    border: 1px solid color(#BBBDBF);
-    color: color(#586A7B);
-    font-size: var(--small);
-    margin-left: 1px;
-    margin-right: 1px;
-    padding-left: 4px;
-    padding-right: 4px;
-    height: 30px;
-    text-transform: uppercase;
-    text-align: center;
-    -webkit-user-select: none;  
-    -moz-user-select: none; 
-    -ms-user-select: none;
-    user-select: none;
-    cursor: default;
-    & .count__current {
-      margin-right: 5px;
-    }
-    & .count__total {
-      margin-left: 5px;
-    }
+  &.pagination :disabled,
+  &.pagination :disabled:hover {
+    color: var(--disabledColor);
+    cursor: not-allowed;
+    background-color: var(--paginationBackgroundColor);
   }
 }
 
+.octagon {
 
+  & .pagination__button {
+    border: 1px solid var(--mainPaginationBorderColor);
+    color: var(--mainPaginationColor);
+    background-color: var(--paginationBackgroundColor);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px;
+    font-size: var(--paginationHeight);
+    line-height: var(--paginationHeight);
+    max-height: var(--paginationMaxHeight);
+    overflow: hidden;
+    position: relative;
+  }
 
+  & .pagination__button:hover{
+    color: var(--paginationBackgroundColor);
+    background-color: var(--primaryBlue);
+  }
+
+  & .pagination__button:active{
+    color: var(--primaryBlue);
+  }
+
+  & .pagination__button:focus{
+    z-index: 1;
+  }
+
+  & .pagination__prev {
+    border-right: 0;
+  }
+
+  & .pagination__next {
+    border-left: 0;
+  }
+
+  & .pagination__page-number {
+    border: 1px solid var(--mainPaginationBorderColor);
+    color: var(--mainPaginationColor);
+    font-size: var(--small);
+    padding: 0 10px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: default;
+    display: inline-block;
+    vertical-align: top;
+    max-height: var(--paginationMaxHeight);
+  }
+
+  & .pagination__page-number * {
+    vertical-align: middle;
+  }
+
+  & .pagination__page-number_total-pages-unknown {
+    font-size: 20px;
+    line-height: calc(var(--paginationHeight)/2);
+    vertical-align: baseline;
+  }
+
+  & .pagination__input {
+    border: 1px solid var(--mainPaginationBorderColor);
+    width: 40px;
+    height: 16px;
+    margin: 7px var(--paginationSpaceBetweenWords);
+    padding: 1px 4px;
+  }
+
+  & .pagination__page-total {
+    margin-left: var(--paginationSpaceBetweenWords);
+  }
+}

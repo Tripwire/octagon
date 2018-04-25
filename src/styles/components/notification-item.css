@@ -1,11 +1,8 @@
 @import '../variables.css';
 
-.notification__wrapper {
-}
 .tagContainer{
   cursor: pointer;
   margin-left: 1em;
-  
 }
 
 .ui.dropdown .menu{
@@ -29,13 +26,11 @@
   top: 0;
   transition: transform 0.4s;
   width: 320px;
-      -webkit-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
--moz-box-shadow: -3px 0px 9px-40px rgba(0,0,0,0.31);
-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
+  -webkit-box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
+  -moz-box-shadow: -3px 0px 9px-40px rgba(0,0,0,0.31);
+  box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   &.is-sidebar-expanded-true {
     transform: translateX(255px);
-
-
   }
 }
 
@@ -65,23 +60,23 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     position: relative;
     display: inline-block;
     background: #363d43;
-   
+
     font-size: 30px !important;
   }
   & .notification-center__heading-title {
-    
-    
+
+
     letter-spacing: 1px;
     margin-left: 15px;
     text-transform: uppercase;
     font-size: 1.4em;
-    
+
   }
   & .text-large{
     font-size: 2em;
   }
   & .popover__label {
-    color: var(--lightblue);
+    color: var(--lightBlue);
     display: inline-block;
     padding: 10px;
   }
@@ -136,7 +131,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     border-right: 1px solid #333;
   }
   & .summary__total {
-    
+
     color: white;
     cursor: pointer;
     display: block;
@@ -181,11 +176,10 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & .summary__total__text{
     color: #9facad;
     font-size: 1.65em;
-  }  
+  }
 }
 
 .notification__list {
-  float: left;
   list-style: none;
   margin-top: 0;
 
@@ -198,48 +192,46 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 
 .notification__item {
   position: relative;
+  &.currentTarget,
   &:hover {
     transition: background 0.4s;
     background: #D0D2D3;
+    & .notification__selection {
+      color: #CA5318;
+      & .icon-right {
+        color: white;
+      }
+      & .icon-right-critical{
+        background: var(--warningred);
+      }
+      & .icon-right-warning{
+        background: var(--yellow);
+      }
+      & .icon-right-normal{
+        background: gray;
+      }
+      & .icon-right-viewall{
+        background: gray;
+      }
+      & .notification__connection__dot {
+        border: 0;
+      }
+      & .notification__connection__dot_warning{
+        background: var(--yellow);
+      }
+      & .notification__connection__dot_critical{
+        background: var(--warningred);
+      }
+      & .notification__connection__dot_normal{
+        background: gray;
+      }
+    }
   }
-  &.currentTarget {
-    transition: background 0.4s;
-    background: #D0D2D3;
-  }
-}
-
-.notification__item.currentTarget, .notification__item:hover {
-  & .notification__selection {
-    color: #CA5318;
-    & .icon-right {
-      
-      color: white;
-
-    }
-    & .icon-right-critical{
-      background: var(--warningred);
-    }
-    & .icon-right-warning{
-      background: var(--yellow);
-    }
-    & .icon-right-normal{
-      background: gray;
-    }
-    & .icon-right-viewall{
-      background: gray;
-    }
-    & .notification__connection__dot {
-      border: 0;
-      
-    }
-    & .notification__connection__dot_warning{
-      background: var(--yellow);
-    }
-    & .notification__connection__dot_critical{
-      background: var(--warningred);
-    }
-    & .notification__connection__dot_normal{
-      background: gray;
+  &:last-child {
+    & .notification__selection {
+      & .notification__vertical__line {
+        display: none;
+      }
     }
   }
 }
@@ -247,7 +239,6 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 .notification__selection {
   color: #596A7A;
   cursor: pointer;
-  display: block;
   font-size: var(--small);
   /*padding: 15px;*/
   height: 54px;
@@ -257,7 +248,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     position: relative;
     z-index: 10;
     font-size: 1.25rem;
-    
+
     font-size: 1.75rem;
   }
   & .pull-right {
@@ -274,7 +265,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     border: 3px solid gray;
     display: inline-block;
     height: 15px;
-    
+
     position: relative;
     top: 2px;
     width: 15px;
@@ -296,18 +287,18 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     width: 79px;
   }
   &.same-timegroup-true {
-    margin-top: -15px; 
+    margin-top: -15px;
     & .notification__vertical__line {
       height: 90%;
       top: 20px;
     }
-  } 
+  }
   & .notification__connection__state {
     max-width: 18px;
     display: inline-block;
     margin-right: 15px;
     position: relative;
-    
+
   }
   & .notification__connection__state img {
     max-width: 100%;
@@ -365,20 +356,13 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     /*font-weight: bold;*/
   }
 }
-.notification__item:last-child {
-  & .notification__selection {
-    & .notification__vertical__line {
-      display: none;
-    }
-  }
-}
 
 .tags__group__listing {
   transition: transform 0.4s;
   position: relative;
   transform: translateX(0px);
   width: 320px;
-  
+
   float: left;
   & .tags__group {
     list-style: none;
@@ -394,8 +378,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
     & span {
       display: block;
       float: left;
-      
-    } 
+    }
 
   }
   & .tag__item_text{
@@ -409,10 +392,10 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & .tags__group__current {
     cursor: pointer;
     & i {
-      
+
       display: inline-block;
       position: relative;
-      
+
     }
     & .tags__group__current_title{
       background-color: #e0e1e2;
@@ -476,11 +459,11 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 .all__notifications{
   margin-right: 7px;
   cursor: pointer;
-  color: var(--twgray);
+  color: var(--textGray);
   & .all__notifications__go{
     font-size: 12px;
     font-weight: bold;
-    border: 2px solid var(--twgray);
+    border: 2px solid var(--textGray);
     padding: 2px 7px;
   }
 }
@@ -526,7 +509,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
   & .tags__opener {
     color: var(--blue);
-    
+
     font-size: 11px;
     cursor: pointer;
     border-top: 2px solid #C6DCEB;
@@ -539,7 +522,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & .tags__list {
     transition: height .5s, padding-top .5s, padding-bottom .5s;
     background-color: var(--taggray);
-    list-style: none; 
+    list-style: none;
     height: 260px;
     padding-left: 15px;
     padding-top: 20px;
@@ -594,23 +577,23 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
         background: #2CAFDC;
         border: 2px solid #2CAFDC;
       }
-    } 
+    }
   }
   & .tag__selection {
     background: none;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
-    
+
     border-radius: 3px;
     color: var(--darkgray);
     cursor: pointer;
     display: block;
     float: left;
     font-size: var(--small);
-    
+
     padding: 1px;
-    position: relative; 
-    text-decoration: none; 
+    position: relative;
+    text-decoration: none;
     text-transform: uppercase;
   }
   & .tag_icon_arrow {
@@ -655,7 +638,6 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
 }
 
-
 .notification__section {
   border-bottom: 2px solid white;
   & .notification__content {
@@ -684,21 +666,21 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
 
 .notification__setings__title {
   color: color(var(--gray));
-  margin: 7px 0; 
+  margin: 7px 0;
 }
 
 .notification__settings {
   list-style: none;
   padding: 0;
   & .setting__item {
-    border-bottom: 1px solid var(--lightgray); 
+    border-bottom: 1px solid var(--lightgray);
     position: relative;
   }
   & .setting__selection {
     display: block;
     font-size: var(--small);
     color: color(var(--gray));
-    padding: 7px 0px; 
+    padding: 7px 0px;
     padding-right: 80px;
     text-transform: uppercase;
   }
@@ -728,7 +710,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
 
   & input.cmn-toggle-round + label {
-    
+
     border-radius: 18px;
     height: 18px;
     padding: 2px;
@@ -745,7 +727,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
   & input.cmn-toggle-round + label:before {
     background-color: #f1f1f1;
-   
+
     padding: 2px;
     right: 1px;
     transition: background 0.4s;
@@ -753,7 +735,7 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   }
   & input.cmn-toggle-round + label:after {
     background-color: #fff;
-    
+
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: margin 0.4s;
     transition-delay: 0s;
@@ -768,6 +750,4 @@ box-shadow: -3px 0px 9px -4px rgba(0,0,0,0.31);
   & input.cmn-toggle-round:checked + label:after {
     margin-left: 30px;
   }
-
-
 }

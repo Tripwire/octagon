@@ -1,4 +1,6 @@
-.area__chart__container {
+@import '../variables.css';
+
+.octagon.area__chart__container {
   z-index: 999;
   & svg {
     overflow: visible;
@@ -16,8 +18,7 @@
 
   & .axis .tick text {
     text-transform: uppercase;
-    fill: #000000;
-    
+    fill: var(--white);
   }
   
 }

@@ -1,28 +1,29 @@
-
 @import '../variables.css';
 
-
-
-.microcard {
+.octagon.microcard {
   cursor: pointer;
   display: block;
-  float: left;
   color: var(--darkgray);
   width: 300px;
   font-size: var(--small);
 
-  min-height: 86px;
+  height: 90px;
   position: relative;
   & .text-uppercase {
-      text-transform: uppercase;
+    text-transform: uppercase;
   }
   &.bordered {
-    /* border: 2px solid color(var(--yellow)); */
     border: 2px solid color(var(--lightgray));
-  }  
+  }
   & .box__header {
     font-size: 1.2em;
     color: var(--textGray);
+  }
+
+  & .state__indicator {
+    float: left;
+    width: 8px;
+    height: 100%
   }
 
   & .microcard_favorite {
@@ -31,16 +32,13 @@
     top: 5px;
 
   }
-  & .text-critical{
+  & .text-critical {
     color: var(--red);
   }
-  & .text-warning{
+  & .text-warning {
     color: var(--yellow);
   }
   & .microcard__message {
-    display: block;
-    
-    
     text-transform: uppercase;
     & h3, & h4 {
       margin: 0;
@@ -60,14 +58,13 @@
 
   }
   & .microcard__count {
-    bottom: 20px;
+    bottom: 5px;
     font-size: 2.65rem;
     position: absolute;
     right: 25px;
-    color: #A6A8AB;
+    color: var(--silverGray);
   }
 }
-
 
 .microcard__arrow-right {
   bottom: 0;
@@ -79,5 +76,5 @@
   font-size: 28px !important;
   text-align: center;
   vertical-align: middle;
-  
+
 }

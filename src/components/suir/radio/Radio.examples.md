@@ -1,13 +1,15 @@
-## Radio Buttons
+#### Default
 
-Radio toggle
+```js
+const Radio = require('semantic-ui-react').Radio;
+<Radio />
+```
 
-    const Radio = require('semantic-ui-react').Radio;
-    <Radio toggle />
+#### Toggle
 
-Standard Radio
-
-     const Radio = require('semantic-ui-react').Radio;
-     <Radio />
+```js
+const Radio = require('semantic-ui-react').Radio;
+<Radio toggle />
+```
 
 See full radio documentation [here](http://react.semantic-ui.com/addons/radio)

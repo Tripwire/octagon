@@ -1,35 +1,37 @@
-# react-octagon
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/Tripwire/octagon.svg)](https://greenkeeper.io/)
+# octagon
 
 <img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon.png" height="80px" />
 
-[ ![Codeship Status for Tripwire/octagon](https://app.codeship.com/projects/de913c80-aab0-0134-4a1e-5ab626077bc6/status?branch=master)](https://app.codeship.com/projects/192040)  ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![CircleCI](https://circleci.com/gh/Tripwire/octagon.svg?style=svg)](https://circleci.com/gh/Tripwire/octagon) ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![Greenkeeper badge](https://badges.greenkeeper.io/Tripwire/octagon.svg)](https://greenkeeper.io/)
 
-octagon is a react component library.  **see the [latest interactive library documentation here](https://tripwire.github.io/octagon/)**.
-
-this package provides:
-
-  - a custom semantic-ui theme,
-  - a subset of _semantic-ui-react (SUIR)_ components,
-  - a set of additional react components to facilitate Tripwire UI.
-
- **If you are looking for a ground up framework, please instead jump directly to [semantic-ui-react](http://react.semantic-ui.com/)**, as this project is generally just an opionionated implementation of the SUI ecosystem.
 
 <img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon-styleguide.gif" width="50%" />
 
-## install
+## description
 
-`npm install --save react-octagon` or `yarn add --dev react-octagon`
+octagon is a react component library. it is built on top of Semantic UI React. You can see examples of the components and tinker with the API via our [interactive library documentation](https://tripwire.github.io/octagon/)**.
 
-## usage - react component library
+this package provides:
 
-octagon imports, occasionally wraps, and re-exports piece-wise components from [semantic-ui-react](http://react.semantic-ui.com/).  **you may generally refer to those docs for API usage**.
+  - a custom semantic-ui theme
+  - a subset of _semantic-ui-eact (SUIR)_ components
+  - a set of additional react components to facilitate Tripwire UI.
 
-To use it:
+SUIR only contains the react code (no styles), so we are bundling SUIR and semantic-ui-less in our build process. our code contains their [react components distribution](https://github.com/Semantic-Org/Semantic-UI-React) and their [less-only distribution](https://github.com/Semantic-Org/Semantic-UI-LESS). (note: the original Semantic UI is built on jQuery.)
 
-- add octagon's CSS into your app using whatever css bundling you prefer
-  - **your build system must be able to bundle static assets**.  that is, this code exports components that have code like `require('./widget.css')`
+ _note: if you are looking for a ground up framework, please instead jump directly to [semantic-ui-react](http://react.semantic-ui.com/), as this project is generally just an opionionated implementation of the SUI ecosystem._
+
+## installation
+
+to install and use this project within your project, simply clone the react-octagon project and use npm to install it.
+
+`npm install --save react-octagon` or `npm add --dev react-octagon`
+
+## usage
+
+using octagon components in your app is easy.
+
+- import octagon CSS
 - import components from the lib
 
 ```js
@@ -48,21 +50,29 @@ class MyWigdet () {
 }
 ```
 
-## development
-
-- clone this repository
-- run `yarn`
-- run `yarn start`
-- open the URL to play w/ components as you develop them
-
-now you're off to the races :horse_racing:!  theme changes, components, & examples will update automatically.  Make sure that your examples source components from within the `src/` dir!
-
-**for information on how to adjust the theme styles**, see [THEMING.md](THEMEING.md).
+you can interact with octagon components on our [interactive styleguide](https://tripwire.github.io/octagon/). you can also [launch this locally](#starting-the-environment), which will be especially valuable if you want to develop new components. built on [Styleguidist](https://github.com/styleguidist/react-styleguidist).
 
 ### react component api distribution
 
-**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  You must run `yarn run build` to get a fresh set of react components!
+**useful** if you've `npm link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  you must run `npm run build` to get a fresh set of react components!
 
 ## contributing
 
-want to contribute?  please see [THEMEING.md](THEMEING.md) && [CONTRIBUTING.md](CONTRIBUTING.md).
+please see [CONTRIBUTING.md](CONTRIBUTING.md) for all development.
+
+## resources
+[BEM](https://en.bem.info/methodology/css)
+
+[CSS Next](http://cssnext.io/)
+
+[React](https://reactjs.org)
+
+[Semantic UI](https://semantic-ui.com)
+
+[Semantic UI React](https://react.semantic-ui.com/introduction)
+
+[Semantic UI Less](https://github.com/Semantic-Org/Semantic-UI-LESS)
+
+[Snapjerk](https://www.npmjs.com/package/snapjerk)
+
+[Styleguidist](https://github.com/styleguidist/react-styleguidist)
