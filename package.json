@@ -66,7 +66,7 @@
     "lato-font": "^3.0.0",
     "prop-types": "^15.6.0",
     "semantic-ui-less": "^2.2.12",
-    "semantic-ui-react": "^0.74.2"
+    "semantic-ui-react": "^0.79.1"
   },
   "peerDependencies": {
     "react": "^15 || ^16",
