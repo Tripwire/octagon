@@ -9,8 +9,9 @@ export default class PopupDemo extends Component {
   }
   componentDidMount () {
     setTimeout(() => {
-      Array.from(document.getElementsByClassName('popup-example'))
-      .forEach(node => node.click())
+      Array.from(document.getElementsByClassName('popup-example')).forEach(
+        node => node.click()
+      )
     }, 100)
   }
   render () {
@@ -23,18 +24,22 @@ export default class PopupDemo extends Component {
           content='Neutral Popup Content'
           className='grey'
         />
-        <br /><br />
+        <br />
+        <br />
         <Popup
           position='right center'
           trigger={<Button className='popup-example'>Critical</Button>}
           content='Critical Popup Content'
-          className='red' />
-        <br /><br />
+          className='red'
+        />
+        <br />
+        <br />
         <Popup
           position='right center'
           trigger={<Button className='popup-example'>Warning</Button>}
           content='Warning Popup Content'
-          className='yellow' />
+          className='yellow'
+        />
       </div>
     )
   }

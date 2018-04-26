@@ -13,9 +13,9 @@ function LeftNavMenuItem (props) {
   return (
     <li className='nav__item' onClick={props.onClick}>
       <div className={`icon_container ${active}`}>
-        {(props.image)
-          ? <img className={`icon_nav ${activeIcon}`} src={props.image} />
-          : null}
+        {props.image ? (
+          <img className={`icon_nav ${activeIcon}`} src={props.image} />
+        ) : null}
         {props.children}
       </div>
     </li>

@@ -8,18 +8,26 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install node@9.4.0
+          name: Install node@9.11.1
           command: |
             set +e
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
             export NVM_DIR="/opt/circleci/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm install v9.4.0
-            nvm alias default v9.4.0
+            nvm install v9.11.1
+            nvm alias default v9.11.1
 
             # Each step uses the same `$BASH_ENV`, so need to modify it
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
+
+      - run:
+          name: install yarn
+          command: |
+            curl -o- -L https://yarnpkg.com/install.sh | bash
+            # yarn updates the wrong rc on install. give it a bump to put yarn into
+            # the path!
+            echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
 
       - restore_cache:
           keys:
@@ -27,7 +35,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: nvm use node && npm install --verbose
+      - run: nvm use node && yarn
 
       - save_cache:
           paths:
@@ -38,14 +46,14 @@ jobs:
       - run: docker network prune --force
 
       # lint
-      - run: npm run lint
+      - run: yarn lint
 
       # build
-      - run: npm run build
-      - run: npm run styleguide:build
+      - run: yarn build
+      - run: yarn styleguide:build
 
       # test
-      - run: DEBUG=webjerk* npm test -- --verbose
+      - run: DEBUG=webjerk* yarn test -- --verbose
 
       # report
       - run:
@@ -54,8 +62,8 @@ jobs:
             echo "machine surge.surge.sh" >> ~/.netrc
             echo "    login $SURGE_LOGIN" >> ~/.netrc
             echo "    password $SURGE_TOKEN" >> ~/.netrc
-            git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
-            if [ "$CIRCLE_BRANCH" != "master" ]; then npm run ci:update-pull-request-with-styleguide || true; fi
+            git config --global user.email "wa11-e@localhost" && git config --global user.name "wa11-e"
+            if [ "$CIRCLE_BRANCH" != "master" ]; then yarn ci:update-pull-request-with-styleguide || true; fi
 
       # cut a release
       - run:

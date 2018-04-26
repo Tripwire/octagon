@@ -47,7 +47,7 @@ class Axis extends React.Component {
         className={this.props.className}
         transform={translate}
         width={this.props.width}
-       />
+      />
     )
   }
 }

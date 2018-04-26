@@ -15,11 +15,21 @@ const debounce = require('lodash/debounce')
 const isWin = os.platform().match(/^win/)
 
 module.exports = {
-  get componentDist () { return path.join(this.distDir) },
-  get componentSrcPath () { return path.join(this.srcPath, 'components') },
-  get coverageDir () { return path.join(this.projectRoot, 'coverage') },
-  get distDir () { return path.join(this.projectRoot, 'lib') },
-  get projectRoot () { return path.resolve(__dirname, '..') },
+  get componentDist () {
+    return path.join(this.distDir)
+  },
+  get componentSrcPath () {
+    return path.join(this.srcPath, 'components')
+  },
+  get coverageDir () {
+    return path.join(this.projectRoot, 'coverage')
+  },
+  get distDir () {
+    return path.join(this.projectRoot, 'lib')
+  },
+  get projectRoot () {
+    return path.resolve(__dirname, '..')
+  },
   get tempSemanticBuildDir () {
     if (!this._tmpBuildDir) {
       var target = path.resolve(os.tmpdir(), 'octagon-build')
@@ -28,14 +38,30 @@ module.exports = {
     }
     return this._tmpBuildDir
   },
-  get semanticUiLessPath () { return path.join(this.projectRoot, 'node_modules/semantic-ui-less') },
-  get srcPath () { return path.join(this.projectRoot, 'src') },
-  get twSuiThemeSrcPath () { return path.join(this.srcPath, 'semantic-ui-theme') },
-  get postCssConfig () { return path.join(this.projectRoot, 'postcss.config.js') },
-  get semanticCSSFilename () { return path.join(this.stylesDist, 'semantic.css') },
-  get stylesDist () { return path.join(this.distDir, 'styles') },
-  get styleguidistDist () { return path.join(this.projectRoot, 'styleguide') },
-  get assetsDist () { return path.join(this.distDir, 'assets') },
+  get semanticUiLessPath () {
+    return path.join(this.projectRoot, 'node_modules/semantic-ui-less')
+  },
+  get srcPath () {
+    return path.join(this.projectRoot, 'src')
+  },
+  get twSuiThemeSrcPath () {
+    return path.join(this.srcPath, 'semantic-ui-theme')
+  },
+  get postCssConfig () {
+    return path.join(this.projectRoot, 'postcss.config.js')
+  },
+  get semanticCSSFilename () {
+    return path.join(this.stylesDist, 'semantic.css')
+  },
+  get stylesDist () {
+    return path.join(this.distDir, 'styles')
+  },
+  get styleguidistDist () {
+    return path.join(this.projectRoot, 'styleguide')
+  },
+  get assetsDist () {
+    return path.join(this.distDir, 'assets')
+  },
   /**
    * Build full lib.
    * @returns {Promise}
@@ -43,10 +69,7 @@ module.exports = {
   async build () {
     await this.clean()
     await fs.mkdirp(this.distDir)
-    return Promise.all([
-      this.buildOctagonNative(),
-      this.buildSemantic()
-    ])
+    return Promise.all([this.buildOctagonNative(), this.buildSemantic()])
   },
   async buildOctagonNative () {
     return Promise.all([
@@ -72,7 +95,10 @@ module.exports = {
     ])
   },
   getBin (bin) {
-    return path.join(this.projectRoot, 'node_modules', '.bin', bin) + (isWin ? '.cmd' : '')
+    return (
+      path.join(this.projectRoot, 'node_modules', '.bin', bin) +
+      (isWin ? '.cmd' : '')
+    )
   },
   async octagonComponentJs (opts) {
     opts = opts || {}
@@ -85,7 +111,13 @@ module.exports = {
   async octagonComponentCss (opts) {
     opts = opts || {}
     const outputDir = path.join(this.componentDist, 'styles', 'components')
-    const inputDir = path.join(this.projectRoot, 'src', 'styles', 'components', '*.css')
+    const inputDir = path.join(
+      this.projectRoot,
+      'src',
+      'styles',
+      'components',
+      '*.css'
+    )
     const cmd = this.getBin('postcss')
     const args = [inputDir, '-d', outputDir, '-c', this.postCssConfig]
     await fs.mkdirp(this.componentDist)
@@ -93,10 +125,27 @@ module.exports = {
   },
   async octagonCopyAssets (opts) {
     const assetSource = path.join(this.projectRoot, 'src', 'assets')
-    const fontsDest = path.resolve(this.distDir, 'styles', 'themes', 'tripwire', 'assets', 'fonts')
-    const latoSrc = path.resolve(this.projectRoot, 'node_modules', 'lato-font', 'fonts')
+    const fontsDest = path.resolve(
+      this.distDir,
+      'styles',
+      'themes',
+      'tripwire',
+      'assets',
+      'fonts'
+    )
+    const latoSrc = path.resolve(
+      this.projectRoot,
+      'node_modules',
+      'lato-font',
+      'fonts'
+    )
     const latoDest = path.join(fontsDest, 'lato')
-    const elegantSrc = path.resolve(this.projectRoot, 'node_modules', 'elegant-icons', 'fonts')
+    const elegantSrc = path.resolve(
+      this.projectRoot,
+      'node_modules',
+      'elegant-icons',
+      'fonts'
+    )
     const elegantDest = path.join(fontsDest, 'elegant-icons')
     return Promise.all([
       fs.copy(assetSource, this.assetsDist),
@@ -108,12 +157,23 @@ module.exports = {
     // pull these from semantic-ui-less node modules
     const definitionsPath = path.join(this.semanticUiLessPath, 'definitions')
     const definitionsDest = path.join(this.tempSemanticBuildDir, 'definitions')
-    const defaultThemePath = path.join(this.semanticUiLessPath, 'themes', 'default')
-    const defaultThemeDest = path.join(this.tempSemanticBuildDir, 'themes', 'default')
+    const defaultThemePath = path.join(
+      this.semanticUiLessPath,
+      'themes',
+      'default'
+    )
+    const defaultThemeDest = path.join(
+      this.tempSemanticBuildDir,
+      'themes',
+      'default'
+    )
     const themeLessPath = path.join(this.semanticUiLessPath, 'theme.less')
     const themeLessDest = path.join(this.tempSemanticBuildDir, 'theme.less')
     const semanticLessSrc = path.join(this.semanticUiLessPath, 'semantic.less')
-    const semanticLessPath = path.join(this.tempSemanticBuildDir, 'semantic.less')
+    const semanticLessPath = path.join(
+      this.tempSemanticBuildDir,
+      'semantic.less'
+    )
     // tw config and theme files
     const themeConfigPath = path.join(this.twSuiThemeSrcPath, 'theme.config')
     const themeConfigDest = path.join(this.tempSemanticBuildDir, 'theme.config')
@@ -138,13 +198,18 @@ module.exports = {
     const lessInputStream = (await fs.readFile(semanticLessPath)).toString()
     const outputDir = path.join(this.componentDist, 'styles')
     const outputPath = path.join(outputDir, 'semantic.css')
-    const options = {filename: semanticLessPath}
+    const options = { filename: semanticLessPath }
     const output = await less.render(lessInputStream, options)
     await fs.mkdirp(outputDir)
     return fs.writeFile(outputPath, output.css)
   },
   async semanticCopyAssets () {
-    const assetsSource = path.join(this.tempSemanticBuildDir, 'themes', 'default', 'assets')
+    const assetsSource = path.join(
+      this.tempSemanticBuildDir,
+      'themes',
+      'default',
+      'assets'
+    )
     const defaultDir = path.join(this.distDir, 'styles', 'themes', 'default')
     const assetsDest = path.join(defaultDir, 'assets')
     await fs.mkdirp(assetsDest)
@@ -152,15 +217,18 @@ module.exports = {
   },
   async semanticOverwriteStylePaths () {
     await fs.mkdirp(path.join(this.tempSemanticBuildDir, 'site', 'globals'))
-    const siteVarsDest = path.join(this.tempSemanticBuildDir, 'site', 'globals', 'site.variables')
-    const siteVarsText = '@imagePath : "themes/default/assets/images";\n@fontPath  : "themes/default/assets/fonts";'
+    const siteVarsDest = path.join(
+      this.tempSemanticBuildDir,
+      'site',
+      'globals',
+      'site.variables'
+    )
+    const siteVarsText =
+      '@imagePath : "themes/default/assets/images";\n@fontPath  : "themes/default/assets/fonts";'
     return fs.writeFile(siteVarsDest, siteVarsText)
   },
   async styleguideServer () {
-    await Promise.all([
-      this.styleguideWriteNativeSections(),
-      this.build()
-    ])
+    await Promise.all([this.styleguideWriteNativeSections(), this.build()])
     var compileChain = Promise.resolve() // poor mains queueing
     const recompileCss = debounce(path => {
       console.log(`${path} changed`)
@@ -169,16 +237,15 @@ module.exports = {
     const watcher = chokidar.watch(this.twSuiThemeSrcPath)
     watcher.on('ready', () => {
       return watcher
-      .on('add', recompileCss)
-      .on('change', recompileCss)
-      .on('unlink', recompileCss)
+        .on('add', recompileCss)
+        .on('change', recompileCss)
+        .on('unlink', recompileCss)
     })
     try {
-      await execa(
-        'npx',
-        ['styleguidist', 'server'],
-        { cwd: this.projectRoot, stdio: 'inherit' }
-      )
+      await execa('npx', ['styleguidist', 'server'], {
+        cwd: this.projectRoot,
+        stdio: 'inherit'
+      })
     } finally {
       watcher.close()
     }
@@ -190,11 +257,11 @@ module.exports = {
    * @returns {Promise}
    */
   async styleguideWriteNativeSections () {
-    const HIGHER_ORDER_GROUPS = [
-      'charts'
-    ]
+    const HIGHER_ORDER_GROUPS = ['charts']
     const nativeComponentPath = path.resolve(this.componentSrcPath, 'native')
-    const nativeComponentFilenames = (await fs.readdir(nativeComponentPath)).map(basename => path.join(nativeComponentPath, basename))
+    const nativeComponentFilenames = (await fs.readdir(
+      nativeComponentPath
+    )).map(basename => path.join(nativeComponentPath, basename))
     const nativeComponentDirectories = await bb.filter(
       nativeComponentFilenames,
       async filename => {
@@ -204,13 +271,20 @@ module.exports = {
       }
     )
     const standardNativeComponentDirectories = nativeComponentDirectories.filter(
-      dir => !HIGHER_ORDER_GROUPS.some(group => dir.match(new RegExp(`${group}$`)))
+      dir =>
+        !HIGHER_ORDER_GROUPS.some(group => dir.match(new RegExp(`${group}$`)))
     )
-    const higherOrderSections = HIGHER_ORDER_GROUPS
-    .map(name => ({ name, components: `${path.resolve(nativeComponentPath, name)}/**/*.jsx` }))
+    const higherOrderSections = HIGHER_ORDER_GROUPS.map(name => ({
+      name,
+      components: `${path.resolve(nativeComponentPath, name)}/**/*.jsx`
+    }))
 
-    const standardSections = standardNativeComponentDirectories
-    .map(directory => ({ name: path.basename(directory), components: `${directory}/**/*.jsx` }))
+    const standardSections = standardNativeComponentDirectories.map(
+      directory => ({
+        name: path.basename(directory),
+        components: `${directory}/**/*.jsx`
+      })
+    )
 
     const sections = higherOrderSections.concat(standardSections)
     await fs.writeFile(

@@ -12,17 +12,21 @@ import LargeCardRecentList from './LargeCardRecentList'
 import LargeCardStat from './LargeCardStat'
 import LargeCardTitle from './LargeCardTitle'
 
-const LargeCard = (props) => {
+const LargeCard = props => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox
       {...externalAttributes}
-      className={`octagon large_card is-fullview-open-${props.showCard} ${props.className}`}
-      style={props.style}>
+      className={`octagon large_card is-fullview-open-${props.showCard} ${
+        props.className
+      }`}
+      style={props.style}
+    >
       <Flexbox
         flexDirection='row'
         flexGrow={3}
-        className={`large_card__container ` + ((props.framed) ? 'framed' : '')}>
+        className={`large_card__container ` + (props.framed ? 'framed' : '')}
+      >
         {props.children}
       </Flexbox>
     </Flexbox>
