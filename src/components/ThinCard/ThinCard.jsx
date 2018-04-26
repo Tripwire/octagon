@@ -9,7 +9,7 @@ import ThinCardActionButton from './ThinCardActionButton'
 import ThinCardWidget from './ThinCardWidget'
 import ThinCardDrawer from './ThinCardDrawer'
 
-const ThinCard = (props) => {
+const ThinCard = props => {
   let borderClass = ''
   if (props.noBorder) {
     borderClass = 'thincard__noborder'
@@ -23,12 +23,9 @@ const ThinCard = (props) => {
       {...externalAttributes}
       flexDirection='column'
       className={`octagon thincard__row ${borderClass} ${props.className}`}
-      key={props.data.id}>
-
-      {(props.folder) ? (
-        <div className='topedge' />
-      ) : ''
-      }
+      key={props.data.id}
+    >
+      {props.folder ? <div className='topedge' /> : ''}
       <Flexbox flexDirection='row' flexGrow={3} className='primary-content'>
         {props.children}
       </Flexbox>

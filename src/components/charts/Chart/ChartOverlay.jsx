@@ -11,7 +11,7 @@ class ChartOverlay extends React.Component {
 
   mouseMove (e) {
     const { xScale, data } = this.props
-    const bisectXAxis = d3.bisector((d) => d.x).left
+    const bisectXAxis = d3.bisector(d => d.x).left
     const node = ReactDOM.findDOMNode(this)
 
     const bounds = node.getBoundingClientRect()
@@ -45,7 +45,9 @@ class ChartOverlay extends React.Component {
         stroke={'none'}
         style={{ pointerEvents: 'all' }}
         height={height}
-        onMouseMove={(e) => { this.mouseMove(e) }}
+        onMouseMove={e => {
+          this.mouseMove(e)
+        }}
         onMouseOut={hideToolTip}
       />
     )

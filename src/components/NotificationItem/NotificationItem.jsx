@@ -12,7 +12,7 @@ const warningIconUri = require('../../assets/warning-yellow.svg')
 const alertIconUri = require('../../assets/alert-icon.svg')
 const notificationUri = require('../../assets/icon_activity_notification.svg')
 
-const NotificationItem = (props) => {
+const NotificationItem = props => {
   let notificationClass = 'octagon notification__item'
   let iconUrl = ''
   if (props.notification.state === 'critical') {
@@ -52,42 +52,58 @@ const NotificationItem = (props) => {
   }
 
   return (
-
-    <li className={` ${notificationClass}`} key={props.notification.id} >
-      <Flexbox alignItems='center'
-        className={`notification__selection notification__state-${props.notification.state}
-        same-timegroup-${sameTimeGroup}`}>
-        <Flexbox flexDirection='row' flexGrow={3}>
-          {sameTimeGroup
-          ? <Flexbox className='no-timegroup' paddingRight='30px' />
-            : <Flexbox flexDirection='row' className='notification__timegroup'>
-              <Flexbox className='notification__time' alignItems='center' paddingLeft='15px' paddingRight='15px'>
-                {timeFormatted}H
-            </Flexbox>
-              <Flexbox
-                className={`notification__connection__dot notification__connection__dot_${props.notification.state}`}
-                alignItems='center'
-                marginRight='15px' />
-            </Flexbox>
+    <li className={` ${notificationClass}`} key={props.notification.id}>
+      <Flexbox
+        alignItems='center'
+        className={`notification__selection notification__state-${
+          props.notification.state
         }
+        same-timegroup-${sameTimeGroup}`}
+      >
+        <Flexbox flexDirection='row' flexGrow={3}>
+          {sameTimeGroup ? (
+            <Flexbox className='no-timegroup' paddingRight='30px' />
+          ) : (
+            <Flexbox flexDirection='row' className='notification__timegroup'>
+              <Flexbox
+                className='notification__time'
+                alignItems='center'
+                paddingLeft='15px'
+                paddingRight='15px'
+              >
+                {timeFormatted}H
+              </Flexbox>
+              <Flexbox
+                className={`notification__connection__dot notification__connection__dot_${
+                  props.notification.state
+                }`}
+                alignItems='center'
+                marginRight='15px'
+              />
+            </Flexbox>
+          )}
           <span className='notification__vertical__line' />
-          <Flexbox className='notification__connection__state' alignItems='center'>
-
+          <Flexbox
+            className='notification__connection__state'
+            alignItems='center'
+          >
             {iconUrl}
           </Flexbox>
           <Flexbox className='notification__detail' alignItems='center'>
             {notificationCount}&nbsp;{props.notification.name}
           </Flexbox>
         </Flexbox>
-        <Flexbox flexDirection='column' height='100%'
+        <Flexbox
+          flexDirection='column'
+          height='100%'
           alignItems='flex-end'
           justifyContent='center'
-          className={`icon-right icon-right-${props.notification.state}`}>
+          className={`icon-right icon-right-${props.notification.state}`}
+        >
           <i className='arrow_carrot-right' />
         </Flexbox>
       </Flexbox>
     </li>
-
   )
 }
 NotificationItem.propTypes = {

@@ -3,12 +3,8 @@ import React from 'react'
 import TopNavContent from './TopNavContent'
 import '../../styles/components/top-nav.css'
 
-const TopNav = (props) => {
-  return (
-    <div className='octagon nav__main clearfix'>
-      {props.children}
-    </div>
-  )
+const TopNav = props => {
+  return <div className='octagon nav__main clearfix'>{props.children}</div>
 }
 TopNav.Content = TopNavContent
 

@@ -3,7 +3,7 @@ import React from 'react'
 import palette from '../../palette'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
-const LargeCardGutter = (props) => {
+const LargeCardGutter = props => {
   const externalAttributes = filterAttributesFromProps(props)
   let color = ''
   switch (props.color) {
@@ -27,16 +27,13 @@ const LargeCardGutter = (props) => {
       {...externalAttributes}
       className={`fullview__left_border ${props.className}`}
       width='9px'
-      style={{ backgroundColor: color }} />
+      style={{ backgroundColor: color }}
+    />
   )
 }
 
-LargeCardGutter.defaultProps = {
+LargeCardGutter.defaultProps = {}
 
-}
-
-LargeCardGutter.propTypes = {
-
-}
+LargeCardGutter.propTypes = {}
 
 export default LargeCardGutter
