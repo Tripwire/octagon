@@ -193,7 +193,7 @@ module.exports = {
     const HIGHER_ORDER_GROUPS = [
       'charts'
     ]
-    const nativeComponentPath = path.resolve(this.componentSrcPath, 'native')
+    const nativeComponentPath = path.resolve(this.componentSrcPath)
     const nativeComponentFilenames = (await fs.readdir(nativeComponentPath)).map(basename => path.join(nativeComponentPath, basename))
     const nativeComponentDirectories = await bb.filter(
       nativeComponentFilenames,
