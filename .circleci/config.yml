@@ -21,6 +21,14 @@ jobs:
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
 
+      - run:
+          name: install yarn
+          command: |
+            curl -o- -L https://yarnpkg.com/install.sh | bash
+            # yarn updates the wrong rc on install. give it a bump to put yarn into
+            # the path!
+            echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -54,8 +62,8 @@ jobs:
             echo "machine surge.surge.sh" >> ~/.netrc
             echo "    login $SURGE_LOGIN" >> ~/.netrc
             echo "    password $SURGE_TOKEN" >> ~/.netrc
-            git config --global user.email "gh-pages@localhost" && git config --global user.name "yarn gh-pages"
-            if [ "$CIRCLE_BRANCH" != "master" ]; then yarn run ci:update-pull-request-with-styleguide || true; fi
+            git config --global user.email "wa11-e@localhost" && git config --global user.name "wa11-e"
+            if [ "$CIRCLE_BRANCH" != "master" ]; then yarn ci:update-pull-request-with-styleguide || true; fi
 
       # cut a release
       - run:
