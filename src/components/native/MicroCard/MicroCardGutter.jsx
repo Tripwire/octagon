@@ -4,7 +4,7 @@ import Flexbox from 'flexbox-react'
 import palette from '../../../palette'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
-const MicroCardGutter = (props) => {
+const MicroCardGutter = props => {
   let color = ''
   switch (props.color) {
     case 'critical':
@@ -39,7 +39,6 @@ MicroCardGutter.defaultProps = {
 
 MicroCardGutter.propTypes = {
   color: PropTypes.string
-
 }
 
 export default MicroCardGutter

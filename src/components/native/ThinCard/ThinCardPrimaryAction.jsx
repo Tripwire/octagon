@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
-const ThinCardPrimaryAction = (props) => {
+const ThinCardPrimaryAction = props => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox
       {...externalAttributes}
       alignItems='center'
       className={`thincard__primary_action ${props.className}`}
-      style={props.style}>
+      style={props.style}
+    >
       {props.children}
     </Flexbox>
   )
