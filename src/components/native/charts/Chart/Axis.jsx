@@ -41,12 +41,7 @@ class Axis extends React.Component {
 
   render () {
     const translate = this.getTranslate()
-    return (
-      <g
-        className={this.props.className}
-        transform={translate}
-       />
-    )
+    return <g className={this.props.className} transform={translate} />
   }
 }
 

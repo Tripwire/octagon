@@ -3,7 +3,7 @@ import React from 'react'
 // import Immutable from 'immutable';
 var d3 = Object.assign({}, require('d3-time-format'))
 
-const Dots = (props) => {
+const Dots = props => {
   let circles = props.data.map((d, i) => {
     let xDataKey = d.x
     if (props.xDataType === 'date') {
@@ -11,11 +11,14 @@ const Dots = (props) => {
     }
     return (
       <circle
-        className='dot' r='5'
+        className='dot'
+        r='5'
         cx={props.xScale(d.x)}
         cy={props.yScale(d.y)}
         fill='#F3F4F2'
-        stroke='#3f5175' strokeWidth='5px' key={i}
+        stroke='#3f5175'
+        strokeWidth='5px'
+        key={i}
         onMouseOver={props.showToolTip}
         onMouseOut={props.hideToolTip}
         data-key={xDataKey}
@@ -24,9 +27,7 @@ const Dots = (props) => {
     )
   })
 
-  return (
-    <g> {circles} </g>
-  )
+  return <g> {circles} </g>
 }
 
 Dots.propTypes = {

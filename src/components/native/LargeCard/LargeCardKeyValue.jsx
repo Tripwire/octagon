@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
-const LargeCardKeyValue = (props) => {
+const LargeCardKeyValue = props => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <div {...externalAttributes} className={`summary_info ${props.className}`}>

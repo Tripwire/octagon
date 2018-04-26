@@ -9,10 +9,11 @@ import MicroCardCount from './MicroCardCount'
 import '../../../styles/components/micro-card.css'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
-const MicroCard = (props) => {
+const MicroCard = props => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox {...externalAttributes}
+    <Flexbox
+      {...externalAttributes}
       flexDirection='row'
       key={props.cardContent.id}
       className={`octagon microcard bordered ${props.className}`}

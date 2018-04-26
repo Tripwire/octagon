@@ -36,6 +36,7 @@
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "less": "^3.0.2",
+    "lint-staged": "^7.0.4",
     "npm-run-all": "^4.1.1",
     "nsp": "^3.2.1",
     "perish": "^1.0.1",
@@ -45,6 +46,7 @@
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.0.6",
     "postcss-neat": "^2.5.3",
+    "prettier-standard": "^8.0.1",
     "react": "^15 || ^16",
     "react-dom": "^15 || ^16",
     "react-remarkable": "^1.1.1",
@@ -83,7 +85,8 @@
     "start": "node scripts/start",
     "precommit": "run-p lint test check-vulnerablities",
     "check-vulnerablities": "nsp check",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "format": "prettier-standard 'src/**/*.js' 'src/**/*.jsx' 'scripts/**/*.js' './*.js'"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -103,5 +106,25 @@
     "type": "git",
     "url": "https://github.com/Tripwire/octagon.git"
   },
-  "version": "0.0.0-development"
+  "version": "0.0.0-development",
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "src/**/*.jsx": [
+        "prettier-standard",
+        "git add"
+      ],
+      "scripts/**/*.jsx": [
+        "prettier-standard",
+        "git add"
+      ],
+      "*.js'": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  }
 }
