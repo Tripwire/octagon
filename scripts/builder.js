@@ -98,6 +98,7 @@ module.exports = {
     const latoDest = path.join(fontsDest, 'lato')
     const elegantSrc = path.resolve(this.projectRoot, 'node_modules', 'elegant-icons', 'fonts')
     const elegantDest = path.join(fontsDest, 'elegant-icons')
+    await fs.mkdirp(fontsDest)
     return Promise.all([
       fs.copy(assetSource, this.assetsDist),
       fs.copy(latoSrc, latoDest),
