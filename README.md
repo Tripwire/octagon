@@ -2,7 +2,8 @@
 
 <img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon.png" height="80px" />
 
-[![CircleCI](https://circleci.com/gh/Tripwire/octagon.svg?style=svg)](https://circleci.com/gh/Tripwire/octagon) ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![CircleCI](https://circleci.com/gh/Tripwire/octagon.svg?style=svg)](https://circleci.com/gh/Tripwire/octagon) ![](https://img.shields.io/badge/standardjs-%E2%9C%93-brightgreen.svg) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![Greenkeeper badge](https://badges.greenkeeper.io/Tripwire/octagon.svg)](https://greenkeeper.io/)
+
 
 <img src="https://raw.githubusercontent.com/Tripwire/octagon/master/img/octagon-styleguide.gif" width="50%" />
 
@@ -28,7 +29,7 @@ to install and use this project within your project, simply clone the react-octa
 
 ## usage
 
-using octagon components in your app is easy. 
+using octagon components in your app is easy.
 
 - import octagon CSS
 - import components from the lib
@@ -49,7 +50,7 @@ class MyWigdet () {
 }
 ```
 
-you can interact with octagon components on our [interactive styleguide](https://tripwire.github.io/octagon/). you can also [launch this locally](#starting-the-environment), which will be especially valuable if you want to develop new components. built on [Styleguidist](https://github.com/styleguidist/react-styleguidist). 
+you can interact with octagon components on our [interactive styleguide](https://tripwire.github.io/octagon/). you can also [launch this locally](#starting-the-environment), which will be especially valuable if you want to develop new components. built on [Styleguidist](https://github.com/styleguidist/react-styleguidist).
 
 ### react component api distribution
 
