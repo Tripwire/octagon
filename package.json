@@ -60,6 +60,7 @@
     "webpack": "3.5.6"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "d3": "^4.11.0",
     "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.4.0",
