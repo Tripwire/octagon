@@ -2,7 +2,7 @@
 
 require('perish')
 const isDev = !!(process.env.NODE_ENV || '').match(/dev/)
-const pify = require('pify')
+const pify = require('util').promisify
 const execa = require('execa')
 const path = require('path')
 const ghPages = require('gh-pages')
