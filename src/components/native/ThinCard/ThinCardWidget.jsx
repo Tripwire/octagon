@@ -5,7 +5,7 @@ import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 import ThinCardWidgetLabel from './ThinCardWidgetLabel'
 import ThinCardWidgetValue from './ThinCardWidgetValue'
 
-const ThinCardWidget = (props) => {
+const ThinCardWidget = props => {
   let borderClass = ''
   if (props.borderLeft) {
     borderClass += 'borderLeft '
@@ -24,7 +24,8 @@ const ThinCardWidget = (props) => {
       paddingRight='15px'
       paddingLeft='15px'
       marginBottom='10px'
-      marginTop='10px'>
+      marginTop='10px'
+    >
       {props.children}
     </Flexbox>
   )

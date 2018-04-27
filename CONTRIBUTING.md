@@ -238,3 +238,15 @@ because the reviewers have hit the buttons before.
 1. component passes all [tests](#step-4-test) (automated and manual)
 1. component has sufficient examples to prove prove handling of various states
 1. component includes `data-hooks` for QA testing
+
+
+### resources
+
+- [BEM](https://en.bem.info/methodology/css)
+- [CSS Next](http://cssnext.io/)
+- [React](https://reactjs.org)
+- [Semantic UI](https://semantic-ui.com)
+- [Semantic UI React](https://react.semantic-ui.com/introduction)
+- [Semantic UI Less](https://github.com/Semantic-Org/Semantic-UI-LESS)
+- [Snapjerk](https://www.npmjs.com/package/snapjerk)
+- [Styleguidist](https://github.com/styleguidist/react-styleguidist)

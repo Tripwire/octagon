@@ -2,7 +2,7 @@
 
 require('perish')
 const isDev = !!(process.env.NODE_ENV || '').match(/dev/)
-const pify = require('pify')
+const pify = require('util').promisify
 const execa = require('execa')
 const path = require('path')
 const ghPages = require('gh-pages')
@@ -20,7 +20,8 @@ const SPAWN_OPTS = {
   cwd: projectRoot
 }
 
-void async function postTest () { // eslint-disable-line
+void (async function postTest () {
+  // eslint-disable-line
   console.log('executing semantic-release')
   try {
     const args = ['run', 'semantic-release', isDev ? '-d' : ''].filter(Boolean)
@@ -37,4 +38,4 @@ void async function postTest () { // eslint-disable-line
   }
   console.log('publishing styleguide')
   await pify(ghPages.publish)(staticDocs, { repo, silent: true })
-}()
+})()
