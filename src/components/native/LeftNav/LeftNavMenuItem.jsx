@@ -6,15 +6,18 @@ import PropTypes from 'prop-types'
  * @param {*} props
  */
 function LeftNavMenuItem (props) {
-  let active = ''
-  let activeIcon = ''
-  active = props.active ? 'icon_container-active' : 'icon_container-inactive'
-  activeIcon = props.active ? 'active-icon' : ''
+  let iconContainerActiveClass = props.active
+    ? 'icon_container-active'
+    : 'icon_container-inactive'
+  let iconActiveClass = props.active ? 'active-icon' : ''
   return (
     <li className='nav__item' onClick={props.onClick}>
-      <div className={`icon_container ${active}`}>
-        {(props.image)
-          ? <img className={`icon_nav ${activeIcon}`} src={props.image} />
+      {props.active
+        ? <div className='nav_border--active' />
+        : null}
+      <div className={`icon_container ${iconContainerActiveClass}`}>
+        {props.image
+          ? <img className={`icon_nav ${iconActiveClass}`} src={props.image} />
           : null}
         {props.children}
       </div>

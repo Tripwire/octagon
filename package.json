@@ -52,7 +52,7 @@
     "react-test-renderer": "^15.5.4",
     "rucksack-css": "^1.0.2",
     "semantic-release": "^12.4.1",
-    "snapjerk": "^0.2.22",
+    "snapjerk": "^0.3.0",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "surge-review": "^1.1.1",
