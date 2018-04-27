@@ -2,10 +2,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TopNavContent from './TopNavContent'
 import '../../../styles/components/top-nav.css'
+import externalAttributeFilter from '../../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
 const TopNav = (props) => {
+  var handledProps = externalAttributeFilter(props)
   return (
-    <div className='octagon nav__main clearfix'>
+    <div
+      {...handledProps}
+      className={classnames('octagon nav__main clearfix', handledProps.className)}
+    >
       {props.children}
     </div>
   )
