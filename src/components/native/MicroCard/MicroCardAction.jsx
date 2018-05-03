@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../../suir/icon/Icon'
+import { Icon } from 'semantic-ui-react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 const MicroCardAction = (props) => {
