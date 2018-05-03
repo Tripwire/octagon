@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../suir/button/Button'
+import { Button } from 'semantic-ui-react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 const LargeCardAction = (props) => {
