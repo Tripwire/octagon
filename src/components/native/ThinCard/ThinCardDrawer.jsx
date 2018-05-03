@@ -2,7 +2,7 @@ import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
-import Icon from '../../suir/icon/Icon'
+import { Icon } from 'semantic-ui-react'
 
 const ThinCardDrawer = (props) => {
   const externalAttributes = filterAttributesFromProps(props)

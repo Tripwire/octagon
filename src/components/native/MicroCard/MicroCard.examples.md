@@ -1,16 +1,16 @@
 #### Standard
 
 ```js
-    <MicroCard
-      cardContent={{ id: 0 }}
-      style={{marginRight: '10px'}}
-    >
-      <MicroCard.Gutter color='critical' />
-      <MicroCard.Content cardContent={{ title: 'test' }} />
-      <MicroCard.Favorite isFavorited />
-      <MicroCard.Count value={27} />
-        <MicroCard.Action  />
-      </MicroCard>
+<MicroCard
+  cardContent={{ id: 0 }}
+  style={{marginRight: '10px'}}
+>
+  <MicroCard.Gutter color='critical' />
+  <MicroCard.Content cardContent={{ title: 'test' }} />
+  <MicroCard.Favorite isFavorited />
+  <MicroCard.Count value={27} />
+  <MicroCard.Action  />
+</MicroCard>
 ```
 
 #### Detailed
