@@ -1,7 +1,7 @@
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Icon from '../../suir/icon/Icon'
+import { Icon } from 'semantic-ui-react'
 import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 
 const LargeCardRecentList = (props) => {

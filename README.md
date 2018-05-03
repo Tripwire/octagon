@@ -9,15 +9,12 @@
 
 ## description
 
-octagon is a react component library. it is built on top of Semantic UI React. You can see examples of the components and tinker with the API via our [interactive library documentation](https://tripwire.github.io/octagon/)**.
+octagon is a react component library. it is built on top of Semantic UI React (SUIR). You can see examples of the components and tinker with the API via our [interactive library documentation](https://tripwire.github.io/octagon/)**.
 
 this package provides:
 
-  - a custom semantic-ui theme
-  - a subset of _semantic-ui-eact (SUIR)_ components
-  - a set of additional react components to facilitate Tripwire UI.
-
-SUIR only contains the react code (no styles), so we are bundling SUIR and semantic-ui-less in our build process. our code contains their [react components distribution](https://github.com/Semantic-Org/Semantic-UI-React) and their [less-only distribution](https://github.com/Semantic-Org/Semantic-UI-LESS). (note: the original Semantic UI is built on jQuery.)
+- a custom semantic-ui theme
+- a set of supplementary react components beyond those provided by SUIR
 
  _note: if you are looking for a ground up framework, please instead jump directly to [semantic-ui-react](http://react.semantic-ui.com/), as this project is generally just an opionionated implementation of the SUI ecosystem._
 
@@ -29,14 +26,14 @@ to install and use this project within your project, simply clone the react-octa
 
 ## usage
 
-using octagon components in your app is easy.
+using octagon components in your app is easy:
 
-- import octagon CSS
-- import components from the lib
+- import octagon's CSS
+- import components from the lib, or from SUIR
 
 ```js
 import 'react-octagon/lib/styles/semantic.css'
-import Segment from 'react-octagon/lib/components/suir/Segment'
+import { Segment } from 'semantic-ui-react'
 import FavoriteButton from 'react-octagon/lib/components/FavoriteButton'
 
 class MyWigdet () {
@@ -59,20 +56,3 @@ you can interact with octagon components on our [interactive styleguide](https:/
 ## contributing
 
 please see [CONTRIBUTING.md](CONTRIBUTING.md) for all development.
-
-## resources
-[BEM](https://en.bem.info/methodology/css)
-
-[CSS Next](http://cssnext.io/)
-
-[React](https://reactjs.org)
-
-[Semantic UI](https://semantic-ui.com)
-
-[Semantic UI React](https://react.semantic-ui.com/introduction)
-
-[Semantic UI Less](https://github.com/Semantic-Org/Semantic-UI-LESS)
-
-[Snapjerk](https://www.npmjs.com/package/snapjerk)
-
-[Styleguidist](https://github.com/styleguidist/react-styleguidist)
