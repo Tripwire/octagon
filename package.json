@@ -85,5 +85,6 @@
     "type": "git",
     "url": "https://github.com/Tripwire/octagon.git"
   },
-  "version": "0.0.0-development"
+  "version": "0.0.0-development",
+  "sideEffects": false
 }
