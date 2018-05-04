@@ -2,7 +2,9 @@
 
 ```js
 <ThinCard data={{id: 0}} folder={false}>
-  <ThinCard.PrimaryAction><StopStartButton isStopped /></ThinCard.PrimaryAction>
+  <ThinCard.PrimaryAction>
+    <StopStartButton isStopped />
+  </ThinCard.PrimaryAction>
   <ThinCard.Title>I&apos;m stopped</ThinCard.Title>
 </ThinCard>
 ```
@@ -36,7 +38,15 @@
 Richer Example (Expanded)
 
 ```js
-<ThinCard data={{id: 0}} folder expanded={true} drawer={<ThinCard.Drawer expanded={true}><div style={{padding: '10px'}}>test</div></ThinCard.Drawer>}>
+<ThinCard
+  data={{id: 0}}
+  folder
+  drawer={
+    <ThinCard.Drawer expanded>
+      <div style={{padding: '10px'}}>test</div>
+    </ThinCard.Drawer>
+  }
+>
   <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
   <ThinCard.Title>I&apos;m ready to go!</ThinCard.Title>
   <ThinCard.ActionButton>MANAGE</ThinCard.ActionButton>

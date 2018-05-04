@@ -44,11 +44,7 @@ LargeCardGutter.defaultProps = {
 
 LargeCardGutter.propTypes = {
   /** color of gutter. use `LargeCardGutter.STATE_COLOR_MAP` or any standard web color string  */
-  color: PropTypes.oneOf(
-    Object.values(STATE_COLOR_MAP).concat(
-      PropTypes.string
-    )
-  )
+  color: PropTypes.string
 }
 LargeCardGutter.STATE_COLOR_MAP = STATE_COLOR_MAP
 

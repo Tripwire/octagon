@@ -2,37 +2,38 @@ import '../../styles/components/thin-card.css'
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import ThinCardTitle from './ThinCardTitle'
 import ThinCardPrimaryAction from './ThinCardPrimaryAction'
 import ThinCardActionButton from './ThinCardActionButton'
 import ThinCardWidget from './ThinCardWidget'
 import ThinCardDrawer from './ThinCardDrawer'
+import classnames from 'classnames'
 
 const ThinCard = (props) => {
+  const {
+    children,
+    className,
+    data = {},
+    drawer,
+    folder,
+    noBorder,
+    ...rest
+  } = props
   let borderClass = ''
-  if (props.noBorder) {
-    borderClass = 'thincard__noborder'
-  }
-  if (props.folder) {
-    borderClass += ' thincard__folderpad'
-  }
-  const externalAttributes = filterAttributesFromProps(props)
+  if (noBorder) borderClass = 'thincard__noborder'
+  if (props.folder) borderClass = `${borderClass} thincard__folderpad`
   return (
     <Flexbox
-      {...externalAttributes}
+      key={data.id}
+      {...rest}
       flexDirection='column'
-      className={`octagon thincard__row ${borderClass} ${props.className}`}
-      key={props.data.id}>
-
-      {(props.folder) ? (
-        <div className='topedge' />
-      ) : ''
-      }
+      className={classnames(`octagon thincard__row ${borderClass}`, className)}
+    >
+      {folder ? <div className='topedge' /> : ''}
       <Flexbox flexDirection='row' flexGrow={3} className='primary-content'>
-        {props.children}
+        {children}
       </Flexbox>
-      {props.drawer}
+      {drawer}
     </Flexbox>
   )
 }
