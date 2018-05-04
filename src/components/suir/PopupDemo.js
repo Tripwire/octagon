@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup'
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button'
+import { Button, Popup } from 'semantic-ui-react'
 
 export default class PopupDemo extends Component {
   constructor (props) {

@@ -1,7 +1,7 @@
 #### Default
 
 ```js
-const PopupDemo = require('./PopupDemo');
+const PopupDemo = require('./PopupDemo').default;
 <PopupDemo />
 ```
 
