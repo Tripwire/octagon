@@ -11,9 +11,13 @@ module.exports = {
       setTimeout(resolve, 500)
     })
 
-    // hide hidden nodes
+    // remove hidden nodes from test
     Array.from(document.querySelectorAll('.hide-in-test'))
-    .map(node => { node.style.display = 'none' })
+    .map(node => {
+      var tNode = node.parentNode
+      while (!tNode.attributes['data-preview']) tNode = tNode.parentNode
+      tNode.parentNode.removeChild(tNode)
+    })
 
     // generate snap configs
     return Array.from(document.querySelectorAll('[data-preview]'))

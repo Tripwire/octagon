@@ -9,6 +9,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bluebird": "^3.5.0",
@@ -63,7 +64,7 @@
     "ci:update-pull-request-with-styleguide": "surge-review --publish-dir styleguide --pull-request $CIRCLE_PULL_REQUEST",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p lint test check-vulnerablities",
+    "precommit": "run-p lint test",
     "semantic-release": "semantic-release",
     "write-styleguide-sections": "node scripts/write-styleguide-sections"
   },

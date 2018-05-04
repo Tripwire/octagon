@@ -1,0 +1,25 @@
+.layout__container {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "nav content";
+}
+
+.layout__header {
+  grid-area: header;
+}
+.layout__nav {
+  grid-area: nav;
+}
+.layout__content {
+  grid-area: content;
+  overflow: auto;
+}
+.top-nav__dropdown-selector:hover {
+  cursor: pointer;
+}

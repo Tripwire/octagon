@@ -1,0 +1,31 @@
+.expert-card__container {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "header configure"
+    "content content";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+}
+
+.expert-card__header {
+  grid-area: header;
+}
+.expert-card__header h1,
+.expert-card__header h2,
+.expert-card__header h3,
+.expert-card__header h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.expert-card__configure {
+  align-self: center;
+  grid-area: configure;
+}
+.expert-card__content {
+  border-top: 1px solid lightgray;
+  grid-area: content;
+  padding: 10px 0 0 0;
+}

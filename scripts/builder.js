@@ -84,10 +84,10 @@ module.exports = {
   },
   async octagonComponentCss (opts) {
     opts = opts || {}
-    const outputDir = path.join(this.componentDist, 'styles', 'components')
-    const inputDir = path.join(this.projectRoot, 'src', 'styles', 'components', '*.css')
+    const outputDir = path.join(this.componentDist)
+    const inputDir = path.join(this.projectRoot, 'src/**/*.css')
     const cmd = this.getBin('postcss')
-    const args = [inputDir, '-d', outputDir, '-c', this.postCssConfig]
+    const args = [inputDir, '-d', outputDir, '-c', this.postCssConfig, '--base', 'src']
     await fs.mkdirp(this.componentDist)
     return execa(cmd, args, { cwd: this.projectRoot, stdio: 'inherit' })
   },
