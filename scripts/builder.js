@@ -158,7 +158,7 @@ module.exports = {
   },
   async styleguideServer () {
     await Promise.all([
-      this.styleguideWriteNativeSections(),
+      this.styleguideWriteSections(),
       this.build()
     ])
     var compileChain = Promise.resolve() // poor mains queueing
@@ -189,11 +189,11 @@ module.exports = {
    * @link https://react-styleguidist.js.org/docs/components.html#sections
    * @returns {Promise}
    */
-  async styleguideWriteNativeSections () {
+  async styleguideWriteSections () {
     const HIGHER_ORDER_GROUPS = [
       'charts'
     ]
-    const nativeComponentPath = path.resolve(this.componentSrcPath, 'native')
+    const nativeComponentPath = this.componentSrcPath
     const nativeComponentFilenames = (await fs.readdir(nativeComponentPath)).map(basename => path.join(nativeComponentPath, basename))
     const nativeComponentDirectories = await bb.filter(
       nativeComponentFilenames,
