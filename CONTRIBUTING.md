@@ -1,18 +1,29 @@
-# contributing to octagon
+# contributing
 
-## development (adding components)
+## development
 
-### starting the environment
+`octagon` offers two mechanisms to support development:
+
+- `npm run dev` - watch the source code & rebuild the library onchange
+  - this mode is **strongly** recommended when developing octagon and linking it into a consuming project
+    - to develop this library in real-time whilst using it in another project:
+      - run `npm link` in this project's source
+      - run `npm link react-octagon` in the consuming project's source
+
+- `npm start` - launch the interactive styleguide.  see more below.
+### styleguide
+
 - run `npm start`
 - open the URL (probably `localhost:6060`) to play w/ components as you develop them
 
-this will launch the Styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
+this will launch the styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
 
 ### building components
 
 when building components, please follow our [Architecture Decisions](github.com/Tripwire/octagon/blob/master/doc/architecture/decisions). each component should include an accompanying example in a markdown file.
 
 #### react-based functional stateless components
+
 octagon components are considered view-layer components and should generally be functional stateless components (see [ADR002](https://github.com/Tripwire/octagon/blob/master/doc/architecture/decisions/0002-components-shall-be-stateless-by-default.md)).
 - How to handle state is decided by the app (e.g. dealing with page number errors or and actual page number)
 - Positioning of the component will be decided by the app (e.g. 4px padding on the right and left)
@@ -37,7 +48,7 @@ octagon components are considered view-layer components and should generally be 
 
 #### native octagon component styles
 
-native octagon components use [cssnext](http://cssnext.io) and should follow [BEM CSS Standards](https://en.bem.info/methodology/css/). the styles belows show a block, element, and modifier.
+native octagon components use [cssnext](http://cssnext.io) and should follow [BEM CSS Standards](https://en.bem.info/methodology/css/). the styles below show a `block`, `element`, and `modifier`.
 
 ```css
 .pagination {
@@ -69,7 +80,7 @@ native octagon components use [cssnext](http://cssnext.io) and should follow [BE
 
 #### SUIR octagon component styles
 
-SUIR octagon components use LESS for styling. more information can be found on [Semantic UI's themeing page](https://semantic-ui.com/usage/theming.html). to theme SUIR components, navigate to your theme folder and add your styles in the to the component's: `.variables` and `.overides` files.
+SUIR octagon components use LESS for styling. more information can be found on [Semantic UI's themeing page](https://semantic-ui.com/usage/theming.html). to theme SUIR components, navigate to your theme folder, `src/semantic-ui-theme`, and add your styles in the to the component's: `.variables` and `.overides` files.
 (e.g. button.variables & button.overrides)
 
 ### build for production
