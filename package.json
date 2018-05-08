@@ -57,6 +57,7 @@
     "semantic-ui-react": "^0.79.1"
   },
   "scripts": {
+    "dev": "run-p watch:*",
     "build": "node scripts/build",
     "lint": "standard",
     "test": "DEBUG=webjerk* snapjerk",
@@ -66,6 +67,9 @@
     "start": "node scripts/start",
     "precommit": "run-p lint test",
     "semantic-release": "semantic-release",
+    "watch:css": "node scripts/watch css",
+    "watch:js": "node scripts/watch js",
+    "watch:sui": "node scripts/watch sui",
     "write-styleguide-sections": "node scripts/write-styleguide-sections"
   },
   "standard": {

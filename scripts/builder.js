@@ -87,7 +87,13 @@ module.exports = {
     const outputDir = path.join(this.componentDist)
     const inputDir = path.join(this.projectRoot, 'src/**/*.css')
     const cmd = this.getBin('postcss')
-    const args = [inputDir, '-d', outputDir, '-c', this.postCssConfig, '--base', 'src']
+    const args = [
+      inputDir,
+      '-d', outputDir,
+      '-c', this.postCssConfig,
+      '--base', 'src'
+    ]
+    if (opts.watch) args.push('--watch')
     await fs.mkdirp(this.componentDist)
     return execa(cmd, args, { cwd: this.projectRoot, stdio: 'inherit' })
   },
@@ -161,18 +167,7 @@ module.exports = {
       this.styleguideWriteSections(),
       this.build()
     ])
-    var compileChain = Promise.resolve() // poor mains queueing
-    const recompileCss = debounce(path => {
-      console.log(`${path} changed`)
-      compileChain = compileChain.then(() => this.buildSemantic())
-    }, 1000)
-    const watcher = chokidar.watch(this.twSuiThemeSrcPath)
-    watcher.on('ready', () => {
-      return watcher
-      .on('add', recompileCss)
-      .on('change', recompileCss)
-      .on('unlink', recompileCss)
-    })
+    const watcher = this.watchSui()
     try {
       await execa(
         'npx',
@@ -217,5 +212,31 @@ module.exports = {
       path.resolve(this.projectRoot, '.octagon-native-sections.json'),
       JSON.stringify(sections, null, 2)
     )
+  },
+  watchCss () {
+    return this.octagonComponentCss({ watch: true })
+  },
+  watchJs () {
+    return this.octagonComponentJs({ watch: true })
+  },
+  watchSui () {
+    var compileChain = Promise.resolve() // poor mans queueing
+    const recompileCss = debounce(async path => {
+      console.log(`${path} changed`)
+      await compileChain
+      console.time('semantic-ui rebuilt in')
+      compileChain = this.buildSemantic()
+      await compileChain
+      console.timeEnd('semantic-ui rebuilt in')
+    }, 1000)
+    recompileCss()
+    const watcher = chokidar.watch(this.twSuiThemeSrcPath)
+    watcher.on('ready', () => {
+      return watcher
+        .on('add', recompileCss)
+        .on('change', recompileCss)
+        .on('unlink', recompileCss)
+    })
+    return watcher
   }
 }
