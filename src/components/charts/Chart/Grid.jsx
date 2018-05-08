@@ -27,7 +27,10 @@ class Grid extends React.Component {
   render () {
     const translate = `translate(0, ${this.props.height})`
     return (
-      <g className='y-grid' transform={this.props.gridType === 'x' ? translate : ''} />
+      <g
+        className='y-grid'
+        transform={this.props.gridType === 'x' ? translate : ''}
+      />
     )
   }
 }

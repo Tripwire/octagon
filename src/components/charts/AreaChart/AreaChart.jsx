@@ -12,12 +12,7 @@ import * as d3Shape from 'd3-shape'
 import * as d3Format from 'd3-format'
 import * as d3Axis from 'd3-axis'
 
-const d3 = Object.assign(
-  {},
-  d3Shape,
-  d3Format,
-  d3Axis
-)
+const d3 = Object.assign({}, d3Shape, d3Format, d3Axis)
 
 class AreaChart extends React.Component {
   constructor (props) {
@@ -65,7 +60,7 @@ class AreaChart extends React.Component {
     this.setState({
       tooltip: {
         display: false,
-        data: { }
+        data: {}
       }
     })
   }
@@ -80,7 +75,16 @@ class AreaChart extends React.Component {
                 <g key={index}>
                   <polygon fill='#A676B2' points='38,-3 34,1 42,1' />
                   <text>
-                    <tspan className={type} textAnchor='middle' x='58px' y='2px' fontSize='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                    <tspan
+                      className={type}
+                      textAnchor='middle'
+                      x='58px'
+                      y='2px'
+                      fontSize='11px'
+                      fill='#A676B2'
+                    >
+                      {this.state.tooltip.data[type]}
+                    </tspan>
                   </text>
                 </g>
               )
@@ -89,7 +93,16 @@ class AreaChart extends React.Component {
                 <g key={index}>
                   <polygon fill='#A676B2' points='38,17 34,13 42,13' />
                   <text>
-                    <tspan className={type} textAnchor='middle' x='60px' y='18px' fontSize='11px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                    <tspan
+                      className={type}
+                      textAnchor='middle'
+                      x='60px'
+                      y='18px'
+                      fontSize='11px'
+                      fill='#A676B2'
+                    >
+                      {this.state.tooltip.data[type]}
+                    </tspan>
                   </text>
                 </g>
               )
@@ -97,7 +110,16 @@ class AreaChart extends React.Component {
             return (
               <g key={index}>
                 <text>
-                  <tspan className={type} textAnchor='middle' x='-20px' y='15px' fontSize='28px' fill='#A676B2'>{this.state.tooltip.data[type]}</tspan>
+                  <tspan
+                    className={type}
+                    textAnchor='middle'
+                    x='-20px'
+                    y='15px'
+                    fontSize='28px'
+                    fill='#A676B2'
+                  >
+                    {this.state.tooltip.data[type]}
+                  </tspan>
                 </text>
               </g>
             )
@@ -105,11 +127,20 @@ class AreaChart extends React.Component {
         </ToolTip>
       )
     }
-    return ('')
+    return ''
   }
 
   render () {
-    const { dotVisible, height, hideAxisX, hideAxisY, tooltipVisible, width, xDataType, yBuffer } = this.props
+    const {
+      dotVisible,
+      height,
+      hideAxisX,
+      hideAxisY,
+      tooltipVisible,
+      width,
+      xDataType,
+      yBuffer
+    } = this.props
     const margin = { top: 5, right: 50, bottom: 20, left: 50 }
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
@@ -120,34 +151,41 @@ class AreaChart extends React.Component {
 
     if (this.props.xDataType === 'date') {
       const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
-      data.forEach((d) => {
+      data.forEach(d => {
         d.x = parseDate(d.x)
       })
       xScale = ChartUtils.xScaleTime(data, width)
       xScaleAxis = ChartUtils.xScaleTime(data, width - 40)
-      xAxis = d3.axisBottom()
+      xAxis = d3
+        .axisBottom()
         .scale(xScaleAxis)
-        .tickValues(data.map((d) => d.x))
+        .tickValues(data.map(d => d.x))
         .ticks(5)
         .tickFormat(d3.timeFormat('%a'))
     } else {
       xScale = ChartUtils.xScaleLinear(data, width)
       xScaleAxis = ChartUtils.xScaleLinear(data, width - 40)
-      xAxis = d3.axisBottom()
+      xAxis = d3
+        .axisBottom()
         .scale(xScaleAxis)
-        .tickValues(data.map((d) => d.x))
+        .tickValues(data.map(d => d.x))
         .ticks(5)
     }
 
     const yScale = ChartUtils.yScaleLinear(data, innerHeight, yBuffer)
 
-    let yAxis = d3.axisLeft()
+    let yAxis = d3
+      .axisLeft()
       .scale(yScale)
       .ticks(5)
 
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div {...externalAttributes} className={`octagon area-chart__container ${this.props.className || ''}`}>
+      <div
+        {...externalAttributes}
+        className={`octagon area-chart__container ${this.props.className ||
+          ''}`}
+      >
         <svg width={width} height={innerHeight}>
           <g transform='translate(2, 4)'>
             <PlotArea
@@ -156,33 +194,54 @@ class AreaChart extends React.Component {
               xScale={xScale}
               yScale={yScale}
             />
-            {hideAxisX ? '' : <Axis height={innerHeight} width={innerWidth - 10} axis={xAxis} axisType='x' orientation='bottom' />}
-            {hideAxisY ? '' : <Axis height={innerHeight} axis={yAxis} axisType='y' orientation='left' />}
+            {hideAxisX ? (
+              ''
+            ) : (
+              <Axis
+                height={innerHeight}
+                width={innerWidth - 10}
+                axis={xAxis}
+                axisType='x'
+                orientation='bottom'
+              />
+            )}
+            {hideAxisY ? (
+              ''
+            ) : (
+              <Axis
+                height={innerHeight}
+                axis={yAxis}
+                axisType='y'
+                orientation='left'
+              />
+            )}
             {this.renderToolTip()}
-            {dotVisible
-            ? <Dots
-              data={data}
-              showToolTip={this.showToolTip}
-              hideToolTip={this.hideToolTip}
-              xDataType={xDataType}
-              xScale={xScale}
-              yScale={yScale}
+            {dotVisible ? (
+              <Dots
+                data={data}
+                showToolTip={this.showToolTip}
+                hideToolTip={this.hideToolTip}
+                xDataType={xDataType}
+                xScale={xScale}
+                yScale={yScale}
               />
-              : ''
-            }
-            {tooltipVisible
-            ? <ChartOverlay
-              data={data}
-              height={innerHeight}
-              hideToolTip={this.hideToolTip}
-              mouseMove={this.mouseMove}
-              width={width}
-              xDataType={xDataType}
-              xScale={xScale}
-              yScale={yScale}
+            ) : (
+              ''
+            )}
+            {tooltipVisible ? (
+              <ChartOverlay
+                data={data}
+                height={innerHeight}
+                hideToolTip={this.hideToolTip}
+                mouseMove={this.mouseMove}
+                width={width}
+                xDataType={xDataType}
+                xScale={xScale}
+                yScale={yScale}
               />
-              : ''
-            }
+            ) : (
+              ''
+            )}
           </g>
         </svg>
       </div>

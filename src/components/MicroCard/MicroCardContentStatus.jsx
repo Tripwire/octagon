@@ -5,7 +5,7 @@ import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import alertIconUri from '../../assets/alert-icon.svg'
 import warningIconUri from '../../assets/warning-yellow.svg'
 
-const MicroCardContentStatus = (props) => {
+const MicroCardContentStatus = props => {
   let icon = ''
 
   switch (props.status) {
@@ -21,7 +21,12 @@ const MicroCardContentStatus = (props) => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
     <Flexbox marginRight='5px'>
-      <img {...externalAttributes} className={`microcard__stateIcon ${props.className}`} src={icon} alt='icon' />
+      <img
+        {...externalAttributes}
+        className={`microcard__stateIcon ${props.className}`}
+        src={icon}
+        alt='icon'
+      />
     </Flexbox>
   )
 }

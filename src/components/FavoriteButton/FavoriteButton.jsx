@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import '../../styles/components/favorite-button.css'
 
-const FavoriteButton = (props) => {
+const FavoriteButton = props => {
   let favoriteIconClass = ''
   if (props.isFavorited) {
     favoriteIconClass = 'icon_star'

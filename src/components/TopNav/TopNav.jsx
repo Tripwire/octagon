@@ -4,12 +4,8 @@ import TopNavContent from './TopNavContent'
 import '../../styles/components/top-nav.css'
 import classnames from 'classnames'
 
-const TopNav = (props) => {
-  const {
-    children,
-    className,
-    ...rest
-  } = props
+const TopNav = props => {
+  const { children, className, ...rest } = props
   return (
     <div
       {...rest}

@@ -9,7 +9,7 @@ import ThinCardWidget from './ThinCardWidget'
 import ThinCardDrawer from './ThinCardDrawer'
 import classnames from 'classnames'
 
-const ThinCard = (props) => {
+const ThinCard = props => {
   const {
     children,
     className,

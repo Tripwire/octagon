@@ -10,7 +10,7 @@ const STATE_COLOR_MAP = {
   NORMAL: 'normal',
   BLUE: 'blue' // @deprecated
 }
-const LargeCardGutter = (props) => {
+const LargeCardGutter = props => {
   const externalAttributes = filterAttributesFromProps(props)
   let color = ''
   switch (props.color) {
@@ -34,13 +34,12 @@ const LargeCardGutter = (props) => {
       {...externalAttributes}
       className={`fullview__left_border ${props.className || ''}`}
       width='9px'
-      style={{ backgroundColor: color }} />
+      style={{ backgroundColor: color }}
+    />
   )
 }
 
-LargeCardGutter.defaultProps = {
-
-}
+LargeCardGutter.defaultProps = {}
 
 LargeCardGutter.propTypes = {
   /** color of gutter. use `LargeCardGutter.STATE_COLOR_MAP` or any standard web color string  */

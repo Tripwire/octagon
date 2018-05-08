@@ -46,7 +46,7 @@ export default class PaginationControl extends React.PureComponent {
   }
 
   gotoPage (page) {
-    let payload = {page: page}
+    let payload = { page: page }
     if (!isNumber(page)) {
       payload.error = 'Invalid Number'
     } else if (!this.isPageWithinLowerBound(page)) {
@@ -70,7 +70,9 @@ export default class PaginationControl extends React.PureComponent {
   }
 
   isValidPage (page) {
-    return (this.isPageWithinLowerBound(page) && this.isPageWithinUpperBound(page))
+    return (
+      this.isPageWithinLowerBound(page) && this.isPageWithinUpperBound(page)
+    )
   }
 
   isDisabled (btnType) {
@@ -112,35 +114,58 @@ export default class PaginationControl extends React.PureComponent {
 
     return (
       <div className='octagon pagination'>
-        <button className={`pagination__button pagination__prev`}
+        <button
+          className={`pagination__button pagination__prev`}
           data-hook='pagination-button-first-page'
-          onClick={this.gotoFirstPage} {...isDisabled('prev')} >
+          onClick={this.gotoFirstPage}
+          {...isDisabled('prev')}
+        >
           <i className='arrow_carrot-2left' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__prev`}
+        <button
+          className={`pagination__button pagination__prev`}
           data-hook='pagination-button-prev-page'
-          onClick={this.gotoPrevPage} {...isDisabled('prev')} >
+          onClick={this.gotoPrevPage}
+          {...isDisabled('prev')}
+        >
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
-        <div className={`pagination__page-number`} >
+        <div className={`pagination__page-number`}>
           <span>Page</span>
-          <input className={`pagination__input`} type='number' min='1' max={totalPages}
-            key={`${page}`} defaultValue={`${page}`}
-            onBlur={this.handleUserInput} onKeyDown={this.handleInputKeyDown} {...isDisabled()} />
+          <input
+            className={`pagination__input`}
+            type='number'
+            min='1'
+            max={totalPages}
+            key={`${page}`}
+            defaultValue={`${page}`}
+            onBlur={this.handleUserInput}
+            onKeyDown={this.handleInputKeyDown}
+            {...isDisabled()}
+          />
           <span>of</span>
           <span className='pagination__page-total'>
-            {totalPages || <em className='pagination__page-number_total-pages-unknown'>...</em>}
-
+            {totalPages || (
+              <em className='pagination__page-number_total-pages-unknown'>
+                ...
+              </em>
+            )}
           </span>
         </div>
-        <button className={`pagination__button pagination__next`}
+        <button
+          className={`pagination__button pagination__next`}
           data-hook='pagination-button-next-page'
-          onClick={this.gotoNextPage} {...isDisabled('next')} >
+          onClick={this.gotoNextPage}
+          {...isDisabled('next')}
+        >
           <i className='arrow_carrot-right' aria-hidden='true' />
         </button>
-        <button className={`pagination__button pagination__next`}
+        <button
+          className={`pagination__button pagination__next`}
           data-hook='pagination-button-last-page'
-          onClick={this.gotoLastPage} {...isDisabled('last')} >
+          onClick={this.gotoLastPage}
+          {...isDisabled('last')}
+        >
           <i className='arrow_carrot-2right' aria-hidden='true' />
         </button>
       </div>
@@ -155,7 +180,7 @@ PaginationControl.propTypes = {
    * @param {Number} page target page number
    */
   onPageChange: PropTypes.func.isRequired,
-   /**
+  /**
    * Called when the page changes.
    * @param {Number} page target page number
    */

@@ -3,7 +3,7 @@ import React from 'react'
 import Flexbox from 'flexbox-react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
-const MicroCardContentMessage = (props) => {
+const MicroCardContentMessage = props => {
   let status = ''
 
   switch (props.status) {

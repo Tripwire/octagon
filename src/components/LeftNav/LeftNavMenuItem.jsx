@@ -12,13 +12,11 @@ function LeftNavMenuItem (props) {
   let iconActiveClass = props.active ? 'active-icon' : ''
   return (
     <li className='nav__item' onClick={props.onClick}>
-      {props.active
-        ? <div className='nav_border--active' />
-        : null}
+      {props.active ? <div className='nav_border--active' /> : null}
       <div className={`icon_container ${iconContainerActiveClass}`}>
-        {props.image
-          ? <img className={`icon_nav ${iconActiveClass}`} src={props.image} />
-          : null}
+        {props.image ? (
+          <img className={`icon_nav ${iconActiveClass}`} src={props.image} />
+        ) : null}
         {props.children}
       </div>
     </li>

@@ -5,11 +5,7 @@ import xor from 'lodash/xor'
 
 export default class LoginPane extends PureComponent {
   render () {
-    const {
-      children,
-      className,
-      ...rest
-    } = this.props
+    const { children, className, ...rest } = this.props
     return (
       <form {...rest} className={classnames(className, 'login__container')}>
         {children}
@@ -44,11 +40,7 @@ LoginPane.propTypes = {
 }
 
 LoginPane.Logo = function LoginLogo (props) {
-  const {
-    className,
-    children,
-    ...rest
-  } = props
+  const { className, children, ...rest } = props
   return (
     <span {...rest} className={classnames(className, 'login__logo')}>
       {children}
@@ -57,11 +49,7 @@ LoginPane.Logo = function LoginLogo (props) {
 }
 
 LoginPane.Username = function LoginUsername (props) {
-  const {
-    className,
-    children,
-    ...rest
-  } = props
+  const { className, children, ...rest } = props
   return (
     <span {...rest} className={classnames(className, 'login__username')}>
       {children}
@@ -70,11 +58,7 @@ LoginPane.Username = function LoginUsername (props) {
 }
 
 LoginPane.Password = function LoginPassword (props) {
-  const {
-    className,
-    children,
-    ...rest
-  } = props
+  const { className, children, ...rest } = props
   return (
     <span {...rest} className={classnames(className, 'login__password')}>
       {children}
@@ -83,11 +67,7 @@ LoginPane.Password = function LoginPassword (props) {
 }
 
 LoginPane.Submit = function LoginSubmit (props) {
-  const {
-    className,
-    children,
-    ...rest
-  } = props
+  const { className, children, ...rest } = props
   return (
     <span {...rest} className={classnames(className, 'login__submit')}>
       {children}
@@ -96,11 +76,7 @@ LoginPane.Submit = function LoginSubmit (props) {
 }
 
 LoginPane.Footer = function LoginFooter (props) {
-  const {
-    className,
-    children,
-    ...rest
-  } = props
+  const { className, children, ...rest } = props
   return (
     <footer {...rest} className={classnames(className, 'login__footer')}>
       {children}
