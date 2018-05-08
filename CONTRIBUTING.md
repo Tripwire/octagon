@@ -4,16 +4,16 @@
 
 `octagon` offers two mechanisms to support development:
 
-- `npm run dev` - watch the source code & rebuild the library onchange
+- `yarn dev` - watch the source code & rebuild the library onchange
   - this mode is **strongly** recommended when developing octagon and linking it into a consuming project
     - to develop this library in real-time whilst using it in another project:
-      - run `npm link` in this project's source
-      - run `npm link react-octagon` in the consuming project's source
+      - run `yarn link` in this project's source
+      - run `yarn link react-octagon` in the consuming project's source
 
-- `npm start` - launch the interactive styleguide.  see more below.
+- `yarn start` - launch the interactive styleguide.  see more below.
 ### styleguide
 
-- run `npm start`
+- run `yarn start`
 - open the URL (probably `localhost:6060`) to play w/ components as you develop them
 
 this will launch the styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
@@ -85,10 +85,10 @@ SUIR octagon components use LESS for styling. more information can be found on [
 
 ### build for production
 
-- **build octagon** `npm run build`
+- **build octagon** `yarn build`
   - this will create the lib bundle which will contain production build
   - this can be ingested by applications to use Octagon components
-- **build styleguide** `npm run styleguide:build`
+- **build styleguide** `yarn styleguide:build`
   - this will create the Styleguide folder and run Styleguidist
   - note: this build is what is currently used for testing
 - **test octagon**
@@ -143,7 +143,7 @@ commits should be small, targetted, and focused.  unfocused changes need to be s
 ### step 4: test
 
 - run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
-- run `npm test` to use our tests against your changes including webjerk image diffing
+- run `yarn test` to use our tests against your changes including webjerk image diffing
 - **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
 > if you approve of the changes Snapjerk displays you need will to update the reference set:
 > - new images: set WEBJERK_ALLOW_NEW_IMAGES=1 in your env

@@ -20,9 +20,9 @@ this package provides:
 
 ## installation
 
-to install and use this project within your project, simply clone the react-octagon project and use npm to install it.
+to install and use this project within your project, simply clone the react-octagon project and use yarn to install it.
 
-`npm install --save react-octagon` or `npm add --dev react-octagon`
+`yarn add react-octagon` or `yarn add --dev react-octagon`
 
 ## usage
 
@@ -51,7 +51,7 @@ you can interact with octagon components on our [interactive styleguide](https:/
 
 ### react component api distribution
 
-**useful** if you've `npm link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  you must run `npm run build` to get a fresh set of react components!
+**useful** if you've `yarn link`ed your front-end project with `octagon` and want to iterate on components without suffering the build/publish lifecycle for `octagon`.  you must run `yarn build` to get a fresh set of react components!
 
 ## contributing
 

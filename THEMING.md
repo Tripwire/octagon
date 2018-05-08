@@ -9,7 +9,7 @@ the [theming](http://semantic-ui.com/usage/theming.html) page explains the gener
 ![](https://github.com/cdaringe/octagon/blob/master/img/theme-change-reload.mov.gif?raw=true)
 _the build process is a little slow at the moment--it may take a few seconds for the UI to be updated after you've made a change._
 
-- boot your storybook via `npm start`
+- boot your storybook via `yarn start`
 - look at the `semantic/` dir in this project.  this is where our theme lives!
   - semantic-ui exports a "default" theme. we will take that default theme and modify it to our needs
 - suppose you want to edit how a `Button` looks

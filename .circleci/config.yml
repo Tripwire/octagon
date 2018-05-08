@@ -7,19 +7,35 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - restore_cache:
+          keys:
+          - v1-nvm-{{ checksum ".nvmrc" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-nvm-
+
       - run:
-          name: Install node@9.4.0
+          name: Install node via .nvmrc
           command: |
             set +e
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
             export NVM_DIR="/opt/circleci/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm install v9.4.0
-            nvm alias default v9.4.0
+            nvm install
+            nvm use
+            nvm alias default $(cat .nvmrc)
 
             # Each step uses the same `$BASH_ENV`, so need to modify it
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
+
+      - run:
+          name: Install yarn
+          command: npm install -g yarn
+
+      - save_cache:
+          paths:
+            - /opt/circleci/.nvm
+          key: v1-nvm-{{ checksum ".nvmrc" }}
 
       - restore_cache:
           keys:
@@ -27,7 +43,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: nvm use node && npm install --verbose
+      - run: yarn
 
       - save_cache:
           paths:
@@ -38,11 +54,10 @@ jobs:
       - run: docker network prune --force
 
       # lint
-      - run: npm run lint
+      - run: yarn lint
 
       # build
-      - run: npm run build
-      - run: npm run styleguide:build
+      - run: yarn styleguide:build # prestyleguide:build runs a pkg build
 
       # test
       - run: DEBUG=webjerk* npm test -- --verbose
@@ -55,7 +70,7 @@ jobs:
             echo "    login $SURGE_LOGIN" >> ~/.netrc
             echo "    password $SURGE_TOKEN" >> ~/.netrc
             git config --global user.email "gh-pages@localhost" && git config --global user.name "npm gh-pages"
-            if [ "$CIRCLE_BRANCH" != "master" ]; then npm run ci:update-pull-request-with-styleguide || true; fi
+            if [ "$CIRCLE_BRANCH" != "master" ]; then yarn ci:update-pull-request-with-styleguide || true; fi
 
       # cut a release
       - run:
