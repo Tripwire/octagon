@@ -19,6 +19,7 @@ const { Button, Input } = require('semantic-ui-react');
       onKeyDown: this.enterSubmit,
       onChange: this.handleUserChange,
       autoFocus: true,
+      autoComplete: 'off',
       autoCapitalize: 'off'
     }} />
   </LoginPane.Username>
