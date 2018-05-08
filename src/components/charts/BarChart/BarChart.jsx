@@ -55,7 +55,16 @@ class BarChart extends React.Component {
   }
 
   render () {
-    const { barPadding, borderRadius, height, margin, width, xDataType, showXLabel, showIcon } = this.props
+    const {
+      barPadding,
+      borderRadius,
+      height,
+      margin,
+      width,
+      xDataType,
+      showXLabel,
+      showIcon
+    } = this.props
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
     const transform = `translate(-${margin.left}, ${margin.top})`
@@ -65,10 +74,10 @@ class BarChart extends React.Component {
 
     if (this.props.xDataType === 'date') {
       const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
-      data.forEach((d) => {
+      data.forEach(d => {
         d.x = parseDate(d.x)
       })
-      xScaleTimeLineData.forEach((d) => {
+      xScaleTimeLineData.forEach(d => {
         d.x = parseDate(d.x)
       })
 
@@ -81,7 +90,12 @@ class BarChart extends React.Component {
 
     const externalAttributes = filterAttributesFromProps(this.props)
     return (
-      <div {...externalAttributes} className={`bar-chart__container svg-overflow-visible ${this.props.className}`}>
+      <div
+        {...externalAttributes}
+        className={`bar-chart__container svg-overflow-visible ${
+          this.props.className
+        }`}
+      >
         <svg width={width} height={height}>
           <g transform={transform}>
             <Rect

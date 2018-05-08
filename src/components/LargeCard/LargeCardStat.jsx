@@ -3,10 +3,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
-const LargeCardStat = (props) => {
+const LargeCardStat = props => {
   const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox {...externalAttributes} className={`stats ${props.className}`} flexDirection='row'>
+    <Flexbox
+      {...externalAttributes}
+      className={`stats ${props.className}`}
+      flexDirection='row'
+    >
       <span className='label'>{props.label}</span>
       <span className='value'>{props.value}</span>
     </Flexbox>

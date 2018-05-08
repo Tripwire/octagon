@@ -24,6 +24,7 @@
     "html-loader": "^0.5.1",
     "husky": "^0.14.3",
     "less": "^2.7.2",
+    "lint-staged": "^7.1.0",
     "npm-run-all": "^4.1.1",
     "perish": "^1.0.1",
     "postcss-cli": "^4.1.0",
@@ -31,6 +32,7 @@
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "postcss-neat": "^2.5.3",
+    "prettier-standard": "^8.0.1",
     "react": "^16",
     "react-dom": "^16",
     "react-remarkable": "^1.1.1",
@@ -39,7 +41,7 @@
     "semantic-release": "^12.4.1",
     "semantic-ui-react": "^0.79.1",
     "snapjerk": "^0.3.0",
-    "standard": "^10.0.3",
+    "standard": "^11.0.1",
     "style-loader": "^0.18.2",
     "surge-review": "^1.1.1",
     "webpack": "3.5.6"
@@ -67,12 +69,13 @@
     "ci:update-pull-request-with-styleguide": "surge-review --publish-dir styleguide --pull-request $CIRCLE_PULL_REQUEST",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p lint test",
+    "precommit": "run-p lint test format",
     "semantic-release": "semantic-release",
     "watch:css": "node scripts/watch css",
     "watch:js": "node scripts/watch js",
     "watch:sui": "node scripts/watch sui",
-    "write-styleguide-sections": "node scripts/write-styleguide-sections"
+    "write-styleguide-sections": "node scripts/write-styleguide-sections",
+    "format": "prettier-standard 'src/**/*.js' 'src/**/*.jsx' 'scripts/**/*.js' './*.js'"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -93,5 +96,21 @@
     "url": "https://github.com/Tripwire/octagon.git"
   },
   "version": "0.0.0-development",
-  "sideEffects": false
+  "sideEffects": false,
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "src/**/*.jsx": [
+        "prettier-standard",
+        "git add"
+      ],
+      "scripts/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  }
 }

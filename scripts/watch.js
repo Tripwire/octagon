@@ -13,4 +13,4 @@ void (async function watch () {
     default:
       throw new Error(`no task named: ${task || '[no task provided]'}`)
   }
-}())
+})()

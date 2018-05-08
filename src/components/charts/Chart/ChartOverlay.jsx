@@ -4,11 +4,7 @@ import ReactDOM from 'react-dom'
 import * as d3Selection from 'd3-selection'
 import * as d3Array from 'd3-array'
 
-var d3 = Object.assign(
-  {},
-  d3Selection,
-  d3Array
-)
+var d3 = Object.assign({}, d3Selection, d3Array)
 class ChartOverlay extends React.Component {
   constructor (props) {
     super(props)
@@ -17,7 +13,7 @@ class ChartOverlay extends React.Component {
 
   mouseMove (e) {
     const { xScale, data } = this.props
-    const bisectXAxis = d3.bisector((d) => d.x).left
+    const bisectXAxis = d3.bisector(d => d.x).left
     const node = ReactDOM.findDOMNode(this)
 
     const bounds = node.getBoundingClientRect()
@@ -51,7 +47,9 @@ class ChartOverlay extends React.Component {
         stroke={'none'}
         style={{ pointerEvents: 'all' }}
         height={height}
-        onMouseMove={(e) => { this.mouseMove(e) }}
+        onMouseMove={e => {
+          this.mouseMove(e)
+        }}
         onMouseOut={hideToolTip}
       />
     )

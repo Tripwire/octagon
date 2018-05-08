@@ -4,9 +4,12 @@ import LeftNavMenuItem from './LeftNavMenuItem'
 import '../../styles/components/left-nav.css'
 import classnames from 'classnames'
 
-const LeftNav = (props) => {
+const LeftNav = props => {
   return (
-    <nav {...props} className={classnames(props.className, 'octagon nav__left')}>
+    <nav
+      {...props}
+      className={classnames(props.className, 'octagon nav__left')}
+    >
       {props.children}
     </nav>
   )
@@ -17,8 +20,6 @@ LeftNav.propTypes = {
   children: PropTypes.node
 }
 
-LeftNav.defaultProps = {
-
-}
+LeftNav.defaultProps = {}
 
 export default LeftNav

@@ -8,24 +8,33 @@ const d3 = Object.assign({}, shape)
 
 const twoPi = Math.PI * 2
 
-const CircleChart = (props) => {
-  const {color, border, endPercent, radius, padding, backgroundOpacity} = props
+const CircleChart = props => {
+  const {
+    color,
+    border,
+    endPercent,
+    radius,
+    padding,
+    backgroundOpacity
+  } = props
   const center = radius + padding
   const boxSize = (radius + padding) * 2
   const endPercentValue = props.endPercentValue
 
-  const arc = d3.arc()
+  const arc = d3
+    .arc()
     .startAngle(0)
     .innerRadius(radius)
     .outerRadius(radius - border)
-  const arcbg = d3.arc()
+  const arcbg = d3
+    .arc()
     .startAngle(0)
     .innerRadius(radius - 4)
     .outerRadius(radius - 1)
   const externalAttributes = filterAttributesFromProps(props)
 
   return (
-    <div {...externalAttributes} >
+    <div {...externalAttributes}>
       <svg width={boxSize} height={boxSize}>
         <g transform={`translate(${center},${center})`}>
           <g className='progress-meter'>

@@ -5,7 +5,9 @@ const glob = require('glob')
 const fs = require('fs')
 const builder = require('./scripts/builder')
 
-const suirExamples = glob.sync(`${__dirname}/src/components/suir/**/*.examples.md`)
+const suirExamples = glob.sync(
+  `${__dirname}/src/components/suir/**/*.examples.md`
+)
 
 var semanticCSSStat = fs.lstatSync(builder.semanticCSSFilename)
 if (!semanticCSSStat.isFile) throw new Error('semantic css file invalid')

@@ -10,19 +10,11 @@ import TopNav from '../../TopNav/TopNav'
 
 export default class Layout extends PureComponent {
   render () {
-    const {
-      logo,
-      ...rest
-    } = this.props
+    const { logo, ...rest } = this.props
     return (
-      <div
-        {...rest}
-        className={cx(this.props.className, 'layout__container')}
-      >
+      <div {...rest} className={cx(this.props.className, 'layout__container')}>
         <TopNav className='layout__header'>
-          <TopNav.Content align='left'>
-            {logo}
-          </TopNav.Content>
+          <TopNav.Content align='left'>{logo}</TopNav.Content>
           <TopNav.Content className='top-nav__dropdown-selector' align='right'>
             {'administrator '}
             <Icon name='chevron down' size='small' />

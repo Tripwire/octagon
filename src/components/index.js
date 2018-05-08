@@ -6,8 +6,12 @@ export { default as FavoriteButton } from './FavoriteButton/FavoriteButton'
 export { default as LargeCard } from './LargeCard/LargeCard'
 export { default as LeftNav } from './LeftNav/LeftNav'
 export { default as MicroCard } from './MicroCard/MicroCard'
-export { default as NotificationItem } from './NotificationItem/NotificationItem'
-export { default as PaginationControl } from './PaginationControl/PaginationControl'
+export {
+  default as NotificationItem
+} from './NotificationItem/NotificationItem'
+export {
+  default as PaginationControl
+} from './PaginationControl/PaginationControl'
 export { default as StopStartButton } from './StopStartButton/StopStartButton'
 export { default as TagButton } from './TagButton/TagButton'
 export { default as ThinCard } from './ThinCard/ThinCard'

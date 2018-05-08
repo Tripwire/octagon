@@ -13,7 +13,7 @@ const allowedExternalAttributes = [
 
 export default function filterAttributesFromProps (props) {
   return pickBy(props, (propValue, propName) => {
-    return some(allowedExternalAttributes, (allowedAttributeName) => {
+    return some(allowedExternalAttributes, allowedAttributeName => {
       return propName.match(allowedAttributeName)
     })
   })

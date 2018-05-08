@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon } from 'semantic-ui-react'
 import '../../styles/components/stop-start-button.css'
 
-const StopStartButton = (props) => {
+const StopStartButton = props => {
   let iconClass = 'octagon ei stop-start-button '
   if (props.className) {
     iconClass = `${iconClass} ${props.className}`
@@ -14,7 +14,11 @@ const StopStartButton = (props) => {
     iconClass = `${iconClass} arrow_triangle-right_alt2`
   }
   return (
-    <Icon className={`${iconClass}`} style={props.style} onClick={props.onClick} />
+    <Icon
+      className={`${iconClass}`}
+      style={props.style}
+      onClick={props.onClick}
+    />
   )
 }
 
