@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LeftNavMenuItem from './LeftNavMenuItem'
 import '../../../styles/components/left-nav.css'
+import classnames from 'classnames'
 
 const LeftNav = (props) => {
   return (
-    <nav className='octagon nav__left ' {...props}>
+    <nav {...props} className={classnames(props.className, 'octagon nav__left')}>
       {props.children}
     </nav>
   )

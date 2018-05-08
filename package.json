@@ -52,7 +52,7 @@
     "react-test-renderer": "^16.3.2",
     "rucksack-css": "^1.0.2",
     "semantic-release": "^15.1.7",
-    "snapjerk": "^0.2.22",
+    "snapjerk": "^0.3.0",
     "standard": "^11.0.1",
     "style-loader": "^0.21.0",
     "surge-review": "^1.1.1",
@@ -60,6 +60,7 @@
     "webpack": "4.6.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "d3": "^5.1.0",
     "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.4.0",

@@ -2,33 +2,38 @@
 .octagon.nav__left {
   background: color(var(--cloudburst));
   color: var(--white);
-  min-height: 100vh;
-  height: 100%;
-  left: 0;
   list-style: none;
   position: relative;
-  top: 0px;
   width: 65px;
-  & .nave__item {
+  & .nav_border--active {
+    border-left: 4px solid var(--white);
+    height: 40px;
+    position: absolute;
+    top: 8px;
+  }
+  & .nav__item {
+    position: relative;
     color: var(--white);
   }
-  & .icon_container{
+  & .icon_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 10px 0 10px 0;
     & .active-icon{
       opacity: 1;
     }
   }
   & .icon_nav{
     height: 40px;
-    cursor: pointer;
     text-align: center;
     opacity: .4;
   }
 
   & .icon_container-active {
-    border-left: 4px solid var(--white);
     opacity: 1;
     & .icon_nav:hover{
       opacity: 1;
