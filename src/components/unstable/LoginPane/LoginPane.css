@@ -1,0 +1,48 @@
+.login__container {
+  align-self: center;
+  background-color: hsla(0,0%,100%,.9);
+  border-radius: 4px;
+  border: 1px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  display: grid;
+  grid-column-gap: 0;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "logo"
+    "username"
+    "password"
+    "message"
+    "submit"
+    "footer";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  margin: auto;
+  min-width: 460px;
+  padding: 2em;
+  text-align: center;
+  width: 25em;
+}
+
+.login__logo {
+  grid-area: logo;
+}
+
+.login__username {
+  grid-area: username;
+}
+
+.login__password {
+  grid-area: password;
+}
+
+.login__message {
+  grid-area: message;
+}
+
+.login__submit {
+  grid-area: submit;
+}
+
+.login__footer {
+  grid-area: footer;
+}

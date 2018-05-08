@@ -1,0 +1,15 @@
+.login-page__container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
+    "login";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.login-page__login {
+  align-self: center;
+  grid-area: login;
+  justify-self: center;
+}
