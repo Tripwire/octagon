@@ -33,8 +33,8 @@ using octagon components in your app is easy:
 
 ```js
 import 'react-octagon/lib/styles/semantic.css'
+import { FavoriteButton } from 'react-octagon'
 import { Segment } from 'semantic-ui-react'
-import FavoriteButton from 'react-octagon/lib/components/FavoriteButton'
 
 class MyWigdet () {
   render () {
