@@ -6,13 +6,6 @@ export default class PopupDemo extends Component {
     super(props)
     this.state = { open: false }
   }
-  componentDidMount () {
-    setTimeout(() => {
-      Array.from(document.getElementsByClassName('popup-example')).forEach(
-        node => node.click()
-      )
-    }, 100)
-  }
   render () {
     return (
       <div>

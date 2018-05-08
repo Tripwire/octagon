@@ -1,23 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 /**
  * Menu item for navigation menu
  * @param {*} props
  */
 function LeftNavMenuItem (props) {
-  let iconContainerActiveClass = props.active
-    ? 'icon_container-active'
-    : 'icon_container-inactive'
+  const { active, image, className, children, ...rest } = props
   let iconActiveClass = props.active ? 'active-icon' : ''
   return (
-    <li className='nav__item' onClick={props.onClick}>
-      {props.active ? <div className='nav_border--active' /> : null}
-      <div className={`icon_container ${iconContainerActiveClass}`}>
-        {props.image ? (
-          <img className={`icon_nav ${iconActiveClass}`} src={props.image} />
+    <li {...rest} className={cx('nav__item', className)}>
+      {active ? <div className='nav_border--active' /> : null}
+      <div
+        className={`icon_container icon_container-${
+          active ? 'active' : 'inactive'
+        }`}
+      >
+        {image ? (
+          <img className={`icon_nav ${iconActiveClass}`} src={image} />
         ) : null}
-        {props.children}
+        {children}
       </div>
     </li>
   )
