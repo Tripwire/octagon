@@ -2,7 +2,12 @@
  * @description build css, kickoff semantic styles watcher, and kickoff styleguidist!
  */
 
-'use strict'
-
+require('perish')
 const builder = require('./builder')
-builder.styleguideServer()
+void (async function start () {
+  try {
+    await builder.styleguideServer()
+  } catch (err) {
+    throw err
+  }
+})()
