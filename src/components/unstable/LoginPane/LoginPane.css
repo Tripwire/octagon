@@ -20,7 +20,10 @@
   min-width: 460px;
   padding: 2em;
   text-align: center;
-  width: 25em;
+}
+
+.login__container--compact-y {
+  grid-row-gap: 0;
 }
 
 .login__logo {

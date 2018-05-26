@@ -1,19 +1,26 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import './LoginPane.css'
-import classnames from 'classnames'
+import cx from 'classnames'
 import xor from 'lodash/xor'
 
 export default class LoginPane extends PureComponent {
   render () {
-    const { children, className, ...rest } = this.props
+    const { children, className, compactY, ...rest } = this.props
+    const classNames = cx(
+      className,
+      'login__container',
+      compactY ? 'login__container--compact-y' : null
+    )
     return (
-      <form {...rest} className={classnames(className, 'login__container')}>
+      <form {...rest} className={classNames}>
         {children}
       </form>
     )
   }
 }
 LoginPane.propTypes = {
+  compactY: PropTypes.bool,
   children: function (props, propName, componentName) {
     var childrenTypes = props[propName].map(el => el.type.name)
     var allowedTypes = [
@@ -42,7 +49,7 @@ LoginPane.propTypes = {
 LoginPane.Logo = function LoginLogo (props) {
   const { className, children, ...rest } = props
   return (
-    <span {...rest} className={classnames(className, 'login__logo')}>
+    <span {...rest} className={cx(className, 'login__logo')}>
       {children}
     </span>
   )
@@ -51,7 +58,7 @@ LoginPane.Logo = function LoginLogo (props) {
 LoginPane.Username = function LoginUsername (props) {
   const { className, children, ...rest } = props
   return (
-    <span {...rest} className={classnames(className, 'login__username')}>
+    <span {...rest} className={cx(className, 'login__username')}>
       {children}
     </span>
   )
@@ -60,7 +67,7 @@ LoginPane.Username = function LoginUsername (props) {
 LoginPane.Password = function LoginPassword (props) {
   const { className, children, ...rest } = props
   return (
-    <span {...rest} className={classnames(className, 'login__password')}>
+    <span {...rest} className={cx(className, 'login__password')}>
       {children}
     </span>
   )
@@ -69,7 +76,7 @@ LoginPane.Password = function LoginPassword (props) {
 LoginPane.Submit = function LoginSubmit (props) {
   const { className, children, ...rest } = props
   return (
-    <span {...rest} className={classnames(className, 'login__submit')}>
+    <span {...rest} className={cx(className, 'login__submit')}>
       {children}
     </span>
   )
@@ -78,7 +85,7 @@ LoginPane.Submit = function LoginSubmit (props) {
 LoginPane.Footer = function LoginFooter (props) {
   const { className, children, ...rest } = props
   return (
-    <footer {...rest} className={classnames(className, 'login__footer')}>
+    <footer {...rest} className={cx(className, 'login__footer')}>
       {children}
     </footer>
   )

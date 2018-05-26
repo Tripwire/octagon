@@ -5,7 +5,7 @@ import filterAttributesFromProps from '../../util/externalAttributeFilter'
 const LargeCardKeyValue = props => {
   const externalAttributes = filterAttributesFromProps(props)
 
-  const { label, value, renderValue } = props
+  const { label, value, renderValue = defaultRenderValue } = props
 
   return (
     <div {...externalAttributes} className={`summary_info ${props.className}`}>
@@ -17,15 +17,16 @@ const LargeCardKeyValue = props => {
 
 LargeCardKeyValue.defaultProps = {
   label: '',
-  value: 0,
-  renderValue: value =>
-    value.toLocaleString(navigator.language, { minimumFractionDigits: 0 })
+  value: 0
 }
 
 LargeCardKeyValue.propTypes = {
   label: PropTypes.string,
   value: PropTypes.number.isRequired,
-  renderValue: PropTypes.function
+  renderValue: PropTypes.func
 }
 
+function defaultRenderValue (value) {
+  return value.toLocaleString(navigator.language, { minimumFractionDigits: 0 })
+}
 export default LargeCardKeyValue
