@@ -1,4 +1,19 @@
-### LoginPane examples:
+### Login Pane Basic
+
+```js
+const { BasicLoginPane } = require('./LoginPaneExamples');
+<BasicLoginPane />
+```
+
+### Login Pane CompactY
+
+```js
+const { BasicLoginPane } = require('./LoginPaneExamples');
+<BasicLoginPane compactY />
+```
+
+
+##### LoginPane full
 
 ```js
 const { Button, Input } = require('semantic-ui-react');
