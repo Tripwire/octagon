@@ -1,19 +1,18 @@
-### Login Pane Basic
+#### Login Pane Basic
 
 ```js
 const { BasicLoginPane } = require('./LoginPaneExamples');
 <BasicLoginPane />
 ```
 
-### Login Pane CompactY
+#### Login Pane CompactY
 
 ```js
 const { BasicLoginPane } = require('./LoginPaneExamples');
 <BasicLoginPane compactY />
 ```
 
-
-##### LoginPane full
+#### LoginPane full
 
 ```js
 const { Button, Input } = require('semantic-ui-react');
@@ -65,4 +64,29 @@ const { Button, Input } = require('semantic-ui-react');
     for more information.
   </LoginPane.Footer>
 </LoginPane>
+```
+
+#### Login Pane - 3rd Party Auth
+
+Remove the standard authorization form, allow for a 3rd party auth widget.
+Render all 3rd party content into `<LoginPane.ThirdPartyContent />`.
+
+```js
+  <LoginPane className='hide-in-test' thirdPartyAuth>
+    <LoginPane.Logo>
+      <h1 style={{
+        padding: '20px',
+        background: 'darkslategray',
+        color: 'white'
+      }}>
+        LOGO
+      </h1>
+    </LoginPane.Logo>
+    <LoginPane.ThirdPartyContent>
+      <h4>Add 3rd party auth widget here</h4>
+    </LoginPane.ThirdPartyContent>
+    <LoginPane.Footer>
+      <footer>FOOTER</footer>
+    </LoginPane.Footer>
+  </LoginPane>
 ```
