@@ -22,6 +22,13 @@
   text-align: center;
 }
 
+.login__container.login__container--third-party-auth {
+  grid-template-areas:
+    "logo"
+    "third-party-content"
+    "footer";
+}
+
 .login__container--compact-y {
   grid-row-gap: 0;
 }
@@ -48,4 +55,8 @@
 
 .login__footer {
   grid-area: footer;
+}
+
+.login__third-party-content {
+  grid-area: third-party-content;
 }

@@ -6,11 +6,13 @@ function Basic (props) {
   return (
     <LoginPane className='hide-in-test' {...props}>
       <LoginPane.Logo>
-        <h1 style={{
-          padding: '20px',
-          background: 'darkslategray',
-          color: 'white'
-        }}>
+        <h1
+          style={{
+            padding: '20px',
+            background: 'darkslategray',
+            color: 'white'
+          }}
+        >
           LOGO
         </h1>
       </LoginPane.Logo>
@@ -21,9 +23,7 @@ function Basic (props) {
         <Input />
       </LoginPane.Password>
       <LoginPane.Submit>
-        <Button primary>
-          Login
-        </Button>
+        <Button primary>Login</Button>
       </LoginPane.Submit>
       <LoginPane.Footer>
         <footer>FOOTER</footer>
