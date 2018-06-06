@@ -11,6 +11,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-hairline/lato-hairline.woff") format("woff");
   font-weight: 100;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (hairline, italic) */
 @font-face {
@@ -18,6 +19,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-hairline-italic/lato-hairline-italic.woff") format("woff");
   font-weight: 100;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (thin, regular) */
 @font-face {
@@ -25,6 +27,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-thin/lato-thin.woff") format("woff");
   font-weight: 200;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (thin, italic) */
 @font-face {
@@ -32,6 +35,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-thin-italic/lato-thin-italic.woff") format("woff");
   font-weight: 200;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (light, regular) */
 @font-face {
@@ -39,6 +43,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-light/lato-light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (light, italic) */
 @font-face {
@@ -46,6 +51,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-light-italic/lato-light-italic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (normal, regular) */
 @font-face {
@@ -53,6 +59,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-normal/lato-normal.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (normal, italic) */
 @font-face {
@@ -60,6 +67,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-normal-italic/lato-normal-italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (medium, regular) */
 @font-face {
@@ -67,6 +75,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-medium/lato-medium.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (medium, italic) */
 @font-face {
@@ -74,6 +83,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-medium-italic/lato-medium-italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (semibold, regular) */
 @font-face {
@@ -81,6 +91,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-semibold/lato-semibold.woff") format("woff");
   font-weight: 500;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (semibold, italic) */
 @font-face {
@@ -88,6 +99,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-semibold-italic/lato-semibold-italic.woff") format("woff");
   font-weight: 500;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (bold, regular) */
 @font-face {
@@ -95,6 +107,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-bold/lato-bold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (bold, italic) */
 @font-face {
@@ -102,6 +115,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-bold-italic/lato-bold-italic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (heavy, regular) */
 @font-face {
@@ -109,6 +123,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-heavy/lato-heavy.woff") format("woff");
   font-weight: 800;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (heavy, italic) */
 @font-face {
@@ -116,6 +131,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-heavy-italic/lato-heavy-italic.woff") format("woff");
   font-weight: 800;
   font-style: italic;
+  font-display: fallback;
 }
 /* Lato (black, regular) */
 @font-face {
@@ -123,6 +139,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-black/lato-black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
+  font-display: fallback;
 }
 /* Lato (black, italic) */
 @font-face {
@@ -130,6 +147,7 @@
   src: url("themes/tripwire/assets/fonts/lato/lato-black-italic/lato-black-italic.woff") format("woff");
   font-weight: 900;
   font-style: italic;
+  font-display: fallback;
 }
 @font-face {
 	font-family: 'ElegantIcons';
