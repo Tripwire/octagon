@@ -8,6 +8,7 @@
   border: 2px solid @blue;
   background: @white;
   border-radius: 2px;
+  appearance: inherit;
 }
 
 .ui.buttons .button:first-child,
