@@ -105,7 +105,8 @@
       clear: fix;
     }
     & .history__summary__detail {
-      @neat-span-columns 4 8;
+      width: 50%;
+      float: left;
       border-right: 1px solid var(--gray);
       color: var(--primaryTextColor);
       display: block;
@@ -126,7 +127,8 @@
       }
     }
     & .summary_info {
-      @neat-span-columns 2 8;
+      width: 25%;
+      float: left;
       color: color(var(--gray));
       text-align: left;
       padding: 0 5px;
