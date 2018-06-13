@@ -31,7 +31,6 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.0.6",
-    "postcss-neat": "^2.5.3",
     "prettier-standard": "^8.0.1",
     "react": "^16",
     "react-dom": "^16",
