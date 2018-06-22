@@ -1,43 +1,33 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import Flexbox from 'flexbox-react'
-import MicroCardContentStatus from './MicroCardContentStatus'
-import MicroCardContentMessage from './MicroCardContentMessage'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-const MicroCardContent = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+function MicroCardContent (props) {
+  const {
+    children,
+    className,
+    primary = false,
+    secondary = false,
+    ...rest
+  } = props
   return (
-    <Flexbox
-      flexDirection='column'
-      paddingBottom='10px'
-      paddingLeft='10px'
-      paddingTop='5px'
-    >
-      {props.title ? (
-        <Flexbox
-          {...externalAttributes}
-          className={`box__header ${props.className}`}
-        >
-          {props.title}
-        </Flexbox>
-      ) : (
-        ''
+    <div
+      className={classnames(
+        'microcard__content',
+        primary && 'microcard__content--primary',
+        secondary && 'microcard__content--secondary',
+        className
       )}
-      <Flexbox flexGrow={2}>{props.children}</Flexbox>
-    </Flexbox>
+      {...rest}
+    >
+      {children}
+    </div>
   )
 }
 
-MicroCardContent.Status = MicroCardContentStatus
-MicroCardContent.Message = MicroCardContentMessage
-
-MicroCardContent.defaultProps = {
-  title: ''
-}
-
 MicroCardContent.propTypes = {
-  title: PropTypes.string
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool
 }
 
 export default MicroCardContent

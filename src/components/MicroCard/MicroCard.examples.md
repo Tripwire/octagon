@@ -1,34 +1,43 @@
-#### Standard
+#### Variant A Layout
 
 ```js
 <MicroCard
-  cardContent={{ id: 0 }}
+  variant='a'
   style={{marginRight: '10px'}}
+  gutter='critical'
 >
-  <MicroCard.Gutter color='critical' />
-  <MicroCard.Content cardContent={{ title: 'test' }} />
-  <MicroCard.Favorite isFavorited />
-  <MicroCard.Count value={27} />
-  <MicroCard.Action  />
+  <MicroCard.Header style={{background: 'seashell'}}>
+    [header] Variant A
+    <FavoriteButton isFavorited style={{float: 'right'}} />
+  </MicroCard.Header>
+  <MicroCard.Content primary style={{background: 'lightgoldenrodyellow'}}>
+    [primary]
+  </MicroCard.Content>
+  <MicroCard.Content secondary style={{background: 'bisque'}}>
+    [secondary]
+  </MicroCard.Content>
 </MicroCard>
 ```
 
-#### Detailed
+#### Variant A Demo
 
 ```js
-const Flexbox = require('flexbox-react');
-const alertIconUri = require('../../assets/alert-icon.svg');
-<MicroCard cardContent={{ id: 0 }} style={{marginRight: '10px'}} >
-  <MicroCard.Gutter color='blue' />
-  <MicroCard.Content title="Test" >
-      <MicroCard.Content.Status status='critical' />
-      <MicroCard.Content.Message status='critical'>
-          <h4>connection error</h4>
-          <h3>DATABASE</h3>
-      </MicroCard.Content.Message>
+<MicroCard
+  variant='a'
+  style={{marginRight: '10px'}}
+  gutter='critical'
+>
+  <MicroCard.Header>
+    Tropical Vacation Destination
+    <FavoriteButton isFavorited style={{float: 'right'}} />
+  </MicroCard.Header>
+  <MicroCard.Content primary>
+    Tahiti.  Great place. 🏖
+    <br />
+    Blah blah blah
   </MicroCard.Content>
-  <MicroCard.Favorite isFavorited />
-  <MicroCard.Count value={27} />
-  <MicroCard.Action  />
+  <MicroCard.Content secondary>
+    <span>💸 BUY NOW <br />💸 AND SAVE</span>
+  </MicroCard.Content>
 </MicroCard>
 ```

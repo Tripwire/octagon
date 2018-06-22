@@ -1,15 +1,13 @@
 import React from 'react'
 import { Icon } from 'semantic-ui-react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
 const LargeCardClose = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+  const { children, className, ...rest } = props
   return (
-    <span
-      {...externalAttributes}
-      className={`close__fullview ${props.className}`}
-    >
+    <span className={classnames('close__fullview', className)} {...rest}>
       <Icon className='ei icon_close' aria-hidden='true' />
+      {children}
     </span>
   )
 }

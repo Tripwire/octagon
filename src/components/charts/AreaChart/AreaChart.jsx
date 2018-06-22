@@ -7,10 +7,10 @@ import ToolTip from './ToolTip'
 import Dots from '../Chart/Dots'
 import ChartOverlay from '../Chart/ChartOverlay'
 import * as ChartUtils from '../Chart/utils'
-import filterAttributesFromProps from '../../../util/externalAttributeFilter'
 import * as d3Shape from 'd3-shape'
 import * as d3Format from 'd3-format'
 import * as d3Axis from 'd3-axis'
+import classnames from 'classnames'
 
 const d3 = Object.assign({}, d3Shape, d3Format, d3Axis)
 
@@ -132,6 +132,8 @@ class AreaChart extends React.Component {
 
   render () {
     const {
+      className,
+      data,
       dotVisible,
       height,
       hideAxisX,
@@ -139,17 +141,17 @@ class AreaChart extends React.Component {
       tooltipVisible,
       width,
       xDataType,
-      yBuffer
+      yBuffer,
+      ...rest
     } = this.props
     const margin = { top: 5, right: 50, bottom: 20, left: 50 }
     const innerWidth = width - (margin.left + margin.right)
     const innerHeight = height - (margin.top + margin.bottom)
-    const data = this.props.data
     let xAxis = null
     let xScale = null
     let xScaleAxis = null
 
-    if (this.props.xDataType === 'date') {
+    if (xDataType === 'date') {
       const parseDate = d3.timeParse('%m-%d-%Y %H:%M:%S')
       data.forEach(d => {
         d.x = parseDate(d.x)
@@ -179,15 +181,14 @@ class AreaChart extends React.Component {
       .scale(yScale)
       .ticks(5)
 
-    const externalAttributes = filterAttributesFromProps(this.props)
     return (
       <div
-        {...externalAttributes}
-        className={`octagon area-chart__container ${this.props.className ||
-          ''}`}
+        className={classnames('octagon', 'area-chart__container', className)}
+        {...rest}
       >
         <svg width={width} height={innerHeight}>
           <g transform='translate(2, 4)'>
+            {/* <!-- TODO: do not pass full prop set if not needed */}
             <PlotArea
               {...this.props}
               data={data}

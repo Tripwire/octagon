@@ -1,37 +1,48 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Flexbox from 'flexbox-react'
 import MicroCardGutter from './MicroCardGutter'
-import MicroCardAction from './MicroCardAction'
-import MicroCardFavorite from './MicroCardFavorite'
 import MicroCardContent from './MicroCardContent'
-import MicroCardCount from './MicroCardCount'
+import MicroCardHeader from './MicroCardHeader'
 import '../../styles/components/micro-card.css'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
-const MicroCard = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+function MicroCard (props) {
+  const { cardContent, className, children, gutter, variant, ...rest } = props
   return (
-    <Flexbox
-      {...externalAttributes}
-      flexDirection='row'
-      key={props.cardContent.id}
-      className={`octagon microcard bordered ${props.className}`}
-      style={props.style}
-      onClick={props.onClick}
+    <div
+      className={classnames(
+        'octagon',
+        'microcard',
+        'bordered',
+        `microcard--variant-${variant}`,
+        className
+      )}
+      {...rest}
     >
-      {props.children}
-    </Flexbox>
+      <MicroCardGutter
+        className={!gutter && 'microcard__gutter--hidden'}
+        color={gutter}
+      />
+      {children}
+    </div>
   )
 }
 
 MicroCard.Gutter = MicroCardGutter
-MicroCard.Action = MicroCardAction
-MicroCard.Favorite = MicroCardFavorite
 MicroCard.Content = MicroCardContent
-MicroCard.Count = MicroCardCount
+MicroCard.Header = MicroCardHeader
+MicroCard.defaultProps = {
+  variant: 'a'
+}
 MicroCard.propTypes = {
-  cardContent: PropTypes.object
+  /**
+   * Variant id
+   */
+  variant: PropTypes.string,
+  /**
+   * Gutter color
+   */
+  gutter: PropTypes.string
 }
 
 export default MicroCard

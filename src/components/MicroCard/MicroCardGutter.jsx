@@ -1,34 +1,33 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Flexbox from 'flexbox-react'
 import palette from '../../palette'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
 const MicroCardGutter = props => {
-  let color = ''
-  switch (props.color) {
+  const { className, color, style = {}, ...rest } = props
+  let backgroundColor = ''
+  switch (color) {
     case 'critical':
-      color = palette.red
+      backgroundColor = palette.red
       break
     case 'warning':
-      color = palette.yellow
+      backgroundColor = palette.yellow
       break
     case 'normal':
-      color = palette.blue
+      backgroundColor = palette.blue
       break
     case 'blue':
-      color = palette.blue
+      backgroundColor = palette.blue
       break
     default:
-      color = props.color
+      backgroundColor = color
   }
 
-  const externalAttributes = filterAttributesFromProps(props)
   return (
-    <Flexbox
-      {...externalAttributes}
-      className={`microcard state__indicator ${props.className}`}
-      style={{ backgroundColor: color }}
+    <div
+      className={classnames('microcard__gutter', className)}
+      style={{ ...style, ...{ backgroundColor } }}
+      {...rest}
     />
   )
 }
@@ -38,6 +37,10 @@ MicroCardGutter.defaultProps = {
 }
 
 MicroCardGutter.propTypes = {
+  /**
+   * Gutter color.  Use simple strings, e.g. red/green/blue, to pull standard
+   * colors off the pallete, or, provide a web-friendly color string.
+   */
   color: PropTypes.string
 }
 

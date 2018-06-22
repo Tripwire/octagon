@@ -2,7 +2,6 @@ import '../../styles/components/large-card.css'
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import LargeCardAction from './LargeCardAction'
 import LargeCardClose from './LargeCardClose'
 import LargeCardContent from './LargeCardContent'
@@ -11,23 +10,26 @@ import LargeCardKeyValue from './LargeCardKeyValue'
 import LargeCardRecentList from './LargeCardRecentList'
 import LargeCardStat from './LargeCardStat'
 import LargeCardTitle from './LargeCardTitle'
+import classnames from 'classnames'
 
 const LargeCard = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+  const { children, className, framed, showCard, style, ...rest } = props
   return (
     <Flexbox
-      {...externalAttributes}
-      className={`octagon large_card is-fullview-open-${props.showCard} ${
-        props.className
-      }`}
-      style={props.style}
+      className={classnames(
+        'octagon',
+        'large_card',
+        showCard && 'is-fullview-open',
+        className
+      )}
+      {...rest}
     >
       <Flexbox
         flexDirection='row'
         flexGrow={3}
-        className={`large_card__container ` + (props.framed ? 'framed' : '')}
+        className={classnames('large_card__container', framed && 'framed')}
       >
-        {props.children}
+        {children}
       </Flexbox>
     </Flexbox>
   )
@@ -43,13 +45,19 @@ LargeCard.Title = LargeCardTitle
 LargeCard.Stat = LargeCardStat
 
 LargeCard.defaultProps = {
-  className: '',
   framed: false,
   showCard: false
 }
 LargeCard.propTypes = {
-  className: PropTypes.string,
+  /**
+   * Pad the card inside of a gray border
+   */
   framed: PropTypes.bool,
+  /**
+   * Render the card
+   * @deprecated Rendering will be the default mode in the future.  Components
+   * controlling their own complete render state is an antipattern
+   */
   showCard: PropTypes.bool
 }
 export default LargeCard

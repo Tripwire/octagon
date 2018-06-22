@@ -1,44 +1,23 @@
 @import '../variables.css';
 
 .octagon.microcard {
-  cursor: pointer;
-  display: block;
   color: var(--darkgray);
-  width: 300px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   font-size: var(--small);
-
   height: 90px;
-  position: relative;
+  width: 300px;
   & .text-uppercase {
     text-transform: uppercase;
   }
   &.bordered {
     border: 2px solid color(var(--lightgray));
   }
-  & .box__header {
-    font-size: 1.2em;
-    color: var(--textGray);
-  }
 
-  & .state__indicator {
-    float: left;
-    width: 8px;
-    height: 100%
-  }
-
-  & .microcard_favorite {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-
-  }
-  & .text-critical {
-    color: var(--red);
-  }
-  & .text-warning {
-    color: var(--yellow);
-  }
   & .microcard__message {
+    grid-area: message;
     text-transform: uppercase;
     & h3, & h4 {
       margin: 0;
@@ -51,30 +30,43 @@
       font-size: 12px;
     }
   }
-  & .microcard__stateIcon {
-
-    width: 25px;
-    height: 48px;
-
-  }
   & .microcard__count {
     bottom: 5px;
+    color: var(--silverGray);
     font-size: 2.65rem;
     position: absolute;
     right: 25px;
-    color: var(--silverGray);
   }
 }
 
-.microcard__arrow-right {
-  bottom: 0;
-  padding: 5px 1px 5px 3px !important;
-  position: absolute;
-  right: 0;
-  height: 38px !important;
-  margin: 0px !important;
-  font-size: 28px !important;
-  text-align: center;
-  vertical-align: middle;
+.microcard__content {
+  padding: 0 4px;
+}
 
+.microcard--variant-a {
+  grid-template-areas:
+    "gutter header header"
+    "gutter primary secondary";
+
+  & .microcard_header {
+    align-self: center;
+    color: var(--textGray);
+    font-size: 1.2em;
+    grid-area: header;
+    padding: 4px 0 0 4px;
+  }
+  & .microcard__gutter {
+    grid-area: gutter;
+    width: 8px;
+  }
+  & .microcard__gutter--hidden {
+    width: 0;
+  }
+  & .microcard__primary {
+    grid-area: primary;
+  }
+  & .microcard__secondary {
+    grid-area: secondary;
+    padding: 2px;
+  }
 }
