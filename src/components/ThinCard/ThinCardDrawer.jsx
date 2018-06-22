@@ -1,18 +1,17 @@
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import { Icon } from 'semantic-ui-react'
 
 const ThinCardDrawer = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+  const { children, expandGroupToggle, ...rest } = props
   return (
-    <div {...externalAttributes}>
+    <div {...rest}>
       {!props.expanded ? (
         <Flexbox
           className='drawer'
           flexDirection='row'
-          onClick={props.expandGroupToggle}
+          onClick={expandGroupToggle}
         >
           <Flexbox className='drawer__expand_button'>
             <Flexbox
@@ -30,11 +29,11 @@ const ThinCardDrawer = props => {
         </Flexbox>
       ) : (
         <div>
-          {props.children}
+          {children}
           <Flexbox
             className='drawer'
             flexDirection='row'
-            onClick={props.expandGroupToggle}
+            onClick={expandGroupToggle}
           >
             <Flexbox className='drawer__collapse_button'>
               <Flexbox

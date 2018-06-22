@@ -26,7 +26,6 @@ const Flexbox = require('flexbox-react').default;
         {
             id: 0,
             state: 'normal',
-            name: 'text',
             status: 'OPERATION COMPLETED',
             date: '9/12/2016'
         }

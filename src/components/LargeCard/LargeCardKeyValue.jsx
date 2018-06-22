@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
 const LargeCardKeyValue = props => {
-  const externalAttributes = filterAttributesFromProps(props)
-
-  const { label, value, renderValue = defaultRenderValue } = props
+  const {
+    className,
+    label,
+    value,
+    renderValue = defaultRenderValue,
+    ...rest
+  } = props
 
   return (
-    <div {...externalAttributes} className={`summary_info ${props.className}`}>
+    <div className={classnames('summary_info', className)} {...rest}>
       <span className='label'>{label}</span>
       <span className='count'>{renderValue(value)}</span>
     </div>
@@ -17,12 +21,24 @@ const LargeCardKeyValue = props => {
 
 LargeCardKeyValue.defaultProps = {
   label: '',
-  value: 0
+  value: ''
 }
 
 LargeCardKeyValue.propTypes = {
+  /**
+   * Label for value
+   */
   label: PropTypes.string,
-  value: PropTypes.number.isRequired,
+  /**
+   * Raw value
+   */
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * Optional transformation function for value to render.  Defaults to
+   * `toLocaleString`.
+   * @param {any} value
+   * @returns {any}
+   */
   renderValue: PropTypes.func
 }
 

@@ -1,22 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import externalAttributeFilter from '../../util/externalAttributeFilter'
 import classnames from 'classnames'
 
 const TopNavContent = props => {
-  var handledProps = externalAttributeFilter(props)
+  const { align, children, className, ...rest } = props
   return (
-    <div
-      {...handledProps}
-      className={classnames(
-        `nav__main--${props.align}`,
-        handledProps.className
-      )}
-    >
-      <div
-        className={`nav__item ` + (props.align === 'right' ? 'nav__link' : '')}
-      >
-        {props.children}
+    <div className={classnames(`nav__main--${align}`, className)} {...rest}>
+      <div className={`nav__item ${align === 'right' ? 'nav__link' : ''}`}>
+        {children}
       </div>
     </div>
   )

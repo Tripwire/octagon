@@ -2,16 +2,20 @@ import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Icon } from 'semantic-ui-react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 
+/**
+ * A context specific component, intended to display _states_ of items in a list.
+ * Items shall have an iterface including keys { id, state }, where state is one
+ * of `[critical, warning, normal]`
+ */
 const LargeCardRecentList = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+  const { items, ...rest } = props
   return (
-    <Flexbox {...externalAttributes} flexDirection='column' flexGrow={1}>
+    <Flexbox flexDirection='column' flexGrow={1} {...rest}>
       <h4 className='label'>Recent</h4>
-      {props.items.map(item => {
+      {items.map(({ id, state, status, date }) => {
         let icon = ''
-        switch (item.state) {
+        switch (state) {
           case 'warning':
             icon = 'icon_error-triangle_alt'
             break
@@ -23,29 +27,29 @@ const LargeCardRecentList = props => {
         }
         return (
           <Flexbox
-            key={item.id}
+            key={id}
             flexDirection='row'
-            className={`recent_list-${item.state} recent__activity__row`}
+            className={`recent_list-${state} recent__activity__row`}
           >
             <Flexbox
-              className={`recent_list-${item.state}`}
+              className={`recent_list-${state}`}
               alignItems='center'
               marginRight='20px'
             >
               <Icon className={`ei ${icon} text-large`} />
             </Flexbox>
             <Flexbox
-              className={`text-uppercase text-small recent_list-${item.state}`}
+              className={`text-uppercase text-small recent_list-${state}`}
               alignItems='center'
               marginRight='20px'
             >
-              {item.status}
+              {status}
             </Flexbox>
             <Flexbox
-              className={`text-uppercase text-small recent_list-${item.state}`}
+              className={`text-uppercase text-small recent_list-${state}`}
               alignItems='center'
             >
-              {item.date}
+              {date}
             </Flexbox>
           </Flexbox>
         )
@@ -53,11 +57,22 @@ const LargeCardRecentList = props => {
     </Flexbox>
   )
 }
+LargeCardRecentList.STATES = ['critical', 'normal', 'warning']
 
 LargeCardRecentList.defaultProps = {}
 
 LargeCardRecentList.propTypes = {
-  items: PropTypes.array
+  /**
+   * Array of items to render into recent list
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.any.isRequired,
+      state: PropTypes.oneOf(LargeCardRecentList.STATES).isRequired,
+      status: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired
+    })
+  )
 }
 
 export default LargeCardRecentList

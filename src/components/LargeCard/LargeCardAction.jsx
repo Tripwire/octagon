@@ -1,15 +1,16 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
+import classnames from 'classnames'
 
 const LargeCardAction = props => {
-  const externalAttributes = filterAttributesFromProps(props)
+  const { className, label, children, ...rest } = props
   return (
     <Button
-      {...externalAttributes}
-      className={`tripwire fullview__goto__button ${props.className}`}
+      className={classnames('tripwire', 'fullview__goto__button', className)}
+      {...rest}
     >
-      {props.label}
+      {label}
+      {children}
     </Button>
   )
 }

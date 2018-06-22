@@ -1,32 +1,27 @@
 import Flexbox from 'flexbox-react'
 import PropTypes from 'prop-types'
 import React from 'react'
-import filterAttributesFromProps from '../../util/externalAttributeFilter'
 import ThinCardWidgetLabel from './ThinCardWidgetLabel'
 import ThinCardWidgetValue from './ThinCardWidgetValue'
+import classnames from 'classnames'
 
 const ThinCardWidget = props => {
-  let borderClass = ''
-  if (props.borderLeft) {
-    borderClass += 'borderLeft '
-  }
-  if (props.borderRight) {
-    borderClass += 'borderRight '
-  }
-
-  const externalAttributes = filterAttributesFromProps(props)
+  const { borderLeft, borderRight, children, className, ...rest } = props
   return (
     <Flexbox
-      {...externalAttributes}
-      onClick={props.onClick}
       alignItems='center'
-      className={`${borderClass} ${props.className}`}
+      className={classnames(
+        borderLeft && 'borderLeft',
+        borderRight && 'borderRight',
+        className
+      )}
       paddingRight='15px'
       paddingLeft='15px'
       marginBottom='10px'
       marginTop='10px'
+      {...rest}
     >
-      {props.children}
+      {children}
     </Flexbox>
   )
 }

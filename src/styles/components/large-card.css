@@ -31,7 +31,7 @@
     width: 100%;
     visibility: hidden;
     z-index: 20;
-    &.is-fullview-open-true {
+    &.is-fullview-open {
       left: 0;
       opacity: 1;
       visibility: visible;
