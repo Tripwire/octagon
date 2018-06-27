@@ -1,32 +1,9 @@
 import './Layout.css'
-import cx from 'classnames'
-import LeftNav from '../../LeftNav/LeftNav'
-import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
-import TopNav from '../../TopNav/TopNav'
+import { generic } from '../../../util/component-factory'
 
-export default class Layout extends PureComponent {
-  render () {
-    const { logo, navItems, admin, ...rest } = this.props
-    return (
-      <div {...rest} className={cx(this.props.className, 'layout__container')}>
-        <TopNav className='layout__header'>
-          <TopNav.Content align='left'>{logo}</TopNav.Content>
-          <TopNav.Content className='top-nav__dropdown-selector' align='right'>
-            {admin}
-          </TopNav.Content>
-        </TopNav>
-        <LeftNav className='layout__nav'>{navItems}</LeftNav>
-        <div className='layout__content'>{this.props.children}</div>
-      </div>
-    )
-  }
-}
-Layout.propTypes = {
-  logo: PropTypes.element.isRequired,
-  navItems: PropTypes.arrayOf(PropTypes.element).isRequired,
-  admin: PropTypes.element
-}
+const Layout = generic({ name: 'Layout', className: 'layout__container' })
+Layout.Header = generic({ name: 'LayoutHeader', className: 'layout__header' })
+Layout.Nav = generic({ name: 'LayoutNav', className: 'layout__nav' })
+Layout.Body = generic({ name: 'LayoutBody', className: 'layout__body' })
 
-Layout.LeftNav = LeftNav
-Layout.TopNav = TopNav
+export default Layout
