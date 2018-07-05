@@ -1,7 +1,8 @@
 # contributing
 
-## development
+## development environment
 
+### watching code changes
 `octagon` offers two mechanisms to support development:
 
 - `yarn dev` - watch the source code & rebuild the library onchange
@@ -11,24 +12,81 @@
       - run `yarn link react-octagon` in the consuming project's source
 
 - `yarn start` - launch the interactive styleguide.  see more below.
-### styleguide
+
+### launch styleguide
 
 - run `yarn start`
 - open the URL (probably `localhost:6060`) to play w/ components as you develop them
 
-this will launch the styleguide. all of you changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
+this will launch the styleguide. all of your changes to files are hot-reloaded. if you want to ship a production version your will need to test and build octagon.
 
-### building components
+## building components
 
 when building components, please follow our [Architecture Decisions](github.com/Tripwire/octagon/blob/master/doc/architecture/decisions). each component should include an accompanying example in a markdown file.
 
-#### react-based functional stateless components
+### documenting components
+all components should be documented per [styleguidist standards](https://react-styleguidist.js.org/docs/documenting.html], based on JSDoc). this allows Styleguidist to display comments and documentation in the interactive styleguide.
+
+#### components should have a desciption
+using a JSDoc comment block, describe each component.
+
+```jsx
+/**
+ * Pagination Control: controls pagination of results, allowing the user to 
+ * change result pages through simple buttons.
+ */
+
+export default class PaginationControl extends React.PureComponent {
+```
+
+#### components propTypes should have a description 
+```jsx
+PaginationControl.propTypes = {
+  /**
+   * Set Pagination to disabled. Default is false.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Called when the control is blurred.
+   * @param {Number} page target page number
+   */
+  onPageChange: PropTypes.func.isRequired,
+  /**
+   * Called when the page changes.
+   * @param {Number} page target page number
+   */
+  page: PropTypes.number,
+  /**
+   * Set Pagination to disabled.
+   */
+  totalPages: PropTypes.number
+  /**
+   * Set total number of pages.
+   */
+}
+```
+
+#### components example code blocks should include a language tag
+the language tag will generally be 'jsx', 'js', or 'css'. surround the code block with a triple grave accents and the langauge abbreviation.
+
+```jsx
+```jsx
+initialState = { page: 1 };
+<PaginationControl
+  page={state.page}
+  totalPages={10}
+  onPageChange={obj => setState({ page: obj.page })}
+/>
+\`\`\`
+```
+
+### react-based functional stateless components
 
 octagon components are considered view-layer components and should generally be functional stateless components (see [ADR002](https://github.com/Tripwire/octagon/blob/master/doc/architecture/decisions/0002-components-shall-be-stateless-by-default.md)).
 - How to handle state is decided by the app (e.g. dealing with page number errors or and actual page number)
 - Positioning of the component will be decided by the app (e.g. 4px padding on the right and left)
 
-```js
+```jsx
 
 <div style={{padding: '4px 0'}}>
   <PaginationControl
@@ -46,7 +104,7 @@ octagon components are considered view-layer components and should generally be 
 
 ```
 
-#### native octagon component styles
+### native octagon component styles
 
 native octagon components use [cssnext](http://cssnext.io) and should follow [BEM CSS Standards](https://en.bem.info/methodology/css/). the styles below show a `block`, `element`, and `modifier`.
 
@@ -78,18 +136,18 @@ native octagon components use [cssnext](http://cssnext.io) and should follow [BE
 
 ```
 
-#### SUIR octagon component styles
+### SUIR octagon component styles
 
 SUIR octagon components use LESS for styling. more information can be found on [Semantic UI's themeing page](https://semantic-ui.com/usage/theming.html). to theme SUIR components, navigate to your theme folder, `src/semantic-ui-theme`, and add your styles in the to the component's: `.variables` and `.overides` files.
 (e.g. button.variables & button.overrides)
 
-### build for production
+## build for production
 
 - **build octagon** `yarn build`
   - this will create the lib bundle which will contain production build
   - this can be ingested by applications to use Octagon components
 - **build styleguide** `yarn styleguide:build`
-  - this will create the Styleguide folder and run Styleguidist
+  - this will create the Styleguide folder, Build Octagon Component Library and Build Styleguidist
   - note: this build is what is currently used for testing
 - **test octagon**
   - both automated and manual tests ([see testing info](#step-4-test))
