@@ -23,7 +23,7 @@
     "gh-pages": "^1.0.0",
     "html-loader": "^0.5.1",
     "husky": "^0.14.3",
-    "less": "^2",
+    "less": "^3.5.1",
     "lint-staged": "^7.1.0",
     "npm-run-all": "^4.1.1",
     "perish": "^1.0.2",
