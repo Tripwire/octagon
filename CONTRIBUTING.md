@@ -69,16 +69,14 @@ PaginationControl.propTypes = {
 #### components example code blocks should include a language tag
 the language tag will generally be 'jsx', 'js', or 'css'. surround the code block with a triple grave accents and the langauge abbreviation.
 
-```jsx
-```jsx
-initialState = { page: 1 };
-<PaginationControl
-  page={state.page}
-  totalPages={10}
-  onPageChange={obj => setState({ page: obj.page })}
-/>
-``````
-
+    ```jsx
+    initialState = { page: 1 };
+    <PaginationControl
+      page={state.page}
+      totalPages={10}
+      onPageChange={obj => setState({ page: obj.page })}
+    />
+    ```
 
 ### react-based functional stateless components
 
