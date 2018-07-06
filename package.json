@@ -38,7 +38,7 @@
     "react-styleguidist": "^7.0.9",
     "rucksack-css": "^1.0.2",
     "semantic-release": "^15.4.0",
-    "semantic-ui-react": "^0.81.0",
+    "semantic-ui-react": "^0.82.0",
     "snapjerk": "^0.3.0",
     "standard": "^11.0.1",
     "style-loader": "^0.21.0",
