@@ -90,7 +90,7 @@
   }
 
   & .pagination__page-number * {
-    vertical-align: middle;
+    vertical-align: baseline;
   }
 
   & .pagination__page-number_total-pages-unknown {
