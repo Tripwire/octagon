@@ -117,6 +117,7 @@ export default class PaginationControl extends React.PureComponent {
         <button
           className={`pagination__button pagination__prev`}
           data-hook='pagination-button-first-page'
+          title='First Page'
           onClick={this.gotoFirstPage}
           {...isDisabled('prev')}
         >
@@ -125,24 +126,27 @@ export default class PaginationControl extends React.PureComponent {
         <button
           className={`pagination__button pagination__prev`}
           data-hook='pagination-button-prev-page'
+          title='Previous Page'
           onClick={this.gotoPrevPage}
           {...isDisabled('prev')}
         >
           <i className='arrow_carrot-left' aria-hidden='true' />
         </button>
         <div className={`pagination__page-number`}>
-          <span>Page</span>
-          <input
-            className={`pagination__input`}
-            type='number'
-            min='1'
-            max={totalPages}
-            key={`${page}`}
-            defaultValue={`${page}`}
-            onBlur={this.handleUserInput}
-            onKeyDown={this.handleInputKeyDown}
-            {...isDisabled()}
-          />
+          <label>
+            <span>Page</span>
+            <input
+              className={`pagination__input`}
+              type='number'
+              min='1'
+              max={totalPages}
+              key={`${page}`}
+              defaultValue={`${page}`}
+              onBlur={this.handleUserInput}
+              onKeyDown={this.handleInputKeyDown}
+              {...isDisabled()}
+            />
+          </label>
           <span>of</span>
           <span className='pagination__page-total'>
             {totalPages || (
@@ -155,6 +159,7 @@ export default class PaginationControl extends React.PureComponent {
         <button
           className={`pagination__button pagination__next`}
           data-hook='pagination-button-next-page'
+          title='Next Page'
           onClick={this.gotoNextPage}
           {...isDisabled('next')}
         >
@@ -163,6 +168,7 @@ export default class PaginationControl extends React.PureComponent {
         <button
           className={`pagination__button pagination__next`}
           data-hook='pagination-button-last-page'
+          title='Last Page'
           onClick={this.gotoLastPage}
           {...isDisabled('last')}
         >
