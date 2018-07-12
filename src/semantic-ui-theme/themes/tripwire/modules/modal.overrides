@@ -6,10 +6,10 @@
 // This overrides the bug
 
 .ui.modal {
-	margin: 1em auto !important;
+  margin: 1em auto;
 }
 
 .ui.modal > .close {
-	top: @innerCloseTop !important;
-  right: @innerCloseRight !important;
+  top: @innerCloseTop;
+  right: @innerCloseRight;
 }
