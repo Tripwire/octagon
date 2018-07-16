@@ -43,7 +43,7 @@
     "standard": "^11.0.1",
     "style-loader": "^0.21.0",
     "surge-review": "^1.1.1",
-    "webpack": "4.16.0"
+    "webpack": "4.16.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
