@@ -27,7 +27,7 @@
     "lint-staged": "^7.1.0",
     "npm-run-all": "^4.1.1",
     "perish": "^1.0.2",
-    "postcss-cli": "^5.0.0",
+    "postcss-cli": "^6.0.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.0.6",
