@@ -1,3 +1,15 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+// SUIR is now using Flexbox to center the modal. A bug was introducted in SUICSS 2.3
+// This overrides the bug
+
+.ui.modal {
+  margin: 1em auto;
+}
+
+.ui.modal > .close {
+  top: @innerCloseTop;
+  right: @innerCloseRight;
+}
