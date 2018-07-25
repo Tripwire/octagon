@@ -1,17 +1,15 @@
 @import '../variables.css';
 .nav__main {
   background: color(#202226);
-  list-style: none;
-  padding: 5px 20px;
-  height: 51px;
+  display: flex;
+  flex-direction: row;
   font-size: 14px;
+  min-height: 50px;
+  padding: 5px 20px;
+  align-items: center;
+  justify-content: space-between;
 
-  & .nav__item {
-    display: inline-block;
-    margin: 6px 10px 0 0px;
-  }
-
-  & .nav__link {
+  & .nav__item--link {
     color: white;
     opacity: 0.9;
     display: inline-block;
@@ -27,14 +25,14 @@
     display: block;
   }
 
-  & .nav__main--left,
-  & .nav__main--right {
+  & .nav__item--left,
+  & .nav__item--right {
     position: relative;
     float: left;
     display: block;
   }
 
-  & .nav__main--right {
+  & .nav__item--right {
     float: right;
   }
 
