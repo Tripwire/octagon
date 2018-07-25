@@ -3,22 +3,26 @@ import React from 'react'
 import classnames from 'classnames'
 
 const TopNavContent = props => {
-  const { align, children, className, ...rest } = props
+  const { link, children, className, ...rest } = props
+  const linkClass = link ? 'nav__item--link' : ''
   return (
-    <div className={classnames(`nav__main--${align}`, className)} {...rest}>
-      <div className={`nav__item ${align === 'right' ? 'nav__link' : ''}`}>
-        {children}
-      </div>
+    <div
+      className={classnames(`nav__item ${linkClass}`, className)}
+      {...rest}
+    >
+      {children}
     </div>
   )
 }
 
-TopNavContent.defaultProps = {
-  align: 'left'
-}
-
 TopNavContent.propTypes = {
-  align: PropTypes.string
+  /**
+   * `link` was implicit when `align='right'` since abfb87d4c37d.
+   * such a style does not provide much value add--a pre-styled component should
+   * instead be inserted
+   * @deprecated
+   */
+  link: PropTypes.bool
 }
 
 export default TopNavContent
