@@ -4,10 +4,10 @@ import React from 'react'
 import { Icon } from 'semantic-ui-react'
 
 const ThinCardDrawer = props => {
-  const { children, expandGroupToggle, ...rest } = props
+  const { children, expanded, expandGroupToggle, ...rest } = props
   return (
     <div {...rest}>
-      {!props.expanded ? (
+      {!expanded ? (
         <Flexbox
           className='drawer'
           flexDirection='row'
