@@ -65,57 +65,21 @@ class AreaChart extends React.Component {
     })
   }
 
-  renderToolTip () {
-    if (this.props.tooltipVisible) {
-      return (
-        <ToolTip tooltip={this.state.tooltip}>
-          {this.props.tooltipContentType.map((type, index) => {
-            if (type === 'up') {
-              return (
-                <g key={index}>
-                  <polygon fill='#A676B2' points='38,-3 34,1 42,1' />
-                  <text>
-                    <tspan
-                      className={type}
-                      textAnchor='middle'
-                      x='58px'
-                      y='2px'
-                      fontSize='11px'
-                      fill='#A676B2'
-                    >
-                      {this.state.tooltip.data[type]}
-                    </tspan>
-                  </text>
-                </g>
-              )
-            } else if (type === 'down') {
-              return (
-                <g key={index}>
-                  <polygon fill='#A676B2' points='38,17 34,13 42,13' />
-                  <text>
-                    <tspan
-                      className={type}
-                      textAnchor='middle'
-                      x='60px'
-                      y='18px'
-                      fontSize='11px'
-                      fill='#A676B2'
-                    >
-                      {this.state.tooltip.data[type]}
-                    </tspan>
-                  </text>
-                </g>
-              )
-            }
+  renderToolTip (tooltipContentType) {
+    return (
+      <ToolTip tooltip={this.state.tooltip}>
+        {tooltipContentType.map((type, index) => {
+          if (type === 'up') {
             return (
               <g key={index}>
+                <polygon fill='#A676B2' points='38,-3 34,1 42,1' />
                 <text>
                   <tspan
                     className={type}
                     textAnchor='middle'
-                    x='-20px'
-                    y='15px'
-                    fontSize='28px'
+                    x='58px'
+                    y='2px'
+                    fontSize='11px'
                     fill='#A676B2'
                   >
                     {this.state.tooltip.data[type]}
@@ -123,11 +87,44 @@ class AreaChart extends React.Component {
                 </text>
               </g>
             )
-          })}
-        </ToolTip>
-      )
-    }
-    return ''
+          } else if (type === 'down') {
+            return (
+              <g key={index}>
+                <polygon fill='#A676B2' points='38,17 34,13 42,13' />
+                <text>
+                  <tspan
+                    className={type}
+                    textAnchor='middle'
+                    x='60px'
+                    y='18px'
+                    fontSize='11px'
+                    fill='#A676B2'
+                  >
+                    {this.state.tooltip.data[type]}
+                  </tspan>
+                </text>
+              </g>
+            )
+          }
+          return (
+            <g key={index}>
+              <text>
+                <tspan
+                  className={type}
+                  textAnchor='middle'
+                  x='-20px'
+                  y='15px'
+                  fontSize='28px'
+                  fill='#A676B2'
+                >
+                  {this.state.tooltip.data[type]}
+                </tspan>
+              </text>
+            </g>
+          )
+        })}
+      </ToolTip>
+    )
   }
 
   render () {
@@ -139,6 +136,7 @@ class AreaChart extends React.Component {
       hideAxisX,
       hideAxisY,
       tooltipVisible,
+      tooltipContentType,
       width,
       xDataType,
       yBuffer,
@@ -216,7 +214,7 @@ class AreaChart extends React.Component {
                 orientation='left'
               />
             )}
-            {this.renderToolTip()}
+            {tooltipVisible ? this.renderToolTip(tooltipContentType) : null}
             {dotVisible ? (
               <Dots
                 data={data}
@@ -260,9 +258,7 @@ AreaChart.propTypes = {
   tooltipVisible: PropTypes.bool,
   width: PropTypes.number,
   xDataType: PropTypes.string.isRequired,
-  yBuffer: PropTypes.number.isRequired,
-  tooltipWidth: PropTypes.number,
-  tooltipHeight: PropTypes.number
+  yBuffer: PropTypes.number.isRequired
 }
 
 AreaChart.defaultProps = {
@@ -272,8 +268,6 @@ AreaChart.defaultProps = {
   padding: 20,
   tooltipContentType: ['x', 'y'],
   tooltipVisible: true,
-  tooltipWidth: 150,
-  tooltipHeight: 40,
   width: 500,
   xDataType: 'number',
   yBuffer: 0

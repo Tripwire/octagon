@@ -12,6 +12,7 @@ const CircleChart = props => {
     color,
     border,
     endPercent,
+    endPercentValue,
     radius,
     padding,
     backgroundOpacity,
@@ -19,7 +20,6 @@ const CircleChart = props => {
   } = props
   const center = radius + padding
   const boxSize = (radius + padding) * 2
-  const endPercentValue = props.endPercentValue
 
   const arc = d3
     .arc()

@@ -7,7 +7,7 @@ const iconNames = [
   'sign out'
 ];
 <div>
-  {iconNames.map(name => <div><Icon name={name} /></div>)}
+  {iconNames.map((name, i) => <div key={i}><Icon name={name} /></div>)}
 </div>
 ```
 
