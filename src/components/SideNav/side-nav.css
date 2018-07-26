@@ -1,0 +1,54 @@
+@import '../../styles/variables.css';
+.octagon.nav {
+  background: color(var(--cloudburst));
+  color: var(--white);
+  display: inline-block;
+  list-style: none;
+  min-width: 65px;
+  position: relative;
+
+  & .nav__item {
+    align-items: center;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+  }
+
+  & .nav_border--active {
+    border-left: 4px solid var(--white);
+    height: 75%;
+    left: 0;
+    position: absolute;
+  }
+
+  & .icon_container {
+    align-items: center;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2rem;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    transition: opacity 400ms;
+  }
+
+  & .nav__item img {
+    height: 50px;
+    width: 50px;
+  }
+
+  & .icon_container--active {
+    opacity: 1;
+    & :hover{
+      opacity: 1;
+    }
+  }
+
+  & .icon_container--inactive {
+    opacity: .4;
+  }
+  & .icon_container--inactive:hover{
+    opacity: .7;
+  }
+}

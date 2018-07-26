@@ -4,7 +4,7 @@ export { default as CircleChart } from './charts/CircleChart/CircleChart'
 
 export { default as FavoriteButton } from './FavoriteButton/FavoriteButton'
 export { default as LargeCard } from './LargeCard/LargeCard'
-export { default as LeftNav } from './LeftNav/LeftNav'
+export { default as SideNav } from './SideNav/SideNav'
 export { default as MicroCard } from './MicroCard/MicroCard'
 export {
   default as NotificationItem
