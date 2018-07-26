@@ -68,6 +68,7 @@ class BarChart extends React.Component {
       showXLabel,
       showIcon,
       XLabelFontSize,
+      tooltipTitle,
       ...rest
     } = this.props
     const innerWidth = width - (margin.left + margin.right)
