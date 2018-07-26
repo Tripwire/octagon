@@ -10,8 +10,8 @@ function SideNavMenuItem (props) {
   const { active, image, className, children, ...rest } = props
   const iconClasses = cx('icon_container', `icon_container--${active ? 'active' : 'inactive'}`)
   return (
-    <li className={cx('nav__item', className)} {...rest}>
-      {active ? <div className='nav_border--active' /> : null}
+    <li className={cx('side-nav__item', className)} {...rest}>
+      {active ? <div className='side-nav_border--active' /> : null}
       <div className={iconClasses}>
         {image ? <img src={image} /> : null}
         {children}
