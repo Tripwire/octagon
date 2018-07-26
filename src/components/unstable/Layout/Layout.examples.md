@@ -44,10 +44,10 @@ const logo = require('../../../assets/tripwire-logo.png');
     </TopNav>
   </Layout.Header>
   <Layout.Nav>
-    <LeftNav style={{maxHeight: '200px', minHeight: '200px'}}>
-      <LeftNav.MenuItem active image={iconDashboard} />
-      <LeftNav.MenuItem image={iconOperations} />
-    </LeftNav>
+    <SideNav style={{maxHeight: '200px', minHeight: '200px'}}>
+      <SideNav.MenuItem active image={iconDashboard} />
+      <SideNav.MenuItem image={iconOperations} />
+    </SideNav>
   </Layout.Nav>
   <Layout.Body style={{padding: '10px'}}>
     <h1>Body</h1>
