@@ -10,24 +10,17 @@ import ThinCardDrawer from './ThinCardDrawer'
 import classnames from 'classnames'
 
 const ThinCard = props => {
-  const {
-    children,
-    className,
-    data = {},
-    drawer,
-    folder,
-    noBorder,
-    ...rest
-  } = props
-  let borderClass = ''
-  if (noBorder) borderClass = 'thincard__noborder'
-  if (props.folder) borderClass = `${borderClass} thincard__folderpad`
+  const { children, className, drawer, folder, border, ...rest } = props
   return (
     <Flexbox
-      key={data.id}
       {...rest}
       flexDirection='column'
-      className={classnames(`octagon thincard__row ${borderClass}`, className)}
+      className={classnames(
+        'octagon',
+        'thincard__row',
+        { thincard__noborder: !border, thincard__folderpad: border },
+        className
+      )}
     >
       {folder ? <div className='topedge' /> : ''}
       <Flexbox flexDirection='row' flexGrow={3} className='primary-content'>
@@ -43,11 +36,11 @@ ThinCard.ActionButton = ThinCardActionButton
 ThinCard.Widget = ThinCardWidget
 ThinCard.Drawer = ThinCardDrawer
 ThinCard.defaultProps = {
-  folder: true,
-  noBorder: false
+  folder: false,
+  border: false
 }
 ThinCard.propTypes = {
   folder: PropTypes.bool,
-  noBorder: PropTypes.bool
+  border: PropTypes.bool
 }
 export default ThinCard

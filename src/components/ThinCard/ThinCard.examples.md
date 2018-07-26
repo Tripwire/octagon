@@ -1,7 +1,7 @@
 #### Simple Card Example
 
 ```js
-<ThinCard data={{id: 0}} folder={false}>
+<ThinCard border>
   <ThinCard.PrimaryAction>
     <StopStartButton isStopped />
   </ThinCard.PrimaryAction>
@@ -12,7 +12,7 @@
 #### Richer Example
 
 ```js
-<ThinCard data={{id: 0}} folder drawer={<ThinCard.Drawer>test</ThinCard.Drawer>}>
+<ThinCard folder border drawer={<ThinCard.Drawer>test</ThinCard.Drawer>}>
   <ThinCard.PrimaryAction><StopStartButton /></ThinCard.PrimaryAction>
   <ThinCard.Title>I&apos;m ready to go!</ThinCard.Title>
   <ThinCard.ActionButton>MANAGE</ThinCard.ActionButton>
@@ -39,8 +39,8 @@ Richer Example (Expanded)
 
 ```js
 <ThinCard
-  data={{id: 0}}
   folder
+  border
   drawer={
     <ThinCard.Drawer expanded>
       <div style={{padding: '10px'}}>test</div>
