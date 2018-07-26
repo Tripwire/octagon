@@ -18,7 +18,7 @@ const ThinCard = props => {
       className={classnames(
         'octagon',
         'thincard__row',
-        { thincard__noborder: !border, thincard__folderpad: border },
+        { thincard__noborder: !border, thincard__folderpad: folder },
         className
       )}
     >
