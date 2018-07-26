@@ -1,5 +1,5 @@
 @import '../../styles/variables.css';
-.octagon.nav {
+.octagon.side-nav {
   background: color(var(--cloudburst));
   color: var(--white);
   display: inline-block;
@@ -7,20 +7,13 @@
   min-width: 65px;
   position: relative;
 
-  & .nav__item {
+  & .side-nav__item {
     align-items: center;
     color: var(--white);
     display: flex;
     justify-content: center;
     position: relative;
     width: 100%;
-  }
-
-  & .nav_border--active {
-    border-left: 4px solid var(--white);
-    height: 75%;
-    left: 0;
-    position: absolute;
   }
 
   & .icon_container {
@@ -33,22 +26,27 @@
     transition: opacity 400ms;
   }
 
-  & .nav__item img {
-    height: 50px;
-    width: 50px;
+  & .side-nav__item img {
+    min-height: 50px;
+    min-width: 50px;
   }
 
   & .icon_container--active {
     opacity: 1;
-    & :hover{
-      opacity: 1;
-    }
   }
 
   & .icon_container--inactive {
     opacity: .4;
   }
+
   & .icon_container--inactive:hover{
     opacity: .7;
+  }
+
+  & .side-nav_border--active {
+    border-left: 4px solid var(--white);
+    height: 75%;
+    left: 0;
+    position: absolute;
   }
 }

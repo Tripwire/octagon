@@ -8,7 +8,7 @@ const SideNav = props => {
   const { className, children, ...rest } = props
   return (
     <nav
-      className={classnames(className, 'octagon nav')}
+      className={classnames(className, 'octagon side-nav')}
       {...rest}
     >
       {children}
