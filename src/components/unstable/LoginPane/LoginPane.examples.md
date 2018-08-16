@@ -32,7 +32,9 @@ const { Button, Input } = require('semantic-ui-react');
       placeholder: 'Username',
       onKeyDown: this.enterSubmit,
       onChange: this.handleUserChange,
-      autoFocus: true,
+      // you will likely want to set autoFocus to true
+      // set to false to avoid collision with other examples
+      autoFocus: false,
       autoComplete: 'off',
       autoCapitalize: 'off'
     }} />
