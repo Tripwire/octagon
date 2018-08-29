@@ -40,7 +40,7 @@
     "semantic-release": "^15.4.0",
     "semantic-ui-react": "^0.82.0",
     "snapjerk": "^0.3.0",
-    "standard": "^11.0.1",
+    "standard": "^12.0.0",
     "style-loader": "^0.23.0",
     "surge-review": "^1.1.1",
     "webpack": "4.17.0"
