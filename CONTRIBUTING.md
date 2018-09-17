@@ -194,11 +194,14 @@ $ git checkout -b my-branch -t origin/master
 
 we follow the default settings for [semantic-release](https://github.com/semantic-release/semantic-release).  please see [the default commit message format](https://github.com/semantic-release/semantic-release#default-commit-message-format) for participation instructions.
 
-commits should be small, targetted, and focused.  unfocused changes need to be split into multiple prs and are subject to friendly but stubborn rejection.
+commits should be small, targeted, and focused.  unfocused changes need to be split into multiple prs and are subject to friendly but stubborn rejection.
 
 ### step 4: test
 
+Ensure that you have [Docker](https://www.docker.com/get-started) installed for your OS.
+
 - run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
+- run `yarn styleguide:build` to build the style guide.
 - run `yarn test` to use our tests against your changes including webjerk image diffing
 - **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
 > if you approve of the changes Snapjerk displays you need will to update the reference set:

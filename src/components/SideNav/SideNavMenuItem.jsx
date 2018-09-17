@@ -17,11 +17,18 @@ function SideNavMenuItem (props) {
     additionalProps.activeClassName = 'side-nav_active'
     additionalProps.to = to
   }
-  const elementClasses = cx('side-nav__icon-container', { 'side-nav_active': active && !elementReplaced })
+  const elementClasses = cx('side-nav__icon-container', {
+    'side-nav_active': active && !elementReplaced
+  })
 
   return (
     <li className={cx('side-nav__item', className)}>
-      <ElementType className={elementClasses} {...additionalProps} {...rest} style={{ width: '100%' }}>
+      <ElementType
+        className={elementClasses}
+        {...additionalProps}
+        {...rest}
+        style={{ width: '100%' }}
+      >
         <React.Fragment>
           {image ? <img src={image} /> : null}
           {children}

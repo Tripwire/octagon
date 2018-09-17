@@ -6,10 +6,7 @@ const TopNavContent = props => {
   const { link, children, className, ...rest } = props
   const linkClass = link ? 'nav__item--link' : ''
   return (
-    <div
-      className={classnames(`nav__item ${linkClass}`, className)}
-      {...rest}
-    >
+    <div className={classnames(`nav__item ${linkClass}`, className)} {...rest}>
       {children}
     </div>
   )
