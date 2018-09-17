@@ -7,10 +7,7 @@ import React from 'react'
 const SideNav = props => {
   const { className, children, ...rest } = props
   return (
-    <nav
-      className={classnames(className, 'octagon side-nav')}
-      {...rest}
-    >
+    <nav className={classnames(className, 'octagon side-nav')} {...rest}>
       {children}
     </nav>
   )
