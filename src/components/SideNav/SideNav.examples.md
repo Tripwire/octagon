@@ -17,15 +17,15 @@ SideNav.MenuItem Supports wrapping a react-router NavLink object.  This greatly 
 Sadly this code doesn't render correctly in styleguidest since it doesn't import react-router, but still the code example should be useful.
 
 ```js
-import { NavLink } from 'react-router'
-
 const iconDashboard = require('../../assets/icon_mainav_dash_selected.svg');
 const iconOperations = require('../../assets/icon_mainav_ops_selected.svg');
-
-<SideNav style={{maxHeight: '200px', minHeight: '200px'}}>
-  <SideNav.MenuItem as {NavLink} to '/link1' active image={iconDashboard} />
-  <SideNav.MenuItem as {NavLink} to '/link2' image={iconOperations} />
-</SideNav>
+const { MemoryRouter, NavLink } = require('react-router-dom');
+<MemoryRouter>
+  <SideNav style={{maxHeight: '200px', minHeight: '200px'}}>
+    <SideNav.MenuItem as={NavLink} to='/link2' image={iconOperations} />
+    <SideNav.MenuItem as={NavLink} to='/link1' active image={iconDashboard} />
+  </SideNav>
+</MemoryRouter>
 ```
 
 #### Scaled
