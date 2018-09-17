@@ -14,8 +14,6 @@ const iconOperations = require('../../assets/icon_mainav_ops_selected.svg');
 
 SideNav.MenuItem Supports wrapping a react-router NavLink object.  This greatly simplifies creating a menu that links to react-router sicne the active highlighting is handled automatically.
 
-Sadly this code doesn't render correctly in styleguidest since it doesn't import react-router, but still the code example should be useful.
-
 ```js
 const iconDashboard = require('../../assets/icon_mainav_dash_selected.svg');
 const iconOperations = require('../../assets/icon_mainav_ops_selected.svg');
