@@ -9,6 +9,10 @@ const NAV_VERB_TO_INT_MAP = { prev: -1, next: 1 }
 const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: true }
 const ENABLED_ATTRIBUTE = { tabIndex: 0 }
 
+/**
+ * Pagination Control: controls pagination of results, allowing the user to
+ * easily navigate through pages of data.
+ */
 export default class PaginationControl extends React.PureComponent {
   constructor (props) {
     super(props)
@@ -180,16 +184,21 @@ export default class PaginationControl extends React.PureComponent {
 }
 
 PaginationControl.propTypes = {
-  disabled: PropTypes.bool,
-  /**
-   * Called when the control is blurred.
-   * @param {Number} page target page number
-   */
-  onPageChange: PropTypes.func.isRequired,
   /**
    * Called when the page changes.
    * @param {Number} page target page number
    */
+  onPageChange: PropTypes.func.isRequired,
+  /**
+   * Set pagination to disabled. Default is false.
+   */
+  disabled: PropTypes.bool,
+  /**
+  * Set page number.
+  */
   page: PropTypes.number,
+  /**
+  * Set total number of pages.
+  */
   totalPages: PropTypes.number
 }
