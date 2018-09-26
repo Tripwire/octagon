@@ -12,6 +12,10 @@ import LargeCardStat from './LargeCardStat'
 import LargeCardTitle from './LargeCardTitle'
 import classnames from 'classnames'
 
+/**
+ * A Large Card component that can contain several context-specific components
+ * to display information and statuses.
+ */
 const LargeCard = props => {
   const { children, className, framed, showCard, style, ...rest } = props
   return (

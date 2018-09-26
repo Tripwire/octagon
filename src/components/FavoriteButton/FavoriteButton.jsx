@@ -3,6 +3,9 @@ import React from 'react'
 import '../../styles/components/favorite-button.css'
 import classnames from 'classnames'
 
+/**
+ * Simple favorite button for components.
+ */
 const FavoriteButton = props => {
   const { isFavorited, className, children, ...rest } = props
   const favoriteIconClass = isFavorited
