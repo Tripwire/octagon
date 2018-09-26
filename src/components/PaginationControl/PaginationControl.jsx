@@ -10,7 +10,7 @@ const DISABLED_ATTRIBUTES = { tabIndex: -1, disabled: true }
 const ENABLED_ATTRIBUTE = { tabIndex: 0 }
 
 /**
- * Pagination Control: controls pagination of results, allowing the user to 
+ * Pagination Control: controls pagination of results, allowing the user to
  * easily navigate through pages of data.
  */
 export default class PaginationControl extends React.PureComponent {
