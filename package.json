@@ -69,7 +69,6 @@
     "ci:update-pull-request-with-styleguide": "surge-review --publish-dir styleguide --pull-request $CIRCLE_PULL_REQUEST",
     "styleguide:build": "styleguidist build",
     "start": "node scripts/start",
-    "precommit": "run-p lint test format",
     "semantic-release": "semantic-release",
     "watch:css": "node scripts/watch css",
     "watch:js": "node scripts/watch js",
@@ -111,6 +110,11 @@
         "prettier-standard",
         "git add"
       ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-p lint test format"
     }
   }
 }
