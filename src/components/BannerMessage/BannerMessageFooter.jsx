@@ -1,11 +1,11 @@
 import React from 'react'
 
 /**
- * Footer for BannerMessage. Content is centered
+ * Footer for BannerMessage. Content is centered by default.
  */
 
 const BannerMessageFooter = props => {
-  const { children, alignment, center, right } = props
+  const { children, alignment, center, right, ...rest } = props
 
   function getAlignmentClass () {
     const defaultAlignment = 'banner-message__footer-center'
@@ -15,7 +15,12 @@ const BannerMessageFooter = props => {
   }
 
   return (
-    <div className={`banner-message__footer ${getAlignmentClass()}`}>{children}</div>
+    <div
+      className={`banner-message__footer ${getAlignmentClass()}`}
+      {...rest}
+    >
+      {children}
+    </div>
   )
 }
 

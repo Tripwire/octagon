@@ -5,9 +5,14 @@ import React from 'react'
  */
 
 const BannerMessageBody = props => {
-  const { children } = props
+  const { children, ...rest } = props
   return (
-    <p className='banner-message__body'>{children}</p>
+    <p
+      className='banner-message__body'
+      {...rest}
+    >
+      {children}
+    </p>
   )
 }
 

@@ -5,10 +5,12 @@ import React from 'react'
  */
 
 const BannerMessageHeader = props => {
-  const { children } = props
+  const { children, ...rest } = props
 
   return (
-    <div className='banner-message__header'>{children}</div>
+    <div
+      className='banner-message__header'
+      {...rest}>{children}</div>
   )
 }
 

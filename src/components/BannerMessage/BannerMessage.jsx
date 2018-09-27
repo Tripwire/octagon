@@ -11,7 +11,7 @@ import BannerMessageFooter from './BannerMessageFooter'
  */
 
 const BannerMessage = props => {
-  const { closed, header, icon, children } = props
+  const { closed, header, icon, children, ...rest } = props
 
   function getAlertIconClass () {
     if (status === 'success') return 'icon_check_alt2'
@@ -48,7 +48,10 @@ const BannerMessage = props => {
 
   return (
     <div className='banner-message__wrapper'>
-      <div className={`banner-message ${status} ${closed ? 'closed' : ''}`}>
+      <div
+        className={`banner-message ${status} ${closed ? 'closed' : ''}`}
+        {...rest}
+      >
         {alertIcon}
         {DismissElement}
         {headerMarkup}
