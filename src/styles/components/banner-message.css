@@ -1,0 +1,108 @@
+.banner-message__wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-message {
+  position: relative;
+  background: white;
+  color: white;
+  padding: 0;
+}
+
+.banner-message {
+  z-index: 999;
+  margin-top: 0;
+  transition: all 2s ease-in;
+}
+
+.banner-message.closed {
+  margin-top: -100%;
+}
+
+.banner-message.success {
+  background-color: #3F9C35;
+  border: 3px solid #3F9C35;
+}
+
+.banner-message.info,
+.banner-message.information {
+  background-color: #3498DB;
+  border: 3px solid #3498DB;
+}
+
+.banner-message.warn,
+.banner-message.warning {
+  background-color: #FF9E2C;
+  border: 3px solid #FF9E2C;
+}
+
+.banner-message.error {
+  background-color: #C0382B;
+  border: 3px solid #C0382B;
+}
+
+.banner-message__alert {
+  float: left;
+  margin: 0 12px;
+  font-size: 24px;
+  padding: 8px 0;
+}
+
+.banner-message .banner-message__close-icon {
+  float: right;
+  cursor: pointer;
+  margin: 0 12px;
+  font-size: 24px;
+  padding: 8px 0;
+}
+
+
+.banner-message .banner-message__header button,
+.banner-message button.banner-message__close-button {
+  font-size: 12px;
+  float: right;
+  cursor: pointer;
+  margin: 3px 12px;
+}
+
+.banner-message .banner-message__header button {
+  margin: -4px 0;
+}
+
+
+.banner-message__header {
+  padding: 5px 0;
+  display: block;
+  min-height: 34px;
+  vertical-align: middle;
+  line-height: 30px;
+  font-family: Lato;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.banner-message__body {
+  border-top: inherit;
+  background: white;
+  margin: 0;
+  color: black;
+  padding: 24px 48px;
+}
+
+.banner-message__footer {
+  background: white;
+  margin: 0;
+  color: black;
+  padding: 24px 48px;
+}
+
+.banner-message__footer-center {
+  text-align: center;
+}
+
+.banner-message__footer-right {
+  text-align: right;
+}
