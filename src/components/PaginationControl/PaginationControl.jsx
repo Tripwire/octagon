@@ -194,11 +194,11 @@ PaginationControl.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-  * Set page number.
-  */
+   * Set page number.
+   */
   page: PropTypes.number,
   /**
-  * Set total number of pages.
-  */
+   * Set total number of pages.
+   */
   totalPages: PropTypes.number
 }

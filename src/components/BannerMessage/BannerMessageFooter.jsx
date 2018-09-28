@@ -10,15 +10,12 @@ const BannerMessageFooter = props => {
   function getAlignmentClass () {
     const defaultAlignment = 'banner-message__footer-center'
     if (center || (alignment && alignment === 'center')) return defaultAlignment
-    if (right || (alignment && alignment === 'right')) return 'banner-message__footer-right'
+    if (right || (alignment && alignment === 'right')) { return 'banner-message__footer-right' }
     return defaultAlignment
   }
 
   return (
-    <div
-      className={`banner-message__footer ${getAlignmentClass()}`}
-      {...rest}
-    >
+    <div className={`banner-message__footer ${getAlignmentClass()}`} {...rest}>
       {children}
     </div>
   )

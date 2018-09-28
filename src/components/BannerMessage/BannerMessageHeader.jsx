@@ -8,9 +8,9 @@ const BannerMessageHeader = props => {
   const { children, ...rest } = props
 
   return (
-    <div
-      className='banner-message__header'
-      {...rest}>{children}</div>
+    <div className='banner-message__header' {...rest}>
+      {children}
+    </div>
   )
 }
 
