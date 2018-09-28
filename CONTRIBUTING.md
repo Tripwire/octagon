@@ -206,7 +206,7 @@ commits should be small, targeted, and focused.  unfocused changes need to be sp
 
 Ensure that you have [Docker](https://www.docker.com/get-started) installed for your OS.
 
-- run Standard linter to ensure code formatting is correct (or set up your editor to automate this)
+- run `yarn lint` and `yarn format` (IDE settings will help)
 - run `yarn styleguide:build` to build the style guide.
 - run `yarn test` to use our tests against your changes including webjerk image diffing
 - **tests will likely initially fail if you have created or updated a component. this is because we are using [Snapjerk](https://www.npmjs.com/package/snapjerk) image-diffing software.**
