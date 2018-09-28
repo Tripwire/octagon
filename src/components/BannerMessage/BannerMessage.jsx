@@ -32,18 +32,35 @@ const BannerMessage = props => {
   }
 
   function getOneDismissElement () {
-    const dismissIcon = <i className={`banner-message__close-icon ei icon_close`} onClick={props.onCloseClicked} />
-    const dismissButton = <Button size='tiny' className='banner-message__close-button' onClick={props.onCloseClicked}>{props.button}</Button>
+    const dismissIcon = (
+      <i
+        className={`banner-message__close-icon ei icon_close`}
+        onClick={props.onCloseClicked}
+      />
+    )
+    const dismissButton = (
+      <Button
+        size='tiny'
+        className='banner-message__close-button'
+        onClick={props.onCloseClicked}
+      >
+        {props.button}
+      </Button>
+    )
     return (!icon && props.button && dismissButton) || dismissIcon
   }
 
-  const childIsString = (typeof children === 'string')
+  const childIsString = typeof children === 'string'
   const nakedHeader = childIsString && !header && children
   const status = getStatus()
   const headerContent = header || nakedHeader || ''
   const childContent = !childIsString ? children : ''
-  const headerMarkup = headerContent && <BannerMessageHeader>{headerContent}</BannerMessageHeader>
-  const alertIcon = <i className={`banner-message__alert ${getAlertIconClass()}`} />
+  const headerMarkup = headerContent && (
+    <BannerMessageHeader>{headerContent}</BannerMessageHeader>
+  )
+  const alertIcon = (
+    <i className={`banner-message__alert ${getAlertIconClass()}`} />
+  )
   const DismissElement = getOneDismissElement()
 
   return (
