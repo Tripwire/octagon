@@ -95,7 +95,9 @@
     "url": "https://github.com/Tripwire/octagon.git"
   },
   "version": "0.0.0-development",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "lint-staged": {
     "linters": {
       "src/**/*.js": [
