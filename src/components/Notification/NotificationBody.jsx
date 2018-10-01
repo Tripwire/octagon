@@ -1,4 +1,5 @@
 import React from 'react'
+import { getAlertIconClassName } from '../../util/getAlertIconClassName'
 import NotificationMessage from './NotificationMessage'
 import NotificationEmpty from './NotificationEmpty'
 
@@ -15,30 +16,12 @@ const NotificationBody = props => {
       <div className='notificationBody' {...rest}>
         {notifications.map(
           ({ id, type, title, description, timeStamp, isMsgRead }) => {
-            let icon = ''
-            switch (type) {
-              case 'success':
-                icon = 'icon_error-triangle_alt'
-                break
-              case 'info':
-                icon = 'icon_error-triangle_alt'
-                break
-              case 'warning':
-                icon = 'icon_error-triangle_alt'
-                break
-              case 'error':
-                icon = 'icon_error-circle_alt'
-                break
-              default:
-                icon = 'icon_check_alt2'
-            }
+            const icon = getAlertIconClassName(type)
             const options = {
               id,
               type,
               title,
               description,
-              timeStamp,
-              isMsgRead,
               icon: icon,
               removeItem: removeItem
             }
