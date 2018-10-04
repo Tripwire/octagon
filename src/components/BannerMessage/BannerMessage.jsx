@@ -12,7 +12,7 @@ import classnames from 'classnames'
  */
 
 const BannerMessage = props => {
-  const {button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest} = props
+  const { button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest } = props
   const forceInfo = !info && !warning && !error && !success
 
   function getOneDismissElement () {
@@ -47,7 +47,7 @@ const BannerMessage = props => {
       'ei icon_info_alt': info || forceInfo,
       'ei icon_error-triangle_alt': warning,
       'ei icon_error-circle_alt': error
-    })}/>
+    })} />
   )
   const DismissElement = getOneDismissElement()
 
