@@ -9,6 +9,13 @@
     "header header"
     "nav body";
 }
+.layout__container--notifying {
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "header header"
+    "nav notification"
+    "nav body";
+}
 .layout__container--full {
   height: 100vh;
   width: 100vw;
@@ -19,6 +26,9 @@
 }
 .layout__nav {
   grid-area: nav;
+}
+.layout__notification {
+  grid-area: notification;
 }
 .layout__body {
   grid-area: body;
