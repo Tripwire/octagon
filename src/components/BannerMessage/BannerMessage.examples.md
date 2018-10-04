@@ -2,7 +2,7 @@
 
 ```js
 
-<BannerMessage status='success'>
+<BannerMessage success>
 	<BannerMessage.Header>Success Message goes here</BannerMessage.Header>
 </BannerMessage>
 ```
@@ -11,7 +11,7 @@
 
 ```js
 
-<BannerMessage status='information'>
+<BannerMessage info>
 Information Message goes here
 </BannerMessage>
 ```
@@ -20,7 +20,7 @@ Information Message goes here
 
 ```js
 
-<BannerMessage status='warning'>
+<BannerMessage warning>
 Warning Message goes here
 </BannerMessage>
 ```
@@ -29,7 +29,7 @@ Warning Message goes here
 
 ```js
 
-<BannerMessage status='error'>
+<BannerMessage error>
 Error Message goes here
 </BannerMessage>
 ```
@@ -37,7 +37,7 @@ Error Message goes here
 #### Banner Message, with button
 ```js
 
-<BannerMessage status='information' button="Click here">
+<BannerMessage info button="Click here">
 	<BannerMessage.Header>Header text goes here</BannerMessage.Header>
 </BannerMessage>
 ```
@@ -46,7 +46,7 @@ Error Message goes here
 
 ```js
 
-<BannerMessage status='success'>
+<BannerMessage success>
 	<BannerMessage.Header>Header text goes here</BannerMessage.Header>
 	<BannerMessage.Body>body</BannerMessage.Body>
 </BannerMessage>
@@ -57,7 +57,7 @@ Error Message goes here
 ```js
 const Button = require('semantic-ui-react').Button;
 
-<BannerMessage status='information'>
+<BannerMessage info>
 	<BannerMessage.Header>Header text goes here</BannerMessage.Header>
 	<BannerMessage.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at sagittis sem, ac commodo diam. Cras sed enim sit amet ligula volutpat dignissim. Donec nec magna ex. Ut eu dictum sem.</BannerMessage.Body>
 	<BannerMessage.Footer>
@@ -74,8 +74,8 @@ initialState = { closed: false };
 
 <div style={{border: '1px solid black'}}>
 	<h1 style={{padding: '10px', background: '#363D43', margin: '0px', position: 'relative', color: 'white'}}>My App</h1>
-	<BannerMessage status='error' 
-		onCloseClicked={obj => {
+	<BannerMessage error
+		onCloseClicked={() => {
 	  	setState({ closed: true})
 		}}
 		closed={state.closed}
