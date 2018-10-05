@@ -12,7 +12,7 @@ import classnames from 'classnames'
  */
 
 const BannerMessage = props => {
-  const { button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest } = props
+  const { className, button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest } = props
   const forceInfo = !info && !warning && !error && !success
 
   function getOneDismissElement () {
@@ -52,7 +52,7 @@ const BannerMessage = props => {
   const DismissElement = getOneDismissElement()
 
   return (
-    <div className='banner-message__wrapper'>
+    <div className={classnames('banner-message__wrapper', className)}>
       <div
         className={classnames(
           'banner-message',
