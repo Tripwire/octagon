@@ -69,7 +69,6 @@ const Button = require('semantic-ui-react').Button;
 
 #### Banner Message in App
 ```js
-const Button = require('semantic-ui-react').Button;
 initialState = { closed: false };
 
 <div style={{border: '1px solid black'}}>
