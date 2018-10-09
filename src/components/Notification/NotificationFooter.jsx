@@ -1,10 +1,13 @@
 import React from 'react'
 
 const NotificationFooter = props => {
-  const { children, ...rest } = props
+  const { children, onClearAll, ...rest } = props
+  function handleClearAllClicked () {
+    onClearAll()
+  }
   return (
     <div className={'notificationFooter clearfix'} {...rest}>
-      {children}
+      <div onClick={() => handleClearAllClicked()}>Clear All</div>
     </div>
   )
 }

@@ -1,14 +1,33 @@
 import React from 'react'
 
 const NotificationHeader = props => {
-  const { title, notificationCount, children, ...rest } = props
-  return (
+  const {
+    title,
+    notificationCount,
+    detail,
+    children,
+    onNotificationClicked,
+    ...rest
+  } = props
+
+  function handlelistViewClicked () {
+    onNotificationClicked(undefined)
+  }
+
+  const detailView = (
     <div className={'notificationHeader clearfix'} {...rest}>
-      <span className='notificationTitle'>{title} </span>
+      <a onClick={() => handlelistViewClicked()}>back</a>
+    </div>
+  )
+  const listView = (
+    <div className={'notificationHeader clearfix'} {...rest}>
+      <span className='notificationTitle'>{title}</span>
       <span className='notificationCount'>{notificationCount}</span>
       {children}
     </div>
   )
+
+  return detail ? detailView : listView
 }
 
 NotificationHeader.defaultProps = {}

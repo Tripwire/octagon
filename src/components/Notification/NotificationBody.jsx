@@ -4,15 +4,34 @@ import NotificationMessage from './NotificationMessage'
 import NotificationEmpty from './NotificationEmpty'
 
 const NotificationBody = props => {
-  const { children, notifications, removeItem, ...rest } = props
-  let componentToRender = (
-    <div>
-      <NotificationEmpty />
-    </div>
-  )
+  const {
+    children,
+    notifications,
+    removeItem,
+    onNotificationClicked,
+    ...rest
+  } = props
+  const notificationsLength = notifications.length
+  console.log('NotificationBody')
+  if (props.detail) {
+    const selectedNotification = (function () {
+      for (let i = 0; i < notificationsLength; i++) {
+        console.log(notifications[i].id + ' =? ' + props.detail)
+        if (notifications[i].id === props.detail) return notifications[i]
+      }
+      return {}
+    })()
+    selectedNotification.icon = getAlertIconClassName(selectedNotification.type)
+    return (
+      <NotificationMessage
+        key={selectedNotification.id}
+        options={selectedNotification}
+      />
+    )
+  }
 
-  if (notifications.length > 0) {
-    componentToRender = (
+  if (notificationsLength > 0) {
+    return (
       <div className='notificationBody' {...rest}>
         {notifications.map(
           ({ id, type, title, description, timeStamp, isMsgRead }) => {
@@ -23,7 +42,9 @@ const NotificationBody = props => {
               title,
               description,
               icon: icon,
-              removeItem: removeItem
+              timeStamp: timeStamp,
+              removeItem: removeItem,
+              onNotificationClicked: onNotificationClicked
             }
             return <NotificationMessage key={id} options={options} />
           }
@@ -31,9 +52,9 @@ const NotificationBody = props => {
         {children}
       </div>
     )
+  } else {
+    return <NotificationEmpty />
   }
-
-  return componentToRender
 }
 
 NotificationBody.defaultProps = {}

@@ -5,11 +5,28 @@ import { Icon } from 'semantic-ui-react'
 
 const NotificationMessage = props => {
   const { options, ...rest } = props
-  const { id, type, title, description, timeStamp, isMsgRead, icon } = options
+  const {
+    id,
+    type,
+    title,
+    description,
+    timeStamp,
+    icon,
+    onNotificationClicked
+  } = options
+
+  function handleNotificationClicked (id) {
+    onNotificationClicked(id)
+  }
+
+  function handleClearClicked (id) {
+    console.log('clear: ' + id)
+  }
+
   return (
     <Flexbox
       id={id}
-      isMsgRead={isMsgRead}
+      onClick={e => handleNotificationClicked(id)}
       flexDirection='column'
       flexGrow={1}
       className={'column singleNotification'}
@@ -21,7 +38,12 @@ const NotificationMessage = props => {
           <div className='notificationTitle'>{title}</div>
           <div className='notificationDesc '>{description}</div>
           <div className='notificationActions'>
-            <span className='notificationClear'>Clear</span>
+            <a
+              className='notificationClear'
+              onClick={e => handleClearClicked(id)}
+            >
+              Clear
+            </a>
           </div>
         </Flexbox>
         <div className='notificationTime'>{timeStamp}</div>
@@ -33,7 +55,6 @@ const NotificationMessage = props => {
 NotificationMessage.defaultProps = {
   title: '',
   description: '',
-  timeStamp: '',
   icon: ''
 }
 
