@@ -6,7 +6,7 @@ import React from 'react'
 
 const BannerMessageBody = props => {
   const { children, ...rest } = props
-  const content = typeof children === 'string' ? <p>children</p> : children
+  const content = typeof children === 'string' ? <p>{children}</p> : children
   return (
     <div className='banner-message__body' {...rest}>
       {content}
