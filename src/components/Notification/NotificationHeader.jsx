@@ -1,4 +1,5 @@
 import React from 'react'
+import { Icon } from 'semantic-ui-react'
 
 const NotificationHeader = props => {
   const {
@@ -15,8 +16,13 @@ const NotificationHeader = props => {
   }
 
   const detailView = (
-    <div className={'notificationHeader clearfix'} {...rest}>
-      <a onClick={() => handlelistViewClicked()}>back</a>
+    <div
+      className={'notificationHeader detailView clearfix'}
+      onClick={() => handlelistViewClicked()}
+      {...rest}
+    >
+      <Icon className='angle left backarrow' />
+      <span className='backbtn'>BACK</span>
     </div>
   )
   const listView = (

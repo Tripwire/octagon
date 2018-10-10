@@ -23,7 +23,7 @@ const Notification = props => {
   const badge = (
     <Notification.Badge
       key={'badge'}
-      size='large'
+      size='small'
       notificationCount={notificationCount}
     />
   )
@@ -42,7 +42,7 @@ const Notification = props => {
         onNotificationClicked={onNotificationClicked}
         onClearNotification={onClearNotification}
       />
-      <Notification.Footer onClearAll={onClearAll} />
+      {props.detail ? null : <Notification.Footer onClearAll={onClearAll} />}
     </Notification.Tray>
   )
 
