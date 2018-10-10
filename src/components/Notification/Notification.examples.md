@@ -4,7 +4,7 @@
 const Flexbox = require('flexbox-react').default;
 const notifications1 = [];
 
-const notifications = [
+let notifications = [
     {id:1, type:'error',
     title:'First Notification',
     description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla arcu, elementum in nibh eu, volutpat interdum lorem. Suspendisse congue consequat congue. Vestibulum iaculis, ipsum sed semper semper, leo velit varius quam, eget tincidunt augue nunc at turpis.',
@@ -63,16 +63,42 @@ initialState = {
   <Notification
     notifications={state.notifications}
     detail={state.detail}
-    onNotificationClicked={id => {
-        console.log('clicked: '+id)
-        setState({ detail: id}) 
+    onNotificationClicked={notification => {
+        if (notification) {
+            console.log('clicked: '+notification)
+            console.log('READ: ' + notification.isMsgRead)
+            let notificationIdx = undefined
+            for (let i = 0; i < notifications.length; i++) {
+                console.log(notifications[i].id + ' =? ' + notification.id)
+                if (notifications[i].id === notification.id) {
+                    notificationIdx = i;
+                    break;
+                }
+            }
+            notifications[notificationIdx].isMsgRead = true
+        }
+        setState({ detail: notification, notifications: notifications})
       }
     }
     onClearAll={() => {
         console.log('Clear All')
+        setState({ detail: undefined, notifications: []})
       }
     }
-    
+    onClearNotification={notification => {
+        console.log('clear: ' + notification.id)
+        let notificationIdx = undefined
+        for (let i = 0; i < notifications.length; i++) {
+            console.log(notifications[i].id + ' =? ' + notification.id)
+            if (notifications[i].id === notification.id) {
+                notificationIdx = i;
+                break;
+            }
+        }
+        delete notifications[notificationIdx]
+        setState({ detail: undefined, notifications: notifications})
+      }
+    }
   />
 </div>
 ```

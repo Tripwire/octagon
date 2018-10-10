@@ -13,6 +13,7 @@ const Notification = props => {
     children,
     notifications,
     onNotificationClicked,
+    onClearNotification,
     onClearAll,
     ...rest
   } = props
@@ -39,6 +40,7 @@ const Notification = props => {
         notifications={notifications}
         removeItem={3}
         onNotificationClicked={onNotificationClicked}
+        onClearNotification={onClearNotification}
       />
       <Notification.Footer onClearAll={onClearAll} />
     </Notification.Tray>

@@ -1,60 +1,48 @@
 import React from 'react'
-import { getAlertIconClassName } from '../../util/getAlertIconClassName'
 import NotificationMessage from './NotificationMessage'
 import NotificationEmpty from './NotificationEmpty'
 
 const NotificationBody = props => {
+  function getNotification (notification) {
+    return (
+      <NotificationMessage
+        key={notification.id}
+        notification={notification}
+        onNotificationClicked={onNotificationClicked}
+        onClearNotification={onClearNotification}
+      />
+    )
+  }
+  function getNotificationContent () {
+    if (props.detail) {
+      return getNotification(props.detail)
+    }
+    if (notificationsLength > 0) {
+      return notifications.map(notification => {
+        console.log(notification.id)
+        return getNotification(notification)
+      })
+    } else {
+      return <NotificationEmpty />
+    }
+  }
+
   const {
     children,
     notifications,
     removeItem,
     onNotificationClicked,
+    onClearNotification,
     ...rest
   } = props
   const notificationsLength = notifications.length
-  console.log('NotificationBody')
-  if (props.detail) {
-    const selectedNotification = (function () {
-      for (let i = 0; i < notificationsLength; i++) {
-        console.log(notifications[i].id + ' =? ' + props.detail)
-        if (notifications[i].id === props.detail) return notifications[i]
-      }
-      return {}
-    })()
-    selectedNotification.icon = getAlertIconClassName(selectedNotification.type)
-    return (
-      <NotificationMessage
-        key={selectedNotification.id}
-        options={selectedNotification}
-      />
-    )
-  }
+  const notificationContent = getNotificationContent()
 
-  if (notificationsLength > 0) {
-    return (
-      <div className='notificationBody' {...rest}>
-        {notifications.map(
-          ({ id, type, title, description, timeStamp, isMsgRead }) => {
-            const icon = getAlertIconClassName(type)
-            const options = {
-              id,
-              type,
-              title,
-              description,
-              icon: icon,
-              timeStamp: timeStamp,
-              removeItem: removeItem,
-              onNotificationClicked: onNotificationClicked
-            }
-            return <NotificationMessage key={id} options={options} />
-          }
-        )}
-        {children}
-      </div>
-    )
-  } else {
-    return <NotificationEmpty />
-  }
+  return (
+    <div className='notificationBody' {...rest}>
+      {notificationContent}
+    </div>
+  )
 }
 
 NotificationBody.defaultProps = {}
