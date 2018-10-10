@@ -22,7 +22,7 @@
 // here's a handy bash function to load into your shell profile so you can convert
 // screen recordings to animated GIFs!
 // movToGif my-screen-recording.mov ==> my-screen-recording.mov.gif
-function movToGif() {
+function movToGif() { 
   `ffmpeg -i $1 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=4 --delay=20 > $1.gif`;
 }
 -->
