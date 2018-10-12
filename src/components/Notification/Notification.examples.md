@@ -55,14 +55,14 @@ let notifications = [
 ];
 
 initialState = {
-  detail: undefined,
+  selectedNotification: undefined,
   notifications: notifications
 };
 
 <div>
   <Notification
     notifications={state.notifications}
-    detail={state.detail}
+    selectedNotification={state.selectedNotification}
     onNotificationClicked={notification => {
         if (notification) {
             console.log('clicked: '+notification)
@@ -77,12 +77,14 @@ initialState = {
             }
             notifications[notificationIdx].isMsgRead = true
         }
-        setState({ detail: notification, notifications: notifications})
+        console.log('update notifs')
+        console.log(notifications)
+        setState({ selectedNotification: notification, notifications: notifications})
       }
     }
     onClearAll={() => {
         console.log('Clear All')
-        setState({ detail: undefined, notifications: []})
+        setState({ selectedNotification: undefined, notifications: []})
       }
     }
     onClearNotification={notification => {
@@ -96,7 +98,7 @@ initialState = {
             }
         }
         delete notifications[notificationIdx]
-        setState({ detail: undefined, notifications: notifications})
+        setState({ selectedNotification: undefined, notifications: notifications})
       }
     }
   />

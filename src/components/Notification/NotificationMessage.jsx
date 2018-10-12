@@ -14,7 +14,7 @@ const NotificationMessage = props => {
   const { id, type, title, description, timeStamp, isMsgRead } = notification
   const icon = getAlertIconClassName(type)
   const isReadStyle = isMsgRead ? 'normal' : 'bold'
-  console.log('isRead: ' + isMsgRead)
+  console.log('isRead: !' + isMsgRead)
 
   function handleNotificationClicked (notification) {
     onNotificationClicked(notification)
@@ -35,7 +35,7 @@ const NotificationMessage = props => {
       {...rest}
     >
       <Flexbox title={title}>
-        <Icon className={`ei text-large notificationIcon ${type} ${icon}`} />
+        <Icon className={`text-large notificationIcon ${type} ${icon}`} />
         <Flexbox flexDirection='column' className={`notificationContent`}>
           <div
             className='notificationTitle'

@@ -15,6 +15,7 @@ const Notification = props => {
     onNotificationClicked,
     onClearNotification,
     onClearAll,
+    selectedNotification,
     ...rest
   } = props
 
@@ -30,19 +31,21 @@ const Notification = props => {
   const tray = (
     <Notification.Tray key={'tray'}>
       <Notification.Header
-        title={'Notification'}
-        detail={props.detail}
+        title={'NOTIFICATIONS'}
+        selectedNotification={selectedNotification}
         notificationCount={notificationCount}
         onNotificationClicked={onNotificationClicked}
       />
       <Notification.Body
-        detail={props.detail}
+        selectedNotification={selectedNotification}
         notifications={notifications}
         removeItem={3}
         onNotificationClicked={onNotificationClicked}
         onClearNotification={onClearNotification}
       />
-      {props.detail ? null : <Notification.Footer onClearAll={onClearAll} />}
+      {selectedNotification ? null : (
+        <Notification.Footer onClearAll={onClearAll} />
+      )}
     </Notification.Tray>
   )
 

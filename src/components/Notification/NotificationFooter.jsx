@@ -7,7 +7,7 @@ const NotificationFooter = props => {
   }
   return (
     <div className={'notificationFooter clearfix'} {...rest}>
-      <div onClick={() => handleClearAllClicked()}>Clear All</div>
+      <a onClick={() => handleClearAllClicked()}>Clear All</a>
     </div>
   )
 }

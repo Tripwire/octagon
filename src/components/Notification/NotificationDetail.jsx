@@ -5,8 +5,14 @@ import { getAlertIconClassName } from '../../util/getAlertIconClassName'
 
 const NotificationDetail = props => {
   const { notification, onClearNotification, ...rest } = props
-  const { id, type, title, description, timeStamp } = notification
+  const { id, type, title, description, timeStamp, isMsgRead } = notification
   const icon = getAlertIconClassName(type)
+  const isReadStyle = isMsgRead ? 'normal' : 'bold'
+
+  function handleClearClicked (e, notification) {
+    onClearNotification(notification)
+    e.stopPropagation()
+  }
 
   return (
     <Flexbox
@@ -19,7 +25,12 @@ const NotificationDetail = props => {
       <Flexbox title={title}>
         <Icon className={`notificationIcon ${type} ${icon}`} />
         <Flexbox flexDirection='column' className={`notificationContent`}>
-          <div className='notificationTitle'>{title}</div>
+          <div
+            className='notificationTitle'
+            style={{ fontWeight: isReadStyle }}
+          >
+            {title}
+          </div>
           <div className='notificationTime'>{timeStamp}</div>
           <div className='notificationDesc '>{description}</div>
           <div className='notificationActions'>

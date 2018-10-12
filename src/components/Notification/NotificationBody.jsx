@@ -24,8 +24,8 @@ const NotificationBody = props => {
     }
   }
   function getNotificationContent () {
-    if (props.detail) {
-      return getNotification(props.detail, 'detailedNotification')
+    if (props.selectedNotification) {
+      return getNotification(props.selectedNotification, 'detailedNotification')
     }
     if (notificationsLength > 0) {
       return notifications.map(notification => {

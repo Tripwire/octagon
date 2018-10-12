@@ -5,7 +5,7 @@ const NotificationHeader = props => {
   const {
     title,
     notificationCount,
-    detail,
+    selectedNotification,
     children,
     onNotificationClicked,
     ...rest
@@ -33,7 +33,7 @@ const NotificationHeader = props => {
     </div>
   )
 
-  return detail ? detailView : listView
+  return selectedNotification ? detailView : listView
 }
 
 NotificationHeader.defaultProps = {}
