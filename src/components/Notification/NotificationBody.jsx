@@ -29,7 +29,6 @@ const NotificationBody = props => {
     }
     if (notificationsLength > 0) {
       return notifications.map(notification => {
-        console.log(notification.id)
         return getNotification(notification, 'notificationList')
       })
     } else {

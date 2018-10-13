@@ -64,39 +64,24 @@ initialState = {
     notifications={state.notifications}
     selectedNotification={state.selectedNotification}
     onNotificationClicked={notification => {
-        if (notification) {
-            console.log('clicked: '+notification)
-            console.log('READ: ' + notification.isMsgRead)
-            let notificationIdx = undefined
-            for (let i = 0; i < notifications.length; i++) {
-                console.log(notifications[i].id + ' =? ' + notification.id)
-                if (notifications[i].id === notification.id) {
-                    notificationIdx = i;
-                    break;
-                }
-            }
+        const clickedBack = (typeof notification == 'undefined')
+        if (!clickedBack) {
+            const notificationIdx = notifications.findIndex( (item) => {
+                return item.id === notification.id 
+            })
             notifications[notificationIdx].isMsgRead = true
         }
-        console.log('update notifs')
-        console.log(notifications)
         setState({ selectedNotification: notification, notifications: notifications})
       }
     }
     onClearAll={() => {
-        console.log('Clear All')
         setState({ selectedNotification: undefined, notifications: []})
       }
     }
     onClearNotification={notification => {
-        console.log('clear: ' + notification.id)
-        let notificationIdx = undefined
-        for (let i = 0; i < notifications.length; i++) {
-            console.log(notifications[i].id + ' =? ' + notification.id)
-            if (notifications[i].id === notification.id) {
-                notificationIdx = i;
-                break;
-            }
-        }
+        const notificationIdx = notifications.findIndex( (item) => {
+            return item.id === notification.id 
+        })
         delete notifications[notificationIdx]
         setState({ selectedNotification: undefined, notifications: notifications})
       }

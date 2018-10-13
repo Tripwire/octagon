@@ -55,10 +55,12 @@
     }
     & .notificationHeader{
       border-bottom:1px solid var(--gray);
-      padding: 12px 15px;
+      padding: var(--standardMargin);
       & .notificationTitle{
         font-size:1.2em;
         font-weight: bold;
+        display: inline-block;
+        margin: 0;
       }
       & .notificationCount{
         display: inline-block;
@@ -96,7 +98,7 @@
       overflow-y: auto;
       & .singleNotification{
         cursor: pointer;
-        padding: 15px 8px 5px;
+        padding: var(--standardMargin) 8px var(--standardMargin);
         border-bottom: 1px solid var(--gray);
         &.active,&.unread{
           background: var(--whisperGray);
@@ -136,7 +138,7 @@
         border-bottom: none;
       }
       & .detailView{
-        padding:15px;
+        padding: var(--standardMargin);
         & .notificationContent{
           padding-left:10px;
           & .notificationTitle{

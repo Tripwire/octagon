@@ -27,7 +27,7 @@ const NotificationHeader = props => {
   )
   const listView = (
     <div className={'notificationHeader clearfix'} {...rest}>
-      <span className='notificationTitle'>{title}</span>
+      <h4 className='notificationTitle'>{title}</h4>
       <span className='notificationCount'>{notificationCount}</span>
       {children}
     </div>
