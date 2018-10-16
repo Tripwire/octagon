@@ -22,7 +22,7 @@ const NotificationHeader = props => {
       {...rest}
     >
       <Icon className='angle left backarrow' />
-      <span className='backbtn'>BACK</span>
+      <h4 className='backbtn'>BACK</h4>
     </div>
   )
   const listView = (

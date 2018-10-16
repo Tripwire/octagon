@@ -1,7 +1,6 @@
 #### Notification Menu
 
 ```js
-const Flexbox = require('flexbox-react').default;
 const notifications1 = [];
 
 let notifications = [
@@ -59,7 +58,7 @@ initialState = {
   notifications: notifications
 };
 
-<div>
+<div className='notifcationexample' style={{textAlign: 'right'}}>
   <Notification
     notifications={state.notifications}
     selectedNotification={state.selectedNotification}

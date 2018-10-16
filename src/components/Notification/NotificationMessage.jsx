@@ -14,7 +14,7 @@ const NotificationMessage = props => {
   const { id, type, title, description, timeStamp, isMsgRead } = notification
   const icon = getAlertIconClassName(type)
   const isReadStyle = isMsgRead ? 'normal' : 'bold'
-  console.log('isRead: !' + isMsgRead)
+  console.log('id: ' + id + ' isRead: !' + isMsgRead)
 
   function handleNotificationClicked (notification) {
     onNotificationClicked(notification)
@@ -43,7 +43,7 @@ const NotificationMessage = props => {
           >
             {title}
           </div>
-          <div className='notificationDesc '>{description}</div>
+          <div className='notificationDesc'>{description}</div>
           <div className='notificationActions'>
             <a
               className='notificationClear'

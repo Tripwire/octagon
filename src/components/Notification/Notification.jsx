@@ -39,13 +39,14 @@ const Notification = props => {
       <Notification.Body
         selectedNotification={selectedNotification}
         notifications={notifications}
-        removeItem={3}
         onNotificationClicked={onNotificationClicked}
         onClearNotification={onClearNotification}
       />
-      {selectedNotification ? null : (
-        <Notification.Footer onClearAll={onClearAll} />
-      )}
+      <Notification.Footer
+        onClearAll={onClearAll}
+        selectedNotification={selectedNotification}
+        empty={!notificationCount}
+      />
     </Notification.Tray>
   )
 

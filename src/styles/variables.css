@@ -1,4 +1,18 @@
+/* Variables - a mix of Old and New */
+
 :root {
+
+/* Octagon Design System Colors */
+
+  --frameGray: #f1f1f2;
+  --neutralBlueGray: #657D8E;
+  --headingGray: #28324E;
+  --octGray500: #d4d4d5;
+  --octLightBlue: #c2e0f4;
+  --octBlueGray250: #8faec1;
+  --octBackgroundGray: #f8f8f8;
+  --octLightBlueGray: #7f93a1;
+
 /* Start Yung's palette */ 
 
   /* COLORS */
@@ -71,7 +85,11 @@
   --small: 0.85rem;
   --semibold: 600;
   --subtitlesize: 14px;
+
+  /* margins */
+  --largeMargin: 20px;
   --standardMargin: 15px;
+  --smallMargin: 10px;
 
   --base-border-radius: 0;
 }

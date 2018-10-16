@@ -32,6 +32,7 @@
     text-align: center;
     background: var(--warningred);
     color:var(--white);
+    padding: 0 6px;
     &.tiny{
       font-size: var(--xsmall);
     };
@@ -45,6 +46,7 @@
      padding:0px;
      margin:0px;
      width: 500px;
+     height: 603px;
     & .clearfix:after {
       visibility: hidden;
       display: block;
@@ -54,11 +56,15 @@
       height: 0;
     }
     & .notificationHeader{
-      border-bottom:1px solid var(--gray);
+      border-bottom:1px solid var(--silverGray);
+      height: 55px;
       padding: var(--standardMargin);
+      background: white;
       & .notificationTitle{
-        font-size:1.2em;
+        color: var(--headingGray);
+        font-size: 17px;
         font-weight: bold;
+        line-height: 24px;
         display: inline-block;
         margin: 0;
       }
@@ -73,65 +79,72 @@
         text-align: center;
         background: var(--warningred);
         color:var(--white);
-        margin-left: 10px;
+        margin-left: var(--smallMargin);
+        padding: 0 8px;
       }
       &.detailView{
        cursor:pointer;
         & .backbtn {
-          color: var(--black);
-          position: relative;
-          top: -5px;
-          left: -10px;
+          color: var(--headingGray);
+          line-height: 24px;
+          display: inline-block;
+          margin: 0;
         }
         & i.icon.backarrow {
-          color: var(--black);
+          color: var(--headingGray);
           position: relative;
-          top: 0;
-          left: -5px;
-          font-size: 2em;
+          top: 3px; 
+          font-size: 24px;
+          margin: 0;
         }
       }
     }
     & .notificationBody{
-      height: 500px;
+      max-height: 495px;
       width: 500px;
       overflow-y: auto;
+      background-color: var(--lightgray);
       & .singleNotification{
         cursor: pointer;
-        padding: var(--standardMargin) 8px var(--standardMargin);
-        border-bottom: 1px solid var(--gray);
-        &.active,&.unread{
-          background: var(--whisperGray);
-        }&:hover{
-          background: var(--activeBlue);
+        padding: var(--standardMargin);
+        border-bottom: 1px solid var(--octGray500);
+        background-color: white;
+        &:hover{
+          background: var(--frameGray);
+        }
+        &:active{
+          background: var(--octLightBlue);
         }
         & .notificationContent{
-          width:350px;
+          width: 350px;
           & .notificationTitle{
             margin-bottom: 7px;
             height: 17px;
             overflow: hidden;
           };
           & .notificationDesc{
-            margin-bottom: 7px;
+            margin-bottom: var(--smallMargin);
             display: block;
             display: -webkit-box;
-            height: 40px;
+            line-height: 21px;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            color:var(--nobelGray);
+            color:var(--neutralBlueGray);
+            height: 40px;
           };
           & .notificationActions{
             & .notificationClear{
-              color:var(--blue)
+              color:var(--primaryBlue);
             };
           };
         };
         & .notificationTime{
-         width: 100px;
+          width: 80px;
           text-align: right;
+          color: var(--octBlueGray250);
+          font-weight: 500;
         };
       }
       & .singleNotification:last-child{
@@ -139,87 +152,116 @@
       }
       & .detailView{
         padding: var(--standardMargin);
+        background: white;
+        height: 100%;
         & .notificationContent{
-          padding-left:10px;
+          padding-left:var(--smallMargin);
           & .notificationTitle{
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: var(--smallMargin);
             font-size: 16px;
           }
-          & .notificationTime, & .notificationDesc {
-            margin-bottom: 10px;
+          & .notificationDesc {
+            margin-bottom: var(--smallMargin);
+            display: block;
+            color:var(--neutralBlueGray);
+            line-height: 21px;
+          }
+          & .notificationTime {
+            margin-bottom: var(--smallMargin);
+            display: block;
+            color:var(--neutralBlueGray);
+            font-weight: 500;
           }
         }
+        & .notificationClear {
+          cursor: pointer;
+        } 
       }
     }
     & .notificationFooter{
-      border-top: 1px solid var(--gray);
+      border-top: 1px solid var(--silverGray);
       cursor: pointer;
+      height: 51px;
+      background: white;
       & > a{
         display: block;
-        padding:12px 15px;
+        padding: var(--smallMargin);
         text-align: center;
-        color:var(--blue);
+        color:var(--primaryBlue);
+        line-height: 30px;
       }
       & > a:hover{
         background: var(--whisperGray);
       }
+    }
+    & .empty-footer {
+      height: 51px;
+      background: var(--frameGray);
     }
     &.ui.bottom{
      padding:0px;
      box-shadow: 0px 5px 10px 4px #ccc;
     }
     & .notificationIcon{
-      width: 35px;
       position: relative;
-      font-size:1.5em;
+      font-size: 24px;
+      margin-right: var(--standardMargin);
       &.error {
-        color: var(--orange)
+        color: var(--orange);
       };
       &.success {
-        color: var(--successGreen)
+        color: var(--successGreen);
       };
       &.warning {
-        color: var(--warningred)
+        color: var(--warningred);
       };
       &.info {
-        color: var(--blue)
+        color: var(--primaryBlue);
       };
     };
   }
 }
 
-.notification_detail{
-  min-width: 400px;
-}
-
-.empty__circle {
-  width: 280px;
-  height: 280px;
-  color: #8faec1;
-  border: 13px solid #eeeff0;
+.inner-circle {
+  width: 275px;
+  height: 275px;
+  color: var(--octBlueGray250);
+  border: 25px solid var(--octBackgroundGray);
+  background: white;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100%;
   text-align: center;
   padding-top: 35px;
-  & .bell_icon{
-    font-size: 35px;
-    margin-bottom: 20px;
+  & i.big.bell_icon{
+    font-size: 64px;
+    margin-bottom: var(--largeMargin);
   }
   & .info_text{
     font-size: 20px;
   }
 }
 
+.outer-circle {
+  width: 310px;
+  height: 310px;
+  background: var(--lightgray);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  border: 16px solid var(--lightgray);
+}
+
 .empty__notification_panel {
-  height: 500px;
   padding: 4em;
-  background-color: #f1f1f2;
-  & .title {
-    font-size: 14px;
-    color: #b5c0c7;
-    margin-top: 32px;
-    text-align: center
+  background-color: var(--frameGray);
+  height: 100%;
+  & .large-copy {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--octLightBlueGray);
+    margin-top: 25px;
+    text-align: center;
   }
 }

@@ -1,13 +1,15 @@
 import React from 'react'
 
 const NotificationFooter = props => {
-  const { children, onClearAll, ...rest } = props
+  const { children, onClearAll, empty, selectedNotification, ...rest } = props
   function handleClearAllClicked () {
     onClearAll()
   }
+  if (empty) return <div className='empty-footer' />
+  if (selectedNotification) return null
   return (
-    <div className={'notificationFooter clearfix'} {...rest}>
-      <a onClick={() => handleClearAllClicked()}>Clear All</a>
+    <div className={'notificationFooter'} {...rest}>
+      {empty ? null : <a onClick={() => handleClearAllClicked()}>Clear All</a>}
     </div>
   )
 }

@@ -39,7 +39,6 @@ const NotificationBody = props => {
   const {
     children,
     notifications,
-    removeItem,
     onNotificationClicked,
     onClearNotification,
     ...rest
