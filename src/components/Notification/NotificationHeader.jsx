@@ -12,7 +12,7 @@ const NotificationHeader = props => {
   } = props
 
   function handlelistViewClicked () {
-    onNotificationClicked(undefined)
+    onNotificationClicked()
   }
 
   const detailView = (
@@ -28,7 +28,9 @@ const NotificationHeader = props => {
   const listView = (
     <div className={'notificationHeader clearfix'} {...rest}>
       <h4 className='notificationTitle'>{title}</h4>
-      <span className='notificationCount'>{notificationCount}</span>
+      {notificationCount ? (
+        <span className='notificationCount'>{notificationCount}</span>
+      ) : null}
       {children}
     </div>
   )

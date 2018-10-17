@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Flexbox from 'flexbox-react'
 import { Icon } from 'semantic-ui-react'
 import { getAlertIconClassName } from '../../util/getAlertIconClassName'
+import { getRelativeTime } from '../../util/component-factory.js'
 
 const NotificationMessage = props => {
   const {
@@ -14,7 +15,6 @@ const NotificationMessage = props => {
   const { id, type, title, description, timeStamp, isMsgRead } = notification
   const icon = getAlertIconClassName(type)
   const isReadStyle = isMsgRead ? 'normal' : 'bold'
-  console.log('id: ' + id + ' isRead: !' + isMsgRead)
 
   function handleNotificationClicked (notification) {
     onNotificationClicked(notification)
@@ -53,7 +53,7 @@ const NotificationMessage = props => {
             </a>
           </div>
         </Flexbox>
-        <div className='notificationTime'>{timeStamp}</div>
+        <div className='notificationTime'>{getRelativeTime(timeStamp)}</div>
       </Flexbox>
     </Flexbox>
   )

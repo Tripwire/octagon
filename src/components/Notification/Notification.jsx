@@ -26,6 +26,7 @@ const Notification = props => {
       key={'badge'}
       size='small'
       notificationCount={notificationCount}
+      onClick={() => onNotificationClicked()}
     />
   )
   const tray = (

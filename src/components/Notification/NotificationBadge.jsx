@@ -8,7 +8,9 @@ const NotificationBadge = props => {
   return (
     <span className={`notificationIcon ${size}`} {...rest}>
       <Icon name='bell outline' size={size} />
-      <span className={`notificationCount ${size}`}>{notificationCount}</span>
+      {notificationCount ? (
+        <span className={`notificationCount ${size}`}>{notificationCount}</span>
+      ) : null}
     </span>
   )
 }
