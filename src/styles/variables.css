@@ -1,4 +1,18 @@
+/* Variables - a mix of Old and New */
+
 :root {
+
+/* Octagon Design System Colors */
+
+  --frameGray: #f1f1f2;
+  --neutralBlueGray: #657D8E;
+  --headingGray: #28324E;
+  --octGray500: #d4d4d5;
+  --octLightBlue: #c2e0f4;
+  --octBlueGray250: #8faec1;
+  --octBackgroundGray: #f8f8f8;
+  --octLightBlueGray: #7f93a1;
+
 /* Start Yung's palette */ 
 
   /* COLORS */
@@ -7,6 +21,7 @@
   --cobaltBlue: #075ea6;
   --denimBlue: #1c75bd;
   --peterriverBlue: #3498db;
+  --activeBlue : #c2e0f4;
 
   /*--black: #000000;*/
   --nightriderGray: #2d2d2d;
@@ -58,6 +73,7 @@
   --purple: #A976B2;
   --green: #00A69C;
   --darkgreen: #169D8F;
+  --successGreen: #3f9c35;
   --orange: #FFA500;
  
   --buttonBorder: #BBBDBF;
@@ -69,6 +85,11 @@
   --small: 0.85rem;
   --semibold: 600;
   --subtitlesize: 14px;
+
+  /* margins */
+  --largeMargin: 20px;
+  --standardMargin: 15px;
+  --smallMargin: 10px;
 
   --base-border-radius: 0;
 }
