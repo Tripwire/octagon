@@ -105,6 +105,9 @@
     height: 16px;
     margin: 7px var(--paginationSpaceBetweenWords);
     padding: 1px 4px;
+    &:invalid{
+      box-shadow: 0px 0px 0px var(--mainPaginationColor);
+    }
   }
 
   & .pagination__page-total {
