@@ -25,7 +25,7 @@
     "html-loader": "^0.5.1",
     "husky": "^1.0.0",
     "less": "^2",
-    "lint-staged": "^7.1.0",
+    "lint-staged": "^8.0.0",
     "npm-run-all": "^4.1.1",
     "perish": "^1.0.2",
     "postcss-cli": "^6.0.0",
