@@ -5,68 +5,65 @@ import { Button } from 'semantic-ui-react'
 import BannerMessageHeader from './BannerMessageHeader'
 import BannerMessageBody from './BannerMessageBody'
 import BannerMessageFooter from './BannerMessageFooter'
+import classnames from 'classnames'
 
 /**
  * A BannerMessage displays an alert at the top of a content section.
  */
 
 const BannerMessage = props => {
-  const { closed, header, icon, children, ...rest } = props
-
-  function getAlertIconClass () {
-    if (status === 'success') return 'icon_check_alt2'
-    if (status === 'information') return 'ei icon_info_alt'
-    if (status === 'warning') return 'ei icon_error-triangle_alt'
-    if (status === 'error') return 'ei icon_error-circle_alt'
-  }
-
-  function getStatus () {
-    if (props.status) {
-      if (props.status === 'info') return 'information'
-      else return props.status
-    }
-    if (props.success) return 'success'
-    if (props.info || props.information) return 'information'
-    if (props.warning) return 'warning'
-    if (props.error) return 'error'
-  }
+  const { className, button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest } = props
+  const forceInfo = !info && !warning && !error && !success
 
   function getOneDismissElement () {
     const dismissIcon = (
       <i
         className={`banner-message__close-icon ei icon_close`}
-        onClick={props.onCloseClicked}
+        onClick={onCloseClicked}
       />
     )
     const dismissButton = (
       <Button
         size='tiny'
         className='banner-message__close-button'
-        onClick={props.onCloseClicked}
+        onClick={onCloseClicked}
       >
-        {props.button}
+        {button}
       </Button>
     )
-    return (!icon && props.button && dismissButton) || dismissIcon
+    return (!icon && button && dismissButton) || dismissIcon
   }
 
   const childIsString = typeof children === 'string'
   const nakedHeader = childIsString && !header && children
-  const status = getStatus()
   const headerContent = header || nakedHeader || ''
   const childContent = !childIsString ? children : ''
   const headerMarkup = headerContent && (
     <BannerMessageHeader>{headerContent}</BannerMessageHeader>
   )
   const alertIcon = (
-    <i className={`banner-message__alert ${getAlertIconClass()}`} />
+    <i className={classnames('banner-message__alert', {
+      'icon_check_alt2': success,
+      'ei icon_info_alt': info || forceInfo,
+      'ei icon_error-triangle_alt': warning,
+      'ei icon_error-circle_alt': error
+    })} />
   )
   const DismissElement = getOneDismissElement()
 
   return (
-    <div className='banner-message__wrapper'>
+    <div className={classnames('banner-message__wrapper', className)}>
       <div
-        className={`banner-message ${status} ${closed ? 'closed' : ''}`}
+        className={classnames(
+          'banner-message',
+          {
+            info: info || forceInfo,
+            success,
+            error,
+            warning,
+            closed
+          }
+        )}
         {...rest}
       >
         {alertIcon}
