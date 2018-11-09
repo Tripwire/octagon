@@ -27,7 +27,7 @@ const NotificationDetail = props => {
         <Flexbox flexDirection='column' className={`notificationContent`}>
           <div className='notificationTitle'>{title}</div>
           <div className='notificationTime'>
-            {' '}
+            {''}
             {moment(timeStamp).format('ddd MMM DD, YYYY, h:mm A')}{' '}
           </div>
           <div className='notificationDesc '>{description}</div>
