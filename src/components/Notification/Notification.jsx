@@ -80,12 +80,12 @@ Notification.propTypes = {
    */
   onNotificationClicked: PropTypes.func.isRequired.isRequired,
   /**
-   * Called when a back button is clicked. Returns to 
+   * Called when a back button is clicked. Returns to
    * List View.
    */
   onBackClicked: PropTypes.func.isRequired,
   /**
-   * Called when a Clear Notification button is clicked. Clears 
+   * Called when a Clear Notification button is clicked. Clears
    * Notication Message from List View and archives it.
    * @param {Object} notification message
    */
