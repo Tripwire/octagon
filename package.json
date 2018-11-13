@@ -53,6 +53,7 @@
     "elegant-icons": "^0.0.1",
     "flexbox-react": "^4.4.0",
     "lato-font": "^3.0.0",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.0",
     "semantic-ui-less": "2.4.0"
   },

@@ -2,6 +2,7 @@ import React from 'react'
 import Flexbox from 'flexbox-react'
 import { Icon } from 'semantic-ui-react'
 import { getAlertIconClassName } from '../../util/getAlertIconClassName'
+import moment from 'moment'
 
 const NotificationDetail = props => {
   const { notification, onClearNotification, ...rest } = props
@@ -25,7 +26,10 @@ const NotificationDetail = props => {
         <Icon className={`notificationIcon ${type} ${icon}`} />
         <Flexbox flexDirection='column' className={`notificationContent`}>
           <div className='notificationTitle'>{title}</div>
-          <div className='notificationTime'>{timeStamp}</div>
+          <div className='notificationTime'>
+            {''}
+            {moment(timeStamp).format('ddd MMM DD, YYYY, h:mm A')}{' '}
+          </div>
           <div className='notificationDesc '>{description}</div>
           <div className='notificationActions'>
             <a
