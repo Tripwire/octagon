@@ -7,12 +7,12 @@ const NotificationHeader = props => {
     notificationCount,
     selectedNotification,
     children,
-    onNotificationClicked,
+    onBackClicked,
     ...rest
   } = props
 
   function handlelistViewClicked () {
-    onNotificationClicked()
+    onBackClicked()
   }
 
   const detailView = (

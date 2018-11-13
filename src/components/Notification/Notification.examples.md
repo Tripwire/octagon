@@ -62,6 +62,10 @@ initialState = {
   <Notification
     notifications={state.notifications}
     selectedNotification={state.selectedNotification}
+    onBackClicked={() => {
+        setState({ selectedNotification: undefined, notifications: notifications})
+      }
+    }
     onNotificationClicked={notification => {
         const clickedBack = (typeof notification == 'undefined')
         if (!clickedBack) {

@@ -13,6 +13,7 @@ const Notification = props => {
     children,
     notifications,
     onNotificationClicked,
+    onBackClicked,
     onClearNotification,
     onClearAll,
     selectedNotification,
@@ -35,7 +36,7 @@ const Notification = props => {
         title={'NOTIFICATIONS'}
         selectedNotification={selectedNotification}
         notificationCount={notificationCount}
-        onNotificationClicked={onNotificationClicked}
+        onBackClicked={onBackClicked}
       />
       <Notification.Body
         selectedNotification={selectedNotification}
