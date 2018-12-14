@@ -66,6 +66,7 @@
     "dev": "run-p watch:*",
     "build": "node scripts/build",
     "lint": "standard",
+    "pretest": "run-p styleguide:build",
     "test": "cross-env DEBUG=webjerk* snapjerk",
     "prestyleguide:build": "run-p build write-styleguide-sections",
     "ci:update-pull-request-with-styleguide": "surge-review --publish-dir styleguide --pull-request $CIRCLE_PULL_REQUEST",
