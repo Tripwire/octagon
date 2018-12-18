@@ -12,7 +12,20 @@ import classnames from 'classnames'
  */
 
 const BannerMessage = props => {
-  const { className, button, closed, header, icon, children, info, warning, error, success, onCloseClicked, ...rest } = props
+  const {
+    className,
+    button,
+    closed,
+    header,
+    icon,
+    children,
+    info,
+    warning,
+    error,
+    success,
+    onCloseClicked,
+    ...rest
+  } = props
   const forceInfo = !info && !warning && !error && !success
 
   function getOneDismissElement () {
@@ -42,28 +55,27 @@ const BannerMessage = props => {
     <BannerMessageHeader>{headerContent}</BannerMessageHeader>
   )
   const alertIcon = (
-    <i className={classnames('banner-message__alert', {
-      'icon_check_alt2': success,
-      'ei icon_info_alt': info || forceInfo,
-      'ei icon_error-triangle_alt': warning,
-      'ei icon_error-circle_alt': error
-    })} />
+    <i
+      className={classnames('banner-message__alert', {
+        icon_check_alt2: success,
+        'ei icon_info_alt': info || forceInfo,
+        'ei icon_error-triangle_alt': warning,
+        'ei icon_error-circle_alt': error
+      })}
+    />
   )
   const DismissElement = getOneDismissElement()
 
   return (
     <div className={classnames('banner-message__wrapper', className)}>
       <div
-        className={classnames(
-          'banner-message',
-          {
-            info: info || forceInfo,
-            success,
-            error,
-            warning,
-            closed
-          }
-        )}
+        className={classnames('banner-message', {
+          info: info || forceInfo,
+          success,
+          error,
+          warning,
+          closed
+        })}
         {...rest}
       >
         {alertIcon}
