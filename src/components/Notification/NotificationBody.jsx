@@ -41,6 +41,7 @@ const NotificationBody = props => {
     notifications,
     onNotificationClicked,
     onClearNotification,
+    selectedNotification,
     ...rest
   } = props
   const notificationsLength = notifications.length
