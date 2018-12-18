@@ -7,7 +7,7 @@ const NotificationEmpty = props => {
     <div className='empty__notification_panel' {...rest}>
       <div className='outer-circle'>
         <div className='inner-circle'>
-          <Icon name='bell outline bell_icon' size='big' />
+          <Icon name='bell outline' className='bell_icon' size='big' />
           <div className='info_text'>
             <span>No New Notifications!</span>
           </div>
