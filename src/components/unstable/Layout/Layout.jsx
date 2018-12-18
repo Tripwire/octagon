@@ -33,5 +33,8 @@ Layout.propTypes = {
 }
 Layout.Header = generic({ name: 'LayoutHeader', className: 'layout__header' })
 Layout.Nav = generic({ name: 'LayoutNav', className: 'layout__nav' })
-Layout.Notification = generic({ name: 'LayoutNotification', className: 'layout__notification' })
+Layout.Notification = generic({
+  name: 'LayoutNotification',
+  className: 'layout__notification'
+})
 Layout.Body = generic({ name: 'LayoutBody', className: 'layout__body' })
