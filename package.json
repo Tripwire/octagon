@@ -105,15 +105,13 @@
   ],
   "lint-staged": {
     "linters": {
-      "src/**/*.js": [
-        "prettier-standard",
-        "git add"
-      ],
-      "src/**/*.jsx": [
+      "src/**/*.{js,jsx}": [
+        "standard",
         "prettier-standard",
         "git add"
       ],
       "scripts/**/*.js": [
+        "standard",
         "prettier-standard",
         "git add"
       ]
@@ -121,7 +119,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-p lint test format",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
