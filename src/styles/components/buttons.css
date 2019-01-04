@@ -1,0 +1,32 @@
+@import '../../styles/variables.css';
+
+button.button.octagoan{
+    background: var(--peterriverBlue);
+    color: var(--white);
+    border-radius: 2px;
+    border:2px solid var(--peterriverBlue);
+    min-width:100px;
+    height: 40px;
+
+    &:hover,&:active,&:focus,&.active,&.active:hover{
+         background:var(--denimBlue);
+         border-color:var(--denimBlue);
+         color: var(--white);
+    }
+
+    &:hover,&:active,&.active{
+        box-shadow: none;
+    }
+
+    &:focus{
+        box-shadow: 0px 0px 1px 3px var(--silverGray);
+    }
+
+    &:disabled{
+        background : var(--lightgray);
+        color : var(--gray);
+        border:2px solid var(--lightgray);
+        cursor:not-allowed;
+    }
+
+}
