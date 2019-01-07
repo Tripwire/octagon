@@ -1,6 +1,6 @@
 @import '../../styles/variables.css';
 
-button.button.octagoan{
+button.ui.button.octagoan{
     background: var(--peterriverBlue);
     color: var(--white);
     border-radius: 2px;
@@ -29,4 +29,65 @@ button.button.octagoan{
         cursor:not-allowed;
     }
 
+     &.textbutton{
+        background: transparent;
+        color: var(--peterriverBlue);
+        border-radius: none;
+        border:none;
+        min-width:100px;
+        height: 40px;
+        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
+            background:transparent;
+            border-color:none;
+            color: var(--denimBlue);
+        }
+
+        &:focus{
+             border-radius: 2px;
+             border: 2px solid var(--silverGray);
+             box-shadow: none;
+        }
+
+        &:disabled{
+            background : transparent;
+            color : var(--gray);
+            cursor:not-allowed;
+        }
+
+      }
+
+    &.iconbutton{
+        color :var(--darkgray);
+        background: transparent;
+        border:none;
+        height:auto;
+
+        & .icon{
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 0 0 5px 0;
+        }
+
+        &:not(.icon) > .icon:not(.button):not(.dropdown) {
+            margin: 0 0 5px 0;
+        }
+
+        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
+            color:var(--peterriverBlue);
+            background: transparent;
+        }
+
+        &:focus{
+            border-radius: 2px;
+            border: 2px solid var(--silverGray);
+            box-shadow: none;
+        }
+
+        &:disabled{
+            background : transparent;
+            color : var(--gray);
+            cursor:not-allowed;
+        }
+    }
 }
