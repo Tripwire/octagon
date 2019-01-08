@@ -1,6 +1,6 @@
 @import '../../styles/variables.css';
 
-button.ui.button.octagoan{
+button.ui.button.octagon{
     background: var(--peterriverBlue);
     color: var(--white);
     border-radius: 2px;
@@ -33,13 +33,15 @@ button.ui.button.octagoan{
         background: transparent;
         color: var(--peterriverBlue);
         border-radius: none;
-        border:none;
+        border-width:2px;
+        border-color:transparent;
         min-width:100px;
         height: 40px;
         &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
             background:transparent;
             border-color:none;
             color: var(--denimBlue);
+            border-color:transparent;
         }
 
         &:focus{
@@ -53,15 +55,17 @@ button.ui.button.octagoan{
             color : var(--gray);
             cursor:not-allowed;
         }
-
       }
 
     &.iconbutton{
         color :var(--darkgray);
         background: transparent;
-        border:none;
+         border-width:2px;
+         border-color:transparent;
+         padding: 6px 10px;
         height:auto;
 
+         min-width:auto;
         & .icon{
             display: block;
             width: 100%;
@@ -76,6 +80,7 @@ button.ui.button.octagoan{
         &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
             color:var(--peterriverBlue);
             background: transparent;
+            border-color:transparent;
         }
 
         &:focus{
@@ -90,4 +95,47 @@ button.ui.button.octagoan{
             cursor:not-allowed;
         }
     }
+
+
+    &.actionbutton{
+        color :var(--darkgray);
+        background: transparent;
+        border-width:2px;
+        border-color:transparent;
+        height:auto;
+        min-width:auto;
+        padding: 4px 6px;
+
+        & svg{
+            fill:var(--darkgray);
+        }
+
+        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
+            background: transparent;
+            border-color:transparent;
+            & svg{
+                fill:var(--peterriverBlue);
+            }
+        }
+
+        &:focus{
+             border-radius: 2px;
+             border-color:var(--silverGray);
+             box-shadow: none;
+         }
+
+        &:disabled{
+             background : transparent;
+             color : var(--silverGray);
+             cursor:not-allowed;
+            & svg{
+                fill:var(--silverGray);
+            }
+         }
+    }
 }
+
+.visible.transition.disabled{
+    display: none !important;
+}
+
