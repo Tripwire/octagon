@@ -15,6 +15,70 @@ Icon = require('semantic-ui-react').Icon;
 </div>
 ```
 
+#### Secondary Button
+```js
+Button = require('semantic-ui-react').Button;
+Icon = require('semantic-ui-react').Icon;
+
+<div>
+	<Button className='octagon secondarybutton'>Save</Button>
+	<Button className='octagon secondarybutton active'>Save</Button>
+	<Button className='octagon secondarybutton' loading>Save</Button>
+	<Button disabled className='octagon secondarybutton'>Save</Button>
+	<Button className='octagon secondarybutton'>
+      <Icon className='check circle outline' />
+      Save
+  </Button>
+</div>
+```
+
+#### Default Button
+```js
+Button = require('semantic-ui-react').Button;
+Icon = require('semantic-ui-react').Icon;
+
+<div>
+	<Button className='octagon defaultbutton'>Save</Button>
+	<Button className='octagon defaultbutton active'>Save</Button>
+	<Button className='octagon defaultbutton' loading>Save</Button>
+	<Button disabled className='octagon defaultbutton'>Save</Button>
+	<Button className='octagon defaultbutton'>
+      <Icon className='check circle outline' />
+      Save
+  </Button>
+</div>
+```
+
+
+#### Default Button with icon
+```js
+Button = require('semantic-ui-react').Button;
+Icon = require('semantic-ui-react').Icon;
+
+<div>
+	<Button className='octagon defaultbutton'>
+      <Icon className='copy outline' />
+      Save
+  </Button>
+	<Button className='octagon defaultbutton active'>
+      <Icon className='copy outline' />
+      Save
+  </Button>
+	<Button className='octagon defaultbutton' loading>
+      <Icon className='copy outline' />
+      Save
+  </Button>
+	<Button disabled className='octagon defaultbutton'>
+      <Icon className='copy outline' />
+      Save
+  </Button>
+	<Button className='octagon defaultbutton'>
+      <Icon className='copy outline' />
+      Save
+  </Button>
+</div>
+```
+
 #### Text Button
 ```js
 Button = require('semantic-ui-react').Button;

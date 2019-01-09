@@ -133,6 +133,63 @@ button.ui.button.octagon{
             }
          }
     }
+
+    &.secondarybutton{
+         background: var(--white);
+         color: var(--charcoalGray);
+         border-radius: 2px;
+         border:2px solid var(--silverGray);
+         min-width:100px;
+         height: 40px;
+
+        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
+                                                                               background:var(--silverGray);
+                                                                               border-color:var(--silverGray);
+                                                                               color: var(--charcoalGray);
+                                                                           }
+
+        &:focus{
+             border-radius: 2px;
+             border: 2px solid var(--silverGray);
+             box-shadow: 0px 0px 1px 3px var(--silverGray);
+         }
+
+        &:disabled{
+             background : transparent;
+             color : var(--silverGray);
+             cursor:not-allowed;
+         }
+    }
+
+    &.defaultbutton {
+         background: var(--white);
+         color: var(--peterriverBlue);
+         border-radius: 2px;
+         border: 2px solid var(--peterriverBlue);
+         min-width: 100px;
+         height: 40px;
+
+        &:hover,&:active,&:focus,&.active,&.active:hover{
+                                               background:var(--denimBlue);
+                                               border-color:var(--denimBlue);
+                                               color: var(--white);
+                                           }
+
+        &:hover,&:active,&.active{
+                              box-shadow: none;
+                          }
+
+        &:focus{
+             box-shadow: 0px 0px 1px 3px var(--silverGray);
+         }
+
+        &:disabled{
+             background : var(--white);
+             color : var(--gray);
+             border:2px solid var(--lightgray);
+             cursor:not-allowed;
+         }
+     }
 }
 
 .visible.transition.disabled{
