@@ -1,35 +1,96 @@
 @import '../../styles/variables.css';
 
-button.ui.button.octagon{
-    background: var(--peterriverBlue);
-    color: var(--white);
+button.ui.button{
+    background: var(--white);
+    color: var(--peterriverBlue);
     border-radius: 2px;
-    border:2px solid var(--peterriverBlue);
-    min-width:100px;
+    border: 2px solid var(--peterriverBlue);
+    min-width: 100px;
     height: 40px;
-
-    &:hover,&:active,&:focus,&.active,&.active:hover{
-         background:var(--denimBlue);
-         border-color:var(--denimBlue);
-         color: var(--white);
-    }
 
     &:hover,&:active,&.active{
         box-shadow: none;
     }
 
+    &:hover,&:active,&:focus,&.active,&.active:hover{
+        background:var(--denimBlue);
+        border-color:var(--denimBlue);
+        color: var(--white);
+    }
+
     &:focus{
-        box-shadow: 0px 0px 1px 3px var(--silverGray);
+        box-shadow: 0 0 0 1px var(--white), 0px 0px 1px 3px var(--silverGray);
     }
 
     &:disabled{
-        background : var(--lightgray);
+        background : var(--white);
         color : var(--gray);
         border:2px solid var(--lightgray);
         cursor:not-allowed;
     }
 
-     &.textbutton{
+    &.positive {
+         background: var(--peterriverBlue);
+         color: var(--white);
+         border-radius: 2px;
+         border:2px solid var(--peterriverBlue);
+         min-width:100px;
+         height: 40px;
+
+        &:hover,&:active,&.active{
+            box-shadow: none;
+        }
+
+        &:hover,&:active,&:focus,&.active,&.active:hover{
+            background:var(--denimBlue);
+            border-color:var(--denimBlue);
+            color: var(--white);
+        }
+
+        &:focus{
+            box-shadow: 0 0 0 1px var(--white), 0px 0px 1px 3px var(--silverGray);
+        }
+
+        &:disabled{
+            background : var(--lightgray);
+            color : var(--gray);
+            border:2px solid var(--lightgray);
+            cursor:not-allowed;
+        }
+    }
+
+    &.negative{
+        background: var(--white);
+        color: var(--charcoalGray);
+        border-radius: 2px;
+        border:2px solid var(--silverGray);
+        min-width:100px;
+        height: 40px;
+
+        &:hover,&:active,&.active{
+            box-shadow: none;
+        }
+
+        &:hover,&:active,&:focus,&.active,&.active:hover{
+            background:var(--silverGray);
+            border-color:var(--silverGray);
+            color: var(--charcoalGray);
+        }
+
+        &:focus{
+            border-radius: 2px;
+            border: 2px solid var(--silverGray);
+            box-shadow: 0 0 0 1px var(--white), 0px 0px 1px 3px var(--silverGray);
+        }
+
+        &:disabled{
+            background : transparent;
+            color : var(--silverGray);
+            cursor:not-allowed;
+        }
+    }
+
+    &.textButton{
         background: transparent;
         color: var(--peterriverBlue);
         border-radius: none;
@@ -37,7 +98,8 @@ button.ui.button.octagon{
         border-color:transparent;
         min-width:100px;
         height: 40px;
-        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
+
+        &:hover,&:active,&:focus,&.active,&.active:hover{
             background:transparent;
             border-color:none;
             color: var(--denimBlue);
@@ -45,9 +107,9 @@ button.ui.button.octagon{
         }
 
         &:focus{
-             border-radius: 2px;
-             border: 2px solid var(--silverGray);
-             box-shadow: none;
+            border-radius: 2px;
+            border: 2px solid var(--silverGray);
+            box-shadow: none;
         }
 
         &:disabled{
@@ -55,17 +117,17 @@ button.ui.button.octagon{
             color : var(--gray);
             cursor:not-allowed;
         }
-      }
+    }
 
-    &.iconbutton{
+    &.iconButton{
         color :var(--darkgray);
         background: transparent;
-         border-width:2px;
-         border-color:transparent;
-         padding: 6px 10px;
+        border-width:2px;
+        border-color:transparent;
+        padding: 6px 10px;
         height:auto;
+        min-width:auto;
 
-         min-width:auto;
         & .icon{
             display: block;
             width: 100%;
@@ -96,8 +158,7 @@ button.ui.button.octagon{
         }
     }
 
-
-    &.actionbutton{
+    &.actionButton{
         color :var(--darkgray);
         background: transparent;
         border-width:2px;
@@ -113,83 +174,28 @@ button.ui.button.octagon{
         &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
             background: transparent;
             border-color:transparent;
+
             & svg{
                 fill:var(--peterriverBlue);
             }
         }
 
         &:focus{
-             border-radius: 2px;
-             border-color:var(--silverGray);
-             box-shadow: none;
-         }
+            border-radius: 2px;
+            border-color:var(--silverGray);
+            box-shadow: none;
+        }
 
         &:disabled{
-             background : transparent;
-             color : var(--silverGray);
-             cursor:not-allowed;
+            background : transparent;
+            color : var(--silverGray);
+            cursor:not-allowed;
+
             & svg{
                 fill:var(--silverGray);
             }
-         }
+        }
     }
-
-    &.secondarybutton{
-         background: var(--white);
-         color: var(--charcoalGray);
-         border-radius: 2px;
-         border:2px solid var(--silverGray);
-         min-width:100px;
-         height: 40px;
-
-        &:hover,&:active,&:focus,&.active,&.active:hover,&:hover,&:active,&.active{
-                                                                               background:var(--silverGray);
-                                                                               border-color:var(--silverGray);
-                                                                               color: var(--charcoalGray);
-                                                                           }
-
-        &:focus{
-             border-radius: 2px;
-             border: 2px solid var(--silverGray);
-             box-shadow: 0px 0px 1px 3px var(--silverGray);
-         }
-
-        &:disabled{
-             background : transparent;
-             color : var(--silverGray);
-             cursor:not-allowed;
-         }
-    }
-
-    &.defaultbutton {
-         background: var(--white);
-         color: var(--peterriverBlue);
-         border-radius: 2px;
-         border: 2px solid var(--peterriverBlue);
-         min-width: 100px;
-         height: 40px;
-
-        &:hover,&:active,&:focus,&.active,&.active:hover{
-                                               background:var(--denimBlue);
-                                               border-color:var(--denimBlue);
-                                               color: var(--white);
-                                           }
-
-        &:hover,&:active,&.active{
-                              box-shadow: none;
-                          }
-
-        &:focus{
-             box-shadow: 0px 0px 1px 3px var(--silverGray);
-         }
-
-        &:disabled{
-             background : var(--white);
-             color : var(--gray);
-             border:2px solid var(--lightgray);
-             cursor:not-allowed;
-         }
-     }
 }
 
 .visible.transition.disabled{

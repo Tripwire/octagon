@@ -4,14 +4,14 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-	<Button className='octagon'>Save</Button>
-	<Button className='octagon active'>Save</Button>
-	<Button className='octagon' loading>Save</Button>
-	<Button disabled className='octagon'>Save</Button>
-	<Button className='octagon'>
-      <Icon className='check circle outline' />
-      Save
-  </Button>
+    <Button positive>Save</Button>
+  	<Button positive active>Save</Button>
+  	<Button positive loading></Button>
+  	<Button disabled positive>Save</Button>
+  	<Button positive>
+        <Icon className='check circle outline' />
+        Save
+    </Button>
 </div>
 ```
 
@@ -21,14 +21,14 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-	<Button className='octagon secondarybutton'>Save</Button>
-	<Button className='octagon secondarybutton active'>Save</Button>
-	<Button className='octagon secondarybutton' loading>Save</Button>
-	<Button disabled className='octagon secondarybutton'>Save</Button>
-	<Button className='octagon secondarybutton'>
-      <Icon className='check circle outline' />
-      Save
-  </Button>
+    <Button negative>Cancel</Button>
+  	<Button negative active>Cancel</Button>
+  	<Button negative loading></Button>
+  	<Button disabled negative>Cancel</Button>
+  	<Button negative>
+        <Icon className='check circle outline' />
+        Cancel
+    </Button>
 </div>
 ```
 
@@ -38,17 +38,16 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-	<Button className='octagon defaultbutton'>Save</Button>
-	<Button className='octagon defaultbutton active'>Save</Button>
-	<Button className='octagon defaultbutton' loading>Save</Button>
-	<Button disabled className='octagon defaultbutton'>Save</Button>
-	<Button className='octagon defaultbutton'>
-      <Icon className='check circle outline' />
-      Save
-  </Button>
+    <Button>Test Connection</Button>
+  	<Button active>Test Connection</Button>
+  	<Button loading></Button>
+  	<Button disabled>Test Connection</Button>
+  	<Button>
+        <Icon className='check circle outline' />
+         Test Connection
+    </Button>
 </div>
 ```
-
 
 #### Default Button with icon
 ```js
@@ -56,40 +55,35 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-	<Button className='octagon defaultbutton'>
-      <Icon className='copy outline' />
-      Save
-  </Button>
-	<Button className='octagon defaultbutton active'>
-      <Icon className='copy outline' />
-      Save
-  </Button>
-	<Button className='octagon defaultbutton' loading>
-      <Icon className='copy outline' />
-      Save
-  </Button>
-	<Button disabled className='octagon defaultbutton'>
-      <Icon className='copy outline' />
-      Save
-  </Button>
-	<Button className='octagon defaultbutton'>
-      <Icon className='copy outline' />
-      Save
-  </Button>
+    <Button>
+        <i className='icon_documents_alt' /> 
+        Copy to Clipboard
+    </Button>
+    <Button active>
+        <i className='icon_documents_alt' /> 
+        Copy to clipboard
+    </Button>
+    <Button loading>
+        <i className='icon_documents_alt' /> 
+    </Button>
+    <Button disabled >
+        <i className='icon_documents_alt' /> 
+        Copy to clipboard
+    </Button>
 </div>
 ```
 
-#### Text Button
+#### Text Button with Icon
 ```js
 Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-	<Button className='octagon textbutton'>Button</Button>
-	<Button className='octagon textbutton active'>Button</Button>
-	<Button className='octagon textbutton' loading>Button</Button>
-	<Button disabled className='octagon textbutton'>Button</Button>
-	<Button className='octagon textbutton'>
+	<Button className='textButton'>Button</Button>
+	<Button className='textButton active'>Button</Button>
+	<Button loading className='textButton'>Button</Button>
+	<Button disabled className='textButton'>Button</Button>
+	<Button className='textButton'>
       <Icon className='check circle outline' />
       Button
   </Button>
@@ -102,15 +96,15 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-    <Button className='octagon iconbutton'>
+    <Button className='iconButton'>
         <Icon className='save outline' size='large' />
         Save
     </Button>
-    <Button className='octagon iconbutton active'>
+    <Button className='iconButton active'>
         <Icon className='save outline' size='large' />
         Save
     </Button>
-    <Button disabled className='octagon iconbutton'>
+    <Button disabled className='iconButton'>
         <Icon className='save outline' size='large' />
         Save
     </Button>
@@ -123,14 +117,14 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-    <Button className='octagon iconbutton'>
-        <Icon className='close' size='large' />
+    <Button className='iconButton'>
+      <Icon className='close' size='large' />
     </Button>
-    <Button className='octagon iconbutton active'>
-        <Icon className='close' size='large' />
+    <Button className='iconButton active'>
+      <Icon className='close' size='large' />
     </Button>
-    <Button disabled className='octagon iconbutton'>
-        <Icon className='close' size='large' />
+    <Button disabled className='iconButton'>
+      <Icon className='close' size='large' />
     </Button>
 </div>
 ```
@@ -138,9 +132,20 @@ Icon = require('semantic-ui-react').Icon;
 ### Action Menu
 ```js
 const Button = require('semantic-ui-react').Button;
+const menuList =[
+  {'id':1,'Name':'Export', 'icon':'ei icon_cog'},
+  {'id':2,'Name':'Delete', 'icon':'ei icon_info'},
+  {'id':3,'Name':'Copy', 'icon':'save outline'},
+  {'id':4,'Name':'Settings', 'icon':'ei icon_cog'}
+]
+
+initialState = {
+  actionMenuList:menuList
+};
 
 <div>
-    <RolesActionList className='octagon actionbutton'/>
-    <RolesActionList className='octagon actionbutton active'/>
-    <RolesActionList disabled  className='octagon actionbutton'/>
+    <ActionList className='actionButton' actionMenuList={state.actionMenuList} />
+    <ActionList className='actionButton active' actionMenuList={state.actionMenuList} />
+    <ActionList disabled className='actionButton' actionMenuList={state.actionMenuList} />
 </div>
+```
