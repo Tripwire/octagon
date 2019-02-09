@@ -2,7 +2,7 @@ import React from 'react'
 import '../../styles/components/buttons.css'
 import { Button } from 'semantic-ui-react'
 
-const gearDownIcon = () => {
+const GearDownIcon = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -20,7 +20,7 @@ export const ActionListButton = props => {
   return (
     <Button {...props}>
       &nbsp;
-      {gearDownIcon()}
+      <GearDownIcon />
     </Button>
   )
 }
