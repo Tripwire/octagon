@@ -4,7 +4,7 @@ import { ActionListButton } from '../ActionListButton/ActionListButton'
 import classNames from 'classnames'
 
 const ActionList = props => {
-  const { disabled, actionMenuList } = props
+  const { disabled, actionmenulist } = props
 
   return (
     <Popup
@@ -22,10 +22,10 @@ const ActionList = props => {
       }
     >
       {!disabled &&
-        actionMenuList != null &&
-        actionMenuList.length > 0 && (
+        actionmenulist != null &&
+        actionmenulist.length > 0 && (
         <Menu vertical>
-          {actionMenuList.map(el => (
+          {actionmenulist.map(el => (
             <Menu.Item key={el.id} name={el.Name}>
               <Icon className={el.icon} />
               {el.Name}

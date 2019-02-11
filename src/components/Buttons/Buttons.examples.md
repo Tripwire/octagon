@@ -4,11 +4,11 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-    <Button positive>Save</Button>
-  	<Button positive active>Save</Button>
-  	<Button positive loading></Button>
-  	<Button disabled positive>Save</Button>
-  	<Button positive>
+    <Button primary>Save</Button>
+  	<Button primary active>Save</Button>
+  	<Button primary loading></Button>
+  	<Button primary disabled>Save</Button>
+  	<Button primary>
         <Icon className='check circle outline' />
         Save
     </Button>
@@ -21,10 +21,10 @@ Button = require('semantic-ui-react').Button;
 Icon = require('semantic-ui-react').Icon;
 
 <div>
-    <Button negative>Cancel</Button>
-  	<Button negative active>Cancel</Button>
-  	<Button negative loading></Button>
-  	<Button disabled negative>Cancel</Button>
+    <Button secondary>Cancel</Button>
+  	<Button secondary active>Cancel</Button>
+  	<Button secondary loading></Button>
+  	<Button secondary disabled>Cancel</Button>
   	<Button negative>
         <Icon className='check circle outline' />
         Cancel
@@ -140,12 +140,12 @@ const menuList =[
 ]
 
 initialState = {
-  actionMenuList:menuList
+  actionmenulist:menuList
 };
 
 <div>
-    <ActionList className='actionButton' actionMenuList={state.actionMenuList} />
-    <ActionList className='actionButton active' actionMenuList={state.actionMenuList} />
-    <ActionList disabled className='actionButton' actionMenuList={state.actionMenuList} />
+    <ActionList className='actionButton' actionmenulist={state.actionmenulist} />
+    <ActionList className='actionButton active' actionmenulist={state.actionmenulist} />
+    <ActionList disabled className='actionButton' actionmenulist={state.actionmenulist} />
 </div>
 ```
