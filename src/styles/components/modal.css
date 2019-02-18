@@ -1,0 +1,25 @@
+.modals .ui.modal{
+    &.small{
+        width: 540px;
+        margin: 0 auto;
+    }
+    &.medium{
+        width: 720px;
+        margin: 0 auto;
+       
+    }
+    &.info{
+        width: 680px;
+        margin: 0 auto;
+       
+    }
+    &.large{
+        width: 1080px;
+        margin: 0 auto;
+       
+    }
+    
+}
+
+
+
