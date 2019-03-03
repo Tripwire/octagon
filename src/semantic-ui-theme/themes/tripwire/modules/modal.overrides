@@ -15,48 +15,45 @@
   color:@closeColor;
 }
 
-.ui.modals .header.border{
+.ui.modals .header.border {
     border-bottom: 2px solid #979797;
     padding-bottom:10px;
     margin-bottom:10px;
 }
 
-.ui.modals .header.success{
+.ui.modals .header.success {
     color:#3f9c35;
 }
 
-.ui.modals .header.warning{
+.ui.modals .header.warning {
     color:#ff9e2c;
 }
 
-.ui.modals .header.error{
+.ui.modals .header.error {
     color:#c0382b;
 }
 
-.ui.modals .actions.border{
+.ui.modals .actions.border {
     border-top: 2px solid #979797;
     padding-top:10px;
 }
 
-.ui.modal > .content{
+.ui.modal > .content {
     color: #4a4a4a;
 }
 
-.ui.modals .noBorder{
+.ui.modals .noBorder {
     border:none;
 }
 
-.ui.modals .header i.large.icon{
+.ui.modals .header i.large.icon {
     font-size:40px
 }
 
-.ui.small.modal > .header:not(.ui){
+.ui.small.modal > .header:not(.ui) {
     font-size: 24px;
 }
 
-.ui.tiny.modal,.ui.small.modal,.ui.large.modal{
+.ui.tiny.modal, .ui.small.modal, .ui.large.modal {
     margin:0 auto;
 }
-
-
-
