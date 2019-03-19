@@ -14,8 +14,8 @@
 
 /* Close Icon */
 @closeOpacity: 0.8;
-@closeSize: 1.25em;
-@closeColor: @white;
+@closeSize: 30px;
+@closeColor: #4a4a4a;
 
 @closeHitbox: 2.25rem;
 @closeDistance: 0.25rem;
@@ -27,21 +27,23 @@
 /* Header */
 @headerMargin: 0em;
 @headerVerticalPadding: 1.25rem;
-@headerHorizontalPadding: 1.5rem;
-@headerPadding: @headerVerticalPadding @headerHorizontalPadding;
-@headerBackground: @blue;
-@headerColor: @white;
-@headerFontSize: @huge;
+@headerHorizontalPadding: 20px;
+@headerPadding: 31px 15px 2px @headerHorizontalPadding ;
+@headerBackground: @white;
+@headerColor: @blue;
+@headerFontSize: 24px;
 @headerBoxShadow: none;
 @headerFontWeight: bold;
 @headerFontFamily: @headerFont;
 @headerBorder: 1px solid @borderColor;
 
 /* Content */
-@contentFontSize: 1em;
-@contentPadding: 1.5rem;
+@contentFontSize: 16px;
+@contentPadding: 0 20px 29px 71px;
 @contentLineHeight: 1.4;
 @contentBackground: #FFFFFF;
+
+
 
 /* Image / Description */
 @imageWidth: '';
@@ -56,7 +58,7 @@
 /* Modal Actions */
 @actionBorder: 1px solid @borderColor;
 @actionBackground: @offWhite;
-@actionPadding: 1rem 1rem;
+@actionPadding: 10px 10px 30px;
 @actionAlign: right;
 
 @buttonDistance: 0.75em;
